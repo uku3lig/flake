@@ -42,19 +42,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "fr";
-    xkbVariant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "fr";
 
@@ -86,15 +73,25 @@
     isNormalUser = true;
     description = "uku";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
       firefox
       neovim
       git
       gnupg
       pinentry
-    #  thunderbird
+      kitty
+      chezmoi
+      iosevka
+      jetbrains-mono
+      starship
+      waybar
+      rofi-wayland
     ];
   };
+
+  programs.hyprland.enable = true;
+  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
