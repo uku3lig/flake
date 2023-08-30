@@ -82,8 +82,6 @@
       pinentry
       kitty
       chezmoi
-      iosevka
-      jetbrains-mono
       starship
       waybar
       rofi-wayland
@@ -101,6 +99,12 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+  ];
+
+  fonts.packages = with pkgs; [
+    iosevka
+    jetbrains-mono
+    (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
