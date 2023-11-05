@@ -206,6 +206,7 @@
   fonts.packages = with pkgs; [
     iosevka
     jetbrains-mono
+    cantarell-fonts
     (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
   ];
 
