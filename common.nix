@@ -66,7 +66,7 @@
   users.users.leo = {
     isNormalUser = true;
     description = "leo";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "video"];
     shell = pkgs.fish;
     packages = with pkgs; [
       firefox
