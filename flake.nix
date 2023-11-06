@@ -8,7 +8,13 @@
   outputs = inputs: {
     nixosConfigurations.fuji = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [./configuration.nix];
+      modules = [./fuji.nix];
+      specialArgs = {inherit inputs;};
+    };
+
+    nixosConfigurations.kilimandjaro = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [./kilimandjaro.nix];
       specialArgs = {inherit inputs;};
     };
 
