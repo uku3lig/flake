@@ -15,4 +15,7 @@
     videoDrivers = ["intel"];
     libinput.enable = true;
   };
+
+  programs.light.enable = true;
+  programs.nm-applet.enable = true;
 }
