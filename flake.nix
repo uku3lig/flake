@@ -10,19 +10,19 @@
     };
   };
 
-  outputs = inputs: {
-    nixosConfigurations.fuji = inputs.nixpkgs.lib.nixosSystem {
+  outputs = {nixpkgs, ...} @ inputs: {
+    nixosConfigurations.fuji = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [./fuji.nix];
-      specialArgs = {inherit inputs;};
+      specialArgs = inputs;
     };
 
     nixosConfigurations.kilimandjaro = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [./kilimandjaro.nix];
-      specialArgs = {inherit inputs;};
+      specialArgs = inputs;
     };
 
-    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }

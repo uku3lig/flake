@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{...}: {
   imports = [
     ./common.nix
     ./hardware/kilimandjaro.nix

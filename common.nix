@@ -1,7 +1,7 @@
 {
-  config,
   pkgs,
-  inputs,
+  nixpkgs,
+  getchvim,
   ...
 }: {
   boot = {
@@ -120,7 +120,7 @@
       vesktop
       grimblast
       playerctl
-      inputs.getchvim.packages.${pkgs.stdenv.hostPlatform.system}.default
+      getchvim.packages.${pkgs.stdenv.hostPlatform.system}.default
       mate.eom
       osu-lazer-bin
     ];
@@ -165,7 +165,26 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "3d";
+      options = "-d";
+    };
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
+  };
+
+  nix.registry = let
+    nixpkgsRegistry.flake = nixpkgs;
+  in {
+    nixpkgs = nixpkgsRegistry;
+    n = nixpkgsRegistry;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
