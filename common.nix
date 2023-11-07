@@ -12,24 +12,57 @@
     };
   };
 
-  # apparently needed for mesa
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = false;
+  hardware = {
+    opengl.enable = true;
+    pulseaudio.enable = false;
   };
 
-  hardware.opengl.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  sound.enable = true;
 
-  # Enable networking
+  services = {
+    # apparently needed for mesa
+    xserver = {
+      enable = true;
+      displayManager = {
+        lightdm.enable = false;
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
+        defaultSession = "hyprland";
+      };
+    };
+
+    printing.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+
+    udisks2.enable = true;
+    gvfs.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+    };
+
+    mime.enable = true;
+    icons.enable = true;
+  };
+
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/Paris";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
     LC_IDENTIFICATION = "fr_FR.UTF-8";
@@ -42,25 +75,9 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Configure console keymap
   console.keyMap = "fr";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
-
-  services.udisks2.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.leo = {
@@ -76,42 +93,23 @@
       waybar
       rofi-wayland
       hyprpaper
-      (discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
-      hyfetch
-      grim
-      slurp
       swappy
       swayidle
       wl-clipboard
       cliphist
-      libsForQt5.polkit-kde-agent
       font-manager
+      polkit_gnome
       nwg-look
       (catppuccin-gtk.override {
         variant = "macchiato";
         accents = ["sky" "sapphire"];
       })
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.thunar-archive-plugin
       jetbrains.idea-ultimate
-      temurin-bin-17
-      temurin-bin-8
-      gcc
-      gnumake
       mold
       sccache
-      rustc
-      cargo
       pavucontrol
-      gnome.gnome-keyring
-      gnome.seahorse
       obs-studio
       mpv
-      ffmpeg_6
       vscode
       nil
       glfw-wayland-minecraft
@@ -122,33 +120,36 @@
       grimblast
       playerctl
       inputs.getchvim.packages.${pkgs.stdenv.hostPlatform.system}.default
+      mate.eom
+      osu-lazer-bin
     ];
   };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "gnome3";
+    };
+
+    hyprland.enable = true;
+    fish.enable = true;
+
+    command-not-found.enable = false;
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    steam.enable = true;
+
+    seahorse.enable = true;
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
+    };
   };
-
-  programs.hyprland.enable = true;
-  programs.fish.enable = true;
-
-  programs.command-not-found.enable = false;
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.steam.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-  ];
 
   fonts.packages = with pkgs; [
     iosevka
@@ -157,6 +158,12 @@
     (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
   ];
 
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+  ];
+
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # This value determines the NixOS release from which the default
