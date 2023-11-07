@@ -121,6 +121,7 @@
       vesktop
       grimblast
       playerctl
+      inputs.getchvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 

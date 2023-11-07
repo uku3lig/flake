@@ -3,6 +3,11 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    getchvim = {
+      url = "github:getchoo/getchvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
