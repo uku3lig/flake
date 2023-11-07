@@ -6,26 +6,28 @@
 
   networking.hostName = "fuji";
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["amdgpu"];
 
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  # services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement = {
-      enable = true;
-      finegrained = false;
-    };
-    open = false;
-    nvidiaSettings = true;
-  };
+  # hardware.opengl = {
+  #   driSupport = true;
+  #   driSupport32Bit = true;
+  # };
+
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement = {
+  #     enable = true;
+  #     finegrained = false;
+  #   };
+  #   open = false;
+  #   nvidiaSettings = true;
+  # };
 
   # boot.extraModprobeConfig = ''
   #   options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
   # '';
 
-  programs.hyprland.enableNvidiaPatches = true;
+  # programs.hyprland.enableNvidiaPatches = true;
 }
