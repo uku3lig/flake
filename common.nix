@@ -23,6 +23,7 @@
     # apparently needed for mesa
     xserver = {
       enable = true;
+      xkb.layout = "fr";
       displayManager = {
         lightdm.enable = false;
         gdm = {
