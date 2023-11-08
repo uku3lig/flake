@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   nixpkgs,
   ragenix,
@@ -7,9 +8,15 @@
 }: {
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot.enable = lib.mkForce false;
       efi.canTouchEfiVariables = true;
+    };
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
     };
   };
 
@@ -174,6 +181,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
+    sbctl
   ];
 
   nixpkgs.config.allowUnfree = true;

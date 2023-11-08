@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    flake-utils.url = "github:numtide/flake-utils";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -13,7 +12,14 @@
     ragenix = {
       url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     getchvim = {
@@ -21,15 +27,6 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         parts.follows = "flake-parts";
-        pre-commit.follows = "pre-commit";
-      };
-    };
-
-    pre-commit = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "nixpkgs";
       };
     };
   };
@@ -37,17 +34,20 @@
   outputs = {
     nixpkgs,
     ragenix,
+    lanzaboote,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    modules' = [ragenix.nixosModules.default lanzaboote.nixosModules.lanzaboote];
+  in {
     nixosConfigurations.fuji = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [./fuji.nix ragenix.nixosModules.default];
+      modules = [./fuji.nix] ++ modules';
       specialArgs = inputs;
     };
 
     nixosConfigurations.kilimandjaro = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [./kilimandjaro.nix ragenix.nixosModules.default];
+      modules = [./kilimandjaro.nix] ++ modules';
       specialArgs = inputs;
     };
 
