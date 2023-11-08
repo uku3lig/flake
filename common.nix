@@ -1,6 +1,7 @@
 {
   pkgs,
   nixpkgs,
+  ragenix,
   getchvim,
   ...
 }: {
@@ -86,7 +87,9 @@
     description = "leo";
     extraGroups = ["networkmanager" "wheel" "video"];
     shell = pkgs.fish;
-    packages = with pkgs; [
+    packages = with pkgs; let
+      inherit (pkgs.stdenv.hostPlatform) system;
+    in [
       firefox
       kitty
       chezmoi
@@ -123,10 +126,11 @@
       vesktop
       grimblast
       playerctl
-      getchvim.packages.${pkgs.stdenv.hostPlatform.system}.default
       mate.eom
       osu-lazer-bin
       gnome.file-roller
+      ragenix.packages.${system}.default
+      getchvim.packages.${system}.default
     ];
   };
 
@@ -135,6 +139,10 @@
       enable = true;
       enableSSHSupport = true;
       pinentryFlavor = "gnome3";
+    };
+
+    git = {
+      enable = true;
     };
 
     hyprland.enable = true;
