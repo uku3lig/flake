@@ -106,6 +106,9 @@
         accents = ["sky" "sapphire"];
       })
       jetbrains.idea-ultimate
+      jetbrains.webstorm
+      jetbrains.rust-rover
+      jetbrains.clion
       mold
       sccache
       pavucontrol
@@ -123,6 +126,7 @@
       getchvim.packages.${pkgs.stdenv.hostPlatform.system}.default
       mate.eom
       osu-lazer-bin
+      gnome.file-roller
     ];
   };
 
