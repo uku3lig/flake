@@ -138,6 +138,7 @@
       gnome.file-roller
       ragenix.packages.${system}.default
       getchvim.packages.${system}.default
+      nix-your-shell
     ];
   };
 
@@ -153,7 +154,13 @@
     };
 
     hyprland.enable = true;
-    fish.enable = true;
+
+    fish = {
+      enable = true;
+      promptInit = ''
+        nix-your-shell fish | source
+      '';
+    };
 
     command-not-found.enable = false;
     nix-index = {
