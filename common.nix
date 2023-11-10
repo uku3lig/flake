@@ -139,6 +139,7 @@
       ragenix.packages.${system}.default
       getchvim.packages.${system}.default
       nix-your-shell
+      neovide
     ];
   };
 
@@ -161,6 +162,8 @@
         nix-your-shell fish | source
       '';
     };
+
+    direnv.enable = true;
 
     command-not-found.enable = false;
     nix-index = {
