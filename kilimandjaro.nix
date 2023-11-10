@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./common.nix
     ./hardware/kilimandjaro.nix
@@ -15,5 +15,6 @@
   };
 
   programs.light.enable = true;
-  programs.nm-applet.enable = true;
+
+  users.users.leo.packages = with pkgs; [networkmanagerapplet];
 }
