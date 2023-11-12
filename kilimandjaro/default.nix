@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./common.nix
-    ./hardware/kilimandjaro.nix
+    ../common.nix
+    ./hardware-configuration.nix
   ];
 
   networking.hostName = "kilimandjaro";

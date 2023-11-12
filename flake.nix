@@ -41,13 +41,13 @@
   in {
     nixosConfigurations.fuji = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [./fuji.nix] ++ modules';
+      modules = [./fuji] ++ modules';
       specialArgs = inputs;
     };
 
     nixosConfigurations.kilimandjaro = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [./kilimandjaro.nix] ++ modules';
+      modules = [./kilimandjaro] ++ modules';
       specialArgs = inputs;
     };
 

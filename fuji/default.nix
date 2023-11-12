@@ -1,7 +1,7 @@
 {...}: {
   imports = [
-    ./common.nix
-    ./hardware/fuji.nix
+    ../common.nix
+    ./hardware-configuration.nix
   ];
 
   networking.hostName = "fuji";
