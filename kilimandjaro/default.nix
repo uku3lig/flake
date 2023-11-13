@@ -1,11 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ../common.nix
-    ./hardware-configuration.nix
-  ];
-
-  networking.hostName = "kilimandjaro";
-
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 

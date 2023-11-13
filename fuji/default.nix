@@ -1,11 +1,4 @@
-{...}: {
-  imports = [
-    ../common.nix
-    ./hardware-configuration.nix
-  ];
-
-  networking.hostName = "fuji";
-
+_: {
   services.xserver.videoDrivers = ["amdgpu"];
 
   # services.xserver.videoDrivers = ["nvidia"];

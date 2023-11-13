@@ -37,19 +37,24 @@
     lanzaboote,
     ...
   } @ inputs: let
-    modules' = [ragenix.nixosModules.default lanzaboote.nixosModules.lanzaboote];
-  in {
-    nixosConfigurations.fuji = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [./fuji] ++ modules';
-      specialArgs = inputs;
-    };
+    mkSystem = name:
+      nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./common.nix
 
-    nixosConfigurations.kilimandjaro = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [./kilimandjaro] ++ modules';
-      specialArgs = inputs;
-    };
+          ./${name}
+          ./${name}/hardware-configuration.nix
+
+          {networking.hostName = name;}
+
+          ragenix.nixosModules.default
+          lanzaboote.nixosModules.lanzaboote
+        ];
+        specialArgs = inputs;
+      };
+  in {
+    nixosConfigurations = nixpkgs.lib.genAttrs ["fuji" "kilimandjaro"] mkSystem;
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
