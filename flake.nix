@@ -37,32 +37,53 @@
   };
 
   outputs = {
+    flake-parts,
     nixpkgs,
     ragenix,
     lanzaboote,
     home-manager,
     ...
-  } @ inputs: let
-    mkSystem = name:
-      nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./common.nix
+  } @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
 
-          ./${name}
-          ./${name}/hardware-configuration.nix
+      flake = let
+        mkSystem = name:
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./common.nix
 
-          {networking.hostName = name;}
+              ./${name}
+              ./${name}/hardware-configuration.nix
 
-          ragenix.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager
-        ];
-        specialArgs = inputs;
+              {networking.hostName = name;}
+
+              ragenix.nixosModules.default
+              lanzaboote.nixosModules.lanzaboote
+              home-manager.nixosModules.home-manager
+            ];
+            specialArgs = inputs;
+          };
+      in {
+        nixosConfigurations = nixpkgs.lib.genAttrs ["fuji" "kilimandjaro"] mkSystem;
       };
-  in {
-    nixosConfigurations = nixpkgs.lib.genAttrs ["fuji" "kilimandjaro"] mkSystem;
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-  };
+      perSystem = {system, ...}: let
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+      in {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            alejandra
+            fzf
+            just
+            nil
+          ];
+        };
+
+        formatter = pkgs.alejandra;
+      };
+    };
 }

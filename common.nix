@@ -131,8 +131,6 @@ in {
       pavucontrol
       obs-studio
       mpv
-      vscode
-      nil
       glfw-wayland-minecraft
       (prismlauncher.override {
         jdks = [temurin-bin-17];
@@ -146,7 +144,6 @@ in {
       ragenix.packages.${system}.default
       getchvim.packages.${system}.default
       nix-your-shell
-      neovide
     ];
 
     services = {
