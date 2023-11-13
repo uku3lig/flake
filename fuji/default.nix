@@ -1,4 +1,4 @@
-_: {
+{
   services.xserver.videoDrivers = ["amdgpu"];
 
   # services.xserver.videoDrivers = ["nvidia"];
