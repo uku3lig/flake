@@ -194,6 +194,12 @@ in {
       enable = true;
     };
 
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "gnome3";
+    };
+
     direnv.enable = true;
 
     command-not-found.enable = false;
