@@ -9,6 +9,11 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ragenix = {
       url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +40,7 @@
     nixpkgs,
     ragenix,
     lanzaboote,
+    home-manager,
     ...
   } @ inputs: let
     mkSystem = name:
@@ -50,6 +56,7 @@
 
           ragenix.nixosModules.default
           lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
         ];
         specialArgs = inputs;
       };

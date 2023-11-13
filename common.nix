@@ -5,7 +5,13 @@
   ragenix,
   getchvim,
   ...
-}: {
+}: let
+  username = "leo";
+in {
+  imports = [
+    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
+  ];
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
@@ -88,13 +94,13 @@
 
   security.rtkit.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.leo = {
-    isNormalUser = true;
-    description = "leo";
-    extraGroups = ["networkmanager" "wheel" "video"];
-    shell = pkgs.fish;
-    packages = with pkgs; let
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
+  hm = {
+    home.packages = with pkgs; let
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
       firefox
@@ -141,26 +147,51 @@
       nix-your-shell
       neovide
     ];
+
+    services = {
+      gpg-agent = {
+        enable = true;
+        enableSshSupport = true;
+        pinentryFlavor = "gnome3";
+      };
+    };
+
+    # wayland.windowManager.hyprland.enable = true;
+
+    programs.git = {
+      enable = true;
+      userName = "uku";
+      userEmail = "uku3lig@gmail.com";
+
+      signing = {
+        key = "0D2F5CFF394C558D4F1C58937D01D7B105E77166";
+        signByDefault = true;
+      };
+
+      extraConfig = {
+        core.autocrlf = "input";
+        push.autoSetupRemote = true;
+      };
+    };
+
+    programs.gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
   };
 
   programs = {
-    gnupg.agent = {
+    fish = {
       enable = true;
-      enableSSHSupport = true;
-      pinentryFlavor = "gnome3";
-    };
-
-    git = {
-      enable = true;
+      interactiveShellInit = ''
+        nix-your-shell fish | source
+      '';
     };
 
     hyprland.enable = true;
 
-    fish = {
+    git = {
       enable = true;
-      promptInit = ''
-        nix-your-shell fish | source
-      '';
     };
 
     direnv.enable = true;
@@ -171,14 +202,20 @@
       enableFishIntegration = true;
     };
 
-    steam.enable = true;
-
     seahorse.enable = true;
+    steam.enable = true;
 
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
     };
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.${username} = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    extraGroups = ["networkmanager" "wheel" "video"];
   };
 
   fonts.packages = with pkgs; [
@@ -223,4 +260,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+  hm.home.stateVersion = "23.05";
 }
