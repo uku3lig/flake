@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ragenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs = {
@@ -39,13 +34,12 @@
   outputs = {
     flake-parts,
     nixpkgs,
-    ragenix,
     lanzaboote,
     home-manager,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+      systems = ["x86_64-linux"];
 
       flake = let
         mkSystem = name:
@@ -59,7 +53,6 @@
 
               {networking.hostName = name;}
 
-              ragenix.nixosModules.default
               lanzaboote.nixosModules.lanzaboote
               home-manager.nixosModules.home-manager
             ];

@@ -1,5 +1,0 @@
-let
-  ssh = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCxRazxiSGO+nNbBJOaGjv6wLHzXqtFhG+6yrydppw5LdXCegUpVt03s/IRtcO6rDf8dPeWa1u0rLjcSx6Arh9ryo3FVdosDrX0dVk9JCiTcqf0W2ql900wV207btF3vr2lDWJ/wynaCb+Q8LBVd529gVSQajEs5xq4FSWPaHusXqVw+n2Mty7QuPTm0P/+9FOz2nMQ5yGqOZI7E17Rq106nCgt6PmmEywkmn4+/STqKVuWa4Id4uC3a5e6Tmpj6D+vTdivMpAZfkjwj+Z49YfF2gaCPJQ+jHzb0RLx75UiW7gAcTIpcIkHyyzcLcSIawNrsnfr8b7QXRePwKaTB9lBPii+Nmtj3C44pQKJ3zmLsB+n4GV7tNChe7gj4dVTU7uT5ezxRaVNMiQh4tPn+HcWzh6jKlEEsNZgR7sbBrmTuqVzjT3fj0Uc6k9utXtQmWwcaZJwcnjDVOLLscWqZXdhJpW5HB0xnIIZ5SNCIvMobLzQKcN0BhJpWSRfJBiftUs=";
-in {
-  "ssh.age".publicKeys = [ssh];
-}

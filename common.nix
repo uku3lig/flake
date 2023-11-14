@@ -2,7 +2,6 @@
   lib,
   pkgs,
   nixpkgs,
-  ragenix,
   getchvim,
   ...
 }: let
@@ -141,7 +140,6 @@ in {
       mate.eom
       osu-lazer-bin
       gnome.file-roller
-      ragenix.packages.${system}.default
       getchvim.packages.${system}.default
       nix-your-shell
     ];
