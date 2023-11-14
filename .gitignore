@@ -4,3 +4,6 @@ result
 # dev shell
 .pre-commit-config.yaml
 .direnv/
+
+# vms
+*.qcow2
