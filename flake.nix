@@ -31,43 +31,13 @@
     };
   };
 
-  outputs = {
-    flake-parts,
-    nixpkgs,
-    lanzaboote,
-    home-manager,
-    ...
-  } @ inputs:
+  outputs = {flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      imports = [./dev.nix];
-
-      flake = let
-        mkSystem = modules: name:
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules =
-              [
-                ./${name}
-                ./${name}/hardware-configuration.nix
-
-                {networking.hostName = name;}
-              ]
-              ++ modules;
-            specialArgs = inputs;
-          };
-
-        mkDesktop = mkSystem [
-          ./common.nix
-          lanzaboote.nixosModules.lanzaboote
-          home-manager.nixosModules.home-manager
-        ];
-      in {
-        nixosConfigurations = {
-          fuji = mkDesktop "fuji";
-          kilimandjaro = mkDesktop "kilimandjaro";
-        };
-      };
+      imports = [
+        ./dev.nix
+        ./systems
+      ];
     };
 }
