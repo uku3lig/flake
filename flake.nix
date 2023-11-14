@@ -23,6 +23,11 @@
       };
     };
 
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     getchvim = {
       url = "github:getchoo/getchvim";
       inputs = {

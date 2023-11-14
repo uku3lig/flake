@@ -11,8 +11,6 @@
         modules =
           args.modules
           ++ [
-            ./common.nix
-
             ./${name}
             ./${name}/hardware-configuration.nix
 
@@ -24,11 +22,18 @@
 
   mapNixOS = lib.mapAttrs (toSystem inputs.nixpkgs.lib.nixosSystem);
 
-  desktop = with inputs; [
-    ./desktop.nix
-    lanzaboote.nixosModules.lanzaboote
-    home-manager.nixosModules.home-manager
+  nixos = with inputs; [
+    ./common.nix
+    ragenix.nixosModules.default
   ];
+
+  desktop = with inputs;
+    [
+      ./desktop.nix
+      lanzaboote.nixosModules.lanzaboote
+      home-manager.nixosModules.home-manager
+    ]
+    ++ nixos;
 in {
   flake.nixosConfigurations = mapNixOS {
     fuji = {

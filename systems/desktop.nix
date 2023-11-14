@@ -1,7 +1,9 @@
 {
   lib,
   pkgs,
+  config,
   getchvim,
+  ragenix,
   ...
 }: let
   username = "leo";
@@ -93,6 +95,17 @@ in {
 
   security.rtkit.enable = true;
 
+  age = {
+    identityPaths = ["/home/leo/.ssh/id_ed25519"];
+
+    secrets = let
+      base = ../secrets/desktop;
+    in {
+      rootPassword.file = "${base}/rootPassword.age";
+      userPassword.file = "${base}/userPassword.age";
+    };
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -131,6 +144,7 @@ in {
       osu-lazer-bin
       gnome.file-roller
       getchvim.packages.${system}.default
+      ragenix.packages.${system}.default
     ];
 
     services = {
@@ -161,10 +175,15 @@ in {
   security.pam.services.greetd.enableGnomeKeyring = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = ["networkmanager" "wheel" "video"];
+  users.users = {
+    ${username} = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+      extraGroups = ["networkmanager" "wheel" "video"];
+      hashedPasswordFile = config.age.secrets.userPassword.path;
+    };
+
+    root.hashedPasswordFile = config.age.secrets.rootPassword.path;
   };
 
   fonts.packages = with pkgs; [
