@@ -96,7 +96,7 @@ in {
   security.rtkit.enable = true;
 
   age = {
-    identityPaths = ["/home/leo/.ssh/id_ed25519"];
+    identityPaths = ["/home/${username}/.ssh/id_ed25519"];
 
     secrets = let
       base = ../secrets/desktop;
