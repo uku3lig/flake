@@ -107,13 +107,6 @@ in {
       kitty
       chezmoi
       starship
-      waybar
-      rofi-wayland
-      hyprpaper
-      swappy
-      swayidle
-      wl-clipboard
-      cliphist
       font-manager
       polkit_gnome
       nwg-look
@@ -135,8 +128,6 @@ in {
         jdks = [temurin-bin-17];
       })
       vesktop
-      grimblast
-      playerctl
       mate.eom
       osu-lazer-bin
       gnome.file-roller
@@ -151,8 +142,6 @@ in {
         pinentryFlavor = "gnome3";
       };
     };
-
-    # wayland.windowManager.hyprland.enable = true;
   };
 
   programs = {
@@ -162,8 +151,6 @@ in {
         nix-your-shell fish | source
       '';
     };
-
-    hyprland.enable = true;
 
     gnupg.agent = {
       enable = true;
