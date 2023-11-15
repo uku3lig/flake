@@ -170,7 +170,11 @@ in {
       enable = true;
       plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
     };
+
+    virt-manager.enable = true;
   };
+
+  virtualisation.libvirtd.enable = true;
 
   security.pam.services.greetd.enableGnomeKeyring = true;
 
@@ -179,7 +183,7 @@ in {
     ${username} = {
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = ["networkmanager" "wheel" "video"];
+      extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
       hashedPasswordFile = config.age.secrets.userPassword.path;
     };
 
