@@ -8,4 +8,6 @@ in {
 
   "vesuvio/rootPassword.age".publicKeys = server;
   "vesuvio/userPassword.age".publicKeys = server;
+
+  "vesuvio/apiEnv.age".publicKeys = server;
 }

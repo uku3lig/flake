@@ -40,6 +40,21 @@
         parts.follows = "flake-parts";
       };
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # vesuvio stuff
+    api-rs = {
+      url = "github:uku3lig/api-rs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
   };
 
   outputs = {flake-parts, ...} @ inputs:

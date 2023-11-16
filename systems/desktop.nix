@@ -3,7 +3,6 @@
   pkgs,
   config,
   getchvim,
-  agenix,
   nixpkgs-stable,
   ...
 }: let
@@ -152,7 +151,6 @@ in {
       gimp
       libreoffice-fresh
       getchvim.packages.${system}.default
-      agenix.packages.${system}.default
     ];
 
     services = {

@@ -45,5 +45,11 @@ in {
       system = "x86_64-linux";
       modules = desktop;
     };
+
+    vesuvio = {
+      builder = inputs.nixpkgs-stable.lib.nixosSystem;
+      system = "x86_64-linux";
+      modules = [inputs.api-rs.nixosModules.default] ++ nixos;
+    };
   };
 }

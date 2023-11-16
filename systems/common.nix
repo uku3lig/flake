@@ -2,6 +2,7 @@
   lib,
   pkgs,
   nixpkgs,
+  agenix,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -9,6 +10,7 @@
     git
     curl
     nix-your-shell
+    agenix.packages.${system}.default
   ];
 
   programs = {
