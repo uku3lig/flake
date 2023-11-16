@@ -3,7 +3,7 @@
   pkgs,
   config,
   getchvim,
-  ragenix,
+  agenix,
   ...
 }: let
   username = "leo";
@@ -144,7 +144,7 @@ in {
       osu-lazer-bin
       gnome.file-roller
       getchvim.packages.${system}.default
-      ragenix.packages.${system}.default
+      agenix.packages.${system}.default
     ];
 
     services = {

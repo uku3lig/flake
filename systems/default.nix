@@ -24,7 +24,7 @@
 
   nixos = with inputs; [
     ./common.nix
-    ragenix.nixosModules.default
+    agenix.nixosModules.default
   ];
 
   desktop = with inputs;
