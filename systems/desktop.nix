@@ -144,6 +144,8 @@ in {
       mate.eom
       osu-lazer-bin
       gnome.file-roller
+      gimp
+      libreoffice-fresh
       getchvim.packages.${system}.default
       agenix.packages.${system}.default
     ];
