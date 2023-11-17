@@ -4,6 +4,7 @@
   config,
   getchvim,
   agenix,
+  nixpkgs-stable,
   ...
 }: let
   username = "leo";
@@ -171,7 +172,10 @@ in {
       plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
     };
 
-    virt-manager.enable = true;
+    virt-manager = {
+      enable = true;
+      package = nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.virt-manager;
+    };
   };
 
   virtualisation.libvirtd.enable = true;
