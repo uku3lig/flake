@@ -151,7 +151,6 @@ in {
     services = {
       gpg-agent = {
         enable = true;
-        enableSshSupport = true;
         pinentryFlavor = "gnome3";
       };
     };
@@ -160,7 +159,6 @@ in {
   programs = {
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
       pinentryFlavor = "gnome3";
     };
 

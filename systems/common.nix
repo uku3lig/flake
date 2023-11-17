@@ -12,6 +12,8 @@
   ];
 
   programs = {
+    ssh.startAgent = true;
+
     fish = {
       enable = true;
       interactiveShellInit = ''
