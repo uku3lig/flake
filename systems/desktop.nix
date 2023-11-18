@@ -62,6 +62,7 @@ in {
 
     udisks2.enable = true;
     gvfs.enable = true;
+    tumbler.enable = true;
     gnome.gnome-keyring.enable = true;
   };
 
