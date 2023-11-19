@@ -31,6 +31,9 @@ in {
   hardware = {
     opengl.enable = true;
     pulseaudio.enable = false;
+
+    xone.enable = true;
+    xpadneo.enable = true;
   };
 
   sound.enable = true;
