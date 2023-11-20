@@ -177,10 +177,7 @@ in {
       plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
     };
 
-    virt-manager = {
-      enable = true;
-      package = nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.virt-manager;
-    };
+    virt-manager.enable = true;
   };
 
   virtualisation.libvirtd.enable = true;
