@@ -17,7 +17,7 @@
 
   programs.light.enable = true;
 
-  users.users.leo.packages = with pkgs; [
+  mainUser.packages = with pkgs; [
     networkmanagerapplet
     protonvpn-gui
   ];

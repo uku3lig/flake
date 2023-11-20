@@ -12,6 +12,7 @@ in {
   imports = [
     ../programs
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
+    (lib.mkAliasOptionModule ["mainUser"] ["users" "users" username])
   ];
 
   boot = {
@@ -184,17 +185,14 @@ in {
 
   virtualisation.libvirtd.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
-    ${username} = {
-      isNormalUser = true;
-      shell = pkgs.fish;
-      extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
-      hashedPasswordFile = config.age.secrets.userPassword.path;
-    };
-
-    root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  mainUser = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
+    hashedPasswordFile = config.age.secrets.userPassword.path;
   };
+
+  users.users.root.hashedPasswordFile = config.age.secrets.rootPassword.path;
 
   fonts.packages = with pkgs; [
     iosevka
