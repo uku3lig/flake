@@ -163,6 +163,8 @@ in {
     };
   };
 
+  nixpkgs.overlays = [(import ../exprs/overlay.nix)];
+
   programs = {
     gnupg.agent = {
       enable = true;
