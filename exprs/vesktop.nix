@@ -17,6 +17,7 @@
   moreutils,
   cacert,
   nodePackages,
+  libglvnd,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "vesktop";
@@ -120,6 +121,7 @@ stdenv.mkDerivation (finalAttrs: {
       libpulseaudio
       pipewire
       gcc13Stdenv.cc.cc.lib
+      libglvnd
     ];
   in ''
     runHook preInstall
