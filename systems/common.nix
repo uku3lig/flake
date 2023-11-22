@@ -30,6 +30,13 @@
     };
   };
 
+  services = {
+    openssh = {
+      enable = true;
+      openFirewall = lib.mkDefault false;
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   nix = {
