@@ -99,7 +99,10 @@ in {
 
   console.keyMap = "fr";
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
 
   age = {
     identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
