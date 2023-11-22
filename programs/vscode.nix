@@ -56,6 +56,7 @@
       "rust-analyzer.check.command" = "clippy";
       "terminal.integrated.fontFamily" = "Iosevka Nerd Font";
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "errorLens.messageBackgroundMode" = "message";
 
       # fix for segfault on hyprland
       "window.titleBarStyle" = "custom";
