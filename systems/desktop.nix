@@ -154,6 +154,7 @@ in {
       gnome.file-roller
       gimp
       libreoffice-fresh
+      shotcut
       getchvim.packages.${system}.default
       agenix.packages.${system}.default
     ];
