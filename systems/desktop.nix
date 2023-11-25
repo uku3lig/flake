@@ -4,7 +4,6 @@
   config,
   getchvim,
   agenix,
-  nixpkgs-stable,
   ...
 }: let
   username = "leo";
@@ -12,7 +11,6 @@ in {
   imports = [
     ../programs
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
-    (lib.mkAliasOptionModule ["mainUser"] ["users" "users" username])
   ];
 
   boot = {
@@ -188,7 +186,7 @@ in {
 
   virtualisation.libvirtd.enable = true;
 
-  mainUser = {
+  users.users."${username}" = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];

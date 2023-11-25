@@ -17,13 +17,15 @@
 
   programs.light.enable = true;
 
-  mainUser.packages = with pkgs; [
-    networkmanagerapplet
-    protonvpn-gui
-  ];
+  hm = {
+    home.packages = with pkgs; [
+      networkmanagerapplet
+      protonvpn-gui
+    ];
 
-  hm.wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
-    "${lib.getExe networkmanagerapplet}"
-    "${lib.getExe' blueman "blueman-applet"}"
-  ];
+    wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
+      "${lib.getExe networkmanagerapplet}"
+      "${lib.getExe' blueman "blueman-applet"}"
+    ];
+  };
 }
