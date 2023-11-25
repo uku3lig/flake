@@ -134,9 +134,7 @@ in {
         accents = ["sky" "sapphire"];
       })
       jetbrains.idea-ultimate
-      jetbrains.webstorm
       jetbrains.rust-rover
-      jetbrains.clion
       mold
       sccache
       pavucontrol
