@@ -8,18 +8,10 @@
     neovim
     git
     curl
-    nix-your-shell
   ];
 
   programs = {
     ssh.startAgent = true;
-
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        nix-your-shell fish | source
-      '';
-    };
 
     direnv.enable = true;
 
