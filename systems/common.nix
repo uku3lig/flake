@@ -4,11 +4,17 @@
   nixpkgs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    curl
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      neovim
+      git
+      curl
+    ];
+
+    variables = {
+      EDITOR = lib.getExe pkgs.neovim;
+    };
+  };
 
   programs = {
     ssh.startAgent = true;

@@ -10,10 +10,6 @@
   hm.programs.fish = {
     enable = true;
 
-    shellInit = ''
-      set -x EDTIOR nvim
-    '';
-
     interactiveShellInit = with pkgs; ''
       ${lib.getExe starship} init fish | source
       ${lib.getExe nix-your-shell} fish | source
