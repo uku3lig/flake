@@ -11,7 +11,6 @@
       hyprpicker
       wl-clipboard
       cliphist
-      waybar
       rofi-wayland
       swayidle
       swappy
