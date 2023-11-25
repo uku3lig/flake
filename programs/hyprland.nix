@@ -11,7 +11,6 @@
       hyprpicker
       wl-clipboard
       cliphist
-      rofi-wayland
       swayidle
       swappy
       grimblast
@@ -109,7 +108,7 @@
               "$mod SHIFT, A, killactive,"
               "$mod SHIFT, E, exit,"
               "$mod SHIFT, Space, togglefloating,"
-              "$mod, D, exec, ${getExe' rofi-wayland "rofi"} -modi drun,run -show drun"
+              "$mod, D, exec, ${getExe fuzzel}"
               "$mod, F, fullscreen, 0"
               "$mod, P, pseudo," # dwindle
               "$mod, J, togglesplit," # dwindle
