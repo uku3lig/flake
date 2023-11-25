@@ -123,7 +123,6 @@ in {
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
       firefox
-      kitty
       chezmoi
       starship
       font-manager
