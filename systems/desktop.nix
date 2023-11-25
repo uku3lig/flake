@@ -123,8 +123,6 @@ in {
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
       firefox
-      chezmoi
-      starship
       font-manager
       polkit_gnome
       nwg-look
