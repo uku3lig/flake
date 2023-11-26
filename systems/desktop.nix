@@ -122,34 +122,32 @@ in {
     home.packages = with pkgs; let
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
+      agenix.packages.${system}.default
       firefox
       font-manager
-      polkit_gnome
+      getchvim.packages.${system}.default
+      gimp
+      gnome.file-roller
+      jetbrains.idea-ultimate
+      jetbrains.rust-rover
+      libreoffice-fresh
+			libsForQt5.polkit-kde-agent
+      mate.eom
+      mold
+      mpv
       nwg-look
-      (catppuccin-gtk.override {
+      obs-studio
+      osu-lazer-bin
+      pavucontrol
+      prismlauncher
+      sccache
+      shotcut
+      vesktop
+
+			(catppuccin-gtk.override {
         variant = "macchiato";
         accents = ["sky" "sapphire"];
       })
-      jetbrains.idea-ultimate
-      jetbrains.rust-rover
-      mold
-      sccache
-      pavucontrol
-      obs-studio
-      mpv
-      glfw-wayland-minecraft
-      (prismlauncher.override {
-        jdks = [temurin-bin-17];
-      })
-      vesktop
-      mate.eom
-      osu-lazer-bin
-      gnome.file-roller
-      gimp
-      libreoffice-fresh
-      shotcut
-      getchvim.packages.${system}.default
-      agenix.packages.${system}.default
     ];
 
     services = {
