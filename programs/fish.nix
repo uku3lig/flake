@@ -17,7 +17,7 @@
 
     functions = {
       fish_greeting = "";
-      kssh = "${lib.getExe pkgs.kitty} +kitten ssh -- $argv";
+      kssh = "${lib.getExe pkgs.kitty} +kitten ssh $argv";
     };
   };
 }
