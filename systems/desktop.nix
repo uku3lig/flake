@@ -131,7 +131,7 @@ in {
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       libreoffice-fresh
-			libsForQt5.polkit-kde-agent
+      libsForQt5.polkit-kde-agent
       mate.eom
       mold
       mpv
@@ -144,7 +144,7 @@ in {
       shotcut
       vesktop
 
-			(catppuccin-gtk.override {
+      (catppuccin-gtk.override {
         variant = "macchiato";
         accents = ["sky" "sapphire"];
       })
