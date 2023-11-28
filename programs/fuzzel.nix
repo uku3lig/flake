@@ -2,7 +2,14 @@
   hm.programs.fuzzel = {
     enable = true;
     settings = {
-      main.font = "Iosevka Nerd Font:size=14";
+      main = {
+        font = "Iosevka Nerd Font:size=16";
+        dpi-aware = false;
+        horizontal-pad = 20;
+      };
+
+      border.radius = 8;
+
       colors = {
         background = "24273aff"; # base
         border = "91d7e3cc"; # sky
