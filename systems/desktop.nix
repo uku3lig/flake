@@ -131,7 +131,6 @@ in {
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       libreoffice-fresh
-      libsForQt5.polkit-kde-agent
       mate.eom
       mold
       mpv
@@ -139,6 +138,7 @@ in {
       obs-studio
       osu-lazer-bin
       pavucontrol
+      polkit_gnome
       prismlauncher
       sccache
       shotcut

@@ -43,6 +43,7 @@
             "${getExe waybar}"
             "${getExe hyprpaper}"
             "${getExe swayidle} -w"
+            "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
             "$wl-paste --type  text --watch ${getExe cliphist} store"
             "$wl-paste --type image --watch ${getExe cliphist} store"
           ];
