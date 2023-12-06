@@ -100,7 +100,7 @@ in {
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    pam.services.greetd.enableGnomeKeyring = true;
+    pam.services.login.enableGnomeKeyring = true;
   };
 
   age = {
