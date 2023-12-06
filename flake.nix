@@ -27,14 +27,6 @@
       url = "github:uku3lig/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    getchvim = {
-      url = "github:getchoo/getchvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        parts.follows = "flake-parts";
-      };
-    };
   };
 
   outputs = {flake-parts, ...} @ inputs:

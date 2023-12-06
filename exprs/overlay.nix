@@ -1,3 +1,3 @@
 final: prev: {
-  shortcut = final.qt6Packages.callPackage ./shortcut.nix {};
+  shortcut = final.qt6Packages.callPackage ./shotcut.nix {};
 }

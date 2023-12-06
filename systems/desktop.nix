@@ -126,7 +126,6 @@ in {
       agenix.packages.${system}.default
       firefox
       font-manager
-      getchvim.packages.${system}.default
       gimp
       gnome.file-roller
       jetbrains.idea-ultimate
