@@ -124,10 +124,8 @@ in {
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
       agenix.packages.${system}.default
-      firefox
       font-manager
       gimp
-      gnome.file-roller
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       libreoffice-fresh
@@ -166,7 +164,11 @@ in {
       pinentryFlavor = "gnome3";
     };
 
+    firefox.enable = true;
+
     seahorse.enable = true;
+    file-roller.enable = true;
+
     steam.enable = true;
 
     thunar = {
