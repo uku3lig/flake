@@ -126,7 +126,6 @@ in {
       font-manager
       gimp
       jetbrains.idea-ultimate
-      jetbrains.rust-rover
       libreoffice-fresh
       mate.eom
       mold
