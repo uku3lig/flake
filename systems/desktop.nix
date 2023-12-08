@@ -61,6 +61,7 @@ in {
       wireplumber.enable = true;
     };
 
+    ratbagd.enable = true;
     udisks2.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
