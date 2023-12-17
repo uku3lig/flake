@@ -133,6 +133,7 @@ in {
       mpv
       nwg-look
       obs-studio
+      obsidian
       osu-lazer-bin
       pavucontrol
       polkit_gnome
@@ -155,7 +156,9 @@ in {
     };
   };
 
-  nixpkgs.overlays = [(import ../exprs/overlay.nix)];
+  nixpkgs = {
+    overlays = [(import ../exprs/overlay.nix)];
+  };
 
   programs = {
     gnupg.agent = {
