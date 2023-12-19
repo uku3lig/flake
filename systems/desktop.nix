@@ -124,6 +124,7 @@ in {
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
       agenix.packages.${system}.default
+      blockbench-electron
       font-manager
       gimp
       jetbrains.idea-ultimate
