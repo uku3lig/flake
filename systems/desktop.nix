@@ -124,6 +124,7 @@ in {
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
       agenix.packages.${system}.default
+      aseprite
       blockbench-electron
       font-manager
       gimp
