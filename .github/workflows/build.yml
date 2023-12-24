@@ -18,8 +18,9 @@ jobs:
       - name: evaluate configs
         id: eval
         run: |
-          nix eval --json .#nixosConfigurations --apply 'builtins.attrNames' \
-            | nix run --inputs-from . nixpkgs#jq -- '{include: map({name: .})}' >> $GITHUB_OUTPUT
+          names=$(nix eval --json .#nixosConfigurations --apply 'builtins.attrNames')
+          json=$(echo "$names" | nix run --inputs-from . nixpkgs#jq -- '{include: map({name: .})}')
+          echo "matrix=$(echo "$json" | nix run --inputs-from . nixpkgs#jq -- -r 'tostring')" >> "$GITHUB_OUTPUT"
   
   build:
     needs: eval
