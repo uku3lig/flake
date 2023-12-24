@@ -1,0 +1,41 @@
+name: build overlay
+
+on:
+  push:
+
+jobs:
+  eval:
+    name: eval flake
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.eval.outputs.matrix }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v9
+
+      - name: evaluate packages
+        id: eval
+        run: echo "matrix=$(nix eval --json .#ghaMatrix)" >> "$GITHUB_OUTPUT"
+  
+  build:
+    needs: eval
+    strategy:
+      matrix: ${{ fromJson(needs.eval.outputs.matrix) }}
+
+    name: build ${{ matrix.pkg }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v9
+
+      - name: setup cachix
+        uses: cachix/cachix-action@v13
+        with:
+          name: uku3lig
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: build
+        run: nix build -L .#${{ matrix.pkg }}
