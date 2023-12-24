@@ -1,0 +1,43 @@
+name: build configurations
+
+on:
+  push:
+
+jobs:
+  eval:
+    name: eval flake
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.eval.outputs.matrix }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v9
+
+      - name: evaluate configs
+        id: eval
+        run: |
+          nix eval --json .#nixosConfigurations --apply 'builtins.attrNames' \
+            | nix run --inputs-from . nixpkgs#jq -- '{include: map({name: .})}' >> $GITHUB_OUTPUT
+  
+  build:
+    needs: eval
+    strategy:
+      matrix: ${{ fromJson(needs.eval.outputs.matrix) }}
+
+    name: build ${{ matrix.name }}
+    runs-on: ubuntu-latest # TODO: this will not work if i ever add something that isn't x86_64-linux, but idc for now :3
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v9
+
+      - name: setup cachix
+        uses: cachix/cachix-action@v13
+        with:
+          name: uku3lig
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: build
+        run: nix build -L --fallback .#nixosConfigurations.${{ matrix.name }}.config.system.build.toplevel
