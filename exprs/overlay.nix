@@ -17,5 +17,7 @@ final: prev: {
       fetchSubmodules = true;
       hash = "sha256-8PXqMDf2ATxmtFqyZlGip+DhGrdK8M6Ztte7fGH6Fmo=";
     };
+
+    meta.license = prev.lib.licenses.mit; # removes unfree error
   });
 }
