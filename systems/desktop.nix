@@ -133,6 +133,7 @@ in {
       blockbench-electron
       font-manager
       gimp
+      gnome.gnome-calculator
       jetbrains.idea-ultimate
       libreoffice-fresh
       mate.eom
