@@ -32,6 +32,7 @@
       ./desktop.nix
       lanzaboote.nixosModules.lanzaboote
       home-manager.nixosModules.home-manager
+      catppuccin.nixosModules.catppuccin
     ]
     ++ nixos;
 in {

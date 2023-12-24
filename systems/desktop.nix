@@ -3,6 +3,7 @@
   pkgs,
   config,
   agenix,
+  catppuccin,
   ...
 }: let
   username = "leo";
@@ -120,6 +121,10 @@ in {
   };
 
   hm = {
+    imports = [
+      catppuccin.homeManagerModules.catppuccin
+    ];
+
     home.packages = with pkgs; let
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
@@ -143,17 +148,21 @@ in {
       sccache
       shotcut
       vesktop
-
-      (catppuccin-gtk.override {
-        variant = "macchiato";
-        accents = ["sky" "sapphire"];
-      })
     ];
 
     services = {
       gpg-agent = {
         enable = true;
         pinentryFlavor = "gnome3";
+      };
+    };
+
+    gtk = {
+      enable = true;
+      catppuccin = {
+        enable = true;
+        flavour = "macchiato";
+        accent = "sky";
       };
     };
   };

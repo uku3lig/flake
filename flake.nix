@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:Stonks3141/ctp-nix";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs = {

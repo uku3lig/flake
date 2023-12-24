@@ -22,6 +22,21 @@
         "type": "github"
       }
     },
+    "catppuccin": {
+      "locked": {
+        "lastModified": 1702771919,
+        "narHash": "sha256-l6zkit3WPXuukWrQDpaNVNEQ2Y0lq1K+7OQmvtqFIJU=",
+        "owner": "Stonks3141",
+        "repo": "ctp-nix",
+        "rev": "4a76ba2815b6db301597630d14e4e40f4fb5fb0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Stonks3141",
+        "repo": "ctp-nix",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -290,6 +305,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "catppuccin": "catppuccin",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
