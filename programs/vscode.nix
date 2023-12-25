@@ -43,6 +43,9 @@
         # donjayamanne.python-environment-manager
         ms-python.python
         ms-python.vscode-pylance
+
+        # java
+        redhat.java
       ];
 
       userSettings = {
@@ -58,6 +61,7 @@
         "terminal.integrated.fontFamily" = "Iosevka Nerd Font";
         "workbench.colorTheme" = "Catppuccin Mocha";
         "errorLens.messageBackgroundMode" = "message";
+        "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
 
         # fix for segfault on hyprland
         "window.titleBarStyle" = "custom";
