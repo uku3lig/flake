@@ -15,6 +15,7 @@ in {
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = ["quiet" "loglevel=3"];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
