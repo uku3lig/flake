@@ -40,7 +40,7 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "3d";
+      dates = "weekly";
       options = "-d";
     };
 
