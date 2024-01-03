@@ -59,7 +59,7 @@
         "nix.serverPath" = "nil";
         "rust-analyzer.check.command" = "clippy";
         "terminal.integrated.fontFamily" = "Iosevka Nerd Font";
-        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.colorTheme" = "Catppuccin Macchiato";
         "errorLens.messageBackgroundMode" = "message";
         "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
 
