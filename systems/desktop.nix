@@ -17,6 +17,9 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["quiet" "loglevel=3"];
 
+    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+    kernelModules = ["v4l2loopback"];
+
     loader = {
       systemd-boot.enable = lib.mkForce false;
       efi.canTouchEfiVariables = true;
