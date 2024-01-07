@@ -2,7 +2,7 @@
   description = "example flake idk";
 
   nixConfig = {
-    extra-substituers = ["https://uku3lig.cachix.org"];
+    extra-substituters = ["https://uku3lig.cachix.org"];
     extra-public-trusted-keys = ["uku3lig.cachix.org-1:C1/9DNUadh2pueAo+LUkVNUKyIVjF/CREd9RS9E+F2A="];
   };
 
