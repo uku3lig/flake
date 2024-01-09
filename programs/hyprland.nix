@@ -36,7 +36,6 @@
             "MOZ_ENABLE_WAYLAND,1"
             "_JAVA_AWT_WM_NONREPARENTING,1"
             "NIXOS_OZONE_WL,1"
-            "GRIMBLAST_EDITOR,${getExe swappy} -f"
           ];
 
           exec-once = [
@@ -129,7 +128,7 @@
               ",XF86MonBrightnessDown, exec, ${getExe' light "light"} -U 5"
 
               # screenshot
-              ",Print, exec, ${getExe grimblast} --cursor --freeze edit area"
+              ",Print, exec, ${getExe grimblast} --freeze save area - | ${getExe swappy} -f -"
             ]
             ++
             # Switch workspaces with mod + [0-9]
