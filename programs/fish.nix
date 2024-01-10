@@ -15,9 +15,6 @@
       ${lib.getExe nix-your-shell} fish | source
     '';
 
-    functions = {
-      fish_greeting = "";
-      kssh = "${lib.getExe pkgs.kitty} +kitten ssh $argv";
-    };
+    functions.fish_greeting = "";
   };
 }

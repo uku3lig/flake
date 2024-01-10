@@ -104,7 +104,7 @@
 
           bind =
             [
-              "$mod, Return, exec, ${getExe kitty}"
+              "$mod, Return, exec, ${getExe alacritty}"
               "$mod SHIFT, A, killactive,"
               "$mod SHIFT, E, exit,"
               "$mod SHIFT, Space, togglefloating,"
