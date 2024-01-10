@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   nixpkgs,
   ...
 }: {
@@ -14,6 +15,10 @@
     variables = {
       EDITOR = lib.getExe pkgs.neovim;
     };
+  };
+
+  age.secrets = {
+    tailscaleKey.file = ../secrets/tailscaleKey.age;
   };
 
   programs = {
@@ -32,6 +37,13 @@
     openssh = {
       enable = true;
       openFirewall = lib.mkDefault false;
+    };
+
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "both";
+      extraUpFlags = ["--ssh"];
+      authKeyFile = config.age.secrets.tailscaleKey.path;
     };
   };
 

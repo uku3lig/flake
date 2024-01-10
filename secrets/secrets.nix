@@ -9,6 +9,7 @@ in {
   "desktop/rootPassword.age".publicKeys = main;
   "desktop/userPassword.age".publicKeys = main;
 
+  "tailscaleKey.age".publicKeys = server;
   "vesuvio/rootPassword.age".publicKeys = server;
   "vesuvio/userPassword.age".publicKeys = server;
 }
