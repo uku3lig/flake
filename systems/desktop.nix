@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  agenix,
   catppuccin,
   ...
 }: let
@@ -129,10 +128,7 @@ in {
       catppuccin.homeManagerModules.catppuccin
     ];
 
-    home.packages = with pkgs; let
-      inherit (pkgs.stdenv.hostPlatform) system;
-    in [
-      agenix.packages.${system}.default
+    home.packages = with pkgs; [
       aseprite
       blockbench-electron
       font-manager

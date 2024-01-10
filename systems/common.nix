@@ -3,10 +3,14 @@
   pkgs,
   config,
   nixpkgs,
+  ragenix,
   ...
 }: {
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs; let
+      inherit (pkgs.stdenv.hostPlatform) system;
+    in [
+      ragenix.packages.${system}.default
       neovim
       git
       curl
