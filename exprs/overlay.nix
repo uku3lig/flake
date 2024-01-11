@@ -7,5 +7,7 @@ final: prev: {
     meta.knownVulnerabilities = []; # NixOS/nixpkgs#273611
   });
 
-  lunar-client = prev.callPackage ./lunar-client.nix {};
+  obs-studio = prev.obs-studio.overrideAttrs (old: {
+    cmakeFlags = old.cmakeFlags ++ [(prev.lib.cmakeBool "ENABLE_LIBFDK" true)]; # NixOS/nixpkgs#278127
+  });
 }

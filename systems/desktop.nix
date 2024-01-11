@@ -136,7 +136,6 @@ in {
       gnome.gnome-calculator
       jetbrains.idea-ultimate
       libreoffice-fresh
-      lunar-client
       mate.eom
       mold
       mpv
