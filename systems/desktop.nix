@@ -129,8 +129,6 @@ in {
     ];
 
     home.packages = with pkgs; [
-      aseprite
-      blockbench-electron
       font-manager
       gimp
       gnome.gnome-calculator
