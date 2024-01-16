@@ -7,10 +7,6 @@ final: prev: rec {
     meta.knownVulnerabilities = []; # NixOS/nixpkgs#273611
   });
 
-  obs-studio = prev.obs-studio.overrideAttrs (old: {
-    cmakeFlags = old.cmakeFlags ++ [(prev.lib.cmakeBool "ENABLE_LIBFDK" true)]; # NixOS/nixpkgs#278127
-  });
-
   hyprlang = prev.callPackage ./hyprlang.nix {
     stdenv = prev.gcc13Stdenv;
   };
