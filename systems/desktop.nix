@@ -202,12 +202,19 @@ in {
 
   users.users.root.hashedPasswordFile = config.age.secrets.rootPassword.path;
 
-  fonts.packages = with pkgs; [
-    iosevka
-    jetbrains-mono
-    cantarell-fonts
-    (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
-  ];
+  fonts = {
+    packages = with pkgs; [
+      iosevka
+      jetbrains-mono
+      cantarell-fonts
+      twitter-color-emoji
+      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
+    ];
+
+    fontconfig.defaultFonts = {
+      emoji = ["Twitter Color Emoji"];
+    };
+  };
 
   environment.systemPackages = with pkgs; [sbctl];
 
