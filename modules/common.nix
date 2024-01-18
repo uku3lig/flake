@@ -6,6 +6,11 @@
   ragenix,
   ...
 }: {
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = ["quiet" "loglevel=3"];
+  };
+
   environment = {
     systemPackages = with pkgs; let
       inherit (pkgs.stdenv.hostPlatform) system;
@@ -21,8 +26,20 @@
     };
   };
 
-  age.secrets = {
-    tailscaleKey.file = ../secrets/tailscaleKey.age;
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "Europe/Paris";
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  console.keyMap = "fr";
+
+  age = {
+    identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+
+    secrets = {
+      tailscaleKey.file = ../secrets/tailscaleKey.age; 
+    };
   };
 
   programs = {
@@ -35,6 +52,11 @@
       enable = true;
       enableFishIntegration = true;
     };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   services = {
@@ -51,7 +73,15 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [(import ../exprs/overlay.nix)];
+  };
 
   nix = {
     gc = {

@@ -13,9 +13,6 @@ in {
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = ["quiet" "loglevel=3"];
-
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["v4l2loopback"];
 
@@ -82,11 +79,6 @@ in {
     icons.enable = true;
   };
 
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "Europe/Paris";
-
-  i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
     LC_IDENTIFICATION = "fr_FR.UTF-8";
@@ -99,29 +91,14 @@ in {
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  console.keyMap = "fr";
+  security.pam.services.login.enableGnomeKeyring = true;
 
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
-    pam.services.login.enableGnomeKeyring = true;
-  };
-
-  age = {
-    identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-
-    secrets = let
+  age.secrets = let
       base = ../secrets/desktop;
     in {
       rootPassword.file = "${base}/rootPassword.age";
       userPassword.file = "${base}/userPassword.age";
     };
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
 
   hm = {
     imports = [
@@ -166,10 +143,6 @@ in {
     };
   };
 
-  nixpkgs = {
-    overlays = [(import ../exprs/overlay.nix)];
-  };
-
   programs = {
     gnupg.agent = {
       enable = true;
@@ -193,14 +166,16 @@ in {
 
   virtualisation.libvirtd.enable = true;
 
-  users.users."${username}" = {
+  users.users = {
+    "${username}" = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
     hashedPasswordFile = config.age.secrets.userPassword.path;
   };
 
-  users.users.root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  };
 
   fonts = {
     packages = with pkgs; [
