@@ -10,6 +10,8 @@
     identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
 
     secrets = {
+      rootPassword.file = ../secrets/${config.networking.hostName}/rootPassword.age;
+      userPassword.file = ../secrets/userPassword.age;
       tailscaleKey.file = ../secrets/tailscaleKey.age;
     };
   };
@@ -103,6 +105,8 @@
   };
 
   time.timeZone = "Europe/Paris";
+
+  users.users.root.hashedPasswordFile = config.age.secrets.rootPassword.path;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

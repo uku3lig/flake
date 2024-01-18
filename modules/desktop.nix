@@ -12,13 +12,6 @@ in {
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
   ];
 
-  age.secrets = let
-    base = ../secrets/desktop;
-  in {
-    rootPassword.file = "${base}/rootPassword.age";
-    userPassword.file = "${base}/userPassword.age";
-  };
-
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["v4l2loopback"];
@@ -174,15 +167,11 @@ in {
 
   sound.enable = true;
 
-  users.users = {
-    "${username}" = {
-      isNormalUser = true;
-      shell = pkgs.fish;
-      extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
-      hashedPasswordFile = config.age.secrets.userPassword.path;
-    };
-
-    root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  users.users."${username}" = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
+    hashedPasswordFile = config.age.secrets.userPassword.path;
   };
 
   virtualisation.libvirtd.enable = true;
