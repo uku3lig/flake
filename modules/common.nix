@@ -7,7 +7,7 @@
   ...
 }: {
   age = {
-    identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    identityPaths = ["/etc/age/key"];
 
     secrets = {
       rootPassword.file = ../secrets/${config.networking.hostName}/rootPassword.age;
