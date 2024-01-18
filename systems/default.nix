@@ -35,6 +35,8 @@
       catppuccin.nixosModules.catppuccin
     ]
     ++ nixos;
+
+  server = nixos ++ [../modules/server.nix];
 in {
   flake.nixosConfigurations = mapNixOS {
     fuji = {
@@ -45,6 +47,11 @@ in {
     kilimandjaro = {
       system = "x86_64-linux";
       modules = desktop;
+    };
+
+    etna = {
+      system = "x86_64-linux";
+      modules = server;
     };
   };
 }
