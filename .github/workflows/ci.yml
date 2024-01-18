@@ -1,4 +1,4 @@
-name: build overlay
+name: nix ci
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
 
     outputs:
       matrix: ${{ steps.eval.outputs.matrix }}
-    
+
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@v9
@@ -18,7 +18,7 @@ jobs:
       - name: evaluate packages
         id: eval
         run: echo "matrix=$(nix eval --json .#ghaMatrix)" >> "$GITHUB_OUTPUT"
-  
+
   build:
     needs: eval
     strategy:
@@ -39,3 +39,28 @@ jobs:
 
       - name: build
         run: nix build -L --accept-flake-config .#${{ matrix.pkg }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v9
+
+      - name: connect to tailscale
+        uses: tailscale/github-action@v2
+        with:
+          oauth-client-id: ${{ secrets.TS_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:gha
+
+      - name: copy known_hosts
+        run: |
+          set -eux
+
+          [ ! -d ~/.ssh ] && mkdir -p ~/.ssh
+          cp .known_hosts ~/.ssh/known_hosts
+
+      - name: deploy
+        run: nix run --inputs-from . 'nixpkgs#deploy-rs' -- -s

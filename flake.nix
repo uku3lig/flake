@@ -8,7 +8,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -34,6 +33,11 @@
       url = "github:uku3lig/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {flake-parts, ...} @ inputs:
@@ -43,6 +47,7 @@
       imports = [
         ./ci.nix
         ./dev.nix
+        ./deploy.nix
         ./systems
       ];
     };
