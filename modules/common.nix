@@ -6,10 +6,20 @@
   ragenix,
   ...
 }: {
+  age = {
+    identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+
+    secrets = {
+      tailscaleKey.file = ../secrets/tailscaleKey.age;
+    };
+  };
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["quiet" "loglevel=3"];
   };
+
+  console.keyMap = "fr";
 
   environment = {
     systemPackages = with pkgs; let
@@ -26,20 +36,39 @@
     };
   };
 
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "Europe/Paris";
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  console.keyMap = "fr";
+  networking.networkmanager.enable = true;
 
-  age = {
-    identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-
-    secrets = {
-      tailscaleKey.file = ../secrets/tailscaleKey.age; 
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "-d";
     };
+
+    registry = let
+      nixpkgsRegistry.flake = nixpkgs;
+    in {
+      nixpkgs = nixpkgsRegistry;
+      n = nixpkgsRegistry;
+    };
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "@wheel"];
+    };
+  };
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [(import ../exprs/overlay.nix)];
   };
 
   programs = {
@@ -54,9 +83,9 @@
     };
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
   };
 
   services = {
@@ -73,36 +102,7 @@
     };
   };
 
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
-  };
-
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [(import ../exprs/overlay.nix)];
-  };
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "-d";
-    };
-
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "@wheel"];
-    };
-  };
-
-  nix.registry = let
-    nixpkgsRegistry.flake = nixpkgs;
-  in {
-    nixpkgs = nixpkgsRegistry;
-    n = nixpkgsRegistry;
-  };
+  time.timeZone = "Europe/Paris";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

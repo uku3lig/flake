@@ -12,6 +12,13 @@ in {
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
   ];
 
+  age.secrets = let
+    base = ../secrets/desktop;
+  in {
+    rootPassword.file = "${base}/rootPassword.age";
+    userPassword.file = "${base}/userPassword.age";
+  };
+
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["v4l2loopback"];
@@ -27,6 +34,22 @@ in {
     };
   };
 
+  environment.systemPackages = with pkgs; [sbctl];
+
+  fonts = {
+    packages = with pkgs; [
+      iosevka
+      jetbrains-mono
+      cantarell-fonts
+      twitter-color-emoji
+      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
+    ];
+
+    fontconfig.defaultFonts = {
+      emoji = ["Twitter Color Emoji"];
+    };
+  };
+
   hardware = {
     opengl.enable = true;
     pulseaudio.enable = false;
@@ -35,7 +58,87 @@ in {
     xpadneo.enable = true;
   };
 
-  sound.enable = true;
+  hm = {
+    imports = [
+      catppuccin.homeManagerModules.catppuccin
+    ];
+
+    home = {
+      packages = with pkgs; [
+        font-manager
+        gimp
+        gnome.gnome-calculator
+        jetbrains.idea-ultimate
+        libreoffice-fresh
+        mate.eom
+        mold
+        mpv
+        nwg-look
+        obs-studio
+        obsidian
+        osu-lazer-bin
+        pavucontrol
+        polkit_gnome
+        prismlauncher
+        sccache
+        shotcut
+        vesktop
+      ];
+
+      stateVersion = "23.11";
+    };
+
+    services = {
+      gpg-agent = {
+        enable = true;
+        pinentryFlavor = "gnome3";
+      };
+    };
+
+    gtk = {
+      enable = true;
+      catppuccin = {
+        enable = true;
+        flavour = "macchiato";
+        accent = "sky";
+      };
+    };
+  };
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "fr_FR.UTF-8";
+    LC_IDENTIFICATION = "fr_FR.UTF-8";
+    LC_MEASUREMENT = "fr_FR.UTF-8";
+    LC_MONETARY = "fr_FR.UTF-8";
+    LC_NAME = "fr_FR.UTF-8";
+    LC_NUMERIC = "fr_FR.UTF-8";
+    LC_PAPER = "fr_FR.UTF-8";
+    LC_TELEPHONE = "fr_FR.UTF-8";
+    LC_TIME = "fr_FR.UTF-8";
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "gnome3";
+    };
+
+    firefox.enable = true;
+
+    seahorse.enable = true;
+    file-roller.enable = true;
+
+    steam.enable = true;
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
+    };
+
+    virt-manager.enable = true;
+  };
+
+  security.pam.services.login.enableGnomeKeyring = true;
 
   services = {
     # apparently needed for mesa
@@ -69,6 +172,21 @@ in {
     gnome.gnome-keyring.enable = true;
   };
 
+  sound.enable = true;
+
+  users.users = {
+    "${username}" = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+      extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
+      hashedPasswordFile = config.age.secrets.userPassword.path;
+    };
+
+    root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  };
+
+  virtualisation.libvirtd.enable = true;
+
   xdg = {
     portal = {
       enable = true;
@@ -78,120 +196,4 @@ in {
     mime.enable = true;
     icons.enable = true;
   };
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
-  };
-
-  security.pam.services.login.enableGnomeKeyring = true;
-
-  age.secrets = let
-      base = ../secrets/desktop;
-    in {
-      rootPassword.file = "${base}/rootPassword.age";
-      userPassword.file = "${base}/userPassword.age";
-    };
-
-  hm = {
-    imports = [
-      catppuccin.homeManagerModules.catppuccin
-    ];
-
-    home.packages = with pkgs; [
-      font-manager
-      gimp
-      gnome.gnome-calculator
-      jetbrains.idea-ultimate
-      libreoffice-fresh
-      mate.eom
-      mold
-      mpv
-      nwg-look
-      obs-studio
-      obsidian
-      osu-lazer-bin
-      pavucontrol
-      polkit_gnome
-      prismlauncher
-      sccache
-      shotcut
-      vesktop
-    ];
-
-    services = {
-      gpg-agent = {
-        enable = true;
-        pinentryFlavor = "gnome3";
-      };
-    };
-
-    gtk = {
-      enable = true;
-      catppuccin = {
-        enable = true;
-        flavour = "macchiato";
-        accent = "sky";
-      };
-    };
-  };
-
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      pinentryFlavor = "gnome3";
-    };
-
-    firefox.enable = true;
-
-    seahorse.enable = true;
-    file-roller.enable = true;
-
-    steam.enable = true;
-
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
-    };
-
-    virt-manager.enable = true;
-  };
-
-  virtualisation.libvirtd.enable = true;
-
-  users.users = {
-    "${username}" = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
-    hashedPasswordFile = config.age.secrets.userPassword.path;
-  };
-
-  root.hashedPasswordFile = config.age.secrets.rootPassword.path;
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      iosevka
-      jetbrains-mono
-      cantarell-fonts
-      twitter-color-emoji
-      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
-    ];
-
-    fontconfig.defaultFonts = {
-      emoji = ["Twitter Color Emoji"];
-    };
-  };
-
-  environment.systemPackages = with pkgs; [sbctl];
-
-  hm.home.stateVersion = "23.11";
 }
