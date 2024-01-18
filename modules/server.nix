@@ -13,7 +13,7 @@ in {
     ../programs/git.nix
     ../programs/starship.nix
   ];
-  
+
   hm.home.stateVersion = "23.11";
 
   services.tailscale.extraUpFlags = ["--advertise-exit-node"];
