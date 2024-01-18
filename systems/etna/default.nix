@@ -1,3 +1,3 @@
 {
-  # empty for now :3
+  boot.loader.systemd-boot.enable = true;
 }
