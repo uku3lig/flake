@@ -23,15 +23,15 @@
   mapNixOS = lib.mapAttrs (toSystem inputs.nixpkgs.lib.nixosSystem);
 
   nixos = with inputs; [
-    ./common.nix
+    ../modules/common.nix
     ragenix.nixosModules.default
+    home-manager.nixosModules.home-manager
   ];
 
   desktop = with inputs;
     [
-      ./desktop.nix
+      ../modules/desktop.nix
       lanzaboote.nixosModules.lanzaboote
-      home-manager.nixosModules.home-manager
       catppuccin.nixosModules.catppuccin
     ]
     ++ nixos;
