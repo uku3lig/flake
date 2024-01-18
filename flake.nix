@@ -30,8 +30,8 @@
       };
     };
 
-    ragenix = {
-      url = "github:yaxitech/ragenix";
+    agenix = {
+      url = "github:uku3lig/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

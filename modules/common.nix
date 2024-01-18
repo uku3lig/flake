@@ -3,7 +3,7 @@
   pkgs,
   config,
   nixpkgs,
-  ragenix,
+  agenix,
   ...
 }: {
   age = {
@@ -27,7 +27,7 @@
     systemPackages = with pkgs; let
       inherit (pkgs.stdenv.hostPlatform) system;
     in [
-      ragenix.packages.${system}.default
+      agenix.packages.${system}.default
       neovim
       git
       curl

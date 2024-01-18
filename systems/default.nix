@@ -24,7 +24,7 @@
 
   nixos = with inputs; [
     ../modules/common.nix
-    ragenix.nixosModules.default
+    agenix.nixosModules.default
     home-manager.nixosModules.home-manager
   ];
 
