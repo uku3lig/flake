@@ -14,10 +14,15 @@ in {
     ../programs/starship.nix
   ];
 
+  services.tailscale.extraUpFlags = ["--advertise-exit-node"];
+
   users.users."${username}" = {
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = ["networkmanager" "wheel"];
     hashedPasswordFile = config.age.secrets.userPassword.path;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8"
+    ];
   };
 }
