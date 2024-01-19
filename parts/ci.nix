@@ -10,7 +10,7 @@
     ...
   }: {
     packages = let
-      overlay = lib.fix (final: (import ./exprs/overlay.nix final pkgs));
+      overlay = lib.fix (final: (import ../exprs/overlay.nix final pkgs));
 
       # do not include a package if it's not available on the system or if it's broken
       isValid = _: v:

@@ -55,9 +55,7 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./ci.nix
-        ./dev.nix
-        ./deploy.nix
+        ./parts
         ./systems
       ];
     };
