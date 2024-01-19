@@ -4,41 +4,28 @@ on:
   push:
 
 jobs:
-  eval:
-    name: eval flake
+  build:
     runs-on: ubuntu-latest
 
-    outputs:
-      matrix: ${{ steps.eval.outputs.matrix }}
-
     steps:
+      - uses: jlumbroso/free-disk-space@v1.3.1
+
       - uses: actions/checkout@v4
+
       - uses: DeterminateSystems/nix-installer-action@v9
+        with:
+          extra-conf: |
+            auto-optimise-store = true
 
-      - name: evaluate packages
-        id: eval
-        run: echo "matrix=$(nix eval --json .#ghaMatrix)" >> "$GITHUB_OUTPUT"
-
-  build:
-    needs: eval
-    strategy:
-      matrix: ${{ fromJson(needs.eval.outputs.matrix) }}
-
-    name: build ${{ matrix.pkg }}
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v9
-
-      - name: setup cachix
+      - name: Setup Cachix
         uses: cachix/cachix-action@v13
         with:
           name: uku3lig
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - name: build
-        run: nix build -L --accept-flake-config .#${{ matrix.pkg }}
+      - name: Build
+        run: |
+          nix run --inputs-from . --override-input nixpkgs nixpkgs github:Mic92/nix-fast-build -- --no-nom --skip-cached --option accept-flake-config true --flake '.#hydraJobs'
 
   deploy:
     needs: build
