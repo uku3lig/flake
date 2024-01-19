@@ -1,4 +1,4 @@
-final: prev: rec {
+final: prev: {
   # FUCK REPRODUCIBILITY RARGHGHGHGHDKGJDKLGJSDKLGMDJGLKSDJLMGSJDKMGJZEIZ
   vesktop = prev.vesktop.overrideAttrs (old: {patches = [];});
 
@@ -6,13 +6,4 @@ final: prev: rec {
     preFixup = "patchelf --add-needed ${prev.libglvnd}/lib/libEGL.so.1 $out/bin/electron"; # NixOS/nixpkgs#272912
     meta.knownVulnerabilities = []; # NixOS/nixpkgs#273611
   });
-
-  hyprlang = prev.callPackage ./hyprlang.nix {
-    stdenv = prev.gcc13Stdenv;
-  };
-
-  xdg-desktop-portal-hyprland = prev.qt6Packages.callPackage ./xdph.nix {
-    stdenv = prev.gcc13Stdenv;
-    hyprlang = hyprlang;
-  };
 }
