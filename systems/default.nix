@@ -26,6 +26,7 @@
     ../modules/common.nix
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
+    vscode-server.nixosModules.default
   ];
 
   desktop = with inputs;

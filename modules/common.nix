@@ -96,6 +96,8 @@
       openFirewall = lib.mkDefault false;
     };
 
+    vscode-server.enable = true;
+
     tailscale = {
       enable = true;
       useRoutingFeatures = "both";
