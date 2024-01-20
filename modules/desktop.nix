@@ -76,6 +76,7 @@ in {
         sccache
         shotcut
         vesktop
+        wine-discord-ipc-bridge
       ];
 
       stateVersion = "23.11";
