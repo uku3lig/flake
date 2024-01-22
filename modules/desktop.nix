@@ -117,7 +117,10 @@ in {
       pinentryFlavor = "gnome3";
     };
 
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      package = pkgs.librewolf;
+    };
 
     seahorse.enable = true;
     file-roller.enable = true;
