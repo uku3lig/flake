@@ -42,6 +42,7 @@ in {
         dustypomerleau.rust-syntax
         serayuzgur.crates
         tamasfe.even-better-toml
+        ms-vsliveshare.vsliveshare
 
         # nix
         jnoortheen.nix-ide
