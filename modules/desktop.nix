@@ -75,7 +75,7 @@ in {
         prismlauncher
         sccache
         shotcut
-        vesktop
+        (vesktop.override {withSystemVencord = false;})
         wine-discord-ipc-bridge
       ];
 
