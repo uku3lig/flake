@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  # imports = [./nvidia.nix];
+  imports = [./nvidia.nix];
 
   services.xserver.videoDrivers = ["amdgpu"];
 
