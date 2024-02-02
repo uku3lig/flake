@@ -48,6 +48,13 @@
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # ==== uku3lig stuff ====
+    api-rs = {
+      url = "github:uku3lig/api-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = {flake-parts, ...} @ inputs:

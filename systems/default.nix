@@ -52,7 +52,11 @@ in {
 
     etna = {
       system = "x86_64-linux";
-      modules = server;
+      modules =
+        server
+        ++ (with inputs; [
+          api-rs.nixosModules.default
+        ]);
     };
   };
 }
