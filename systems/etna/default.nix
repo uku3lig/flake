@@ -9,6 +9,7 @@
     };
 
     apiRsEnv.file = "${path}/apiRsEnv.age";
+    ukubotRsEnv.file = "${path}/ukubotRsEnv.age";
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -17,6 +18,11 @@
     api-rs = {
       enable = true;
       environmentFile = config.age.secrets.apiRsEnv.path;
+    };
+
+    ukubot-rs = {
+      enable = true;
+      environmentFile = config.age.secrets.ukubotRsEnv.path;
     };
 
     cloudflared = {

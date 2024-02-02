@@ -55,6 +55,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
+
+    ukubot-rs = {
+      url = "github:uku3lig/ukubot-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs = {flake-parts, ...} @ inputs:

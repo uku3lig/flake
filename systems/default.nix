@@ -56,6 +56,7 @@ in {
         server
         ++ (with inputs; [
           api-rs.nixosModules.default
+          ukubot-rs.nixosModules.default
         ]);
     };
   };
