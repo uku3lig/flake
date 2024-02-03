@@ -23,7 +23,7 @@
   mapNixOS = lib.mapAttrs (toSystem inputs.nixpkgs.lib.nixosSystem);
 
   nixos = with inputs; [
-    ../modules/common.nix
+    ../configs/common.nix
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
     vscode-server.nixosModules.default
@@ -31,13 +31,13 @@
 
   desktop = with inputs;
     [
-      ../modules/desktop.nix
+      ../configs/desktop.nix
       lanzaboote.nixosModules.lanzaboote
       catppuccin.nixosModules.catppuccin
     ]
     ++ nixos;
 
-  server = nixos ++ [../modules/server.nix];
+  server = nixos ++ [../configs/server.nix];
 in {
   flake.nixosConfigurations = mapNixOS {
     fuji = {
