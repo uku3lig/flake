@@ -1,26 +1,28 @@
-{pkgs, ...}: {
+{
   programs.git.enable = true;
 
-  hm = {
-    home.packages = with pkgs; [gh];
+  hm.programs = {
+    git = {
+      enable = true;
+      userName = "uku";
+      userEmail = "uku3lig@gmail.com";
 
-    programs = {
-      git = {
-        enable = true;
-        userName = "uku";
-        userEmail = "uku3lig@gmail.com";
-
-        signing = {
-          key = "0D2F5CFF394C558D4F1C58937D01D7B105E77166";
-          signByDefault = true;
-        };
-
-        extraConfig = {
-          init.defaultBranch = "main";
-          core.autocrlf = "input";
-          push.autoSetupRemote = true;
-        };
+      signing = {
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8";
+        signByDefault = true;
       };
+
+      extraConfig = {
+        init.defaultBranch = "main";
+        core.autocrlf = "input";
+        push.autoSetupRemote = true;
+        gpg.format = "ssh";
+      };
+    };
+
+    gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
     };
   };
 }
