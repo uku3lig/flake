@@ -70,6 +70,7 @@
       imports = [
         ./parts
         ./systems
+        ./exprs/modules.nix
       ];
     };
 }
