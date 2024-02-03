@@ -25,6 +25,8 @@
       environmentFile = config.age.secrets.ukubotRsEnv.path;
     };
 
+    reposilite.enable = true;
+
     vaultwarden = {
       enable = true;
       config = {
@@ -44,6 +46,7 @@
         ingress = {
           "api.uku3lig.net" = "http://localhost:5000";
           "bw.uku3lig.net" = "http://localhost:8222";
+          "maven.uku3lig.net" = "http://localhost:8080";
         };
 
         default = "http_status:404";

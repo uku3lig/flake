@@ -1,5 +1,6 @@
 {
   lib,
+  self,
   inputs,
   ...
 }: let
@@ -57,6 +58,7 @@ in {
         ++ (with inputs; [
           api-rs.nixosModules.default
           ukubot-rs.nixosModules.default
+          self.nixosModules.reposilite
         ]);
     };
   };
