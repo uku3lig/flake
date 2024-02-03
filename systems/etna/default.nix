@@ -25,6 +25,17 @@
       environmentFile = config.age.secrets.ukubotRsEnv.path;
     };
 
+    vaultwarden = {
+      enable = true;
+      config = {
+        DOMAIN = "https://bw.uku3lig.net";
+        SIGNUPS_ALLOWED = false;
+
+        ROCKET_ADDRESS = "::1";
+        ROCKET_PORT = 8222;
+      };
+    };
+
     cloudflared = {
       enable = true;
       tunnels."57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5" = {
@@ -32,6 +43,7 @@
 
         ingress = {
           "api.uku3lig.net" = "http://localhost:5000";
+          "bw.uku3lig.net" = "http://localhost:8222";
         };
 
         default = "http_status:404";
