@@ -1,0 +1,39 @@
+From 55e02f887e85c0501e1131a512d862a558337056 Mon Sep 17 00:00:00 2001
+From: uku <uku3lig@gmail.com>
+Date: Mon, 5 Feb 2024 12:22:01 +0100
+Subject: [PATCH] fix 4262 patch on 00b869c
+
+---
+ backend/drm/drm.c        | 2 +-
+ examples/explicit-sync.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/backend/drm/drm.c b/backend/drm/drm.c
+index ea3a652c..758a2587 100644
+--- a/backend/drm/drm.c
++++ b/backend/drm/drm.c
+@@ -672,7 +672,7 @@ static bool drm_connector_test(struct wlr_output *output,
+ 	}
+ 
+ 	// TODO: support sync timelines in multi-GPU mode
+-	if ((output->pending.committed & (WLR_OUTPUT_STATE_WAIT_TIMELINE |
++	if ((state->committed & (WLR_OUTPUT_STATE_WAIT_TIMELINE |
+ 			WLR_OUTPUT_STATE_SIGNAL_TIMELINE)) && conn->backend->parent) {
+ 		wlr_drm_conn_log(conn, WLR_DEBUG,
+ 			"Sync timelines are unsupported in multi-GPU mode");
+diff --git a/examples/explicit-sync.c b/examples/explicit-sync.c
+index e7a1f57e..f6abf890 100644
+--- a/examples/explicit-sync.c
++++ b/examples/explicit-sync.c
+@@ -239,7 +239,7 @@ int main(int argc, char *argv[]) {
+ 
+ 	struct server server = {0};
+ 	server.display = wl_display_create();
+-	server.backend = wlr_backend_autocreate(server.display, NULL);
++	server.backend = wlr_backend_autocreate(wl_display_get_event_loop(server.display), NULL);
+ 	server.renderer = wlr_renderer_autocreate(server.backend);
+ 	server.allocator = wlr_allocator_autocreate(server.backend, server.renderer);
+ 	wlr_renderer_init_wl_display(server.renderer, server.display);
+-- 
+2.43.0
+
