@@ -28,7 +28,7 @@
           "$wl-paste" = getExe' wl-clipboard "wl-paste";
           "$wpctl" = getExe' wireplumber "wpctl";
 
-          monitor = ",highres,auto,1";
+          monitor = lib.mkDefault ",highres,auto,1";
 
           env = [
             "WLR_DRM_NO_ATOMIC,1"
