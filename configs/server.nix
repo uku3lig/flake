@@ -11,7 +11,7 @@ in {
 
     ../programs/fish.nix
     ../programs/git.nix
-    ../programs/starship.nix
+    ../programs/starship
   ];
 
   hm.home.stateVersion = "23.11";
