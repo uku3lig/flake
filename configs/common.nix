@@ -5,7 +5,18 @@
   nixpkgs,
   agenix,
   ...
-}: {
+}: let
+  username = "leo";
+  stateVersion = "23.11";
+in {
+  imports = [
+    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
+
+    ../programs/fish.nix
+    ../programs/git.nix
+    ../programs/starship
+  ];
+
   age = {
     identityPaths = ["/etc/age/key"];
 
@@ -37,6 +48,10 @@
     variables = {
       EDITOR = lib.getExe pkgs.neovim;
     };
+  };
+
+  hm.home = {
+    inherit stateVersion;
   };
 
   home-manager = {
@@ -109,7 +124,19 @@
 
   time.timeZone = "Europe/Paris";
 
-  users.users.root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  users.users = {
+    "${username}" = {
+      isNormalUser = true;
+      shell = pkgs.fish;
+      extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
+      hashedPasswordFile = config.age.secrets.userPassword.path;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8"
+      ];
+    };
+
+    root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -117,5 +144,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = lib.mkDefault "23.11"; # Did you read the comment?
+  system.stateVersion = lib.mkDefault stateVersion; # Did you read the comment?
 }

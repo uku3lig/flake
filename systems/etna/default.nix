@@ -27,6 +27,8 @@
 
     reposilite.enable = true;
 
+    tailscale.extraUpFlags = ["--advertise-exit-node"];
+
     vaultwarden = {
       enable = true;
       config = {

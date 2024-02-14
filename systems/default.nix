@@ -37,8 +37,6 @@
       catppuccin.nixosModules.catppuccin
     ]
     ++ nixos;
-
-  server = nixos ++ [../configs/server.nix];
 in {
   flake.nixosConfigurations = mapNixOS {
     fuji = {
@@ -63,7 +61,7 @@ in {
     etna = {
       system = "x86_64-linux";
       modules =
-        server
+        nixos
         ++ (with inputs; [
           api-rs.nixosModules.default
           ukubot-rs.nixosModules.default
