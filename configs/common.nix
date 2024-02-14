@@ -31,6 +31,7 @@
       neovim
       git
       curl
+      wget
     ];
 
     variables = {

@@ -46,6 +46,15 @@ in {
       modules = desktop;
     };
 
+    fuji-wsl = {
+      system = "x86_64-linux";
+      modules =
+        nixos
+        ++ (with inputs; [
+          nixos-wsl.nixosModules.default
+        ]);
+    };
+
     kilimandjaro = {
       system = "x86_64-linux";
       modules = desktop;

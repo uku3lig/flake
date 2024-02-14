@@ -10,6 +10,7 @@ in {
   "tailscaleKey.age".publicKeys = all;
 
   "fuji/rootPassword.age".publicKeys = main;
+  "fuji-wsl/rootPassword.age".publicKeys = main;
   "kilimandjaro/rootPassword.age".publicKeys = main;
 
   "etna/rootPassword.age".publicKeys = main ++ [etna];

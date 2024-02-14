@@ -61,9 +61,9 @@ in {
         # java
         redhat.java
 
-	# web
-	astro-build.astro-vscode
-	vue.volar
+        # web
+        astro-build.astro-vscode
+        vue.volar
       ];
 
     userSettings = {
