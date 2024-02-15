@@ -1,5 +1,6 @@
 # build artifacts
 result
+result-man
 
 # dev shell
 .pre-commit-config.yaml
