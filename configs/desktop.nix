@@ -7,10 +7,7 @@
 }: let
   username = "leo";
 in {
-  imports = [
-    ../programs
-    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
-  ];
+  imports = [../programs];
 
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
@@ -170,13 +167,6 @@ in {
   };
 
   sound.enable = true;
-
-  users.users."${username}" = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
-    hashedPasswordFile = config.age.secrets.userPassword.path;
-  };
 
   virtualisation.libvirtd.enable = true;
 
