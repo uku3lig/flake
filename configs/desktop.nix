@@ -4,9 +4,7 @@
   config,
   catppuccin,
   ...
-}: let
-  username = "leo";
-in {
+}: {
   imports = [../programs];
 
   boot = {
