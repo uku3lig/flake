@@ -74,6 +74,7 @@
       volumes = ["/data/minecraft:/data"];
       environment = {
         EULA = "true";
+        MEMORY = "16G";
         MODRINTH_MODPACK = "adrenaserver";
         MODRINTH_VERSION = "1.5.0+1.20.4.fabric";
         MODRINTH_LOADER = "fabric";
