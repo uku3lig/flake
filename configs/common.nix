@@ -50,8 +50,15 @@ in {
     };
   };
 
-  hm.home = {
-    inherit stateVersion;
+  hm = {
+    home = {inherit stateVersion;};
+
+    programs.keychain = {
+      enable = true;
+      agents = ["ssh"];
+      inheritType = "any";
+      keys = ["id_ed25519"];
+    };
   };
 
   home-manager = {
