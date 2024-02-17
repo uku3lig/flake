@@ -17,4 +17,5 @@ in {
   "etna/tunnelCreds.age".publicKeys = main ++ [etna];
   "etna/apiRsEnv.age".publicKeys = main ++ [etna];
   "etna/ukubotRsEnv.age".publicKeys = main ++ [etna];
+  "etna/ngrokEnv.age".publicKeys = main ++ [etna];
 }
