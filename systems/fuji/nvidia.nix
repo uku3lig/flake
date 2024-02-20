@@ -13,6 +13,7 @@
   };
 
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     modesetting.enable = true;
     powerManagement = {
       enable = true;
