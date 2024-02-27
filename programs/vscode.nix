@@ -49,8 +49,8 @@ in {
 
         # cpp
         mesonbuild.mesonbuild
-        ms-vscode.cmake-tools
-        ms-vscode.makefile-tools
+        (ms-vscode.cmake-tools.overrideAttrs (_: {sourceRoot = "extension";}))
+        (ms-vscode.makefile-tools.overrideAttrs (_: {sourceRoot = "extension";}))
         twxs.cmake
         xaver.clang-format
 
@@ -64,6 +64,8 @@ in {
         # web
         astro-build.astro-vscode
         vue.volar
+        esbenp.prettier-vscode
+        dbaeumer.vscode-eslint
       ];
 
     userSettings = {
@@ -80,6 +82,8 @@ in {
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "errorLens.messageBackgroundMode" = "message";
       "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
 
       # fix for segfault on hyprland
       "window.titleBarStyle" = "custom";
