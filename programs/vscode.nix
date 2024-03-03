@@ -84,6 +84,7 @@ in {
       "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[astro]"."editor.defaultFormatter" = "astro-build.astro-vscode";
 
       # fix for segfault on hyprland
       "window.titleBarStyle" = "custom";
