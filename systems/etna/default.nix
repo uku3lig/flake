@@ -15,8 +15,6 @@
 
   boot.loader.systemd-boot.enable = true;
 
-  networking.firewall.allowedTCPPorts = [4040];
-
   services = {
     api-rs = {
       enable = true;
@@ -55,29 +53,6 @@
         };
 
         default = "http_status:404";
-      };
-    };
-  };
-
-  virtualisation.oci-containers.containers = {
-    "ngrok" = {
-      image = "ngrok/ngrok";
-      ports = ["4040:4040"];
-      cmd = ["tcp" "25565"];
-      extraOptions = ["--net=host"];
-      environmentFiles = [config.age.secrets.ngrokEnv.path];
-    };
-
-    "minecraft" = {
-      image = "itzg/minecraft-server";
-      ports = ["25565:25565"];
-      volumes = ["/data/minecraft:/data"];
-      environment = {
-        EULA = "true";
-        MEMORY = "16G";
-        MODRINTH_MODPACK = "adrenaserver";
-        MODRINTH_VERSION = "1.5.0+1.20.4.fabric";
-        MODRINTH_LOADER = "fabric";
       };
     };
   };
