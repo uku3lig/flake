@@ -144,6 +144,8 @@ in {
     };
   };
 
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+
   time.timeZone = "Europe/Paris";
 
   users.users = {
