@@ -15,9 +15,12 @@
     apiRsEnv.file = "${path}/apiRsEnv.age";
     ukubotRsEnv.file = "${path}/ukubotRsEnv.age";
     ngrokEnv.file = "${path}/ngrokEnv.age";
+    minecraftEnv.file = "${path}/minecraftEnv.age";
   };
 
   boot.loader.systemd-boot.enable = true;
+
+  networking.firewall.allowedTCPPorts = [4040];
 
   services = {
     api-rs = {
@@ -51,6 +54,25 @@
         server_name = "m.uku.moe";
         allow_registration = true;
         port = 6167;
+      };
+    };
+
+    frp = {
+      enable = true;
+      role = "client";
+      settings = {
+        serverAddr = "45.10.154.114";
+        serverPort = 7000;
+
+        proxies = [
+          {
+            name = "minecraft";
+            type = "tcp";
+            localIp = "127.0.0.1";
+            localPort = 25565;
+            remotePort = 6000;
+          }
+        ];
       };
     };
 
@@ -95,6 +117,27 @@
             client_max_body_size 100M;
           '';
         };
+      };
+    };
+  };
+
+  virtualisation.oci-containers.containers = {
+    "minecraft" = {
+      image = "itzg/minecraft-server";
+      ports = ["25565:25565"];
+      volumes = [
+        "/data/minecraft:/data"
+        "/data/downloads:/downloads"
+      ];
+      environmentFiles = [
+        config.age.secrets.minecraftEnv.path
+      ];
+      environment = {
+        EULA = "true";
+        MEMORY = "12G";
+        TYPE = "AUTO_CURSEFORGE";
+        CF_SLUG = "all-the-mods-8";
+        CF_FILE_ID = "4962718";
       };
     };
   };
