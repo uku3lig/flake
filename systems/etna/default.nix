@@ -48,6 +48,13 @@
       };
     };
 
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "0 3 * * * systemctl restart podman-minecraft.service >> /data/minecraft/cronout 2>&1"
+      ];
+    };
+
     matrix-conduit = {
       enable = true;
       settings.global = {
