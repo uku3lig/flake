@@ -1,12 +1,7 @@
 {
   perSystem = {pkgs, ...}: {
-    devShells.default = pkgs.mkShell {
-      packages = with pkgs; [
-        alejandra
-        fzf
-        just
-        nil
-      ];
+    devShells.default = pkgs.mkShellNoCC {
+      packages = with pkgs; [just nil];
     };
 
     formatter = pkgs.alejandra;
