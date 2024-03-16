@@ -141,7 +141,8 @@
       ];
       environment = {
         EULA = "true";
-        MEMORY = "12G";
+        MEMORY = "16G";
+        USE_AIKAR_FLAGS = "true";
         TYPE = "AUTO_CURSEFORGE";
         CF_SLUG = "all-the-mods-8";
         CF_FILE_ID = "4962718";
