@@ -92,7 +92,7 @@
           windowrulev2 = [
             "float, class:^(pavucontrol)$"
 
-            "nomaximizerequest, class:^(firefox)$"
+            "suppressevent maximize, class:^(firefox)$"
             "float, title:^(Picture-in-Picture)$"
             "float, class:^(firefox)$, title:^()$" # notifications
             "float, class:^(librewolf)$, title:^()$" # notifications
