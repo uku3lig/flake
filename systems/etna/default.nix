@@ -68,7 +68,7 @@
       enable = true;
       role = "client";
       settings = {
-        serverAddr = "45.10.154.114";
+        serverAddr = "49.13.148.129";
         serverPort = 7000;
 
         proxies = [
