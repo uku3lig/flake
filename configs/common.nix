@@ -43,6 +43,7 @@ in {
       git
       curl
       wget
+      nil
     ];
 
     variables = {
