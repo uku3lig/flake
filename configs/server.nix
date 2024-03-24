@@ -6,7 +6,7 @@
     sshUser = "root";
     buildOn = "remote";
     substituteOnTarget = true;
-    hermetic = true;
+    hermetic = false; # hermetic fucks up for cross-system deployments
   };
 
   services = {
