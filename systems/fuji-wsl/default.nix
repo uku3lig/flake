@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   wsl = {
     enable = true;
     defaultUser = "leo";
@@ -12,6 +8,4 @@
       generateResolvConf = false;
     };
   };
-
-  environment.systemPackages = [pkgs.nil];
 }
