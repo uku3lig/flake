@@ -125,8 +125,6 @@ in {
       openFirewall = lib.mkDefault false;
     };
 
-    vscode-server.enable = true;
-
     resolved = {
       enable = lib.mkDefault true;
       dnssec = "allow-downgrade";

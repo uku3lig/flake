@@ -27,7 +27,6 @@
     ../configs/common.nix
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
-    vscode-server.nixosModules.default
   ];
 
   desktop = with inputs;
@@ -50,6 +49,7 @@ in {
         nixos
         ++ (with inputs; [
           nixos-wsl.nixosModules.default
+          vscode-server.nixosModules.default
         ]);
     };
 
@@ -67,6 +67,11 @@ in {
           ukubot-rs.nixosModules.default
           self.nixosModules.reposilite
         ]);
+    };
+
+    vesuvio = {
+      system = "aarch64-linux";
+      modules = nixos;
     };
   };
 }

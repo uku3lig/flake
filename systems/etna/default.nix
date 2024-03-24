@@ -35,6 +35,7 @@
 
     reposilite.enable = true;
 
+    vscode-server.enable = true;
     tailscale.extraUpFlags = ["--advertise-exit-node"];
 
     vaultwarden = {
