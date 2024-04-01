@@ -63,7 +63,7 @@
     };
 
     ukubot-rs = {
-      url = "github:uku3lig/ukubot-rs";
+      url = "github:uku3lig/ukubot-rs/76df1dd3caaa64a2b74b03250448f4b4a554899a";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };

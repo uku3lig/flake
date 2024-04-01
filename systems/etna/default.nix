@@ -68,18 +68,17 @@
       enable = true;
       role = "client";
       settings = {
-        serverAddr = "49.13.148.129";
-        serverPort = 7000;
+        common = {
+          server_addr = "49.13.148.129";
+          server_port = 7000;
+        };
 
-        proxies = [
-          {
-            name = "minecraft";
-            type = "tcp";
-            localIp = "127.0.0.1";
-            localPort = 25565;
-            remotePort = 6000;
-          }
-        ];
+        minecraft = {
+          type = "tcp";
+          local_ip = "127.0.0.1";
+          local_port = 25565;
+          remote_port = 6000;
+        };
       };
     };
 
