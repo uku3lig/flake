@@ -2,8 +2,8 @@
   description = "example flake idk";
 
   nixConfig = {
-    extra-substituters = ["https://uku3lig.cachix.org"];
-    extra-trusted-public-keys = ["uku3lig.cachix.org-1:C1/9DNUadh2pueAo+LUkVNUKyIVjF/CREd9RS9E+F2A="];
+    extra-substituters = ["https://attic.uku3lig.net/uku"];
+    extra-trusted-public-keys = ["uku:kGzXVpH0LmCl9G+Omy5ObkcjTLdasfj3NlOEuWWfne8="];
   };
 
   outputs = {flake-parts, ...} @ inputs:
