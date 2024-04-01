@@ -38,6 +38,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    crane = {
+      url = "github:ipetkov/crane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     catppuccin.url = "github:Stonks3141/ctp-nix";
 
     lanzaboote = {
@@ -45,6 +50,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.crane.follows = "crane";
       inputs.pre-commit-hooks-nix.follows = "";
       inputs.flake-compat.follows = "";
     };
@@ -61,6 +67,15 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "";
+    };
+
+    attic = {
+      url = "github:zhaofengli/attic";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs"; # trolley emojo
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.crane.follows = "crane";
       inputs.flake-compat.follows = "";
     };
 

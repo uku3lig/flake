@@ -12,6 +12,12 @@
       group = "cloudflared";
     };
 
+    atticEnv = {
+      file = "${path}/atticEnv.age";
+      owner = "atticd";
+      group = "atticd";
+    };
+
     apiRsEnv.file = "${path}/apiRsEnv.age";
     ukubotRsEnv.file = "${path}/ukubotRsEnv.age";
     ngrokEnv.file = "${path}/ngrokEnv.age";
@@ -82,6 +88,35 @@
       };
     };
 
+    atticd = {
+      enable = true;
+      credentialsFile = config.age.secrets.atticEnv.path;
+
+      settings = {
+        listen = "[::]:6000";
+        api-endpoint = "https://attic.uku3lig.net/";
+
+        storage = {
+          type = "local";
+          path = "/data/attic";
+        };
+
+        chunking = {
+          nar-size-threshold = 65536; # 64 KiB
+          min-size = 16384; # 16 KiB
+          avg-size = 65536; # 64 KiB
+          max-size = 262144; # 256 KiB
+        };
+
+        compression.type = "zstd";
+
+        garbage-collection = {
+          interval = "1 day";
+          default-retention-period = "6 weeks";
+        };
+      };
+    };
+
     cloudflared = {
       enable = true;
       tunnels."57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5" = {
@@ -91,6 +126,7 @@
           "api.uku3lig.net" = "http://localhost:5000";
           "bw.uku3lig.net" = "http://localhost:8222";
           "maven.uku3lig.net" = "http://localhost:8080";
+          "attic.uku3lig.net" = "http://localhost:6000";
           "m.uku.moe" = "http://localhost:80";
         };
 
