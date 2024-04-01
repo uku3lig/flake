@@ -12,16 +12,11 @@
       group = "cloudflared";
     };
 
-    atticEnv = {
-      file = "${path}/atticEnv.age";
-      owner = "atticd";
-      group = "atticd";
-    };
-
     apiRsEnv.file = "${path}/apiRsEnv.age";
     ukubotRsEnv.file = "${path}/ukubotRsEnv.age";
     ngrokEnv.file = "${path}/ngrokEnv.age";
     minecraftEnv.file = "${path}/minecraftEnv.age";
+    atticEnv.file = "${path}/atticEnv.age";
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -84,6 +79,13 @@
           local_ip = "127.0.0.1";
           local_port = 25565;
           remote_port = 6000;
+        };
+
+        ragnamod7 = {
+          type = "tcp";
+          local_ip = "127.0.0.1";
+          local_port = 25566;
+          remote_port = 6001;
         };
       };
     };
@@ -176,11 +178,31 @@
       ];
       environment = {
         EULA = "true";
-        MEMORY = "16G";
+        MEMORY = "12G";
         USE_AIKAR_FLAGS = "true";
         TYPE = "AUTO_CURSEFORGE";
         CF_SLUG = "all-the-mods-8";
         CF_FILE_ID = "4962718";
+      };
+    };
+
+    "ragnamod7" = {
+      image = "itzg/minecraft-server";
+      ports = ["25566:25565"];
+      volumes = [
+        "/data/ragnamod7:/data"
+        "/data/downloads:/downloads"
+      ];
+      environmentFiles = [
+        config.age.secrets.minecraftEnv.path
+      ];
+      environment = {
+        EULA = "true";
+        MEMORY = "12G";
+        USE_AIKAR_FLAGS = "true";
+        TYPE = "AUTO_CURSEFORGE";
+        CF_SLUG = "ragnamod-vii";
+        CF_FILE_ID = "5171286";
       };
     };
   };
