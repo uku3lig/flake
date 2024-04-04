@@ -1,28 +1,27 @@
 {config, ...}: {
-  services = {
-    frp = {
-      enable = true;
-      role = "client";
-      settings = {
-        common = {
-          server_addr = "49.13.148.129";
-          server_port = 7000;
-        };
+  services.frp = {
+    enable = true;
+    role = "client";
+    settings = {
+      serverAddr = "49.13.148.129";
+      serverPort = 7000;
 
-        minecraft = {
+      proxies = [
+        {
+          name = "minecraft";
           type = "tcp";
-          local_ip = "127.0.0.1";
-          local_port = 25565;
-          remote_port = 6000;
-        };
-
-        ragnamod7 = {
+          localIp = "127.0.0.1";
+          localPort = 25565;
+          remotePort = 6000;
+        }
+        {
+          name = "ragnamod7";
           type = "tcp";
-          local_ip = "127.0.0.1";
-          local_port = 25566;
-          remote_port = 6001;
-        };
-      };
+          localIp = "127.0.0.1";
+          localPort = 25566;
+          remotePort = 6001;
+        }
+      ];
     };
   };
 
@@ -39,7 +38,7 @@
       ];
       environment = {
         EULA = "true";
-        MEMORY = "12G";
+        MEMORY = "10G";
         USE_AIKAR_FLAGS = "true";
         TYPE = "AUTO_CURSEFORGE";
         CF_SLUG = "all-the-mods-8";
@@ -59,7 +58,7 @@
       ];
       environment = {
         EULA = "true";
-        MEMORY = "12G";
+        MEMORY = "10G";
         USE_AIKAR_FLAGS = "true";
         TYPE = "AUTO_CURSEFORGE";
         CF_SLUG = "ragnamod-vii";

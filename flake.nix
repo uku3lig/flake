@@ -18,7 +18,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     # nix's most elaborate, overcomplicated joke
     systems.url = "github:nix-systems/default";
@@ -34,7 +34,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -108,7 +108,7 @@
     };
 
     ukubot-rs = {
-      url = "github:uku3lig/ukubot-rs/76df1dd3caaa64a2b74b03250448f4b4a554899a";
+      url = "github:uku3lig/ukubot-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.rust-overlay.follows = "";
