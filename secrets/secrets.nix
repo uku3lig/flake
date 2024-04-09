@@ -20,4 +20,5 @@ in {
   "etna/ngrokEnv.age".publicKeys = main ++ [etna];
   "etna/minecraftEnv.age".publicKeys = main ++ [etna];
   "etna/atticEnv.age".publicKeys = main ++ [etna];
+  "etna/dendriteKey.age".publicKeys = main ++ [etna];
 }

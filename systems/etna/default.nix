@@ -10,6 +10,7 @@ in {
 
     ./minecraft.nix
     ./attic.nix
+    ./matrix.nix
   ];
 
   age.secrets = let
@@ -19,6 +20,11 @@ in {
       file = "${path}/tunnelCreds.age";
       owner = "cloudflared";
       group = "cloudflared";
+    };
+
+    dendriteKey = {
+      file = "${path}/dendriteKey.age";
+      mode = "444";
     };
 
     apiRsEnv.file = "${path}/apiRsEnv.age";
