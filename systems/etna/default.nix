@@ -11,6 +11,7 @@ in {
     ./minecraft.nix
     ./attic.nix
     ./matrix.nix
+    ./nextcloud.nix
   ];
 
   age.secrets = let
@@ -25,6 +26,12 @@ in {
     dendriteKey = {
       file = "${path}/dendriteKey.age";
       mode = "444";
+    };
+
+    nextcloudAdminPass = {
+      file = "${path}/nextcloudAdminPass.age";
+      owner = config.users.users.nextcloud.name;
+      group = config.users.users.nextcloud.name;
     };
 
     apiRsEnv.file = "${path}/apiRsEnv.age";
