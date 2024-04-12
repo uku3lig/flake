@@ -160,7 +160,10 @@ in {
       ];
     };
 
-    root.hashedPasswordFile = config.age.secrets.rootPassword.path;
+    root = {
+      shell = pkgs.fish;
+      hashedPasswordFile = config.age.secrets.rootPassword.path;
+    };
   };
 
   # This value determines the NixOS release from which the default
