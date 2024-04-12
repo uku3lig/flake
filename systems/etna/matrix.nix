@@ -60,7 +60,7 @@
         };
 
         locations."=/.well-known/matrix/client" = let
-          client = {"m.homeserver"."base_url" = "https://my.hostname.com";};
+          client = {"m.homeserver"."base_url" = "https://m.uku.moe";};
         in {
           return = "200 '${builtins.toJSON client}'";
         };
