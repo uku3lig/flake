@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  config,
+  mkSecret,
+  ...
+}: {
+  age.secrets = mkSecret "minecraftEnv" {};
+
   services.frp = {
     enable = true;
     role = "client";

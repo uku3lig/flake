@@ -1,44 +1,36 @@
 {
   lib,
   config,
+  pkgs, # required for fudgeMyShitIn
   ...
-}: let
+} @ args: let
   tunnelId = "57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5";
+
+  secretsPath = ../../secrets/etna;
+  mkSecrets = builtins.mapAttrs (name: value: value // {file = "${secretsPath}/${name}.age";});
+  mkSecret = name: other: mkSecrets {${name} = other;};
+
+  fudgeMyShitIn = builtins.map (file: import file (args // {inherit mkSecret;}));
 in {
-  imports = [
-    (lib.mkAliasOptionModule ["cfTunnels"] ["services" "cloudflared" "tunnels" tunnelId "ingress"])
+  imports =
+    [
+      (lib.mkAliasOptionModule ["cfTunnels"] ["services" "cloudflared" "tunnels" tunnelId "ingress"])
+    ]
+    ++ fudgeMyShitIn [
+      ./minecraft.nix
+      ./attic.nix
+      ./dendrite.nix
+      ./nextcloud.nix
+    ];
 
-    ./minecraft.nix
-    ./attic.nix
-    ./matrix.nix
-    ./nextcloud.nix
-  ];
+  age.secrets = mkSecrets {
+    apiRsEnv = {};
+    ukubotRsEnv = {};
 
-  age.secrets = let
-    path = ../../secrets/etna;
-  in {
     tunnelCreds = {
-      file = "${path}/tunnelCreds.age";
       owner = "cloudflared";
       group = "cloudflared";
     };
-
-    dendriteKey = {
-      file = "${path}/dendriteKey.age";
-      mode = "444";
-    };
-
-    nextcloudAdminPass = {
-      file = "${path}/nextcloudAdminPass.age";
-      owner = config.users.users.nextcloud.name;
-      group = config.users.users.nextcloud.name;
-    };
-
-    apiRsEnv.file = "${path}/apiRsEnv.age";
-    ukubotRsEnv.file = "${path}/ukubotRsEnv.age";
-    ngrokEnv.file = "${path}/ngrokEnv.age";
-    minecraftEnv.file = "${path}/minecraftEnv.age";
-    atticEnv.file = "${path}/atticEnv.age";
   };
 
   boot.loader.systemd-boot.enable = true;

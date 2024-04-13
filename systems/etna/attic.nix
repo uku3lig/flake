@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  mkSecret,
+  ...
+}: {
+  age.secrets = mkSecret "atticEnv" {};
   cfTunnels."attic.uku3lig.net" = "http://localhost:6000";
 
   services.atticd = {

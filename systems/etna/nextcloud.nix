@@ -1,8 +1,14 @@
 {
   config,
   pkgs,
+  mkSecret,
   ...
 }: {
+  age.secrets = mkSecret "nextcloudAdminPass" {
+    owner = config.users.users.nextcloud.name;
+    group = config.users.users.nextcloud.name;
+  };
+
   cfTunnels."cloud.uku3lig.net" = "http://localhost:80";
 
   services.nextcloud = {

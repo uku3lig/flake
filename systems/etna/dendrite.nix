@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  mkSecret,
+  ...
+}: {
+  age.secrets = mkSecret "dendriteKey" {mode = "444";};
   cfTunnels."m.uku.moe" = "http://localhost:80";
 
   services = {
