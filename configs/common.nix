@@ -44,6 +44,10 @@ in {
       curl
       wget
       nil
+      ffmpeg
+      yt-dlp
+      hyfetch
+      htop
     ];
 
     variables = {

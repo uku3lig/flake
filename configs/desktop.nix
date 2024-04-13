@@ -56,6 +56,7 @@
         font-manager
         gimp
         gnome.gnome-calculator
+        gparted
         jetbrains.idea-ultimate
         libreoffice-fresh
         mate.eom
