@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   cfTunnels."cloud.uku3lig.net" = "http://localhost:80";
 
   services.nextcloud = {
