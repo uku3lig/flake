@@ -5,20 +5,20 @@
   makeWrapper,
   jdk21,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   name = "reposilite";
-  version = "3.5.3";
+  version = "3.5.10";
 
   src = fetchurl {
-    url = "https://maven.reposilite.com/releases/com/reposilite/reposilite/${version}/reposilite-${version}-all.jar";
-    hash = "sha256-ZqewhOWb49ykmzvIebolXkxtNKA46bCgM7L7yvkVgfE=";
+    url = with finalAttrs; "https://maven.reposilite.com/releases/com/reposilite/reposilite/${version}/reposilite-${version}-all.jar";
+    hash = "sha256-BdIuycmmxZqiDjTfBs4XmIhuqqH//09FleNRrUnyD/M=";
   };
 
   nativeBuildInputs = [makeWrapper];
 
   phases = ["installPhase"];
 
-  installPhase = ''
+  installPhase = with finalAttrs; ''
     runHook preInstall
 
     mkdir -p $out/bin $out/share/${name}
@@ -35,4 +35,4 @@ stdenv.mkDerivation rec {
     platforms = platforms.unix;
     mainProgram = "reposilite";
   };
-}
+})
