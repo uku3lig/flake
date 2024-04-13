@@ -1,13 +1,4 @@
-{
-  config,
-  pkgs,
-  attic,
-  ...
-}: {
-  environment.systemPackages = [
-    attic.packages.${pkgs.system}.attic
-  ];
-
+{config, ...}: {
   wsl = {
     enable = true;
     defaultUser = "leo";
