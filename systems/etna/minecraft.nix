@@ -14,13 +14,6 @@
 
       proxies = [
         {
-          name = "minecraft";
-          type = "tcp";
-          localIp = "127.0.0.1";
-          localPort = 25565;
-          remotePort = 6000;
-        }
-        {
           name = "ragnamod7";
           type = "tcp";
           localIp = "127.0.0.1";
@@ -31,27 +24,8 @@
     };
   };
 
+  virtualisation.oci-containers.backend = "docker";
   virtualisation.oci-containers.containers = {
-    "minecraft" = {
-      image = "itzg/minecraft-server";
-      ports = ["25565:25565"];
-      volumes = [
-        "/data/minecraft:/data"
-        "/data/downloads:/downloads"
-      ];
-      environmentFiles = [
-        config.age.secrets.minecraftEnv.path
-      ];
-      environment = {
-        EULA = "true";
-        MEMORY = "10G";
-        USE_AIKAR_FLAGS = "true";
-        TYPE = "AUTO_CURSEFORGE";
-        CF_SLUG = "all-the-mods-8";
-        CF_FILE_ID = "4962718";
-      };
-    };
-
     "ragnamod7" = {
       image = "itzg/minecraft-server";
       ports = ["25566:25565"];
@@ -69,6 +43,8 @@
         TYPE = "AUTO_CURSEFORGE";
         CF_SLUG = "ragnamod-vii";
         CF_FILE_ID = "5171286";
+        CF_EXCLUDE_MODS = "314904";
+        CF_IGNORE_MISSING_FILES = "mods/ftbbackups2-forge-1.18.2-1.0.23.jar";
       };
     };
   };
