@@ -144,9 +144,10 @@
           enable = true;
           wayland = true;
         };
-        defaultSession = "hyprland";
       };
     };
+
+    displayManager.defaultSession = "hyprland";
 
     printing.enable = true;
 
