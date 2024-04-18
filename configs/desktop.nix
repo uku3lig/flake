@@ -113,10 +113,7 @@
       pinentryPackage = pkgs.pinentry-gnome3;
     };
 
-    firefox = {
-      enable = true;
-      package = pkgs.librewolf;
-    };
+    firefox.enable = true;
 
     seahorse.enable = true;
     file-roller.enable = true;

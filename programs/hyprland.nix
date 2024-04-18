@@ -95,7 +95,6 @@
             "suppressevent maximize, class:^(firefox)$"
             "float, title:^(Picture-in-Picture)$"
             "float, class:^(firefox)$, title:^()$" # notifications
-            "float, class:^(librewolf)$, title:^()$" # notifications
 
             "immediate, class:^(cs2)$"
             "immediate, class:^(osu.*)$"
