@@ -1,9 +1,12 @@
 {
   lib,
+  pkgs,
   config,
   mkSecret,
   ...
 }: let
+  inherit (config.virtualisation.oci-containers) backend;
+
   mkMinecraftServer = name: {
     port,
     frpPort,
@@ -36,7 +39,7 @@
       }
     ];
 
-    systemd.services."${config.virtualisation.oci-containers.backend}-${name}".serviceConfig.TimeoutSec = "300";
+    systemd.services."${backend}-${name}".serviceConfig.TimeoutSec = "300";
   };
 
   recursiveMerge = attrList:
@@ -70,6 +73,23 @@ in
     };
 
     virtualisation.oci-containers.backend = "docker";
+
+    systemd.services.restart-minecraft-servers = {
+      wantedBy = ["multi-user.target"];
+      script = ''
+        ${lib.getExe' pkgs.systemd "systemctl"} restart ${backend}-*.service
+      '';
+      serviceConfig.Type = "oneshot";
+    };
+
+    systemd.timers.restart-minecraft-servers = {
+      wantedBy = ["timers.target"];
+      timerConfig = {
+        OnCalendar = "*-*-* 05:00:00";
+        Persistent = true;
+        Unit = "restart-minecraft-servers.service";
+      };
+    };
   }
   (mkMinecraftServers {
     ragnamod7 = {
