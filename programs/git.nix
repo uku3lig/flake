@@ -5,7 +5,7 @@
     git = {
       enable = true;
       userName = "uku";
-      userEmail = "uku3lig@gmail.com";
+      userEmail = "hi@uku.moe";
 
       signing = {
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8";
