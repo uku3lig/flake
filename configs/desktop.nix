@@ -85,6 +85,8 @@
       };
     };
 
+    xdg.enable = true;
+
     gtk = {
       enable = true;
       catppuccin = {
