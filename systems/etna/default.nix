@@ -18,7 +18,6 @@ in {
     ]
     ++ fudgeMyShitIn [
       ./minecraft.nix
-      ./attic.nix
       ./dendrite.nix
       ./nextcloud.nix
       ./reposilite.nix

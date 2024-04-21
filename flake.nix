@@ -1,11 +1,6 @@
 {
   description = "example flake idk";
 
-  nixConfig = {
-    extra-substituters = ["https://attic.uku3lig.net/uku"];
-    extra-trusted-public-keys = ["uku:kGzXVpH0LmCl9G+Omy5ObkcjTLdasfj3NlOEuWWfne8="];
-  };
-
   outputs = {flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
@@ -67,15 +62,6 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "";
-    };
-
-    attic = {
-      url = "github:zhaofengli/attic";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs"; # trolley emojo
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.crane.follows = "crane";
       inputs.flake-compat.follows = "";
     };
 

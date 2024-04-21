@@ -63,7 +63,6 @@ in {
       modules =
         nixos
         ++ (with inputs; [
-          attic.nixosModules.atticd
           api-rs.nixosModules.default
           ukubot-rs.nixosModules.default
           self.nixosModules.reposilite
