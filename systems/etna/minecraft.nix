@@ -10,6 +10,7 @@
   mkMinecraftServer = name: {
     port,
     frpPort,
+    dataDir ? "/var/lib/${name}",
     memory ? "4G",
     env ? {},
   }: {
@@ -17,7 +18,7 @@
       image = "itzg/minecraft-server";
       ports = ["${builtins.toString port}:25565"];
       volumes = [
-        "/data/${name}:/data"
+        "${dataDir}:/data"
         "/data/downloads:/downloads"
       ];
       environmentFiles = [config.age.secrets.minecraftEnv.path];
