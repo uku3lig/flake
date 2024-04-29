@@ -35,6 +35,8 @@ in {
   boot.loader.systemd-boot.enable = true;
 
   services = {
+    openssh.openFirewall = true;
+
     tailscale.extraUpFlags = ["--advertise-exit-node"];
 
     cloudflared = {
