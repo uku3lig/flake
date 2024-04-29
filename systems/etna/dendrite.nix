@@ -6,6 +6,11 @@
   age.secrets = mkSecret "dendriteKey" {mode = "444";};
   cfTunnels."m.uku.moe" = "http://localhost:80";
 
+  systemd.services.dendrite = {
+    after = ["postgresql.service"];
+    serviceConfig.RestartSec = 10;
+  };
+
   services = {
     dendrite = let
       database = {

@@ -96,7 +96,7 @@ in
     ragnamod7 = {
       port = 25566;
       frpPort = 6001;
-      memory = "10G";
+      memory = "8G";
       env = {
         USE_AIKAR_FLAGS = "true";
         TYPE = "AUTO_CURSEFORGE";
