@@ -19,11 +19,11 @@
         core.autocrlf = "input";
         push.autoSetupRemote = true;
         gpg.format = "ssh";
-	merge.conflictStyle = "zdiff3";
-	rebase.autoStash = true;
-	status.submoduleSummary = true;
-	diff.submodule = "log";
-	submodule.recurse = true;
+        merge.conflictStyle = "zdiff3";
+        rebase.autoStash = true;
+        status.submoduleSummary = true;
+        diff.submodule = "log";
+        submodule.recurse = true;
       };
     };
 

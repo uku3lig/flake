@@ -1,4 +1,8 @@
 {config, ...}: {
+  imports = [
+    ../../programs/rust.nix
+  ];
+
   wsl = {
     enable = true;
     defaultUser = "leo";
