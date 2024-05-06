@@ -32,7 +32,10 @@ in {
     };
   };
 
-  boot.loader.systemd-boot.enable = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    kernelPackages = pkgs.linuxPackages_6_1;
+  };
 
   services = {
     openssh.openFirewall = true;
