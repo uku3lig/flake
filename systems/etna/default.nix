@@ -34,7 +34,7 @@ in {
 
   boot = {
     loader.systemd-boot.enable = true;
-    kernelPackages = pkgs.linuxPackages_6_1;
+    kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
   };
 
   services = {
