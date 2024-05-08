@@ -7,11 +7,8 @@
   services.blueman.enable = true;
 
   services = {
-    xserver = {
-      videoDrivers = ["intel"];
-      libinput.enable = true;
-    };
-
+    xserver.videoDrivers = ["intel"];
+    libinput.enable = true;
     power-profiles-daemon.enable = true;
   };
 
