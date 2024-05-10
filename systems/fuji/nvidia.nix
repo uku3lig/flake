@@ -27,10 +27,8 @@
 
   hm.wayland.windowManager.hyprland.settings.env = [
     "LIBVA_DRIVER_NAME,nvidia"
-    "XDG_SESSION_TYPE,wayland"
     "GBM_BACKEND,nvidia-drm"
     "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-    "WLR_NO_HARDWARE_CURSORS,1"
     "__EGL_VENDOR_LIBRARY_FILENAMES,/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json"
     "NVD_BACKEND,direct"
   ];
