@@ -2,6 +2,7 @@
 
 alias c := check
 alias s := switch
+alias d := deploy
 
 default:
     @just --choose
@@ -12,3 +13,6 @@ check:
 [linux]
 switch *args:
     sudo nixos-rebuild switch --flake . --keep-going {{ args }}
+
+deploy system:
+    deploy -s .#{{ system }}
