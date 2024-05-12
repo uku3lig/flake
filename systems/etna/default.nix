@@ -32,15 +32,10 @@ in {
     };
   };
 
-  boot = {
-    loader.systemd-boot.enable = true;
-    kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
-  };
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
 
   services = {
     openssh.openFirewall = true;
-
-    tailscale.extraUpFlags = ["--advertise-exit-node"];
 
     cloudflared = {
       enable = true;

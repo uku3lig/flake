@@ -43,10 +43,6 @@ in {
       git
       curl
       wget
-      nil
-      ffmpeg
-      yt-dlp
-      hyfetch
       htop
     ];
 
@@ -55,16 +51,7 @@ in {
     };
   };
 
-  hm = {
-    home = {inherit stateVersion;};
-
-    programs.keychain = {
-      enable = true;
-      agents = ["ssh"];
-      inheritType = "any";
-      keys = ["id_ed25519"];
-    };
-  };
+  hm.home = {inherit stateVersion;};
 
   home-manager = {
     useGlobalPkgs = true;

@@ -23,20 +23,29 @@
 
   mapNixOS = lib.mapAttrs (toSystem inputs.nixpkgs.lib.nixosSystem);
 
-  nixos = with inputs; [
+  _common = with inputs; [
     ../configs/common.nix
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
     vscode-server.nixosModules.default
   ];
 
+  physical-computer = with inputs; [
+    ../configs/physical-computer.nix
+    lanzaboote.nixosModules.lanzaboote
+  ];
+
+  client = [../configs/client.nix] ++ _common;
+
+  server = [../configs/server.nix] ++ _common;
+
   desktop = with inputs;
     [
       ../configs/desktop.nix
-      lanzaboote.nixosModules.lanzaboote
       catppuccin.nixosModules.catppuccin
     ]
-    ++ nixos;
+    ++ physical-computer
+    ++ client;
 in {
   flake.nixosConfigurations = mapNixOS {
     fuji = {
@@ -47,7 +56,7 @@ in {
     fuji-wsl = {
       system = "x86_64-linux";
       modules =
-        nixos
+        client
         ++ (with inputs; [
           nixos-wsl.nixosModules.default
         ]);
@@ -61,7 +70,8 @@ in {
     etna = {
       system = "x86_64-linux";
       modules =
-        nixos
+        server
+        ++ physical-computer
         ++ (with inputs; [
           api-rs.nixosModules.default
           ukubot-rs.nixosModules.default
