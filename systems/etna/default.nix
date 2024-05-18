@@ -23,6 +23,7 @@ in {
       ./reposilite.nix
       ./uku.nix
       ./vaultwarden.nix
+      ./forgejo.nix
     ];
 
   age.secrets = mkSecrets {
