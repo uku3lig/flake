@@ -9,7 +9,7 @@
 
   mkMinecraftServer = name: {
     port,
-    frpPort,
+    remotePort,
     dataDir ? "/var/lib/${name}",
     memory ? "4G",
     env ? {},
@@ -32,11 +32,10 @@
 
     services.frp.settings.proxies = [
       {
-        name = name;
+        inherit name remotePort;
         type = "tcp";
         localIp = "127.0.0.1";
         localPort = port;
-        remotePort = frpPort;
       }
     ];
 
@@ -95,7 +94,7 @@ in
   (mkMinecraftServers {
     ragnamod7 = {
       port = 25566;
-      frpPort = 6001;
+      remotePort = 6001;
       memory = "8G";
       env = {
         USE_AIKAR_FLAGS = "true";
@@ -109,7 +108,7 @@ in
 
     lynn = {
       port = 25567;
-      frpPort = 6002;
+      remotePort = 6002;
       memory = "4G";
       env = {
         USE_AIKAR_FLAGS = "true";

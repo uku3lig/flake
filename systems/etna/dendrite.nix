@@ -62,26 +62,26 @@
     nginx = {
       enable = true;
 
-      virtualHosts."m.uku.moe" = {
-        locations."=/.well-known/matrix/server" = let
-          server = {"m.server" = "m.uku.moe:443";};
-        in {
+      virtualHosts."m.uku.moe".locations = let
+        server = {"m.server" = "m.uku.moe:443";};
+        client = {"m.homeserver"."base_url" = "https://m.uku.moe";};
+      in {
+        "=/.well-known/matrix/server" = {
           return = "200 '${builtins.toJSON server}'";
         };
 
-        locations."=/.well-known/matrix/client" = let
-          client = {"m.homeserver"."base_url" = "https://m.uku.moe";};
-        in {
+        "=/.well-known/matrix/client" = {
           return = "200 '${builtins.toJSON client}'";
         };
 
-        locations."/" = {
+        "/" = {
           proxyPass = "http://localhost:8008";
           proxyWebsockets = true;
           extraConfig = ''
             proxy_set_header Host      $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_read_timeout         600;
+            client_max_body_size       100M;
           '';
         };
       };

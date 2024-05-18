@@ -16,3 +16,6 @@ switch *args:
 
 deploy system:
     deploy -s .#{{ system }}
+
+lint *args:
+    statix check -i flake.nix **/hardware-configuration.nix {{ args }}
