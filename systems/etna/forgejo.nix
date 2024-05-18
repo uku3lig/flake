@@ -29,6 +29,8 @@ _: {
           ENABLED = true;
         };
 
+        actions.ENABLED = false;
+
         "ui.meta" = {
           AUTHOR = "uku's forge";
           DESCRIPTION = "the place where literally nothing gets done";
