@@ -31,6 +31,8 @@ in {
       owner = "cloudflared";
       group = "cloudflared";
     };
+
+    frpToken = {};
   };
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
@@ -46,6 +48,10 @@ in {
       settings = {
         serverAddr = "49.13.148.129";
         serverPort = 7000;
+        auth = {
+          method = "token";
+          token = "{{ .Envs.FRP_TOKEN }}";
+        };
       };
     };
 
@@ -57,4 +63,6 @@ in {
       };
     };
   };
+
+  systemd.services.frp.serviceConfig.EnvironmentFile = config.age.secrets.frpToken.path;
 }

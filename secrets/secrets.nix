@@ -20,4 +20,5 @@ in {
   "etna/minecraftEnv.age".publicKeys = main ++ [etna];
   "etna/dendriteKey.age".publicKeys = main ++ [etna];
   "etna/nextcloudAdminPass.age".publicKeys = main ++ [etna];
+  "etna/frpToken.age".publicKeys = main ++ [etna];
 }
