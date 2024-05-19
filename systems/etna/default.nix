@@ -38,6 +38,17 @@ in {
   services = {
     openssh.openFirewall = true;
 
+    nginx.enable = true;
+
+    frp = {
+      enable = true;
+      role = "client";
+      settings = {
+        serverAddr = "49.13.148.129";
+        serverPort = 7000;
+      };
+    };
+
     cloudflared = {
       enable = true;
       tunnels.${tunnelId} = {

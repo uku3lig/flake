@@ -63,15 +63,6 @@ in
   lib.recursiveUpdate {
     age.secrets = mkSecret "minecraftEnv" {};
 
-    services.frp = {
-      enable = true;
-      role = "client";
-      settings = {
-        serverAddr = "49.13.148.129";
-        serverPort = 7000;
-      };
-    };
-
     virtualisation.oci-containers.backend = "docker";
 
     systemd.services.restart-minecraft-servers = {
