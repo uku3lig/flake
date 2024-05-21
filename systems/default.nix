@@ -29,12 +29,7 @@
     home-manager.nixosModules.home-manager
     vscode-server.nixosModules.default
   ];
-
-  physical-computer = with inputs; [
-    ../configs/physical-computer.nix
-    lanzaboote.nixosModules.lanzaboote
-  ];
-
+  
   client = [../configs/client.nix] ++ _common;
 
   server = [../configs/server.nix] ++ _common;
@@ -43,8 +38,8 @@
     [
       ../configs/desktop.nix
       catppuccin.nixosModules.catppuccin
+      lanzaboote.nixosModules.lanzaboote
     ]
-    ++ physical-computer
     ++ client;
 in {
   flake.nixosConfigurations = mapNixOS {
@@ -71,7 +66,6 @@ in {
       system = "x86_64-linux";
       modules =
         server
-        ++ physical-computer
         ++ (with inputs; [
           api-rs.nixosModules.default
           ukubot-rs.nixosModules.default

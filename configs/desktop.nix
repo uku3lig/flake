@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   catppuccin,
@@ -9,7 +10,19 @@
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelModules = ["v4l2loopback"];
+
+    loader = {
+      systemd-boot.enable = lib.mkForce false;
+      efi.canTouchEfiVariables = true;
+    };
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
   };
+
+  environment.systemPackages = with pkgs; [sbctl];
 
   fonts = {
     packages = with pkgs; [

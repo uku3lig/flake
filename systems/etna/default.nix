@@ -35,7 +35,10 @@ in {
     frpToken = {};
   };
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
+  boot = {
+    kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
+    loader.systemd-boot.enable = true;
+  };
 
   services = {
     openssh.openFirewall = true;
