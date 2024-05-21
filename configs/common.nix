@@ -66,6 +66,8 @@ in {
   };
 
   nix = {
+    package = pkgs.nixVersions.latest;
+
     gc = {
       automatic = true;
       dates = "weekly";
