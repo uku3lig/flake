@@ -29,7 +29,7 @@
     home-manager.nixosModules.home-manager
     vscode-server.nixosModules.default
   ];
-  
+
   client = [../configs/client.nix] ++ _common;
 
   server = [../configs/server.nix] ++ _common;
