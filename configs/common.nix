@@ -44,6 +44,7 @@ in {
       curl
       wget
       htop
+      ripgrep
     ];
 
     variables = {
