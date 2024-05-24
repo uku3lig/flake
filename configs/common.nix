@@ -133,7 +133,7 @@ in {
     tailscale = {
       enable = true;
       useRoutingFeatures = "both";
-      extraUpFlags = ["--ssh"];
+      extraUpFlags = ["--ssh" "--stateful-filtering"];
       authKeyFile = config.age.secrets.tailscaleKey.path;
     };
   };
