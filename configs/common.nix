@@ -28,7 +28,7 @@ in {
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages; # use lts
     kernelParams = ["quiet" "loglevel=3"];
   };
 
