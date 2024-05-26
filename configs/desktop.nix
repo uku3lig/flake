@@ -91,7 +91,7 @@
       enable = true;
       catppuccin = {
         enable = true;
-        flavour = "macchiato";
+        flavor = "macchiato";
         accent = "sky";
       };
     };
