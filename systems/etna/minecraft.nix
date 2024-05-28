@@ -83,17 +83,14 @@ in
     };
   }
   (mkMinecraftServers {
-    ragnamod7 = {
-      port = 25566;
-      remotePort = 6001;
-      memory = "8G";
+    p9 = {
+      port = 25568;
+      remotePort = 6003;
+      memory = "4G";
       env = {
         USE_AIKAR_FLAGS = "true";
-        TYPE = "AUTO_CURSEFORGE";
-        CF_SLUG = "ragnamod-vii";
-        CF_FILE_ID = "5171286";
-        CF_EXCLUDE_MODS = "314904";
-        CF_IGNORE_MISSING_FILES = "mods/ftbbackups2-forge-1.18.2-1.0.23.jar";
+        TYPE = "MODRINTH";
+        MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.6.0+1.20.6.fabric";
       };
     };
 
@@ -104,7 +101,7 @@ in
       env = {
         USE_AIKAR_FLAGS = "true";
         TYPE = "MODRINTH";
-        MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.5.0+1.20.4.fabric";
+        MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.6.0+1.20.4.fabric";
       };
     };
   })
