@@ -19,7 +19,6 @@
     };
   };
 
-
   services = {
     # xserver.videoDrivers = ["intel"];
     libinput.enable = true;
