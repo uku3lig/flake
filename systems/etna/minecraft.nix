@@ -13,10 +13,11 @@
     dataDir ? "/var/lib/${name}",
     memory ? "4G",
     env ? {},
+    extraPorts ? [],
   }: {
     virtualisation.oci-containers.containers.${name} = {
       image = "itzg/minecraft-server";
-      ports = ["${builtins.toString port}:25565"];
+      ports = ["${builtins.toString port}:25565"] ++ extraPorts;
       volumes = [
         "${dataDir}:/data"
         "/data/downloads:/downloads"
@@ -81,10 +82,13 @@ in
         Unit = "restart-minecraft-servers.service";
       };
     };
+
+    cfTunnels."map.uku.moe" = "http://localhost:8100";
   }
   (mkMinecraftServers {
     p9 = {
       port = 25568;
+      extraPorts = ["8100:8100"];
       remotePort = 6003;
       memory = "4G";
       env = {
