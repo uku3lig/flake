@@ -5,7 +5,16 @@
   catppuccin,
   ...
 }: {
-  imports = [../programs];
+  imports = [
+    ../programs/alacritty.nix
+    ../programs/gnome.nix
+    ../programs/vscode.nix
+
+    # the world if hyprland
+    # ../programs/hyprland.nix
+    # ../programs/fuzzel.nix
+    # ../programs/waybar
+  ];
 
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
@@ -146,8 +155,6 @@
       };
     };
 
-    displayManager.defaultSession = "hyprland";
-
     printing.enable = true;
 
     pipewire = {
@@ -170,11 +177,7 @@
   virtualisation.libvirtd.enable = true;
 
   xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
-    };
-
+    portal.enable = true;
     mime.enable = true;
     icons.enable = true;
   };

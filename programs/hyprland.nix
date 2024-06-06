@@ -5,6 +5,10 @@
 }: {
   programs.hyprland.enable = true;
 
+  services.displayManager.defaultSession = "hyprland";
+
+  xdg.portal.extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+
   hm = {
     home.packages = with pkgs; [
       hyprpaper
