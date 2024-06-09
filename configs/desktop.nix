@@ -63,6 +63,7 @@
     home = {
       packages = with pkgs; [
         # font-manager
+        chromium
         gimp
         gnome.gnome-calculator
         gparted
