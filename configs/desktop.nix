@@ -3,6 +3,7 @@
   pkgs,
   config,
   catppuccin,
+  ghostty,
   ...
 }: {
   imports = [
@@ -65,6 +66,7 @@
         # font-manager
         chromium
         gimp
+        ghostty.packages.${pkgs.system}.default
         gnome.gnome-calculator
         gparted
         jetbrains.idea-ultimate
