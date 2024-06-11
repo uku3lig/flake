@@ -36,10 +36,8 @@ in {
   console.keyMap = "fr";
 
   environment = {
-    systemPackages = with pkgs; let
-      inherit (pkgs.stdenv.hostPlatform) system;
-    in [
-      agenix.packages.${system}.default
+    systemPackages = with pkgs; [
+      agenix.packages.${pkgs.system}.default
       neovim
       git
       curl

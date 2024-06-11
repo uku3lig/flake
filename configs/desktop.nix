@@ -51,7 +51,7 @@
     opengl.enable = true;
     pulseaudio.enable = false;
 
-    # xone.enable = true;
+    xone.enable = true;
     xpadneo.enable = true;
   };
 
@@ -62,15 +62,12 @@
 
     home = {
       packages = with pkgs; [
-        # font-manager
-        chromium
         gimp
         gnome.gnome-calculator
         gparted
         jetbrains.idea-ultimate
         libreoffice-fresh
         mate.eom
-        mold
         mpv
         nwg-look
         obs-studio
@@ -81,7 +78,6 @@
         (prismlauncher.override {
           jdks = [temurin-bin-21 temurin-bin-17 temurin-bin-8];
         })
-        sccache
         shotcut
         (vesktop.override {withSystemVencord = false;})
         wine-discord-ipc-bridge

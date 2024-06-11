@@ -3,7 +3,7 @@
   stdenv,
   fetchurl,
   makeWrapper,
-  jdk21,
+  jre_headless,
 }:
 stdenv.mkDerivation (finalAttrs: {
   name = "reposilite";
@@ -16,14 +16,14 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [makeWrapper];
 
-  phases = ["installPhase"];
+  dontUnpack = true;
 
   installPhase = with finalAttrs; ''
     runHook preInstall
 
     mkdir -p $out/bin $out/share/${name}
     cp ${src} $out/share/${name}/${name}.jar
-    makeWrapper ${jdk21}/bin/java $out/bin/${name} --add-flags "-jar $out/share/${name}/${name}.jar"
+    makeWrapper ${jre_headless}/bin/java $out/bin/${name} --add-flags "-jar $out/share/${name}/${name}.jar"
 
     runHook postInstall
   '';
