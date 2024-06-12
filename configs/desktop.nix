@@ -92,15 +92,7 @@
     };
 
     xdg.enable = true;
-
-    gtk = {
-      enable = true;
-      catppuccin = {
-        enable = true;
-        flavor = "macchiato";
-        accent = "sky";
-      };
-    };
+    gtk.enable = true;
   };
 
   i18n.extraLocaleSettings = {
