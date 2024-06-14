@@ -41,6 +41,11 @@ in {
   };
 
   services = {
+    jmusicbot = {
+      enable = true;
+      stateDir = "/var/lib/jmusicbot";
+    };
+
     openssh.openFirewall = true;
 
     nginx.enable = true;
