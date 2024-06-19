@@ -21,4 +21,5 @@ in {
   "etna/dendriteKey.age".publicKeys = main ++ [etna];
   "etna/nextcloudAdminPass.age".publicKeys = main ++ [etna];
   "etna/frpToken.age".publicKeys = main ++ [etna];
+  "etna/turnstileSecret.age".publicKeys = main ++ [etna];
 }

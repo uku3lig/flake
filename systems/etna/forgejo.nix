@@ -1,5 +1,14 @@
-_: {
+{
+  config,
+  mkSecret,
+  ...
+}: {
   cfTunnels."git.uku3lig.net" = "http://localhost:3000";
+
+  age.secrets = mkSecret "turnstileSecret" {
+    owner = "forgejo";
+    group = "forgejo";
+  };
 
   services = {
     forgejo = {
@@ -8,6 +17,10 @@ _: {
       database = {
         type = "postgres";
         createDatabase = true;
+      };
+
+      secrets = {
+        service.CF_TURNSTILE_SECRET = config.age.secrets.turnstileSecret.path;
       };
 
       settings = {
@@ -23,9 +36,9 @@ _: {
 
         service = {
           ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
-          # TODO enable turnstile once it gets fixed
-          # see codeberg:forgejo/forgejo#3832
           ENABLE_CAPTCHA = true;
+          CAPTCHA_TYPE = "cfturnstile";
+          CF_TURNSTILE_SITEKEY = "0x4AAAAAAAaemJiXmRluMxbQ";
         };
 
         oauth2 = {
