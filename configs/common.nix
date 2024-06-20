@@ -113,11 +113,6 @@ in {
   };
 
   services = {
-    openssh = {
-      enable = true;
-      openFirewall = lib.mkDefault false;
-    };
-
     vscode-server.enable = true;
 
     resolved = {
