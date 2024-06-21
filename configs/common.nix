@@ -110,13 +110,6 @@ in {
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-
-    sudo = {
-      package = pkgs.sudo.override (_: {withInsults = true;});
-      extraConfig = ''
-        Defaults insults
-      '';
-    };
   };
 
   services = {
