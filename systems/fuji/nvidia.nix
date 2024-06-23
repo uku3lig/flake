@@ -16,18 +16,15 @@
     MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = [pkgs.vaapiVdpau];
-  };
-
-  hardware.nvidia = {
-    # package = config.boot.kernelPackages.nvidiaPackages.beta;
-    modesetting.enable = true;
-    powerManagement = {
-      enable = true;
-      finegrained = false;
+  hardware = {
+    opengl.extraPackages = [pkgs.vaapiVdpau];
+    nvidia = {
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
+      modesetting.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = false;
+      };
     };
   };
 
