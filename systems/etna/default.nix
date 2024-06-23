@@ -24,6 +24,7 @@ in {
       ./uku.nix
       ./vaultwarden.nix
       ./forgejo.nix
+      ./shlink.nix
     ];
 
   age.secrets = mkSecrets {
