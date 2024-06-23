@@ -1,15 +1,37 @@
 {
   description = "example flake idk";
 
-  outputs = {flake-parts, ...} @ inputs:
+  outputs = {
+    self,
+    flake-parts,
+    nixinate,
+    ...
+  } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
       imports = [
-        ./parts
         ./systems
         ./exprs
       ];
+
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
+        apps = (nixinate.nixinate.${system} self).nixinate;
+
+        devShells.default = pkgs.mkShellNoCC {
+          packages = with pkgs; [
+            just
+            statix
+            nix-output-monitor
+          ];
+        };
+
+        formatter = pkgs.alejandra;
+      };
     };
 
   inputs = {
@@ -28,13 +50,6 @@
     crane = {
       url = "github:ipetkov/crane";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "";
     };
 
     flake-parts = {
@@ -62,6 +77,11 @@
       inputs.crane.follows = "crane";
       inputs.pre-commit-hooks-nix.follows = "";
       inputs.flake-compat.follows = "";
+    };
+
+    nixinate = {
+      url = "github:matthewcroughan/nixinate";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-wsl = {
