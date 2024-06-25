@@ -26,7 +26,6 @@
           packages = with pkgs; [
             just
             statix
-            nix-output-monitor
           ];
         };
 

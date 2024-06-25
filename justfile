@@ -6,7 +6,7 @@ check:
 
 switch *args:
     @sudo -v
-    sudo nixos-rebuild switch --flake . --keep-going {{args}} --log-format internal-json |& nom --json
+    sudo nixos-rebuild switch --flake . --keep-going {{args}}
 
 deploy system:
     nix run .#{{system}}
