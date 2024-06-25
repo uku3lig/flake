@@ -17,7 +17,7 @@
   };
 
   hardware = {
-    opengl.extraPackages = [pkgs.vaapiVdpau];
+    graphics.extraPackages = [pkgs.vaapiVdpau];
     nvidia = {
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
