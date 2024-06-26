@@ -77,14 +77,13 @@
         mpv
         obs-studio
         obsidian
-        osu-lazer-bin
         polkit_gnome
+        shotcut
+
+        (vesktop.override {withSystemVencord = false;})
         (prismlauncher.override {
           jdks = [temurin-bin-21 temurin-bin-17 temurin-bin-8];
         })
-        shotcut
-        (vesktop.override {withSystemVencord = false;})
-        wine-discord-ipc-bridge
       ];
     };
 
@@ -118,9 +117,7 @@
     };
 
     firefox.enable = true;
-
     steam.enable = true;
-
     virt-manager.enable = true;
   };
 
