@@ -11,12 +11,7 @@
   hardware = {
     bluetooth.enable = true;
 
-    opengl = let
-      packages = with pkgs; [vaapiIntel libvdpau-va-gl intel-media-driver];
-    in {
-      extraPackages = packages;
-      extraPackages32 = packages;
-    };
+    graphics.extraPackages = with pkgs; [vaapiIntel libvdpau-va-gl intel-media-driver];
   };
 
   services = {
