@@ -3,6 +3,13 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./hyprland-misc.nix
+    ./alacritty.nix
+    ./fuzzel.nix
+    ./waybar
+  ];
+
   programs.hyprland.enable = true;
 
   services.displayManager.defaultSession = "hyprland";

@@ -18,8 +18,6 @@
 
     # the world if hyprland
     # ../programs/hyprland.nix
-    # ../programs/fuzzel.nix
-    # ../programs/waybar
   ];
 
   boot = {
@@ -73,17 +71,13 @@
     home = {
       packages = with pkgs; [
         gimp
-        gnome.gnome-calculator
         gparted
         jetbrains.idea-ultimate
         libreoffice-fresh
-        mate.eom
         mpv
-        nwg-look
         obs-studio
         obsidian
         osu-lazer-bin
-        pavucontrol
         polkit_gnome
         (prismlauncher.override {
           jdks = [temurin-bin-21 temurin-bin-17 temurin-bin-8];
@@ -125,15 +119,7 @@
 
     firefox.enable = true;
 
-    seahorse.enable = true;
-    file-roller.enable = true;
-
     steam.enable = true;
-
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
-    };
 
     virt-manager.enable = true;
   };
