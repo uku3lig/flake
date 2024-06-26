@@ -1,9 +1,11 @@
 {
   config,
   pkgs,
+  nixos-wsl,
   ...
 }: {
   imports = [
+    nixos-wsl.nixosModules.default
     ../../programs/rust.nix
   ];
 

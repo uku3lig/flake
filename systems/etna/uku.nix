@@ -1,8 +1,15 @@
 {
   config,
   mkSecrets,
+  api-rs,
+  ukubot-rs,
   ...
 }: {
+  imports = [
+    api-rs.nixosModules.default
+    ukubot-rs.nixosModules.default
+  ];
+
   age.secrets = mkSecrets {
     apiRsEnv = {};
     ukubotRsEnv = {};

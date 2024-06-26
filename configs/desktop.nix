@@ -3,9 +3,15 @@
   pkgs,
   config,
   catppuccin,
+  lanzaboote,
   ...
 }: {
   imports = [
+    catppuccin.nixosModules.catppuccin
+    lanzaboote.nixosModules.lanzaboote
+
+    ./client.nix
+
     ../programs/ghostty.nix
     ../programs/gnome.nix
     ../programs/vscode.nix

@@ -1,4 +1,6 @@
 {config, ...}: {
+  imports = [./common.nix];
+
   _module.args.nixinate = {
     host = config.networking.hostName;
     sshUser = "root";

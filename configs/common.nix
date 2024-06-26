@@ -4,12 +4,18 @@
   config,
   nixpkgs,
   agenix,
+  home-manager,
+  vscode-server,
   ...
 }: let
   username = "leo";
   stateVersion = "23.11";
 in {
   imports = [
+    agenix.nixosModules.default
+    home-manager.nixosModules.home-manager
+    vscode-server.nixosModules.default
+
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
 
     ../programs/fish.nix
