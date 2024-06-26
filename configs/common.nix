@@ -84,7 +84,9 @@ in {
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "@wheel"];
+
+      trusted-substituters = ["https://ghostty.cachix.org"];
+      trusted-public-keys = ["ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="];
     };
   };
 
