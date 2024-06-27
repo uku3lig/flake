@@ -10,18 +10,16 @@
   mkMinecraftServer = name: {
     port,
     remotePort,
+    tag ? "java21",
     dataDir ? "/var/lib/${name}",
     memory ? "4G",
     env ? {},
     extraPorts ? [],
   }: {
     virtualisation.oci-containers.containers.${name} = {
-      image = "itzg/minecraft-server";
+      image = "itzg/minecraft-server:${tag}";
       ports = ["${builtins.toString port}:25565"] ++ extraPorts;
-      volumes = [
-        "${dataDir}:/data"
-        "/data/downloads:/downloads"
-      ];
+      volumes = ["${dataDir}:/data"];
       environmentFiles = [config.age.secrets.minecraftEnv.path];
       environment =
         {
@@ -82,19 +80,18 @@ in
         Unit = "restart-minecraft-servers.service";
       };
     };
-
-    cfTunnels."map.uku.moe" = "http://localhost:8100";
   }
   (mkMinecraftServers {
-    p9 = {
-      port = 25568;
-      extraPorts = ["8100:8100"];
-      remotePort = 6003;
-      memory = "4G";
+    atm9 = {
+      port = 25565;
+      remotePort = 6004;
+      tag = "java17";
+      memory = "8G";
       env = {
         USE_AIKAR_FLAGS = "true";
-        TYPE = "MODRINTH";
-        MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.6.0+1.20.6.fabric";
+        MOD_PLATFORM = "AUTO_CURSEFORGE";
+        CF_SLUG = "all-the-mods-9";
+        CF_FILE_ID = "5458414";
       };
     };
 
