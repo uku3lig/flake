@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: {
   boot = {
@@ -18,20 +19,14 @@
     # xserver.videoDrivers = ["intel"];
     libinput.enable = true;
     power-profiles-daemon.enable = true;
-    blueman.enable = true;
   };
 
   programs.light.enable = true;
 
-  hm = {
-    home.packages = with pkgs; [
-      networkmanagerapplet
-      protonvpn-gui
-    ];
-
-    wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
-      "${lib.getExe networkmanagerapplet}"
-      "${lib.getExe' blueman "blueman-applet"}"
-    ];
-  };
+  # hyprland stuff
+  services.blueman = lib.mkIf config.programs.hyprland.enable {enable = true;};
+  hm.wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
+    "${lib.getExe networkmanagerapplet}"
+    "${lib.getExe' blueman "blueman-applet"}"
+  ];
 }
