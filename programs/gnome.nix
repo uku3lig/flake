@@ -4,11 +4,15 @@
     displayManager.defaultSession = "gnome";
   };
 
-  environment = with pkgs; {
-    systemPackages = [
-      gnome.gnome-tweaks
-      gnomeExtensions.appindicator
+  hm.programs.gnome-shell = {
+    enable = true;
+    extensions = [
+      {package = pkgs.gnomeExtensions.appindicator;}
     ];
+  };
+
+  environment = with pkgs; {
+    systemPackages = [gnome.gnome-tweaks];
 
     gnome.excludePackages =
       [gnome-tour]
