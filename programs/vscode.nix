@@ -82,9 +82,11 @@ in {
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "errorLens.messageBackgroundMode" = "message";
       "java.jdt.ls.java.home" = "${pkgs.jdk17}/lib/openjdk";
+      
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[javascript]"."editor.defaultFormatter" = "esbenp.prettier-vscode";
       "[astro]"."editor.defaultFormatter" = "astro-build.astro-vscode";
+      "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
 
       # fix for segfault on hyprland
       "window.titleBarStyle" = "custom";
