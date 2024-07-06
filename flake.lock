@@ -73,11 +73,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720025378,
-        "narHash": "sha256-zlIdj0oLvMEHlllP/7tvY+kE987xsN4FPux6WHSOh00=",
+        "lastModified": 1720226507,
+        "narHash": "sha256-yHVvNsgrpyNTXZBEokL8uyB2J6gB1wEx0KOJzoeZi1A=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "087e08a41009bf083d51ab35d8e30b1b7eafa7b0",
+        "rev": "0aed560c5c0a61c9385bddff471a13036203e11c",
         "type": "github"
       },
       "original": {
@@ -204,11 +204,11 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1720024143,
-        "narHash": "sha256-Fba/6644jv2BV5dBipH5xELZdnyG+cKdW8NswNV8pjg=",
+        "lastModified": 1720240734,
+        "narHash": "sha256-SXtXvn3VGEqOZpCUnc9FCeOSB9Qrha7Tt4kpZmYGdMw=",
         "ref": "refs/heads/main",
-        "rev": "9f3f663633c3e9a79fb37930e5313b2da78f9ca4",
-        "revCount": 6444,
+        "rev": "dea8859e2c5cd24fa3b3fc3947c7e1ca01eca2fd",
+        "revCount": 6451,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720045378,
-        "narHash": "sha256-lmE7B+QXw7lWdBu5GQlUABSpzPk3YBb9VbV+IYK5djk=",
+        "lastModified": 1720188602,
+        "narHash": "sha256-lC3byBmhVZFzWl/dCic8+cKUEEAXAswWOYjq4paFmbo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0a30138c694ab3b048ac300794c2eb599dc40266",
+        "rev": "e3582e5151498bc4d757e8361431ace8529e7bb7",
         "type": "github"
       },
       "original": {
@@ -334,11 +334,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719220171,
-        "narHash": "sha256-xywM6JoGT8AwfoOFJBTv8GRlvNu8LYqqqMS/OQ6uCgE=",
+        "lastModified": 1720188460,
+        "narHash": "sha256-ydD3UPIPlOkEDStwNxzGwFhAi5vGcobn2EofOmUvKDA=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "269411cfed6aab694e46f719277c972de96177bb",
+        "rev": "7051b909b9b5e74f19791795bd769de12c5acb3d",
         "type": "github"
       },
       "original": {
@@ -534,11 +534,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720056415,
-        "narHash": "sha256-mWXA7NiS9EbIRefc1kFbCC6r/hHhn5yYP8CEMg/T1Q0=",
+        "lastModified": 1720229171,
+        "narHash": "sha256-Assq5h1UXEzRgQr/iv3+Cis8v0Raz/0t2MHvFnbKaUQ=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "4dd84dc0426c8c1ef319d7c3c4f64278f25a45c3",
+        "rev": "a3c96ad5286ba6ac643f2a130d24e0a1f0a69bf8",
         "type": "github"
       },
       "original": {
