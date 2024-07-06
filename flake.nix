@@ -111,14 +111,12 @@
       url = "github:uku3lig/api-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.rust-overlay.follows = "";
     };
 
     ukubot-rs = {
       url = "github:uku3lig/ukubot-rs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.rust-overlay.follows = "";
     };
   };
 }

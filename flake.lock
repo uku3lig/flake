@@ -34,15 +34,14 @@
         ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "rust-overlay": []
+        ]
       },
       "locked": {
-        "lastModified": 1720132148,
-        "narHash": "sha256-BlooLtPPo6453esxubBut3AkDvne80H+TgDMVMWoBhs=",
+        "lastModified": 1720298516,
+        "narHash": "sha256-5klgZHJbtoKzimFyxuoxtIQgVm7wpryznKw4b/nQXBg=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "9a608e741a47250dbb84550a37255e8d3a80ac80",
+        "rev": "ca02c1b7accfa60b25ca8abc11d8c4ae08942988",
         "type": "github"
       },
       "original": {
@@ -246,11 +245,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720188602,
-        "narHash": "sha256-lC3byBmhVZFzWl/dCic8+cKUEEAXAswWOYjq4paFmbo=",
+        "lastModified": 1720289319,
+        "narHash": "sha256-E3CjSsXNDWYqoNjrKQLPdEZDLR+mVI9HMa+jY//FjBY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e3582e5151498bc4d757e8361431ace8529e7bb7",
+        "rev": "10486e6b311b3c5ae1c3477fee058704cea7cb4a",
         "type": "github"
       },
       "original": {
@@ -506,15 +505,14 @@
         ],
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "rust-overlay": []
+        ]
       },
       "locked": {
-        "lastModified": 1719870142,
-        "narHash": "sha256-x6qVZVBNwkgnIGd8xMUroU84jT6xoTcfJhinf4wSk9g=",
+        "lastModified": 1720302471,
+        "narHash": "sha256-qShvS3tZh7QzEVPXEAKwo65bBZA+VQ7hzqfD9f7db1U=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "80cbeb54ad97826ab7a72e302d6651fcdfc49e8e",
+        "rev": "baece2468da12083ada422fe41d43ccb44dc7163",
         "type": "github"
       },
       "original": {
