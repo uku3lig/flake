@@ -102,7 +102,7 @@ in
       env = {
         USE_AIKAR_FLAGS = "true";
         TYPE = "MODRINTH";
-        MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.6.0+1.20.4.fabric";
+        MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.6.0+1.20.6.fabric";
       };
     };
   })
