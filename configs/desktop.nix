@@ -154,8 +154,6 @@
     gnome.gnome-keyring.enable = true;
   };
 
-  sound.enable = true;
-
   virtualisation.libvirtd.enable = true;
 
   xdg = {
