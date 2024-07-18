@@ -2,7 +2,7 @@
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
-  services.openssh.openFirewall = true;
+  services.openssh.ports = [4269];
 
   services.frp = {
     enable = true;
@@ -18,4 +18,14 @@
 
   age.secrets.frpToken.file = ../../secrets/etna/frpToken.age;
   systemd.services.frp.serviceConfig.EnvironmentFile = config.age.secrets.frpToken.path;
+
+  networking.firewall = {
+    allowedTCPPorts = [22]; # forgejo-ssh
+    allowedTCPPortRanges = [
+      {
+        from = 6000;
+        to = 7000;
+      }
+    ];
+  };
 }
