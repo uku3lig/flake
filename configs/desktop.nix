@@ -147,6 +147,11 @@
       wireplumber.enable = true;
     };
 
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn; # mullvad only has the cli
+    };
+
     ratbagd.enable = true;
     udisks2.enable = true;
     gvfs.enable = true;
