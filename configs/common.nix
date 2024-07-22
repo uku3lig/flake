@@ -90,6 +90,7 @@ in {
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "@wheel"];
 
       trusted-substituters = [
         "https://uku3lig.cachix.org"
