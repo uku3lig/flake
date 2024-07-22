@@ -68,7 +68,7 @@ in {
 
   networking.networkmanager = {
     enable = true;
-    dns = "systemd-resolved";
+    dns = lib.mkDefault "systemd-resolved";
   };
 
   nix = {
@@ -138,10 +138,9 @@ in {
     resolved = {
       enable = lib.mkDefault true;
       dnssec = "allow-downgrade";
-      extraConfig = lib.mkDefault ''
-        [Resolve]
+      dnsovertls = "true";
+      extraConfig = ''
         DNS=1.1.1.1 1.0.0.1
-        DNSOverTLS=yes
       '';
     };
 
