@@ -72,7 +72,6 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.crane.follows = "crane";
       inputs.pre-commit-hooks-nix.follows = "";
       inputs.flake-compat.follows = "";
