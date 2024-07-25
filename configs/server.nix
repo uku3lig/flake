@@ -3,7 +3,7 @@
 
   _module.args.nixinate = {
     host = config.networking.hostName;
-    sshUser = "root";
+    sshUser = "leo";
     buildOn = "remote";
     substituteOnTarget = true;
     hermetic = false; # hermetic fucks up for cross-system deployments
