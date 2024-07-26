@@ -100,10 +100,11 @@ in {
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["root" "@wheel"];
 
-      trusted-substituters = [
+      substituters = [
         "https://uku3lig.cachix.org"
         "https://ghostty.cachix.org"
       ];
+
       trusted-public-keys = [
         "uku3lig.cachix.org-1:C1/9DNUadh2pueAo+LUkVNUKyIVjF/CREd9RS9E+F2A="
         "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
