@@ -5,7 +5,6 @@
   nixpkgs,
   agenix,
   home-manager,
-  vscode-server,
   ...
 }: let
   username = "leo";
@@ -14,7 +13,6 @@ in {
   imports = [
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
-    vscode-server.nixosModules.default
 
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
 
@@ -132,8 +130,6 @@ in {
       enable = true;
       openFirewall = lib.mkDefault false;
     };
-
-    vscode-server.enable = true;
 
     resolved = {
       enable = lib.mkDefault true;
