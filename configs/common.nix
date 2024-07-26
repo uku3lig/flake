@@ -55,7 +55,17 @@ in {
     };
   };
 
-  hm.home = {inherit stateVersion;};
+  hm = {
+    home = {inherit stateVersion;};
+
+    programs.ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
+      forwardAgent = true;
+    };
+
+    services.ssh-agent.enable = true;
+  };
 
   home-manager = {
     useGlobalPkgs = true;
@@ -107,8 +117,6 @@ in {
   };
 
   programs = {
-    ssh.startAgent = true;
-
     direnv.enable = true;
 
     nix-ld.enable = true;

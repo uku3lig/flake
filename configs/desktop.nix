@@ -87,13 +87,6 @@
       ];
     };
 
-    services = {
-      gpg-agent = {
-        enable = true;
-        pinentryPackage = pkgs.pinentry-gnome3;
-      };
-    };
-
     xdg.enable = true;
     gtk.enable = true;
   };
@@ -111,11 +104,6 @@
   };
 
   programs = {
-    gnupg.agent = {
-      enable = true;
-      pinentryPackage = pkgs.pinentry-gnome3;
-    };
-
     firefox.enable = true;
     steam.enable = true;
     virt-manager.enable = true;
