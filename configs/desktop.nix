@@ -14,7 +14,7 @@
 
     ../programs/ghostty.nix
     ../programs/gnome.nix
-    ../programs/vscode.nix
+    # ../programs/vscode.nix
 
     # the world if hyprland
     # ../programs/hyprland.nix
@@ -79,6 +79,7 @@
         obsidian
         polkit_gnome
         shotcut
+	vscode
 
         (vesktop.override {withSystemVencord = false;})
         (prismlauncher.override {
