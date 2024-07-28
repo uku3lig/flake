@@ -79,7 +79,7 @@
         obsidian
         polkit_gnome
         shotcut
-	vscode
+        vscode
 
         (vesktop.override {withSystemVencord = false;})
         (prismlauncher.override {
