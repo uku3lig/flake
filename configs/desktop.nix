@@ -35,14 +35,21 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [sbctl];
+  environment = {
+    systemPackages = with pkgs; [sbctl];
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+  };
 
   fonts = {
     packages = with pkgs; [
+      cantarell-fonts
+      inter
       iosevka
       jetbrains-mono
-      cantarell-fonts
       twitter-color-emoji
+
       (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
     ];
 
