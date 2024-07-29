@@ -21,5 +21,11 @@
         X11Forwarding = false;
       };
     };
+
+    prometheus.exporters.node = {
+      enable = true;
+      port = 9091;
+      enabledCollectors = ["systemd"];
+    };
   };
 }

@@ -1,4 +1,7 @@
-{
+{config, ...}: let
+  vmcfg = config.services.victoriametrics;
+  pmcfg = config.services.prometheus;
+in {
   cfTunnels."grafana.uku3lig.net" = "http://localhost:2432";
 
   services.grafana = {
@@ -11,37 +14,34 @@
     };
   };
 
-  services.prometheus = {
+  services.victoriametrics = {
     enable = true;
-    port = 9090;
+    listenAddress = "127.0.0.1:9090";
+    retentionPeriod = 5 * 12; # 5 years !!!!
+  };
 
-    globalConfig.scrape_interval = "15s";
+  services.vmagent = {
+    enable = true;
+    remoteWrite.url = "http://${vmcfg.listenAddress}/api/v1/write";
+    prometheusConfig = {
+      global.scrape_interval = "15s";
 
-    exporters = {
-      node = {
-        enable = true;
-        port = 9091;
-        enabledCollectors = ["systemd"];
-      };
+      scrape_configs = [
+        {
+          job_name = "node";
+          static_configs = [{targets = ["localhost:${builtins.toString pmcfg.exporters.node.port}"];}];
+        }
+
+        {
+          job_name = "victoriametrics";
+          static_configs = [{targets = ["${builtins.toString vmcfg.listenAddress}"];}];
+        }
+
+        {
+          job_name = "api-rs";
+          static_configs = [{targets = ["localhost:5001"];}];
+        }
+      ];
     };
-
-    scrapeConfigs = [
-      {
-        job_name = "scrape-node";
-        static_configs = [
-          {
-            targets = ["localhost:9091"];
-          }
-        ];
-      }
-      {
-        job_name = "scrape-api-rs";
-        static_configs = [
-          {
-            targets = ["localhost:5001"];
-          }
-        ];
-      }
-    ];
   };
 }
