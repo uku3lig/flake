@@ -7,22 +7,21 @@ let
   main = [fuji kilimandjaro];
   all = main ++ [etna vesuvio];
 in {
-  "userPassword.age".publicKeys = all;
-  "tailscaleKey.age".publicKeys = all;
+  "shared/userPassword.age".publicKeys = all;
+  "shared/tailscaleKey.age".publicKeys = all;
+  "shared/frpToken.age".publicKeys = main ++ [etna vesuvio];
 
   "fuji/rootPassword.age".publicKeys = main;
   "fuji-wsl/rootPassword.age".publicKeys = main;
   "kilimandjaro/rootPassword.age".publicKeys = main;
-
+  "etna/rootPassword.age".publicKeys = main ++ [etna];
   "vesuvio/rootPassword.age".publicKeys = main ++ [vesuvio];
 
-  "etna/rootPassword.age".publicKeys = main ++ [etna];
   "etna/tunnelCreds.age".publicKeys = main ++ [etna];
   "etna/apiRsEnv.age".publicKeys = main ++ [etna];
   "etna/ukubotRsEnv.age".publicKeys = main ++ [etna];
   "etna/minecraftEnv.age".publicKeys = main ++ [etna];
   "etna/dendriteKey.age".publicKeys = main ++ [etna];
   "etna/nextcloudAdminPass.age".publicKeys = main ++ [etna];
-  "etna/frpToken.age".publicKeys = main ++ [etna vesuvio];
   "etna/turnstileSecret.age".publicKeys = main ++ [etna];
 }

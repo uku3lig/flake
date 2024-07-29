@@ -7,7 +7,7 @@
 }: let
   tunnelId = "57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5";
 
-  frpSecret = _utils.setupSingleSecret config "frpToken" {};
+  secrets = _utils.setupSharedSecrets config {secrets = ["frpToken"];};
   cfTunnelSecret = _utils.setupSingleSecret config "tunnelCreds" {
     owner = "cloudflared";
     group = "cloudflared";
@@ -16,7 +16,7 @@ in {
   imports = [
     (lib.mkAliasOptionModule ["cfTunnels"] ["services" "cloudflared" "tunnels" tunnelId "ingress"])
 
-    frpSecret.generate
+    secrets.generate
     cfTunnelSecret.generate
 
     ./minecraft.nix
@@ -67,5 +67,5 @@ in {
     };
   };
 
-  systemd.services.frp.serviceConfig.EnvironmentFile = frpSecret.path;
+  systemd.services.frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
 }

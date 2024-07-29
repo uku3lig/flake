@@ -12,6 +12,9 @@
   stateVersion = "23.11";
 
   rootPassword = _utils.setupSingleSecret config "rootPassword" {};
+  secrets = _utils.setupSharedSecrets config {
+    secrets = ["userPassword" "tailscaleKey"];
+  };
 in {
   imports = [
     agenix.nixosModules.default
@@ -20,6 +23,7 @@ in {
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
 
     rootPassword.generate
+    secrets.generate
 
     ../programs/fish.nix
     ../programs/git.nix
@@ -27,14 +31,7 @@ in {
     ../programs/starship
   ];
 
-  age = {
-    identityPaths = ["/etc/age/key"];
-
-    secrets = {
-      userPassword.file = ../secrets/userPassword.age;
-      tailscaleKey.file = ../secrets/tailscaleKey.age;
-    };
-  };
+  age.identityPaths = ["/etc/age/key"];
 
   boot = {
     kernelPackages = pkgs.linuxPackages; # use lts
@@ -157,7 +154,7 @@ in {
       enable = true;
       useRoutingFeatures = "both";
       extraUpFlags = ["--ssh" "--stateful-filtering"];
-      authKeyFile = config.age.secrets.tailscaleKey.path;
+      authKeyFile = secrets.get "tailscaleKey";
     };
   };
 
@@ -170,7 +167,7 @@ in {
       isNormalUser = true;
       shell = pkgs.fish;
       extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
-      hashedPasswordFile = config.age.secrets.userPassword.path;
+      hashedPasswordFile = secrets.get "userPassword";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8"
       ];

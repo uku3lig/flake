@@ -1,8 +1,13 @@
 {
   pkgs,
   config,
+  _utils,
   ...
-}: {
+}: let
+  secrets = _utils.setupSharedSecrets config {secrets = ["frpToken"];};
+in {
+  imports = [secrets.generate];
+
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
@@ -25,8 +30,7 @@
     };
   };
 
-  age.secrets.frpToken.file = ../../secrets/etna/frpToken.age;
-  systemd.services.frp.serviceConfig.EnvironmentFile = config.age.secrets.frpToken.path;
+  systemd.services.frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
 
   networking = {
     networkmanager.dns = "default";

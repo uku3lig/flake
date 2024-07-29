@@ -16,6 +16,14 @@
     inherit (_config.age.secrets.${name}) path;
   };
 
+  setupSharedSecrets = _config: {
+    secrets,
+    extra ? {},
+  }: {
+    generate = {age.secrets = lib.genAttrs secrets (name: extra // {file = ../secrets/shared/${name}.age;});};
+    get = name: _config.age.secrets.${name}.path;
+  };
+
   mkMinecraftServer = _config: {
     name,
     port,
