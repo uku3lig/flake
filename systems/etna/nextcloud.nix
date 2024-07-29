@@ -1,14 +1,17 @@
 {
-  config,
   pkgs,
-  mkSecret,
+  config,
+  _utils,
   ...
-}: {
-  age.secrets = mkSecret "nextcloudAdminPass" {
+}: let
+  adminPass = _utils.setupSingleSecret config "nextcloudAdminPass" {
     owner = config.users.users.nextcloud.name;
     group = config.users.users.nextcloud.name;
   };
+in {
+  imports = [adminPass.generate];
 
+  # nextcloud generates nginx config
   cfTunnels."cloud.uku3lig.net" = "http://localhost:80";
 
   services.nextcloud = {
@@ -22,7 +25,7 @@
     configureRedis = true;
 
     config = {
-      adminpassFile = config.age.secrets.nextcloudAdminPass.path;
+      adminpassFile = adminPass.path;
     };
   };
 }

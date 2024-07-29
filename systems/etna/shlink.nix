@@ -1,4 +1,4 @@
-_: {
+{
   cfTunnels."uku.moe" = "http://localhost:8081";
 
   virtualisation.oci-containers.containers.shlink = {

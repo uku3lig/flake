@@ -1,31 +1,32 @@
 {
   config,
-  mkSecrets,
+  _utils,
   api-rs,
   ukubot-rs,
   ...
-}: {
+}: let
+  secrets = _utils.setupSecrets config {
+    secrets = ["apiRsEnv" "ukubotRsEnv"];
+  };
+in {
   imports = [
     api-rs.nixosModules.default
     ukubot-rs.nixosModules.default
-  ];
 
-  age.secrets = mkSecrets {
-    apiRsEnv = {};
-    ukubotRsEnv = {};
-  };
+    secrets.generate
+  ];
 
   cfTunnels."api.uku3lig.net" = "http://localhost:5000";
 
   services = {
     api-rs = {
       enable = true;
-      environmentFile = config.age.secrets.apiRsEnv.path;
+      environmentFile = secrets.get "apiRsEnv";
     };
 
     ukubot-rs = {
       enable = true;
-      environmentFile = config.age.secrets.ukubotRsEnv.path;
+      environmentFile = secrets.get "ukubotRsEnv";
     };
   };
 }

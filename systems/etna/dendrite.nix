@@ -1,9 +1,12 @@
 {
   config,
-  mkSecret,
+  _utils,
   ...
-}: {
-  age.secrets = mkSecret "dendriteKey" {};
+}: let
+  secretKey = _utils.setupSingleSecret config "dendriteKey" {};
+in {
+  imports = [secretKey.generate];
+
   cfTunnels."m.uku.moe" = "http://localhost:80";
 
   systemd.services.dendrite = {
@@ -22,7 +25,7 @@
     in {
       enable = true;
       httpPort = 8008;
-      loadCredential = ["private_key:${config.age.secrets.dendriteKey.path}"];
+      loadCredential = ["private_key:${secretKey.path}"];
 
       settings = {
         global = {

@@ -1,14 +1,16 @@
 {
   config,
-  mkSecret,
+  _utils,
   ...
-}: {
-  cfTunnels."git.uku3lig.net" = "http://localhost:3000";
-
-  age.secrets = mkSecret "turnstileSecret" {
+}: let
+  turnstileSecret = _utils.setupSingleSecret config "turnstileSecret" {
     owner = "forgejo";
     group = "forgejo";
   };
+in {
+  imports = [turnstileSecret.generate];
+
+  cfTunnels."git.uku3lig.net" = "http://localhost:3000";
 
   services = {
     forgejo = {
@@ -20,7 +22,7 @@
       };
 
       secrets = {
-        service.CF_TURNSTILE_SECRET = config.age.secrets.turnstileSecret.path;
+        service.CF_TURNSTILE_SECRET = turnstileSecret.path;
       };
 
       settings = {

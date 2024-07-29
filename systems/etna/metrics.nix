@@ -1,4 +1,4 @@
-{...}: {
+{
   cfTunnels."grafana.uku3lig.net" = "http://localhost:2432";
 
   services.grafana = {

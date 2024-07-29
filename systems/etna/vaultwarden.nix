@@ -1,4 +1,4 @@
-_: {
+{
   cfTunnels."bw.uku3lig.net" = "http://localhost:8222";
 
   services.vaultwarden = {

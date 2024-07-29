@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  _utils,
   nixpkgs,
   agenix,
   home-manager,
@@ -9,12 +10,16 @@
 }: let
   username = "leo";
   stateVersion = "23.11";
+
+  rootPassword = _utils.setupSingleSecret config "rootPassword" {};
 in {
   imports = [
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
 
     (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
+
+    rootPassword.generate
 
     ../programs/fish.nix
     ../programs/git.nix
@@ -26,7 +31,6 @@ in {
     identityPaths = ["/etc/age/key"];
 
     secrets = {
-      rootPassword.file = ../secrets/${config.networking.hostName}/rootPassword.age;
       userPassword.file = ../secrets/userPassword.age;
       tailscaleKey.file = ../secrets/tailscaleKey.age;
     };
@@ -174,7 +178,7 @@ in {
 
     root = {
       shell = pkgs.fish;
-      hashedPasswordFile = config.age.secrets.rootPassword.path;
+      hashedPasswordFile = rootPassword.path;
     };
   };
 

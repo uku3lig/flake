@@ -3,6 +3,8 @@
   inputs,
   ...
 }: let
+  _utils = import ../global/utils.nix {inherit lib;};
+
   toSystem = name: {
     role,
     system,
@@ -19,7 +21,7 @@
         {networking.hostName = name;}
       ];
 
-      specialArgs = inputs;
+      specialArgs = inputs // {inherit _utils;};
     };
 in {
   flake.nixosConfigurations = lib.mapAttrs toSystem {
