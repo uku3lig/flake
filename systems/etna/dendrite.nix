@@ -3,7 +3,7 @@
   mkSecret,
   ...
 }: {
-  age.secrets = mkSecret "dendriteKey" {mode = "444";};
+  age.secrets = mkSecret "dendriteKey" {};
   cfTunnels."m.uku.moe" = "http://localhost:80";
 
   systemd.services.dendrite = {
@@ -22,10 +22,12 @@
     in {
       enable = true;
       httpPort = 8008;
+      loadCredential = ["private_key:${config.age.secrets.dendriteKey.path}"];
+
       settings = {
         global = {
           server_name = "m.uku.moe";
-          private_key = config.age.secrets.dendriteKey.path;
+          private_key = "$CREDENTIALS_DIRECTORY/private_key";
           inherit database;
         };
 
