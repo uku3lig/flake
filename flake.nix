@@ -77,6 +77,13 @@
       inputs.flake-compat.follows = "";
     };
 
+    mystia = {
+      url = "github:soopyc/mystia";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-update-soopy.follows = "";
+      inputs.flake-compat.follows = "";
+    };
+
     nixinate = {
       url = "github:matthewcroughan/nixinate";
       inputs.nixpkgs.follows = "nixpkgs";

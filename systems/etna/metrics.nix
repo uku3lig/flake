@@ -1,8 +1,24 @@
-{config, ...}: let
+{
+  config,
+  mystia,
+  _utils,
+  ...
+}: let
   vmcfg = config.services.victoriametrics;
-  pmcfg = config.services.prometheus;
+  secrets = _utils.setupSharedSecrets config {secrets = ["vmAuthToken"];};
 in {
-  cfTunnels."grafana.uku3lig.net" = "http://localhost:2432";
+  imports = [
+    mystia.nixosModules.vmauth
+    secrets.generate
+  ];
+
+  cfTunnels = {
+    "grafana.uku3lig.net" = "http://localhost:2432";
+    "metrics.uku3lig.net" = {
+      service = "http://localhost:9089";
+      path = "/api/.*/write";
+    };
+  };
 
   services.grafana = {
     enable = true;
@@ -22,16 +38,11 @@ in {
 
   services.vmagent = {
     enable = true;
-    remoteWrite.url = "http://${vmcfg.listenAddress}/api/v1/write";
     prometheusConfig = {
       global.scrape_interval = "15s";
 
+      # node scraping is sent to vm directly via vmauth
       scrape_configs = [
-        {
-          job_name = "node";
-          static_configs = [{targets = ["localhost:${builtins.toString pmcfg.exporters.node.port}"];}];
-        }
-
         {
           job_name = "victoriametrics";
           static_configs = [{targets = ["${builtins.toString vmcfg.listenAddress}"];}];
@@ -43,5 +54,17 @@ in {
         }
       ];
     };
+  };
+
+  services.vmauth = {
+    enable = true;
+    listenAddress = "127.0.0.1:9089";
+    environmentFile = secrets.get "vmAuthToken";
+    authConfig.users = [
+      {
+        bearer_token = "%{VM_AUTH_TOKEN}";
+        url_prefix = "http://${vmcfg.listenAddress}";
+      }
+    ];
   };
 }

@@ -9,7 +9,8 @@ let
 in {
   "shared/userPassword.age".publicKeys = all;
   "shared/tailscaleKey.age".publicKeys = all;
-  "shared/frpToken.age".publicKeys = main ++ [etna vesuvio];
+  "shared/frpToken.age".publicKeys = all;
+  "shared/vmAuthToken.age".publicKeys = all;
 
   "fuji/rootPassword.age".publicKeys = main;
   "fuji-wsl/rootPassword.age".publicKeys = main;

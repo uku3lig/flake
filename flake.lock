@@ -299,6 +299,28 @@
         "type": "github"
       }
     },
+    "mystia": {
+      "inputs": {
+        "flake-compat": [],
+        "nix-update-soopy": [],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1722240118,
+        "narHash": "sha256-SkKJH1Qc2+rMQsas9YWtIfgWNv9Be788Mw6VvcubW4Y=",
+        "owner": "soopyc",
+        "repo": "mystia",
+        "rev": "f0020f82a83957ba6924e46907820f1e05fcf66c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soopyc",
+        "repo": "mystia",
+        "type": "github"
+      }
+    },
     "nixinate": {
       "inputs": {
         "nixpkgs": [
@@ -401,6 +423,7 @@
         "ghostty": "ghostty",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
+        "mystia": "mystia",
         "nixinate": "nixinate",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
