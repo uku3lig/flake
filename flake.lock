@@ -37,11 +37,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721727672,
-        "narHash": "sha256-3NhlF13xqcFuUvxV98lVZPn1vPkvwRcV2M1MB64zF1I=",
+        "lastModified": 1722336946,
+        "narHash": "sha256-75ccXvdf4pGlsOeWga9mDck84V0EKvAwcfNljBTO/NY=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "42203d34bfae5df008c43e91c6174ca94e4a4bc1",
+        "rev": "19e1c74f870355683d6a327f17ad68cc6f828957",
         "type": "github"
       },
       "original": {
@@ -203,11 +203,11 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1722175582,
-        "narHash": "sha256-vtFvZRoMn62W5uvV1QhO6VLgD1t5Kc1ZXN7LZtDAL7Q=",
+        "lastModified": 1722201645,
+        "narHash": "sha256-vHpDK1dCYmX4ArFgYNpMJrLjFjgB+JFbPT0a2BuFssg=",
         "ref": "refs/heads/main",
-        "rev": "4bbb5d9c86743e90c33f2a4e1767b5ea35f5e638",
-        "revCount": 6695,
+        "rev": "874c4e13d26f12a1b5fb43ca6cbbbcb46778da75",
+        "revCount": 6697,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -245,11 +245,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722119539,
-        "narHash": "sha256-2kU90liMle0vKR8exJx1XM4hZh9CdNgZGHCTbeA9yzY=",
+        "lastModified": 1722321190,
+        "narHash": "sha256-WeVWVRqkgrbLzmk6FfJoloJ7Xe7HWD27Pv950IUG2kI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d0240a064db3987eb4d5204cf2400bc4452d9922",
+        "rev": "4fcd54df7cbb1d79cbe81209909ee8514d6b17a4",
         "type": "github"
       },
       "original": {
@@ -286,11 +286,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1722082611,
-        "narHash": "sha256-V3l8hVgAjRr5aVWx7sTHTUFUz+wtlQvEzN7O4Y1qyc8=",
+        "lastModified": 1722329086,
+        "narHash": "sha256-e/fSi0WER06N8WCvpht62fkGtWfe5ckDxr6zNYkwkFw=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "2250c381fcb652273c0eba5e093dcdb31beeb3f8",
+        "rev": "f5a3a7dff44d131807fc1a89fbd8576cd870334a",
         "type": "github"
       },
       "original": {
@@ -352,11 +352,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722012218,
-        "narHash": "sha256-Rnjo49C5/slnmcQW9c57IdiHJZ3YEFmUn3as/NIPD4E=",
+        "lastModified": 1722253092,
+        "narHash": "sha256-37vyqHPx57deHhwvi4jwyNQLYkhm/rlVTYKOG1iahsc=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "ac026940beb42f74c5666f6ed3989aca41eddeea",
+        "rev": "f373ad59ae5866f0f98216bd5c71526b373450d2",
         "type": "github"
       },
       "original": {
@@ -441,11 +441,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722046723,
-        "narHash": "sha256-G7/gHz8ORRvHd1/RIURrdcswKRPe9K0FsIYR4v5jSWo=",
+        "lastModified": 1722219664,
+        "narHash": "sha256-xMOJ+HW4yj6e69PvieohUJ3dBSdgCfvI0nnCEe6/yVc=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "56baac5e6b2743d4730e664ea64f6d8a2aad0fbb",
+        "rev": "a6fbda5d9a14fb5f7c69b8489d24afeb349c7bb4",
         "type": "github"
       },
       "original": {
@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721727661,
-        "narHash": "sha256-zTrBnknBXZV7ScMy2dBu7DLZVDDutkbsaxP0WdduHoU=",
+        "lastModified": 1722282052,
+        "narHash": "sha256-MtzXoOCgtkFp0IOnEm/Gl69yeSrFfghH1EAb/1Lr3W8=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "daf9938c0999aec2ca6696327a95563697536a1e",
+        "rev": "25af8b154ccf99fd93c62f06d43e64906fac7668",
         "type": "github"
       },
       "original": {
@@ -548,11 +548,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722130475,
-        "narHash": "sha256-VT2GvIRL8+nNSQ/XS9N6m42VDBiNDy7Luz3wMHoPLBk=",
+        "lastModified": 1722302960,
+        "narHash": "sha256-byZl18UZCHy3vLhxrXp8THzlzmwNfil93ZQLY30i7/Q=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "25a36236f5051034e2085fb3414493c921bb1994",
+        "rev": "e1a1e6cabd0140ed353e173290e6d92510f5fd66",
         "type": "github"
       },
       "original": {
