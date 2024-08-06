@@ -37,11 +37,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722892930,
-        "narHash": "sha256-k12fR7BkCEyJSz25PbvO7ZpJlLQ2WjiECXm/chqomJA=",
+        "lastModified": 1722935536,
+        "narHash": "sha256-FYKAOukNqilv05s/aySi2GIIpVBR197bBjMgLNJk6cA=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "baf10573abe528c65da6ca35cf0a6fb724c3ba5f",
+        "rev": "9229fddc995c4c817609f7a10752e01acee03ece",
         "type": "github"
       },
       "original": {
@@ -524,11 +524,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722841684,
-        "narHash": "sha256-iGOXsebPFwOZevyQ9uNE4HoDOQkuPIOG6ftwuo38bkk=",
+        "lastModified": 1722935723,
+        "narHash": "sha256-uWGWCfFAVunRwcq9RgvavE8yk0m7oyPVECrIKSMhfRE=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "3a0d31c698ad24721c375c3692fd7d37f670ac4e",
+        "rev": "35a1a9a6bb0a9a66462ce5a328d8c9d1c3731983",
         "type": "github"
       },
       "original": {
