@@ -6,8 +6,10 @@
 
   hm.programs.gnome-shell = {
     enable = true;
-    extensions = [
-      {package = pkgs.gnomeExtensions.appindicator;}
+    extensions = with pkgs.gnomeExtensions; [
+      {package = appindicator;}
+      {package = dash-to-dock;}
+      {package = blur-my-shell;}
     ];
   };
 
