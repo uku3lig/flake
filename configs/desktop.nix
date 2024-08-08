@@ -74,6 +74,7 @@
   hm = {
     imports = [
       catppuccin.homeManagerModules.catppuccin
+      ../programs/java.nix
     ];
 
     home = {
