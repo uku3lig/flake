@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   config,
@@ -89,6 +90,8 @@
         polkit_gnome
         shotcut
         vscode
+
+        self.packages.${system}.enigma
 
         (vesktop.override {withSystemVencord = false;})
         (prismlauncher.override {

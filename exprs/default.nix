@@ -6,6 +6,8 @@
   perSystem = {pkgs, ...}: {
     packages = {
       reposilite = pkgs.callPackage ./reposilite/derivation.nix {};
+      enigma = pkgs.callPackage ./pkgs/enigma.nix {};
+
       wine-discord-ipc-bridge = pkgs.callPackage ./pkgs/wine-discord-ipc-bridge.nix {
         inherit (pkgs.pkgsCross.mingw32) stdenv;
       };
