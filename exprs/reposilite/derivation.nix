@@ -7,11 +7,11 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   name = "reposilite";
-  version = "3.5.12";
+  version = "3.5.14";
 
   src = fetchurl {
     url = with finalAttrs; "https://maven.reposilite.com/releases/com/reposilite/reposilite/${version}/reposilite-${version}-all.jar";
-    hash = "sha256-fidCHkdoQD9oynsPogqyhAXbbydW2oxaZFx5QneOcSY=";
+    hash = "sha256-qZXYpz6SBXDBj8c0IZkfVgxEFe/+DxMpdhLJsjks8cM=";
   };
 
   nativeBuildInputs = [makeWrapper];
