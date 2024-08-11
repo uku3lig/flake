@@ -90,10 +90,10 @@ in {
     };
 
     registry = let
-      nixpkgsRegistry.flake = nixpkgs;
+      n.flake = nixpkgs;
     in {
-      nixpkgs = nixpkgsRegistry;
-      n = nixpkgsRegistry;
+      inherit n;
+      nixpkgs = n;
     };
 
     settings = {
