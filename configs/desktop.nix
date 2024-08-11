@@ -15,6 +15,7 @@
 
     ../programs/ghostty.nix
     ../programs/gnome.nix
+    ../programs/games.nix
     # ../programs/vscode.nix
 
     # the world if hyprland
@@ -67,9 +68,6 @@
     };
 
     pulseaudio.enable = false;
-
-    xone.enable = true;
-    xpadneo.enable = true;
   };
 
   hm = {
@@ -94,9 +92,6 @@
         self.packages.${system}.enigma
 
         (vesktop.override {withSystemVencord = false;})
-        (prismlauncher.override {
-          jdks = [temurin-bin-21 temurin-bin-17 temurin-bin-8];
-        })
       ];
     };
 
@@ -118,7 +113,6 @@
 
   programs = {
     firefox.enable = true;
-    steam.enable = true;
     virt-manager.enable = true;
   };
 
