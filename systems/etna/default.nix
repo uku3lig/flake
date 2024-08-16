@@ -35,6 +35,10 @@ in {
     loader.systemd-boot.enable = true;
   };
 
+  networking.interfaces.eno1 = {
+    wakeOnLan.enable = true;
+  };
+
   services = {
     jmusicbot = {
       enable = true;
