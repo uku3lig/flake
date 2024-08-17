@@ -37,6 +37,12 @@ in {
     kernelPackages = pkgs.linuxPackages; # use lts
     kernelParams = ["quiet" "loglevel=3"];
 
+    # faster tcp !!!
+    kernel.sysctl = {
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+    };
+
     tmp.cleanOnBoot = true;
   };
 
@@ -135,6 +141,13 @@ in {
   security = {
     rtkit.enable = true;
     polkit.enable = true;
+
+    sudo = {
+      execWheelOnly = true;
+      extraConfig = ''
+        Defaults lecture = never
+      '';
+    };
   };
 
   services = {
@@ -155,6 +168,11 @@ in {
       extraUpFlags = ["--ssh" "--stateful-filtering"];
       authKeyFile = secrets.get "tailscaleKey";
     };
+  };
+
+  system.switch = {
+    enable = false;
+    enableNg = true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
