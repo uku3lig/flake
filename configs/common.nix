@@ -75,9 +75,9 @@ in {
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  networking.networkmanager = {
-    enable = true;
-    dns = lib.mkDefault "systemd-resolved";
+  networking = {
+    useNetworkd = lib.mkDefault true;
+    nameservers = ["1.1.1.1" "1.0.0.1"];
   };
 
   nix = {
@@ -142,12 +142,9 @@ in {
     };
 
     resolved = {
-      enable = lib.mkDefault true;
+      enable = true;
       dnssec = "allow-downgrade";
       dnsovertls = "true";
-      extraConfig = ''
-        DNS=1.1.1.1 1.0.0.1
-      '';
     };
 
     tailscale = {

@@ -14,7 +14,6 @@ in {
   environment.systemPackages = with pkgs; [dig traceroute];
 
   services = {
-    resolved.enable = false;
     openssh.ports = [4269];
 
     frp = {
@@ -32,17 +31,13 @@ in {
 
   systemd.services.frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
 
-  networking = {
-    networkmanager.dns = "default";
-
-    firewall = {
-      allowedTCPPorts = [22]; # forgejo-ssh
-      allowedTCPPortRanges = [
-        {
-          from = 6000;
-          to = 7000;
-        }
-      ];
-    };
+  networking.firewall = {
+    allowedTCPPorts = [22]; # forgejo-ssh
+    allowedTCPPortRanges = [
+      {
+        from = 6000;
+        to = 7000;
+      }
+    ];
   };
 }
