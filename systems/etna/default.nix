@@ -71,5 +71,8 @@ in {
     };
   };
 
-  systemd.services.frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
+  systemd.services = {
+    "cloudflared-tunnel-${tunnelId}".serviceConfig.RestartSec = "10s";
+    frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
+  };
 }
