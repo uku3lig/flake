@@ -8,13 +8,15 @@
 in {
   imports = [secrets.generate];
 
-  boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
   environment.systemPackages = with pkgs; [dig traceroute];
 
   services = {
     openssh.ports = [4269];
+
+    # Needed by the Hetzner Cloud password reset feature.
+    qemuGuest.enable = true;
 
     frp = {
       enable = true;
@@ -29,7 +31,12 @@ in {
     };
   };
 
-  systemd.services.frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
+  systemd.services = {
+    frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
+
+    # https://discourse.nixos.org/t/qemu-guest-agent-on-hetzner-cloud-doesnt-work/8864/2
+    qemu-guest-agent.path = [pkgs.shadow];
+  };
 
   networking.firewall = {
     allowedTCPPorts = [22]; # forgejo-ssh

@@ -36,6 +36,8 @@ in {
   boot = {
     kernelPackages = pkgs.linuxPackages; # use lts
     kernelParams = ["quiet" "loglevel=3"];
+
+    tmp.cleanOnBoot = true;
   };
 
   console.keyMap = "fr";
