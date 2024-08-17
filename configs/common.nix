@@ -81,7 +81,7 @@ in {
   };
 
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = pkgs.lix;
 
     gc = {
       automatic = true;
