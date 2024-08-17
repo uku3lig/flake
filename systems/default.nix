@@ -36,7 +36,7 @@ in {
     };
 
     kilimandjaro = {
-      role = "desktop";
+      role = "laptop";
       system = "x86_64-linux";
     };
 
