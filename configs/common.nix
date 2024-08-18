@@ -129,8 +129,6 @@ in {
   programs = {
     direnv.enable = true;
 
-    nix-ld.enable = true;
-
     command-not-found.enable = false;
     nix-index = {
       enable = true;

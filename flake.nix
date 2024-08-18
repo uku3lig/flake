@@ -110,12 +110,6 @@
       inputs.flake-compat.follows = "";
     };
 
-    vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
     # ==== uku3lig stuff ====
     api-rs = {
       url = "github:uku3lig/api-rs";
