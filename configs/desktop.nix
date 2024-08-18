@@ -111,14 +111,6 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  networking = {
-    useNetworkd = false;
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-    };
-  };
-
   programs = {
     firefox.enable = true;
     virt-manager.enable = true;

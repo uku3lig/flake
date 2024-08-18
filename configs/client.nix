@@ -7,4 +7,12 @@
     yt-dlp
     hyfetch
   ];
+
+  networking = {
+    useNetworkd = false;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
+  };
 }

@@ -8,8 +8,6 @@
   imports = [
     nixos-wsl.nixosModules.default
     vscode-server.nixosModules.default
-
-    ../../programs/rust.nix
   ];
 
   services.vscode-server.enable = true;
