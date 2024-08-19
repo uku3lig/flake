@@ -3,6 +3,7 @@
   pkgs,
   config,
   _utils,
+  self,
   nixpkgs,
   agenix,
   home-manager,
@@ -102,6 +103,7 @@ in {
     in {
       inherit n;
       nixpkgs = n;
+      u.flake = self;
     };
 
     settings = {
