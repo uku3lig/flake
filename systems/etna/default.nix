@@ -28,6 +28,7 @@ in {
     ./forgejo.nix
     ./shlink.nix
     ./metrics.nix
+    ./subsonic.nix
   ];
 
   boot = {
