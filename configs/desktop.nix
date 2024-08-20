@@ -87,6 +87,7 @@
         obsidian
         polkit_gnome
         shotcut
+        strawberry
         vscode
 
         (vesktop.override {withSystemVencord = false;})
