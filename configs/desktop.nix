@@ -1,5 +1,4 @@
 {
-  self,
   lib,
   pkgs,
   config,
@@ -42,6 +41,7 @@
     systemPackages = with pkgs; [sbctl];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM = "wayland";
     };
   };
 
@@ -88,8 +88,6 @@
         polkit_gnome
         shotcut
         vscode
-
-        self.packages.${system}.enigma
 
         (vesktop.override {withSystemVencord = false;})
       ];
