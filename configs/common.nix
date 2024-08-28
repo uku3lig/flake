@@ -3,7 +3,7 @@
   pkgs,
   config,
   _utils,
-  self,
+  camasca,
   nixpkgs,
   agenix,
   home-manager,
@@ -98,12 +98,10 @@ in {
       options = "-d";
     };
 
-    registry = let
+    registry = {
       n.flake = nixpkgs;
-    in {
-      inherit n;
-      nixpkgs = n;
-      u.flake = self;
+      nixpkgs.flake = nixpkgs;
+      u.flake = camasca;
     };
 
     settings = {

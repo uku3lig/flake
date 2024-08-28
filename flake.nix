@@ -12,7 +12,6 @@
 
       imports = [
         ./systems
-        ./exprs
       ];
 
       perSystem = {
@@ -22,12 +21,10 @@
       }: {
         apps = (nixinate.nixinate.${system} self).nixinate;
 
-        devShells.default = pkgs.mkShellNoCC {
-          packages = with pkgs; [
-            just
-            statix
-          ];
-        };
+        devShells.default = with pkgs;
+          mkShellNoCC {
+            packages = [just statix];
+          };
 
         formatter = pkgs.alejandra;
       };
@@ -35,6 +32,12 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    camasca = {
+      url = "github:uku3lig/camasca";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
 
     agenix = {
       url = "github:uku3lig/agenix";

@@ -50,6 +50,29 @@
         "type": "github"
       }
     },
+    "camasca": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724885464,
+        "narHash": "sha256-PQp5tDi+vRp5CEoUTI5NPbdhlDlp109KLDgpwsGH4J8=",
+        "owner": "uku3lig",
+        "repo": "camasca",
+        "rev": "f9ab5b1b70eeb6f5bc0e47375ef11b8f3eb81d25",
+        "type": "github"
+      },
+      "original": {
+        "owner": "uku3lig",
+        "repo": "camasca",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "locked": {
         "lastModified": 1724469296,
@@ -388,6 +411,7 @@
       "inputs": {
         "agenix": "agenix",
         "api-rs": "api-rs",
+        "camasca": "camasca",
         "catppuccin": "catppuccin",
         "crane": "crane",
         "flake-parts": "flake-parts",

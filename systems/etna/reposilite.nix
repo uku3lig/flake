@@ -1,5 +1,5 @@
-{self, ...}: {
-  imports = [self.nixosModules.reposilite];
+{camasca, ...}: {
+  imports = [camasca.nixosModules.reposilite];
 
   cfTunnels."maven.uku3lig.net" = "http://localhost:8080";
 
