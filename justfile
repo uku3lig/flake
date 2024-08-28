@@ -8,6 +8,10 @@ switch *args:
     @sudo -v
     sudo nixos-rebuild switch --flake . --keep-going {{args}}
 
+boot *args:
+    @sudo -v
+    sudo nixos-rebuild boot --flake . --keep-going {{args}}
+
 deploy system:
     nix run .#{{system}}
 
