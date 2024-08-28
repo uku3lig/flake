@@ -13,7 +13,7 @@
     ./client.nix
 
     ../programs/ghostty.nix
-    ../programs/gnome.nix
+    ../programs/kde.nix
     ../programs/games.nix
     # ../programs/vscode.nix
 
