@@ -19,6 +19,7 @@ in {
   services = {
     forgejo = {
       enable = true;
+      package = pkgs.forgejo; # forgejo-lts by default
 
       database = {
         type = "postgres";
