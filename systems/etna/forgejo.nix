@@ -1,14 +1,18 @@
 {
+  pkgs,
   config,
   _utils,
   ...
 }: let
-  turnstileSecret = _utils.setupSingleSecret config "turnstileSecret" {
-    owner = "forgejo";
-    group = "forgejo";
+  secrets = _utils.setupSecrets config {
+    secrets = ["turnstileSecret" "forgejoRunnerSecret"];
+    extra = {
+      owner = "forgejo";
+      group = "forgejo";
+    };
   };
 in {
-  imports = [turnstileSecret.generate];
+  imports = [secrets.generate];
 
   cfTunnels."git.uku3lig.net" = "http://localhost:3000";
 
@@ -22,7 +26,7 @@ in {
       };
 
       secrets = {
-        service.CF_TURNSTILE_SECRET = turnstileSecret.path;
+        service.CF_TURNSTILE_SECRET = secrets.get "turnstileSecret";
       };
 
       settings = {
@@ -48,7 +52,10 @@ in {
           ENABLED = true;
         };
 
-        actions.ENABLED = false;
+        actions = {
+          ENABLED = true;
+          DEFAULT_ACTIONS_URL = "https://github.com";
+        };
 
         "ui.meta" = {
           AUTHOR = "uku's forge";
@@ -57,6 +64,28 @@ in {
 
         "repository.signing" = {
           DEFAULT_TRUST_MODEL = "committer";
+        };
+      };
+    };
+
+    gitea-actions-runner = {
+      package = pkgs.forgejo-actions-runner;
+      instances.etna = {
+        enable = true;
+        name = "etna";
+        url = "https://git.uku3lig.net";
+        tokenFile = secrets.get "forgejoRunnerSecret";
+        labels = [
+          "ubuntu-latest:docker://catthehacker/ubuntu:act-latest"
+        ];
+
+        settings = {
+          log.level = "info";
+          runner = {
+            capacity = 4;
+            timeout = "2h";
+            insecure = false;
+          };
         };
       };
     };

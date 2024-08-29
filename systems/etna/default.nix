@@ -76,4 +76,9 @@ in {
     "cloudflared-tunnel-${tunnelId}".serviceConfig.RestartSec = "10s";
     frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
   };
+
+  virtualisation = {
+    docker.enable = true;
+    oci-containers.backend = "docker";
+  };
 }

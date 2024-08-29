@@ -44,8 +44,6 @@ in {
     lynn
   ];
 
-  virtualisation.oci-containers.backend = "docker";
-
   systemd.services.restart-minecraft-servers = {
     wantedBy = ["multi-user.target"];
     script = ''
