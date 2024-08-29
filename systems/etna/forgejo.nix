@@ -82,6 +82,7 @@ in {
 
         settings = {
           log.level = "info";
+          container.network = "host";
           runner = {
             capacity = 4;
             timeout = "2h";
