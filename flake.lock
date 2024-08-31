@@ -89,17 +89,12 @@
       }
     },
     "crane": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
       "locked": {
-        "lastModified": 1724537630,
-        "narHash": "sha256-gpqINM71zp3kw5XYwUXa84ZtPnCmLLnByuFoYesT1bY=",
+        "lastModified": 1724974107,
+        "narHash": "sha256-69+1W0Ao5K9su569YUfUPANeN/Ea7aKu7xIZP1MSl9o=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "3e08f4b1fc9aaede5dd511d8f5f4ef27501e49b0",
+        "rev": "63396562b8e08efda3b3c66e32661b8a513055de",
         "type": "github"
       },
       "original": {
@@ -131,11 +126,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722555600,
-        "narHash": "sha256-XOQkdLafnb/p9ij77byFQjDf5m5QYl9b2REiVClC+x4=",
+        "lastModified": 1725024810,
+        "narHash": "sha256-ODYRm8zHfLTH3soTFWE452ydPYz2iTvr9T8ftDMUQ3E=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "8471fe90ad337a8074e957b69ca4d0089218391d",
+        "rev": "af510d4a62d071ea13925ce41c95e3dec816c01d",
         "type": "github"
       },
       "original": {
@@ -230,11 +225,11 @@
         "zls": "zls"
       },
       "locked": {
-        "lastModified": 1724906556,
-        "narHash": "sha256-nOU3KyEmLpdIuh1HXLDqKJCYRqtXlelL55doP2rYm24=",
+        "lastModified": 1724969132,
+        "narHash": "sha256-XAYTVVxWoCXpHGqoNj0uhIbjD4MimFQXEke9eKYufK4=",
         "ref": "refs/heads/main",
-        "rev": "fcb8b04049ba9a4d12d16a18bcc6be4311c9e76e",
-        "revCount": 7101,
+        "rev": "602bf6ba1e1169750e233ed2431f71dbcf754362",
+        "revCount": 7103,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -335,11 +330,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724832687,
-        "narHash": "sha256-NqhyGfmRbL65TUSItGo5SxNlrMNIqk82RxNU8pbjOwo=",
+        "lastModified": 1725005536,
+        "narHash": "sha256-UgCk9JnYbY5MDpnQrbLbpldczutsuiLxfHE+IvaYwyU=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "82be480f3319695151e21ccf4f0a0a648cae4f38",
+        "rev": "530b6659b65ddb8c82220a55333468ceb589c2a4",
         "type": "github"
       },
       "original": {
@@ -543,11 +538,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724895129,
-        "narHash": "sha256-dPFrppp6f2SbgLo2T8+95acFicBhiSLTF/C3iuUrrcw=",
+        "lastModified": 1725068052,
+        "narHash": "sha256-WqofagIIyZ/hY6vJH65OLXVBgi2FNOezjybwniBvN14=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "7d36ec13978b27d91958a39579a52d28ef015897",
+        "rev": "27661753057dc1d259c7918f6c6777bea26290f1",
         "type": "github"
       },
       "original": {
