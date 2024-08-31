@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  imports = [./nvidia.nix];
+  imports = [
+    ./nvidia.nix
+    ../../programs/games.nix
+  ];
 
   services.xserver.videoDrivers = ["amdgpu"];
 

@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  imports = [../../programs/games.nix];
+
   boot = {
     initrd.kernelModules = ["i915"];
     kernelParams = ["i915.force_probe=9a49"];

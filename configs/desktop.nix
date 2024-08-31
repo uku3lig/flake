@@ -14,7 +14,6 @@
 
     ../programs/ghostty.nix
     ../programs/kde.nix
-    ../programs/games.nix
     # ../programs/vscode.nix
 
     # the world if hyprland
@@ -86,7 +85,6 @@
         obs-studio
         obsidian
         polkit_gnome
-        shotcut
         strawberry
         vscode
 
