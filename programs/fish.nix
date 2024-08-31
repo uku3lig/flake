@@ -11,8 +11,6 @@
     enable = true;
 
     interactiveShellInit = with pkgs; ''
-      set -gx SSH_AUTH_SOCK /run/user/1000/ssh-agent
-
       if test -f ~/.ssh/id_ed25519
         ssh-add -l | grep -q (ssh-keygen -lf ~/.ssh/id_ed25519) || ssh-add ~/.ssh/id_ed25519
       end
