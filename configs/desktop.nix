@@ -93,9 +93,6 @@
         (vesktop.override {withSystemVencord = false;})
       ];
     };
-
-    xdg.enable = true;
-    gtk.enable = true;
   };
 
   i18n.extraLocaleSettings = {
