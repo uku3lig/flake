@@ -32,7 +32,10 @@ in {
     ../programs/starship
   ];
 
-  age.identityPaths = ["/etc/age/key"];
+  age = {
+    ageBin = lib.getExe pkgs.rage;
+    identityPaths = ["/etc/age/key"];
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages; # use lts
