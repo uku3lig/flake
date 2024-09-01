@@ -40,6 +40,11 @@ in {
       system = "x86_64-linux";
     };
 
+    mottarone = {
+      role = "laptop";
+      system = "x86_64-linux";
+    };
+
     etna = {
       role = "server";
       system = "x86_64-linux";

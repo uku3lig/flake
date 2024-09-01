@@ -1,10 +1,11 @@
 let
   fuji = "age16ujdfcahmnhe4ygruf28n0urgxycv8zgsp4f8856a5suewhn49cs0mqk7w";
   kilimandjaro = "age1ny0re542mcvf829y28rz6eta9myaqlxasfnn933srw64dlgavpsqc59q79";
+  mottarone = "age1gfqwnjaajztwu72j8j6f5drdgupkvghsafzma4305pk95spf6u8q5e6zs8";
   etna = "age1m3jm6c5ywc5zntv5j4xhals0h28mpea88zzddq88zxcshmhteqwqu89qnh";
   vesuvio = "age1g2z0tztrv2w7wtludjrd85q7px3lvjms0cjj32zej9dqpjwpscwsle6xhf";
 
-  main = [fuji kilimandjaro];
+  main = [fuji kilimandjaro mottarone];
   all = main ++ [etna vesuvio];
 in {
   "shared/userPassword.age".publicKeys = all;
@@ -15,6 +16,7 @@ in {
   "fuji/rootPassword.age".publicKeys = main;
   "fuji-wsl/rootPassword.age".publicKeys = main;
   "kilimandjaro/rootPassword.age".publicKeys = main;
+  "mottarone/rootPassword.age".publicKeys = main;
   "etna/rootPassword.age".publicKeys = main ++ [etna];
   "vesuvio/rootPassword.age".publicKeys = main ++ [vesuvio];
 
