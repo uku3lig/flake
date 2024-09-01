@@ -51,7 +51,6 @@ in {
 
   environment = {
     systemPackages = with pkgs; [
-      agenix.packages.${pkgs.system}.default
       neovim
       git
       curl

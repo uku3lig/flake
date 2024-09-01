@@ -5,6 +5,7 @@
     self,
     flake-parts,
     nixinate,
+    agenix,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -23,7 +24,11 @@
 
         devShells.default = with pkgs;
           mkShellNoCC {
-            packages = [just statix];
+            packages = [
+              just
+              statix
+              agenix.packages.${system}.default
+            ];
           };
 
         formatter = pkgs.alejandra;
