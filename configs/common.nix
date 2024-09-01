@@ -91,6 +91,7 @@ in {
 
   nix = {
     package = pkgs.lix;
+    channel.enable = false;
 
     gc = {
       automatic = true;
@@ -104,10 +105,18 @@ in {
       u.flake = camasca;
     };
 
+    # give nix daemon lower priority
+    daemonCPUSchedPolicy = "batch";
+    daemonIOSchedClass = "idle";
+
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["root" "@wheel"];
+      connect-timeout = 5; # fail fast if substituters are not available
+      builders-use-substitutes = true;
+      log-lines = 25;
+      min-free = 512 * 1024 * 1024; # if free space drops under min, gc
 
       substituters = [
         "https://uku3lig.cachix.org"
