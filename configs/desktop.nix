@@ -82,13 +82,10 @@
         jetbrains.idea-ultimate
         libreoffice-fresh
         mpv
-        obs-studio
         obsidian
         polkit_gnome
         strawberry
         vscode
-
-        (vesktop.override {withSystemVencord = false;})
       ];
     };
   };
