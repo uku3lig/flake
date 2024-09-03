@@ -12,7 +12,6 @@
   versionCheckHook,
   which,
 }:
-
 buildNpmPackage rec {
   pname = "teams-for-linux";
   version = "1.9.5";
@@ -26,10 +25,12 @@ buildNpmPackage rec {
 
   npmDepsHash = "sha256-vDRFFxkIQo5qU9gmkSwUhPz4FG2XbUNkTw6SCuvMqCc=";
 
-  nativeBuildInputs = [
-    makeWrapper
-    versionCheckHook
-  ] ++ lib.optionals (stdenv.isLinux) [ copyDesktopItems ];
+  nativeBuildInputs =
+    [
+      makeWrapper
+      versionCheckHook
+    ]
+    ++ lib.optionals (stdenv.isLinux) [copyDesktopItems];
 
   doInstallCheck = stdenv.isLinux;
 
@@ -74,11 +75,11 @@ buildNpmPackage rec {
       # Linux needs 'aplay' for notification sounds
       makeWrapper '${lib.getExe electron_30}' "$out/bin/teams-for-linux" \
         --prefix PATH : ${
-          lib.makeBinPath [
-            alsa-utils
-            which
-          ]
-        } \
+        lib.makeBinPath [
+          alsa-utils
+          which
+        ]
+      } \
         --add-flags "$out/share/teams-for-linux/app.asar" \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
     ''
@@ -107,7 +108,7 @@ buildNpmPackage rec {
     })
   ];
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "Unofficial Microsoft Teams client for Linux";
