@@ -3,6 +3,7 @@
     chromium
     gtkterm
     (pkgs.callPackage ./teams.nix {})
+    svn2git
   ];
 
   programs.git.package = pkgs.gitSVN;
