@@ -83,7 +83,6 @@
         libreoffice-fresh
         mpv
         obsidian
-        polkit_gnome
         strawberry
         vscode
       ];

@@ -26,6 +26,7 @@
       swappy
       grimblast
       playerctl
+      polkit_gnome
     ];
 
     wayland.windowManager.hyprland = {
