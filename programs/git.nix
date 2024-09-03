@@ -1,9 +1,9 @@
-{
+{config, ...}: {
   programs.git.enable = true;
 
   hm.programs = {
     git = {
-      enable = true;
+      inherit (config.programs.git) enable package;
       userName = "uku";
       userEmail = "hi@uku.moe";
 
