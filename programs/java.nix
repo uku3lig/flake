@@ -9,5 +9,6 @@ in {
   home.file = {
     ".jdks/temurin-21".source = mkOutOfStoreSymlink pkgs.temurin-bin-21;
     ".jdks/temurin-17".source = mkOutOfStoreSymlink pkgs.temurin-bin-17;
+    ".jdks/temurin-8".source = mkOutOfStoreSymlink pkgs.temurin-bin-8;
   };
 }
