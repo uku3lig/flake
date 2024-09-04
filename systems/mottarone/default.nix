@@ -11,6 +11,7 @@
   ];
 
   programs.git.package = pkgs.gitSVN;
+  hm.programs.git.enable = lib.mkForce false;
 
   services.resolved.dnsovertls = lib.mkForce "false";
 }
