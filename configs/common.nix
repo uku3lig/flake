@@ -184,7 +184,14 @@ in {
     enableNg = true;
   };
 
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd = {
+    services.NetworkManager-wait-online.enable = lib.mkForce false;
+
+    # NixOS/nixpkgs#267101
+    tmpfiles.rules = [
+      "L /usr/lib/locale/locale-archive - - - - /run/current-system/sw/lib/locale/locale-archive"
+    ];
+  };
 
   time.timeZone = "Europe/Paris";
 
