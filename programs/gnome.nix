@@ -1,7 +1,13 @@
 {pkgs, ...}: {
   services = {
     xserver.desktopManager.gnome.enable = true;
-    displayManager.defaultSession = "gnome";
+    displayManager = {
+      defaultSession = "gnome";
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
+    };
   };
 
   hm.programs.gnome-shell = {

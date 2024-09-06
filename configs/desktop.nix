@@ -115,10 +115,6 @@
       xkb.layout = "fr";
       displayManager = {
         lightdm.enable = false;
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
       };
     };
 
