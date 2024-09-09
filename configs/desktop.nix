@@ -84,6 +84,7 @@
         mpv
         obsidian
         strawberry
+        thunderbird
         vscode
       ];
     };
