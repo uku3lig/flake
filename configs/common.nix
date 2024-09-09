@@ -10,7 +10,7 @@
   ...
 }: let
   username = "leo";
-  stateVersion = "23.11";
+  stateVersion = "24.11";
 
   rootPassword = _utils.setupSingleSecret config "rootPassword" {};
   secrets = _utils.setupSharedSecrets config {
