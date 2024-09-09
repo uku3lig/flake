@@ -47,8 +47,12 @@ in {
     };
 
     openssh.openFirewall = true;
-
     nginx.enable = true;
+
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_16;
+    };
 
     frp = {
       enable = true;
