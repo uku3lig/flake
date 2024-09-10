@@ -16,6 +16,7 @@
 
     systemPackages = with pkgs; [
       flameshot
+      kcalc
       camasca.packages.${pkgs.system}.koi
     ];
 
