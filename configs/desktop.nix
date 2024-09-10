@@ -84,6 +84,7 @@
         mpv
         obsidian
         strawberry
+        teams-for-linux
         thunderbird
         vscode
       ];

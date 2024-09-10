@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
     chromium
     gtkterm
-    teams-for-linux
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
