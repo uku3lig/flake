@@ -16,7 +16,7 @@
 
     systemPackages = with pkgs; [
       flameshot
-      kcalc
+      gnome-calculator
       camasca.packages.${pkgs.system}.koi
     ];
 
