@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: {
   services.xserver.videoDrivers = lib.mkForce ["nvidia"];
@@ -19,7 +18,8 @@
   hardware = {
     graphics.extraPackages = [pkgs.vaapiVdpau];
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      # package = config.boot.kernelPackages.nvidiaPackages.production;
+      open = false;
       modesetting.enable = true;
       powerManagement = {
         enable = true;
