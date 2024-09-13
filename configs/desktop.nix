@@ -79,7 +79,7 @@
       packages = with pkgs; [
         gimp
         gparted
-        jetbrains.idea-ultimate
+        idea-ultimate-fhs
         libreoffice-fresh
         mpv
         obsidian
