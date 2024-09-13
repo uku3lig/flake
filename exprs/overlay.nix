@@ -11,7 +11,7 @@ final: prev: {
   });
 
   fhs-openssh = prev.openssh.overrideAttrs (old: {
-    patches = old.patches or [] ++ [ ./openssh-fhs-fix.patch ];
+    patches = old.patches or [] ++ [./openssh-fhs-fix.patch];
   });
 
   idea-ultimate-fhs = prev.buildFHSEnv {
