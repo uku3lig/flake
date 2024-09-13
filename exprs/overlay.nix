@@ -10,10 +10,15 @@ final: prev: {
     };
   });
 
+  fhs-openssh = prev.openssh.overrideAttrs (old: {
+    patches = old.patches or [] ++ [ ./openssh-fhs-fix.patch ];
+  });
+
   idea-ultimate-fhs = prev.buildFHSEnv {
     name = "idea-ultimate";
 
     targetPkgs = pkgs: (with pkgs; [
+      fhs-openssh
       stdenv.cc.cc.lib
       glfw3-minecraft
       openal
