@@ -20,6 +20,7 @@ in {
     cfTunnelSecret.generate
 
     ./minecraft.nix
+    ./satisfactory.nix
     ./dendrite.nix
     ./nextcloud.nix
     ./reposilite.nix
