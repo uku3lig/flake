@@ -144,7 +144,10 @@
     gnome.gnome-keyring.enable = true;
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    virtualbox.host.enable = true;
+  };
 
   xdg = {
     portal.enable = true;
