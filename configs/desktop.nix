@@ -82,13 +82,18 @@
         gimp
         gparted
         idea-ultimate-fhs
-        libreoffice-fresh
         mpv
         obsidian
         strawberry
         teams-for-linux
         thunderbird
         vscode
+
+        # libreoffice stuff
+        libreoffice-qt6-fresh
+        hunspell
+        hunspellDicts.en_US
+        hunspellDicts.fr-moderne
       ];
     };
   };
