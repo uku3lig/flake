@@ -21,11 +21,25 @@
       MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaserver/version/1.6.0+1.20.6.fabric";
     };
   };
+
+  vanilla = _utils.mkMinecraftServer config {
+    name = "vanilla";
+    port = 25565;
+    remotePort = 6005;
+    memory = "4G";
+    envFiles = [secret.path];
+    env = {
+      USE_AIKAR_FLAGS = "true";
+      TYPE = "MODRINTH";
+      MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaline/version/1.24.0+1.21.1.fabric";
+    };
+  };
 in {
   imports = [
     secret.generate
 
     lynn
+    vanilla
   ];
 
   systemd.services.restart-minecraft-servers = {
