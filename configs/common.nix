@@ -199,7 +199,7 @@ in {
     "${username}" = {
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = ["networkmanager" "wheel" "video" "libvirtd"];
+      extraGroups = ["networkmanager" "wheel" "video" "libvirtd" "input"];
       hashedPasswordFile = secrets.get "userPassword";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8"
