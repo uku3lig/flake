@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     chromium
     gtkterm
+    maven
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
