@@ -39,7 +39,11 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [sbctl];
+    systemPackages = with pkgs; [
+      sbctl
+      wl-clipboard
+    ];
+
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       QT_QPA_PLATFORM = "wayland";
