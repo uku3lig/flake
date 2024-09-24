@@ -7,6 +7,7 @@
     chromium
     gtkterm
     maven
+    svn2git
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
