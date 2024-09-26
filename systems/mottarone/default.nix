@@ -19,9 +19,4 @@
   };
 
   services.resolved.dnsovertls = lib.mkForce "false";
-
-  services.tomcat = {
-    enable = true;
-    jdk = pkgs.temurin-bin-8;
-  };
 }
