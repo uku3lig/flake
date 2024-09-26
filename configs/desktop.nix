@@ -91,6 +91,7 @@
         strawberry
         teams-for-linux
         thunderbird
+        (vesktop.override {withSystemVencord = false;})
         vscode
 
         # libreoffice stuff
