@@ -7,6 +7,12 @@
     fastfetch
   ];
 
+  hm.programs.keychain = {
+    enable = true;
+    agents = ["ssh"];
+    keys = ["id_ed25519"];
+  };
+
   networking = {
     useNetworkd = false;
     networkmanager = {

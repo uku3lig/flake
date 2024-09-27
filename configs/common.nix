@@ -75,8 +75,6 @@ in {
       addKeysToAgent = "yes";
       forwardAgent = true;
     };
-
-    services.ssh-agent.enable = true;
   };
 
   home-manager = {

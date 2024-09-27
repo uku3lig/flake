@@ -12,8 +12,6 @@
   };
 
   environment = {
-    variables.SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
-
     systemPackages = with pkgs; [
       flameshot
       gnome-calculator
