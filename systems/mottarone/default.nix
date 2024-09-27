@@ -18,5 +18,10 @@
     ssh.enable = lib.mkForce false;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
+
   services.resolved.dnsovertls = lib.mkForce "false";
 }
