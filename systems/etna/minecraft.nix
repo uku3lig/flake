@@ -45,6 +45,7 @@
       USE_AIKAR_FLAGS = "true";
       TYPE = "MODRINTH";
       MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaline/version/1.24.0+1.21.1.fabric";
+      MODRINTH_PROJECTS = "spark, no-chat-reports";
     };
   };
 in {

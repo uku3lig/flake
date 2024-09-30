@@ -50,6 +50,8 @@
         // env;
     };
 
+    networking.firewall.allowedTCPPorts = [port];
+
     services.frp.settings.proxies = [
       {
         inherit name remotePort;
