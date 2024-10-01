@@ -13,11 +13,13 @@
     package = pkgs.nix-ld-rs;
   };
 
+  environment.sessionVariables.LD_LIBRARY_PATH = ["/run/opengl-driver/lib"];
+
   wsl = {
     enable = true;
     defaultUser = "leo";
     nativeSystemd = true;
-    # useWindowsDriver = true;
+    useWindowsDriver = true;
     wslConf.network = {
       hostname = config.networking.hostName;
       generateResolvConf = false;
