@@ -8,7 +8,7 @@
 
   hm = {
     home.packages = with pkgs; [
-      ryujinx
+      wineWowPackages.waylandFull
     ];
 
     wayland.windowManager.hyprland.settings = {
