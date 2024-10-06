@@ -24,6 +24,7 @@
         status.submoduleSummary = true;
         diff.submodule = "log";
         submodule.recurse = true;
+        commit.verbose = true;
       };
     };
 
