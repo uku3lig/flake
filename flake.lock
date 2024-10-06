@@ -37,11 +37,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727761399,
-        "narHash": "sha256-AS54L0yQBiWSyCx/X7QArPAj6n2jANtPj8xwzx0+e3k=",
+        "lastModified": 1728222154,
+        "narHash": "sha256-V8lgfzqQh1ARkecJ0/EiXo9aQhghOdBvNdRbSojfsYc=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "c8814a5075fc2107a757f0abedd8277a7fd1de93",
+        "rev": "b127970d396bced7119aebf05de6daac5759c360",
         "type": "github"
       },
       "original": {
@@ -172,11 +172,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1728146237,
-        "narHash": "sha256-XRr8x81tbLJAWKKFB+7Z/WFPlT6AY9+aRWg2GVvgzVU=",
+        "lastModified": 1728230852,
+        "narHash": "sha256-JEJ/9E6w4bTPtySEP1WASxemNP9bPALM0KIRyOlf9TA=",
         "ref": "refs/heads/main",
-        "rev": "a36bdd97de39f73b8c180ea5e92a099e90607ea9",
-        "revCount": 7613,
+        "rev": "50b52da63856d46ac79a2a115f13ca92a2063730",
+        "revCount": 7618,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
