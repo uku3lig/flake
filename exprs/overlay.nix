@@ -39,6 +39,8 @@ final: prev: {
 
       udev # oshi
       flite
+
+      esbuild
     ]);
 
     extraInstallCommands = ''
