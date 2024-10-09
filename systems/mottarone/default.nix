@@ -24,4 +24,6 @@
   };
 
   services.resolved.dnsovertls = lib.mkForce "false";
+
+  virtualisation.docker.enable = true;
 }
