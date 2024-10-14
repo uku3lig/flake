@@ -1,5 +1,17 @@
-{pkgs, ...}: {
-  imports = [../../programs/games.nix];
+{
+  pkgs,
+  camasca,
+  ...
+}: {
+  imports = [
+    camasca.nixosModules.asus-numpad
+    ../../programs/games.nix
+  ];
+
+  services.asus-numpad = {
+    enable = true;
+    settings.layout = "M433IA";
+  };
 
   boot = {
     initrd.kernelModules = ["i915"];
