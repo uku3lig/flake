@@ -38,7 +38,7 @@ in {
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages; # use lts
+    kernelPackages = lib.mkDefault pkgs.linuxPackages; # use lts
     kernelParams = ["quiet" "loglevel=3"];
 
     # faster tcp !!!

@@ -33,7 +33,7 @@ in {
   ];
 
   boot = {
-    kernelPackages = lib.mkForce pkgs.linuxPackages_6_1;
+    kernelPackages = pkgs.linuxPackages_6_1;
     loader.systemd-boot.enable = true;
   };
 
