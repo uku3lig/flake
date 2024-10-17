@@ -19,7 +19,7 @@
     graphics.extraPackages = [pkgs.vaapiVdpau];
     nvidia = {
       # package = config.boot.kernelPackages.nvidiaPackages.production;
-      open = false;
+      open = true;
       modesetting.enable = true;
       powerManagement = {
         enable = true;
