@@ -85,6 +85,7 @@
 
     home = {
       packages = with pkgs; [
+        chromium
         gimp
         gparted
         idea-ultimate-fhs
