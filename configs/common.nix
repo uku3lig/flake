@@ -165,7 +165,7 @@ in {
 
     resolved = {
       enable = true;
-      dnssec = "allow-downgrade";
+      dnssec = "true";
       dnsovertls = "true";
     };
 

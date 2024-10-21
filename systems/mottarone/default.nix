@@ -22,7 +22,10 @@
     package = pkgs.nix-ld-rs;
   };
 
-  services.resolved.dnsovertls = lib.mkForce "false";
+  services.resolved = {
+    dnssec = lib.mkForce "allow-downgrade";
+    dnsovertls = lib.mkForce "false";
+  };
 
   virtualisation.docker.enable = true;
 }
