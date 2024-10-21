@@ -17,11 +17,6 @@
     ssh.enable = lib.mkForce false;
   };
 
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
-
   services.resolved = {
     dnssec = lib.mkForce "allow-downgrade";
     dnsovertls = lib.mkForce "false";

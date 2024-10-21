@@ -21,4 +21,6 @@
       plugins = [pkgs.networkmanager-fortisslvpn];
     };
   };
+
+  programs.nix-ld.enable = true;
 }
