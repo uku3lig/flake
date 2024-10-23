@@ -37,11 +37,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1729576344,
-        "narHash": "sha256-vDUsO/ySePItnF7kXp8wLBlglYmCLzRqnJGkmYoLsI0=",
+        "lastModified": 1729679269,
+        "narHash": "sha256-CTQ6Sr+slTHDyxl6RBfhl/1dK06v097fBBgm74TkYVY=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "f0e066fb45441932be51df7f785f38350f04a2db",
+        "rev": "89ac4f4440a06b32d0847f1da8327bd22d3d6b19",
         "type": "github"
       },
       "original": {
