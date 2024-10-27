@@ -90,7 +90,7 @@ in {
   };
 
   nix = {
-    package = pkgs.lix;
+    package = pkgs.nixVersions.latest;
     channel.enable = false;
 
     gc = {
