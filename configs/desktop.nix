@@ -88,7 +88,7 @@
         chromium
         gimp
         gparted
-        idea-ultimate-fhs
+        idea-ultimate-fixed
         mpv
         obsidian
         strawberry

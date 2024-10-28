@@ -10,43 +10,5 @@ final: prev: {
     };
   });
 
-  fhs-openssh = prev.openssh.overrideAttrs (old: {
-    patches = old.patches or [] ++ [./openssh-fhs-fix.patch];
-  });
-
-  idea-ultimate-fhs = prev.buildFHSEnv {
-    name = "idea-ultimate";
-
-    targetPkgs = pkgs: (with pkgs; [
-      fhs-openssh
-      stdenv.cc.cc.lib
-      glfw3-minecraft
-      openal
-
-      ## openal
-      alsa-lib
-      libjack2
-      libpulseaudio
-      pipewire
-
-      ## glfw
-      libGL
-      xorg.libX11
-      xorg.libXcursor
-      xorg.libXext
-      xorg.libXrandr
-      xorg.libXxf86vm
-
-      udev # oshi
-      flite
-
-      esbuild
-    ]);
-
-    extraInstallCommands = ''
-      ln -s "${prev.jetbrains.idea-ultimate}/share" "$out/"
-    '';
-
-    runScript = prev.lib.getExe prev.jetbrains.idea-ultimate;
-  };
+  idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix {};
 }
