@@ -8,11 +8,6 @@
     nixos-wsl.nixosModules.default
   ];
 
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
-
   environment.sessionVariables.LD_LIBRARY_PATH = ["/run/opengl-driver/lib"];
 
   wsl = {
