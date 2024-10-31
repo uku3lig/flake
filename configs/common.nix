@@ -28,7 +28,6 @@ in {
 
     ../programs/fish.nix
     ../programs/git.nix
-    ../programs/rust.nix
     ../programs/starship
   ];
 

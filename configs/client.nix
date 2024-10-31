@@ -1,5 +1,9 @@
 {pkgs, ...}: {
-  imports = [./common.nix];
+  imports = [
+    ./common.nix
+
+    ../programs/rust.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     nil
