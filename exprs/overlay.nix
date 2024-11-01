@@ -12,7 +12,7 @@ vencord-input: final: prev: {
 
   idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix {};
 
-  vencord = prev.vencord.overrideAttrs (old: {
+  vencord = prev.vencord.overrideAttrs (old: rec {
     src =
       vencord-input
       // {
@@ -20,6 +20,15 @@ vencord-input: final: prev: {
         repo = "Vencord";
       };
 
-    patches = old.patches or [] ++ [./ventex.patch];
+    ventex = prev.fetchFromGitHub {
+      owner = "vgskye";
+      repo = "ventex";
+      rev = "158c14e7d88acb140a71766c514d8a3724d260cd";
+      hash = "sha256-Svc8dI2weFcqPSk064t/pL/4Hopn6/mWP6cIrT+FIr8=";
+    };
+
+    postConfigure = ''
+      cp -r ${ventex} src/plugins/ventex
+    '';
   });
 }
