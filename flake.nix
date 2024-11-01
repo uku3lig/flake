@@ -127,5 +127,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
+
+    # ==== vencord ====
+    vencord = {
+      url = "github:Vendicated/Vencord";
+      flake = false;
+    };
   };
 }

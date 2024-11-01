@@ -1,4 +1,4 @@
-final: prev: {
+vencord-input: final: prev: {
   svn2git = prev.svn2git.overrideAttrs (_: rec {
     version = "2.4.2";
 
@@ -11,4 +11,15 @@ final: prev: {
   });
 
   idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix {};
+
+  vencord = prev.vencord.overrideAttrs (old: {
+    src =
+      vencord-input
+      // {
+        owner = "Vendicated";
+        repo = "Vencord";
+      };
+
+    patches = old.patches or [] ++ [./ventex.patch];
+  });
 }

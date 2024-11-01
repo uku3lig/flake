@@ -333,6 +333,7 @@
         "nixpkgs": "nixpkgs",
         "systems": "systems_2",
         "ukubot-rs": "ukubot-rs",
+        "vencord": "vencord",
         "vscode-extensions": "vscode-extensions"
       }
     },
@@ -407,6 +408,22 @@
       "original": {
         "owner": "uku3lig",
         "repo": "ukubot-rs",
+        "type": "github"
+      }
+    },
+    "vencord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729849691,
+        "narHash": "sha256-3bCw0ocP8Z5hLPC7dEwz0ckSUCKwHHLMY7BSMXpd/iA=",
+        "owner": "Vendicated",
+        "repo": "Vencord",
+        "rev": "88e8fa7e904e525c4c1110d057f0812e4008ff7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Vendicated",
+        "repo": "Vencord",
         "type": "github"
       }
     },

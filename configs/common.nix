@@ -7,6 +7,7 @@
   nixpkgs,
   agenix,
   home-manager,
+  vencord,
   ...
 }: let
   username = "leo";
@@ -131,7 +132,7 @@ in {
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [(import ../exprs/overlay.nix)];
+    overlays = [(import ../exprs/overlay.nix vencord)];
   };
 
   programs = {
