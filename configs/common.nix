@@ -92,6 +92,8 @@ in {
   nix = {
     package = pkgs.nixVersions.latest;
     channel.enable = false;
+    # The `flake:` syntax in `$NIX_PATH` seems to do some weird copying on Nix 2.24
+    nixPath = ["nixpkgs=${config.nixpkgs.flake.source}"];
 
     gc = {
       automatic = true;
@@ -132,6 +134,7 @@ in {
 
   nixpkgs = {
     config.allowUnfree = true;
+    flake.setNixPath = false;
     overlays = [(import ../exprs/overlay.nix vencord)];
   };
 
