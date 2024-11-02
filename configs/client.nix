@@ -17,5 +17,14 @@
     keys = ["id_ed25519"];
   };
 
+  networking = {
+    useNetworkd = false;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      plugins = [pkgs.networkmanager-fortisslvpn];
+    };
+  };
+
   programs.nix-ld.enable = true;
 }
