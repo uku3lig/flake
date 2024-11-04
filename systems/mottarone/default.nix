@@ -7,6 +7,7 @@
     gtkterm
     maven
     svn2git
+    remmina
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
