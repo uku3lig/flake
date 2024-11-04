@@ -5,6 +5,7 @@
   makeWrapper,
   symlinkJoin,
   alsa-lib,
+  esbuild,
   flite,
   glfw3-minecraft,
   libGL,
@@ -60,6 +61,7 @@ in
         mesa-demos
         pciutils # need lspci
         xrandr # needed for LWJGL [2.9.2, 3) https://github.com/LWJGL/lwjgl/issues/128
+        esbuild
       ];
     in ''
       wrapProgram $out/bin/idea-ultimate \
