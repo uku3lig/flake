@@ -1,13 +1,17 @@
 {
   lib,
   pkgs,
+  camasca,
   ...
-}: {
+}: let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in {
   environment.systemPackages = with pkgs; [
     gtkterm
     maven
     svn2git
     remmina
+    camasca.packages.${system}.openwebstart
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
