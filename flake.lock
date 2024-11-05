@@ -52,19 +52,16 @@
     },
     "camasca": {
       "inputs": {
-        "flake-parts": [
-          "flake-parts"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1728905971,
-        "narHash": "sha256-oumO7WOhClK6/KYpG7NOW6giusECzF4diIzlDK1zpYA=",
+        "lastModified": 1730806150,
+        "narHash": "sha256-Nbil3AKMam6iXRsAA2GDq/aYuUKBl6NIY9JUpeV1QDI=",
         "owner": "uku3lig",
         "repo": "camasca",
-        "rev": "ac2d57b85cb9e8e54f2a43753e2032d6ce80ccc3",
+        "rev": "6aa35b55922d0c5033ae0fb723af12cefd4ce216",
         "type": "github"
       },
       "original": {
