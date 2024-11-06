@@ -13,14 +13,14 @@ vencord-input: final: prev: {
   idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix {};
 
   vencord = prev.vencord.overrideAttrs (old: rec {
-    src =
-      vencord-input
-      // {
-        owner = "Vendicated";
-        repo = "Vencord";
-      };
+    src = vencord-input;
 
-    env = old.env // {VENCORD_HASH = src.shortRev;};
+    env =
+      old.env
+      // {
+        VENCORD_REMOTE = "Vendicated/Vencord";
+        VENCORD_HASH = src.shortRev;
+      };
 
     pnpmDeps = old.pnpmDeps.overrideAttrs (_: {
       outputHash = "sha256-vVzERis1W3QZB/i6SQR9dQR56yDWadKWvFr+nLTQY9Y=";
