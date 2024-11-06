@@ -20,6 +20,8 @@ vencord-input: final: prev: {
         repo = "Vencord";
       };
 
+    env = old.env // {VENCORD_HASH = src.shortRev;};
+
     pnpmDeps = old.pnpmDeps.overrideAttrs (_: {
       outputHash = "sha256-vVzERis1W3QZB/i6SQR9dQR56yDWadKWvFr+nLTQY9Y=";
       outputHashAlgo = "sha256";
