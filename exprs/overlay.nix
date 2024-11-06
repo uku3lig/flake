@@ -20,6 +20,11 @@ vencord-input: final: prev: {
         repo = "Vencord";
       };
 
+    pnpmDeps = old.pnpmDeps.overrideAttrs (_: {
+      outputHash = "sha256-vVzERis1W3QZB/i6SQR9dQR56yDWadKWvFr+nLTQY9Y=";
+      outputHashAlgo = "sha256";
+    });
+
     ventex = prev.fetchFromGitHub {
       owner = "vgskye";
       repo = "ventex";
