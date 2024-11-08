@@ -12,7 +12,7 @@ in {
     svn2git
     remmina
     camasca.packages.${system}.openwebstart
-    jetbrains.pycharm-community
+    jetbrains.pycharm-community-bin
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
