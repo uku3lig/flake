@@ -9,6 +9,7 @@
     nil
     ffmpeg
     fastfetch
+    jujutsu
   ];
 
   hm.programs.keychain = {
