@@ -12,6 +12,7 @@ in {
   services.vaultwarden = {
     enable = true;
     environmentFile = envFile.path;
+    backupDir = "/data/backups/vaultwarden";
     config = {
       DOMAIN = "https://bw.uku3lig.net";
       SIGNUPS_ALLOWED = false;
