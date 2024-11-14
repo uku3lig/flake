@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     nil
-    ffmpeg
+    (ffmpeg-full.override {withUnfree = true;})
     fastfetch
     jujutsu
   ];
