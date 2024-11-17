@@ -3,6 +3,7 @@
     ./common.nix
 
     ../programs/rust.nix
+    ../programs/neovim
   ];
 
   environment.systemPackages = with pkgs; [
