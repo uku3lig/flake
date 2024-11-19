@@ -39,7 +39,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
     camasca = {
-      url = "github:uku3lig/camasca";
+      url = "git+https://git.uku3lig.net/uku/camasca";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

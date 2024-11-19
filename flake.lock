@@ -59,15 +59,15 @@
       "locked": {
         "lastModified": 1731888097,
         "narHash": "sha256-UCq+RvapUJcrtFe97k0t2XyragRlpO/fYJfnLl2H/3k=",
-        "owner": "uku3lig",
-        "repo": "camasca",
+        "ref": "refs/heads/main",
         "rev": "328afb1258e520374a205338707c1d88e731d5f5",
-        "type": "github"
+        "revCount": 24,
+        "type": "git",
+        "url": "https://git.uku3lig.net/uku/camasca"
       },
       "original": {
-        "owner": "uku3lig",
-        "repo": "camasca",
-        "type": "github"
+        "type": "git",
+        "url": "https://git.uku3lig.net/uku/camasca"
       }
     },
     "catppuccin": {
