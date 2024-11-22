@@ -27,6 +27,4 @@ in {
     dnssec = lib.mkForce "allow-downgrade";
     dnsovertls = lib.mkForce "false";
   };
-
-  virtualisation.docker.enable = true;
 }
