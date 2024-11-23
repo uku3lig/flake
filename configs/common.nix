@@ -8,6 +8,7 @@
   agenix,
   home-manager,
   vencord,
+  hydro,
   ...
 }: let
   username = "leo";
@@ -29,7 +30,7 @@ in {
 
     ../programs/fish.nix
     ../programs/git.nix
-    ../programs/starship
+    # ../programs/starship
   ];
 
   age = {
@@ -135,7 +136,7 @@ in {
   nixpkgs = {
     config.allowUnfree = true;
     flake.setNixPath = false;
-    overlays = [(import ../exprs/overlay.nix vencord)];
+    overlays = [(import ../exprs/overlay.nix {inherit vencord hydro;})];
   };
 
   programs = {

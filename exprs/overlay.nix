@@ -1,4 +1,4 @@
-vencord-input: final: prev: {
+inputs: final: prev: {
   svn2git = prev.svn2git.overrideAttrs (_: rec {
     version = "2.4.2";
 
@@ -13,7 +13,8 @@ vencord-input: final: prev: {
   idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix {};
 
   vencord = prev.vencord.overrideAttrs (old: rec {
-    src = vencord-input;
+    version = "${old.version}+git.${inputs.vencord.shortRev}";
+    src = inputs.vencord;
 
     env =
       old.env
@@ -37,5 +38,12 @@ vencord-input: final: prev: {
     postConfigure = ''
       cp -r ${ventex} src/plugins/ventex
     '';
+  });
+
+  fishPlugins = prev.fishPlugins.overrideScope (sfinal: sprev: {
+    hydro = sprev.hydro.overrideAttrs (old: {
+      version = "0-unstable-${inputs.hydro.lastModifiedDate}";
+      src = inputs.hydro;
+    });
   });
 }

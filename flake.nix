@@ -127,9 +127,14 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    # ==== vencord ====
+    # ==== non-nix inputs ====
     vencord = {
       url = "github:Vendicated/Vencord";
+      flake = false;
+    };
+
+    hydro = {
+      url = "github:jorgebucaran/hydro";
       flake = false;
     };
   };

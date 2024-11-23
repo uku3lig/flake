@@ -1,18 +1,19 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish.enable = true;
 
-  environment.systemPackages = with pkgs; [nix-your-shell];
+  environment.systemPackages = with pkgs; [
+    fishPlugins.hydro
+  ];
 
   hm.programs.fish = {
     enable = true;
 
     interactiveShellInit = ''
-      ${lib.getExe pkgs.starship} init fish | source
-      ${lib.getExe pkgs.nix-your-shell} fish | source
+      set --global hydro_symbol_git_dirty "*"
+      set --global hydro_color_pwd blue
+      set --global hydro_color_git magenta
+      set --global hydro_color_prompt green
+      set --global hydro_color_duration yellow
     '';
 
     functions.fish_greeting = "";
