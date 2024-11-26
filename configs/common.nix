@@ -53,22 +53,16 @@ in {
 
   console.keyMap = "fr";
 
-  environment = {
-    systemPackages = with pkgs; [
-      btop
-      curl
-      git
-      htop
-      ncdu
-      neovim
-      ripgrep
-      wget
-    ];
-
-    variables = {
-      EDITOR = lib.getExe pkgs.neovim;
-    };
-  };
+  environment.systemPackages = with pkgs; [
+    btop
+    curl
+    git
+    htop
+    ncdu
+    neovim
+    ripgrep
+    wget
+  ];
 
   hm = {
     home = {inherit stateVersion;};
