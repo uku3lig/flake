@@ -55,12 +55,14 @@ in {
 
   environment = {
     systemPackages = with pkgs; [
-      neovim
-      git
+      btop
       curl
-      wget
+      git
       htop
+      ncdu
+      neovim
       ripgrep
+      wget
     ];
 
     variables = {
