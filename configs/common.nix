@@ -165,8 +165,8 @@ in {
 
     resolved = {
       enable = true;
-      dnssec = "true";
-      dnsovertls = "true";
+      dnssec = lib.mkDefault "true";
+      dnsovertls = lib.mkDefault "true";
     };
 
     tailscale = {

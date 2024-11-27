@@ -18,6 +18,11 @@ in {
     # Needed by the Hetzner Cloud password reset feature.
     qemuGuest.enable = true;
 
+    resolved = {
+      dnssec = "allow-downgrade";
+      dnsovertls = "false";
+    };
+
     frp = {
       enable = true;
       role = "server";

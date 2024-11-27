@@ -24,7 +24,7 @@ in {
   };
 
   services.resolved = {
-    dnssec = lib.mkForce "allow-downgrade";
-    dnsovertls = lib.mkForce "false";
+    dnssec = "allow-downgrade";
+    dnsovertls = "false";
   };
 }
