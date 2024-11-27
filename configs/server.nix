@@ -52,7 +52,7 @@ in {
     vmagent = {
       enable = true;
       remoteWrite.url = "https://metrics.uku3lig.net/api/v1/write";
-      extraArgs = ["-remoteWrite.bearerToken $VM_AUTH_TOKEN"];
+      extraArgs = ["-remoteWrite.bearerTokenFile=\${CREDENTIALS_DIRECTORY}/vm_auth_token"];
       prometheusConfig = {
         global.scrape_interval = "15s";
 
@@ -73,7 +73,7 @@ in {
   };
 
   systemd = {
-    services.vmagent.serviceConfig.EnvironmentFile = secrets.get "vmAuthToken";
+    services.vmagent.serviceConfig.LoadCredential = ["vm_auth_token:${secrets.get "vmAuthToken"}"];
 
     # For more detail, see:
     #   https://0pointer.de/blog/projects/watchdog.html
