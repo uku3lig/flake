@@ -8,6 +8,14 @@
     ../../programs/games.nix
   ];
 
+  environment.systemPackages = [
+    (pkgs.jetbrains.rider.overrideAttrs (old: {
+      postInstall = builtins.replaceStrings ["ln -s ${pkgs.dotnet-sdk_7}"] ["ln -s ${pkgs.dotnet-sdk_8.unwrapped}/share/dotnet"] old.postInstall or "";
+    }))
+  ];
+
+  hm.imports = [../../programs/dotnet.nix];
+
   services.asus-numpad = {
     enable = true;
     settings.layout = "M433IA";
