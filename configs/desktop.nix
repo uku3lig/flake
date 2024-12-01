@@ -60,7 +60,8 @@
       jetbrains-mono
       twitter-color-emoji
 
-      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
+      nerd-fonts.iosevka
+      nerd-fonts.jetbrains-mono
     ];
 
     fontconfig.defaultFonts = {
