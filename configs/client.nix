@@ -7,10 +7,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    nil
     (ffmpeg-full.override {withUnfree = true;})
     fastfetch
-    jujutsu
+    lazygit
+    nil
   ];
 
   hm.programs.keychain = {
