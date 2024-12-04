@@ -20,8 +20,12 @@ in {
     ssh.enable = lib.mkForce false;
   };
 
-  services.resolved = {
-    dnssec = "allow-downgrade";
-    dnsovertls = "false";
+  services = {
+    resolved = {
+      dnssec = "allow-downgrade";
+      dnsovertls = "false";
+    };
+
+    postgresql.enable = true;
   };
 }
