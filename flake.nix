@@ -132,10 +132,5 @@
       url = "github:Vendicated/Vencord";
       flake = false;
     };
-
-    hydro = {
-      url = "github:jorgebucaran/hydro";
-      flake = false;
-    };
   };
 }

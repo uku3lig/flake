@@ -202,22 +202,6 @@
         "type": "github"
       }
     },
-    "hydro": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733306048,
-        "narHash": "sha256-KXch0JvfAfZfBgA8oXnYs6mRN417WvDoJN9EOZNZn10=",
-        "owner": "jorgebucaran",
-        "repo": "hydro",
-        "rev": "7d0b895f8c82ee9b3710a038e0ac558d99941a72",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jorgebucaran",
-        "repo": "hydro",
-        "type": "github"
-      }
-    },
     "lanzaboote": {
       "inputs": {
         "crane": [
@@ -339,7 +323,6 @@
         "flake-utils": "flake-utils",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
-        "hydro": "hydro",
         "lanzaboote": "lanzaboote",
         "mystia": "mystia",
         "nixinate": "nixinate",

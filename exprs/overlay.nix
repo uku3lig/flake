@@ -28,11 +28,4 @@ inputs: final: prev: {
       cp -r ${ventex} src/plugins/ventex
     '';
   });
-
-  fishPlugins = prev.fishPlugins.overrideScope (sfinal: sprev: {
-    hydro = sprev.hydro.overrideAttrs (old: {
-      version = "0-unstable-${inputs.hydro.lastModifiedDate}";
-      src = inputs.hydro;
-    });
-  });
 }
