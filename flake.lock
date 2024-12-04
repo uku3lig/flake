@@ -37,11 +37,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733214974,
-        "narHash": "sha256-wt0T39BRtLafAy3+IlX4ZZ8+KiZNykm9CrYO9IwTvEk=",
+        "lastModified": 1733301261,
+        "narHash": "sha256-DhrFTYBw4dqS5ZQG9yoAUr/ibTkN3wKjgogU4I9W2a8=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "e62f892e625b8a9872d9cd7bc140f7a8962abd81",
+        "rev": "e4c38c04529ca5fff3f170b8eca728ce72cfa529",
         "type": "github"
       },
       "original": {
@@ -189,11 +189,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733299177,
-        "narHash": "sha256-TvDEljXVpgJ7mPLyh9KKJLZkOypF+LCkcvJq/jBz9MU=",
+        "lastModified": 1733304249,
+        "narHash": "sha256-o6wNhr1ONxMuBJUGC9v0hEjFdv5rN6XzHJEL/rQJLjA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "70803283187c8f775ff561be4117e5b1a11b296e",
+        "rev": "6c3a7a0b72c19ec994b85c57a1712d177bd809b2",
         "type": "github"
       },
       "original": {
@@ -205,11 +205,11 @@
     "hydro": {
       "flake": false,
       "locked": {
-        "lastModified": 1730549115,
-        "narHash": "sha256-QYq4sU41/iKvDUczWLYRGqDQpVASF/+6brJJ8IxypjE=",
+        "lastModified": 1733306048,
+        "narHash": "sha256-KXch0JvfAfZfBgA8oXnYs6mRN417WvDoJN9EOZNZn10=",
         "owner": "jorgebucaran",
         "repo": "hydro",
-        "rev": "9c93b89573bd722f766f2190a862ae55e728f6ba",
+        "rev": "7d0b895f8c82ee9b3710a038e0ac558d99941a72",
         "type": "github"
       },
       "original": {
@@ -412,11 +412,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733124015,
-        "narHash": "sha256-rPqOllvleOnYJaMU+zv+In7b2pTncRyRnzG7xjTZk8A=",
+        "lastModified": 1733301392,
+        "narHash": "sha256-OAVSSpI6TBcu0Gr38JkD3AuO6hiEZFaB6zVy2iU9Zdg=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "35067c20002e73d766836e6c6fa79b8937c2fe59",
+        "rev": "02c6c93e4f6d2cdfcc585f34275a1863f9c8efc6",
         "type": "github"
       },
       "original": {
