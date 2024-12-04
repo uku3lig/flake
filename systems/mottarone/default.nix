@@ -8,8 +8,6 @@
 in {
   environment.systemPackages = with pkgs; [
     gtkterm
-    maven
-    svn2git
     remmina
     camasca.packages.${system}.openwebstart
     jetbrains.pycharm-professional
@@ -17,7 +15,6 @@ in {
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
 
-  programs.git.package = pkgs.gitSVN;
   hm.programs = {
     git.enable = lib.mkForce false;
     ssh.enable = lib.mkForce false;
