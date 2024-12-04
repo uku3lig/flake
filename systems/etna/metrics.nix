@@ -6,10 +6,12 @@
 }: let
   vmcfg = config.services.victoriametrics;
   secrets = _utils.setupSharedSecrets config {secrets = ["vmAuthToken"];};
+  vmauthEnv = _utils.setupSingleSecret config "vmauthEnv" {};
 in {
   imports = [
     mystia.nixosModules.vmauth
     secrets.generate
+    vmauthEnv.generate
   ];
 
   cfTunnels = {
@@ -59,7 +61,7 @@ in {
   services.vmauth = {
     enable = true;
     listenAddress = "127.0.0.1:9089";
-    environmentFile = secrets.get "vmAuthToken";
+    environmentFile = vmauthEnv.path;
     authConfig.users = [
       {
         bearer_token = "%{VM_AUTH_TOKEN}";

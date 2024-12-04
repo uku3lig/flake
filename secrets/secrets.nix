@@ -30,4 +30,5 @@ in {
   "etna/navidromeEnv.age".publicKeys = main ++ [etna];
   "etna/forgejoRunnerSecret.age".publicKeys = main ++ [etna];
   "etna/vaultwardenEnv.age".publicKeys = main ++ [etna];
+  "etna/vmauthEnv.age".publicKeys = main ++ [etna];
 }
