@@ -10,6 +10,7 @@ in {
     gtkterm
     remmina
     camasca.packages.${system}.openwebstart
+    camasca.packages.${system}.jaspersoft-studio-community
     jetbrains.pycharm-professional
   ];
 
