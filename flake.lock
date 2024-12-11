@@ -57,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733702489,
-        "narHash": "sha256-Q5y0IA8vs2jJfZV9tkqTyDbckIO/o33TaCyySEY0v3E=",
+        "lastModified": 1733909261,
+        "narHash": "sha256-cTSdb7hVeUJGFSLdwTKgCCVyFgDs4bT8mvstGZGJq+M=",
         "ref": "refs/heads/main",
-        "rev": "cf541d2e2226467292076ae233f17c26da51bf0e",
-        "revCount": 29,
+        "rev": "62666ff3fb3966436b85ab922223a73ab66ddfdc",
+        "revCount": 31,
         "type": "git",
         "url": "https://git.uku3lig.net/uku/camasca"
       },
