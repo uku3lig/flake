@@ -55,12 +55,9 @@
   fonts = {
     packages = with pkgs; [
       cantarell-fonts
-      inter
       iosevka-bin
       jetbrains-mono
       twitter-color-emoji
-
-      nerd-fonts.jetbrains-mono
     ];
 
     fontconfig.defaultFonts = {
