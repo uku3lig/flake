@@ -5,7 +5,6 @@
 }: {
   services.xserver.videoDrivers = lib.mkForce ["nvidia"];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_11;
   boot.kernelParams = [
     "nvidia.NVreg_EnableGpuFirmware=0"
   ];
