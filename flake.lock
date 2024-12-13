@@ -72,11 +72,11 @@
     },
     "catppuccin": {
       "locked": {
-        "lastModified": 1733900652,
-        "narHash": "sha256-g2A9sNPPaumDzb2jNd2h8eiKzlwmlFzO1qymaq2GovU=",
+        "lastModified": 1734057772,
+        "narHash": "sha256-waF/2Y39JXJ4kG3zawmw1J1GxPHopyoOkJKJhfJ7RBs=",
         "owner": "Stonks3141",
         "repo": "ctp-nix",
-        "rev": "f47bf8bbec54f721b0b5282e6bcfa85888b822dd",
+        "rev": "20b6328df20ae45752c81311d225fd47cba32483",
         "type": "github"
       },
       "original": {
@@ -169,11 +169,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1733867032,
-        "narHash": "sha256-2ddDF3j8aI70WdWIn+Gsef4XGM2+grIlaEtHlkZmWdY=",
+        "lastModified": 1734066755,
+        "narHash": "sha256-MOpLT5jRJcmwScrQggUlpa1r5X8Zp4XuvzKcG+kHo7g=",
         "ref": "refs/heads/main",
-        "rev": "59df17a699f6f13700823124cefaf91fb0c37d4f",
-        "revCount": 8196,
+        "rev": "68bf5a9492d9ca0ffcb60464324def8f68a68042",
+        "revCount": 8255,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -189,11 +189,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733873195,
-        "narHash": "sha256-dTosiZ3sZ/NKoLKQ++v8nZdEHya0eTNEsaizNp+MUPM=",
+        "lastModified": 1734043726,
+        "narHash": "sha256-e9YAMReFV1fDPcZLFC2pa4k/8TloSXeX0z2VysNMAoA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f26aa4b76fb7606127032d33ac73d7d507d82758",
+        "rev": "3066cc58f552421a2c5414e78407fa5603405b1e",
         "type": "github"
       },
       "original": {
@@ -240,11 +240,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733731341,
-        "narHash": "sha256-YWmwObovtz4z6FxIiiLIJQkHuWlpXVrzsco2ot447Hk=",
+        "lastModified": 1734076932,
+        "narHash": "sha256-w7mmXUH22FZoHdaD0/nW5tqkTCzZxa8Tx5Fc+nYuZy4=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "a7f1bff688c14e28477687bef1402e3d631aa06b",
+        "rev": "fd6ba822df11ea432086a093187f1d69006413cb",
         "type": "github"
       },
       "original": {
@@ -299,11 +299,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1733759999,
-        "narHash": "sha256-463SNPWmz46iLzJKRzO3Q2b0Aurff3U1n0nYItxq7jU=",
+        "lastModified": 1733940404,
+        "narHash": "sha256-Pj39hSoUA86ZePPF/UXiYHHM7hMIkios8TYG29kQT4g=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a73246e2eef4c6ed172979932bc80e1404ba2d56",
+        "rev": "5d67ea6b4b63378b9c13be21e2ec9d1afc921713",
         "type": "github"
       },
       "original": {
@@ -411,11 +411,11 @@
     "vencord": {
       "flake": false,
       "locked": {
-        "lastModified": 1733889994,
-        "narHash": "sha256-4G3RUJO7lfHoSdm60SBpLotKpdEzFp8p2hhc3qbmLcc=",
+        "lastModified": 1734043611,
+        "narHash": "sha256-x88NbtXJJlc2cBet4vqHktGyLB9XiaAD6tOn9DvzbHw=",
         "owner": "Vendicated",
         "repo": "Vencord",
-        "rev": "464c4a9b614a93443575acfd160388d3eb09cb2f",
+        "rev": "40a8cf1a85510f2b4c302e84a52946f7d63fe86e",
         "type": "github"
       },
       "original": {
@@ -435,11 +435,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733882180,
-        "narHash": "sha256-KiI6gRWYgV4x5le9ETHWVMH5LBX2vGwamELJG/joiC0=",
+        "lastModified": 1734055031,
+        "narHash": "sha256-i7wpHXyD9cRxhZOHPI4QLJUW69IFWWjcOQxpNokzAyE=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "b5aa69a2b8c0c31e4e8a23f3dd41b474eeabf4fc",
+        "rev": "6855d57a1429de885e9782b4a4b6c43730241354",
         "type": "github"
       },
       "original": {
