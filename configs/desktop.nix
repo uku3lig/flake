@@ -56,11 +56,10 @@
     packages = with pkgs; [
       cantarell-fonts
       inter
-      iosevka
+      iosevka-bin
       jetbrains-mono
       twitter-color-emoji
 
-      nerd-fonts.iosevka
       nerd-fonts.jetbrains-mono
     ];
 
