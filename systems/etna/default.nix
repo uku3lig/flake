@@ -30,6 +30,7 @@ in {
     ./shlink.nix
     ./metrics.nix
     ./navidrome.nix
+    ./immich.nix
   ];
 
   boot = {
