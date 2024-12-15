@@ -19,18 +19,18 @@ in {
     secrets.generate
     cfTunnelSecret.generate
 
-    ./minecraft.nix
-    ./satisfactory.nix
     ./dendrite.nix
+    ./forgejo.nix
+    ./immich.nix
+    ./metrics.nix
+    ./minecraft.nix
+    ./navidrome.nix
     ./nextcloud.nix
     ./reposilite.nix
+    ./satisfactory.nix
+    ./shlink.nix
     ./uku.nix
     ./vaultwarden.nix
-    ./forgejo.nix
-    ./shlink.nix
-    ./metrics.nix
-    ./navidrome.nix
-    ./immich.nix
   ];
 
   boot = {
