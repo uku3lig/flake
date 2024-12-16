@@ -30,6 +30,7 @@ in {
     ./satisfactory.nix
     ./shlink.nix
     ./uku.nix
+    ./ups.nix
     ./vaultwarden.nix
   ];
 
