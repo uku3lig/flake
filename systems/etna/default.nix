@@ -13,6 +13,13 @@
     group = "cloudflared";
   };
 in {
+  assertions = [
+    {
+      assertion = lib.versionAtLeast config.boot.kernelPackages.kernel.version "6.6.31";
+      message = "Linux kernel is too old! Please upgrade to ~6.6.31 or 6.9+";
+    }
+  ];
+
   imports = [
     (lib.mkAliasOptionModule ["cfTunnels"] ["services" "cloudflared" "tunnels" tunnelId "ingress"])
 
@@ -34,10 +41,7 @@ in {
     ./vaultwarden.nix
   ];
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_6_1;
-    loader.systemd-boot.enable = true;
-  };
+  boot.loader.systemd-boot.enable = true;
 
   networking.interfaces.eno1 = {
     wakeOnLan.enable = true;
