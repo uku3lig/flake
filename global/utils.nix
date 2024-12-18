@@ -37,7 +37,7 @@
   }: let
     inherit (_config.virtualisation.oci-containers) backend;
   in {
-    virtualisation.oci-containers.containers.${name} = {
+    virtualisation.oci-containers.containers."mc-${name}" = {
       image = "itzg/minecraft-server:${tag}";
       ports = ["${builtins.toString port}:25565"] ++ extraPorts;
       volumes = ["${dataDir}:/data"];
