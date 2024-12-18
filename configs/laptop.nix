@@ -6,7 +6,21 @@
 }: {
   imports = [./desktop.nix];
 
-  hardware.bluetooth.enable = true;
+  boot.initrd.kernelModules = ["xe"];
+
+  hardware = {
+    bluetooth.enable = true;
+
+    graphics = {
+      extraPackages = with pkgs; [
+        intel-media-driver
+        intel-compute-runtime
+        vpl-gpu-rt
+      ];
+
+      extraPackages32 = [pkgs.driversi686Linux.intel-media-driver];
+    };
+  };
 
   services = {
     libinput.enable = true;
