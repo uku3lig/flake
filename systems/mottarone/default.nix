@@ -28,5 +28,10 @@ in {
     };
 
     postgresql.enable = true;
+    pgadmin = {
+      enable = true;
+      initialEmail = "hi@uku.moe";
+      initialPasswordFile = "/run/pgadminpwd";
+    };
   };
 }
