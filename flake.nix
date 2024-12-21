@@ -18,6 +18,7 @@
       perSystem = {
         pkgs,
         system,
+        self',
         ...
       }: {
         apps = (nixinate.nixinate.${system} self).nixinate;
@@ -25,9 +26,10 @@
         devShells.default = with pkgs;
           mkShellNoCC {
             packages = [
-              just
-              statix
               agenix.packages.${system}.default
+              just
+              self'.formatter
+              statix
             ];
           };
 
