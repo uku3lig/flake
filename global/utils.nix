@@ -61,6 +61,6 @@
       }
     ];
 
-    systemd.services."${backend}-${name}".serviceConfig.TimeoutSec = "300";
+    systemd.services."${backend}-mc-${name}".serviceConfig.TimeoutSec = "300";
   };
 }

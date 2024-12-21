@@ -60,14 +60,13 @@ in {
   systemd.services.restart-minecraft-servers = {
     wantedBy = ["multi-user.target"];
     startAt = "*-*-* 05:00:00";
+    restartIfChanged = false;
 
-    script = ''
-      ${lib.getExe' pkgs.systemd "systemctl"} restart ${backend}-mc-*.service
-    '';
+    script = "${lib.getExe' pkgs.systemd "systemctl"} restart ${backend}-mc-*.service";
 
     serviceConfig = {
       Type = "oneshot";
-      DynamicUser = true;
+      RemainAfterExit = true;
     };
   };
 }
