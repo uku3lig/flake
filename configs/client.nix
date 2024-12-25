@@ -10,7 +10,7 @@
     (ffmpeg-full.override {withUnfree = true;})
     fastfetch
     lazygit
-    nil
+    nixd
   ];
 
   hm.programs.keychain = {
