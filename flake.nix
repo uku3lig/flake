@@ -3,10 +3,8 @@
 
   outputs =
     {
-      self,
-      flake-parts,
-      nixinate,
       agenix,
+      flake-parts,
       treefmt-nix,
       ...
     }@inputs:
@@ -29,8 +27,6 @@
           ...
         }:
         {
-          apps = (nixinate.nixinate.${system} self).nixinate;
-
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               agenix.packages.${system}.default
@@ -116,11 +112,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nix-update-soopy.follows = "";
       inputs.flake-compat.follows = "";
-    };
-
-    nixinate = {
-      url = "github:matthewcroughan/nixinate";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-wsl = {
