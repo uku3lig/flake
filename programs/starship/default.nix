@@ -10,6 +10,6 @@
           truncation_symbol = "…/";
         };
       }
-      // builtins.fromTOML (builtins.readFile ./nerd-font.toml);
+      // (import ./nerd-font.nix);
   };
 }
