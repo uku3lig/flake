@@ -1,31 +1,38 @@
 {
   description = "example flake idk";
 
-  outputs = {
-    self,
-    flake-parts,
-    nixinate,
-    agenix,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux" "aarch64-linux"];
+  outputs =
+    {
+      self,
+      flake-parts,
+      nixinate,
+      agenix,
+      treefmt-nix,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
 
       imports = [
+        treefmt-nix.flakeModule
         ./systems
       ];
 
-      perSystem = {
-        pkgs,
-        system,
-        self',
-        ...
-      }: {
-        apps = (nixinate.nixinate.${system} self).nixinate;
+      perSystem =
+        {
+          pkgs,
+          system,
+          self',
+          ...
+        }:
+        {
+          apps = (nixinate.nixinate.${system} self).nixinate;
 
-        devShells.default = with pkgs;
-          mkShellNoCC {
-            packages = [
+          devShells.default = pkgs.mkShellNoCC {
+            packages = with pkgs; [
               agenix.packages.${system}.default
               just
               self'.formatter
@@ -33,8 +40,25 @@
             ];
           };
 
-        formatter = pkgs.alejandra;
-      };
+          treefmt = {
+            projectRootFile = "flake.nix";
+
+            settings.excludes = [
+              ".envrc"
+              ".gitignore"
+              "*.age"
+              "flake.lock"
+              "justfile"
+              "LICENSE"
+            ];
+
+            programs = {
+              nixfmt.enable = true;
+              prettier.enable = true;
+              stylua.enable = true;
+            };
+          };
+        };
     };
 
   inputs = {
@@ -108,6 +132,11 @@
 
     # nix's most elaborate, overcomplicated joke
     systems.url = "github:nix-systems/default";
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";

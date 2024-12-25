@@ -2,9 +2,10 @@
   pkgs,
   ghostty,
   ...
-}: {
+}:
+{
   hm.home = {
-    packages = [ghostty.packages.${pkgs.system}.default];
+    packages = [ ghostty.packages.${pkgs.system}.default ];
 
     file.".config/ghostty/config".text = ''
       theme = light:catppuccin-latte,dark:catppuccin-mocha

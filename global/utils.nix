@@ -1,66 +1,87 @@
-{lib, ...}: {
-  setupSecrets = _config: {
-    secrets,
-    extra ? {},
-  }: let
-    inherit (_config.networking) hostName;
-  in {
-    generate = {age.secrets = lib.genAttrs secrets (name: extra // {file = ../secrets/${hostName}/${name}.age;});};
-    get = name: _config.age.secrets.${name}.path;
-  };
-
-  setupSingleSecret = _config: name: extra: let
-    inherit (_config.networking) hostName;
-  in {
-    generate = {age.secrets.${name} = extra // {file = ../secrets/${hostName}/${name}.age;};};
-    inherit (_config.age.secrets.${name}) path;
-  };
-
-  setupSharedSecrets = _config: {
-    secrets,
-    extra ? {},
-  }: {
-    generate = {age.secrets = lib.genAttrs secrets (name: extra // {file = ../secrets/shared/${name}.age;});};
-    get = name: _config.age.secrets.${name}.path;
-  };
-
-  mkMinecraftServer = _config: {
-    name,
-    port,
-    remotePort,
-    tag ? "java21",
-    dataDir ? "/var/lib/${name}",
-    memory ? "4G",
-    env ? {},
-    envFiles ? [],
-    extraPorts ? [],
-  }: let
-    inherit (_config.virtualisation.oci-containers) backend;
-  in {
-    virtualisation.oci-containers.containers."mc-${name}" = {
-      image = "itzg/minecraft-server:${tag}";
-      ports = ["${builtins.toString port}:25565"] ++ extraPorts;
-      volumes = ["${dataDir}:/data"];
-      environmentFiles = envFiles;
-      environment =
-        {
-          EULA = "true";
-          MEMORY = memory;
-        }
-        // env;
+{ lib, ... }:
+{
+  setupSecrets =
+    _config:
+    {
+      secrets,
+      extra ? { },
+    }:
+    let
+      inherit (_config.networking) hostName;
+    in
+    {
+      generate = {
+        age.secrets = lib.genAttrs secrets (name: extra // { file = ../secrets/${hostName}/${name}.age; });
+      };
+      get = name: _config.age.secrets.${name}.path;
     };
 
-    networking.firewall.allowedTCPPorts = [port];
+  setupSingleSecret =
+    _config: name: extra:
+    let
+      inherit (_config.networking) hostName;
+    in
+    {
+      generate = {
+        age.secrets.${name} = extra // {
+          file = ../secrets/${hostName}/${name}.age;
+        };
+      };
+      inherit (_config.age.secrets.${name}) path;
+    };
 
-    services.frp.settings.proxies = [
-      {
-        inherit name remotePort;
-        type = "tcp";
-        localIp = "127.0.0.1";
-        localPort = port;
-      }
-    ];
+  setupSharedSecrets =
+    _config:
+    {
+      secrets,
+      extra ? { },
+    }:
+    {
+      generate = {
+        age.secrets = lib.genAttrs secrets (name: extra // { file = ../secrets/shared/${name}.age; });
+      };
+      get = name: _config.age.secrets.${name}.path;
+    };
 
-    systemd.services."${backend}-mc-${name}".serviceConfig.TimeoutSec = "300";
-  };
+  mkMinecraftServer =
+    _config:
+    {
+      name,
+      port,
+      remotePort,
+      tag ? "java21",
+      dataDir ? "/var/lib/${name}",
+      memory ? "4G",
+      env ? { },
+      envFiles ? [ ],
+      extraPorts ? [ ],
+    }:
+    let
+      inherit (_config.virtualisation.oci-containers) backend;
+    in
+    {
+      virtualisation.oci-containers.containers."mc-${name}" = {
+        image = "itzg/minecraft-server:${tag}";
+        ports = [ "${builtins.toString port}:25565" ] ++ extraPorts;
+        volumes = [ "${dataDir}:/data" ];
+        environmentFiles = envFiles;
+        environment = {
+          EULA = "true";
+          MEMORY = memory;
+        } // env;
+      };
+
+      networking.firewall.allowedTCPPorts = [ port ];
+
+      services.frp.settings.proxies = [
+        {
+          inherit name remotePort;
+          type = "tcp";
+          localIp = "127.0.0.1";
+          localPort = port;
+        }
+      ];
+
+      systemd.services."${backend}-mc-${name}".serviceConfig.TimeoutSec = "300";
+    };
 }

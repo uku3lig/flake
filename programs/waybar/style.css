@@ -31,28 +31,30 @@
 @define-color rosewater #f4dbd6;
 
 * {
-    font-family: Jetbrains Mono, sans-serif;
-    font-size: 12px;
+  font-family:
+    Jetbrains Mono,
+    sans-serif;
+  font-size: 12px;
 }
 
 window#waybar {
-    background-color: @base;
-    color: @text;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: @base;
+  color: @text;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
+  background: inherit;
 }
 
 #clock,
@@ -72,93 +74,93 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 10px;
-    color: @crust;
+  padding: 0 10px;
+  color: @crust;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+  margin: 0 4px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
 }
 
 #workspaces button {
-    padding: 0 2px;
-    background-color: transparent;
-    color: @text;
+  padding: 0 2px;
+  background-color: transparent;
+  color: @text;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button.active {
-    background-color: @surface1;
-    box-shadow: inset 0 -3px @yellow;
+  background-color: @surface1;
+  box-shadow: inset 0 -3px @yellow;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
+  background-color: @red;
 }
 
 #clock {
-    background-color: @green;
+  background-color: @green;
 }
 
 #battery {
-    background-color: @sky;
+  background-color: @sky;
 }
 
 #battery.low:not(.charging) {
-    background-color: @red;
+  background-color: @red;
 }
 
 #cpu {
-    background-color: @sapphire;
+  background-color: @sapphire;
 }
 
 #custom-gpu-usage {
-    background-color: @blue;
+  background-color: @blue;
 }
 
 #memory {
-    background-color: @lavender;
+  background-color: @lavender;
 }
 
 #backlight {
-    background-color: @teal;
+  background-color: @teal;
 }
 
 #network {
-    background-color: @mauve;
+  background-color: @mauve;
 }
 
 #wireplumber {
-    background-color: @sapphire;
+  background-color: @sapphire;
 }
 
 #wireplumber.muted {
-    color: @base;
+  color: @base;
 }
 
 #tray {
-    background-color: @yellow;
+  background-color: @yellow;
 }
 
-#tray>.passive {
-    -gtk-icon-effect: dim;
+#tray > .passive {
+  -gtk-icon-effect: dim;
 }
 
-#tray>.needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
 }

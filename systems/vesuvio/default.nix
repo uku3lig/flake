@@ -3,17 +3,22 @@
   config,
   _utils,
   ...
-}: let
-  secrets = _utils.setupSharedSecrets config {secrets = ["frpToken"];};
-in {
-  imports = [secrets.generate];
+}:
+let
+  secrets = _utils.setupSharedSecrets config { secrets = [ "frpToken" ]; };
+in
+{
+  imports = [ secrets.generate ];
 
   zramSwap.enable = true;
 
-  environment.systemPackages = with pkgs; [dig traceroute];
+  environment.systemPackages = with pkgs; [
+    dig
+    traceroute
+  ];
 
   services = {
-    openssh.ports = [4269];
+    openssh.ports = [ 4269 ];
 
     # Needed by the Hetzner Cloud password reset feature.
     qemuGuest.enable = true;
@@ -40,11 +45,11 @@ in {
     frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
 
     # https://discourse.nixos.org/t/qemu-guest-agent-on-hetzner-cloud-doesnt-work/8864/2
-    qemu-guest-agent.path = [pkgs.shadow];
+    qemu-guest-agent.path = [ pkgs.shadow ];
   };
 
   networking.firewall = {
-    allowedTCPPorts = [22]; # forgejo-ssh
+    allowedTCPPorts = [ 22 ]; # forgejo-ssh
     allowedTCPPortRanges = [
       {
         from = 6000;

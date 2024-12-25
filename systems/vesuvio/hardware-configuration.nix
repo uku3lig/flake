@@ -1,5 +1,6 @@
-{modulesPath, ...}: {
-  imports = ["${modulesPath}/profiles/qemu-guest.nix"];
+{ modulesPath, ... }:
+{
+  imports = [ "${modulesPath}/profiles/qemu-guest.nix" ];
 
   boot = {
     # arm so we can use systemd-boot
@@ -11,11 +12,18 @@
     # set console because the console defaults to serial and
     # initialize the display early to get a complete log.
     # this is required for typing in LUKS passwords on boot too.
-    kernelParams = ["console=tty"];
+    kernelParams = [ "console=tty" ];
 
     initrd = {
-      availableKernelModules = ["ata_piix" "uhci_hcd" "xen_blkfront"];
-      kernelModules = ["nvme" "virtio_gpu"];
+      availableKernelModules = [
+        "ata_piix"
+        "uhci_hcd"
+        "xen_blkfront"
+      ];
+      kernelModules = [
+        "nvme"
+        "virtio_gpu"
+      ];
     };
   };
 

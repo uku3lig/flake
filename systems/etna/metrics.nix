@@ -3,11 +3,13 @@
   mystia,
   _utils,
   ...
-}: let
+}:
+let
   vmcfg = config.services.victoriametrics;
-  secrets = _utils.setupSharedSecrets config {secrets = ["vmAuthToken"];};
-  vmauthEnv = _utils.setupSingleSecret config "vmauthEnv" {};
-in {
+  secrets = _utils.setupSharedSecrets config { secrets = [ "vmAuthToken" ]; };
+  vmauthEnv = _utils.setupSingleSecret config "vmauthEnv" { };
+in
+{
   imports = [
     mystia.nixosModules.vmauth
     secrets.generate
@@ -47,12 +49,12 @@ in {
       scrape_configs = [
         {
           job_name = "victoriametrics";
-          static_configs = [{targets = ["${builtins.toString vmcfg.listenAddress}"];}];
+          static_configs = [ { targets = [ "${builtins.toString vmcfg.listenAddress}" ]; } ];
         }
 
         {
           job_name = "api-rs";
-          static_configs = [{targets = ["localhost:5001"];}];
+          static_configs = [ { targets = [ "localhost:5001" ]; } ];
         }
       ];
     };

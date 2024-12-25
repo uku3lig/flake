@@ -4,11 +4,16 @@
   api-rs,
   ukubot-rs,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
-    secrets = ["apiRsEnv" "ukubotRsEnv"];
+    secrets = [
+      "apiRsEnv"
+      "ukubotRsEnv"
+    ];
   };
-in {
+in
+{
   imports = [
     api-rs.nixosModules.default
     ukubot-rs.nixosModules.default

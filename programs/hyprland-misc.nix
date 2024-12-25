@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # utility packages for hyprland, since you know it's not a DE
 
   hm.home.packages = with pkgs; [
@@ -14,7 +15,10 @@
 
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
+      plugins = with pkgs.xfce; [
+        thunar-volman
+        thunar-archive-plugin
+      ];
     };
   };
 }

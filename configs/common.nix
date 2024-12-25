@@ -10,20 +10,25 @@
   vencord,
   hydro,
   ...
-}: let
+}:
+let
   username = "leo";
   stateVersion = "24.11";
 
-  rootPassword = _utils.setupSingleSecret config "rootPassword" {};
+  rootPassword = _utils.setupSingleSecret config "rootPassword" { };
   secrets = _utils.setupSharedSecrets config {
-    secrets = ["userPassword" "tailscaleKey"];
+    secrets = [
+      "userPassword"
+      "tailscaleKey"
+    ];
   };
-in {
+in
+{
   imports = [
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
 
-    (lib.mkAliasOptionModule ["hm"] ["home-manager" "users" username])
+    (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
 
     rootPassword.generate
     secrets.generate
@@ -35,12 +40,15 @@ in {
 
   age = {
     ageBin = lib.getExe pkgs.rage;
-    identityPaths = ["/etc/age/key"];
+    identityPaths = [ "/etc/age/key" ];
   };
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages; # use lts
-    kernelParams = ["quiet" "loglevel=3"];
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+    ];
 
     # faster tcp !!!
     kernel.sysctl = {
@@ -65,7 +73,7 @@ in {
   ];
 
   hm = {
-    home = {inherit stateVersion;};
+    home = { inherit stateVersion; };
 
     programs.ssh = {
       enable = true;
@@ -83,14 +91,17 @@ in {
 
   networking = {
     useNetworkd = lib.mkDefault true;
-    nameservers = ["1.1.1.1" "1.0.0.1"];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
   };
 
   nix = {
     # package = pkgs.nixVersions.latest;
     channel.enable = false;
     # The `flake:` syntax in `$NIX_PATH` seems to do some weird copying on Nix 2.24
-    nixPath = ["nixpkgs=${config.nixpkgs.flake.source}"];
+    nixPath = [ "nixpkgs=${config.nixpkgs.flake.source}" ];
 
     gc = {
       automatic = true;
@@ -110,8 +121,14 @@ in {
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "@wheel"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
       connect-timeout = 5; # fail fast if substituters are not available
       builders-use-substitutes = true;
       log-lines = 25;
@@ -132,7 +149,7 @@ in {
   nixpkgs = {
     config.allowUnfree = true;
     flake.setNixPath = false;
-    overlays = [(import ../exprs/overlay.nix {inherit vencord hydro;})];
+    overlays = [ (import ../exprs/overlay.nix { inherit vencord hydro; }) ];
   };
 
   programs = {
@@ -172,7 +189,10 @@ in {
     tailscale = {
       enable = true;
       useRoutingFeatures = "both";
-      extraUpFlags = ["--ssh" "--stateful-filtering"];
+      extraUpFlags = [
+        "--ssh"
+        "--stateful-filtering"
+      ];
       authKeyFile = secrets.get "tailscaleKey";
     };
   };
@@ -197,7 +217,14 @@ in {
     "${username}" = {
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = ["networkmanager" "wheel" "video" "libvirtd" "input" "docker"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "video"
+        "libvirtd"
+        "input"
+        "docker"
+      ];
       hashedPasswordFile = secrets.get "userPassword";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8"

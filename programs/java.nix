@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (config.lib.file) mkOutOfStoreSymlink;
-in {
+in
+{
   home.file = {
     ".jdks/temurin-21".source = mkOutOfStoreSymlink pkgs.temurin-bin-21;
     ".jdks/temurin-17".source = mkOutOfStoreSymlink pkgs.temurin-bin-17;

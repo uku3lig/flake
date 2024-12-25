@@ -5,9 +5,17 @@ let
   etna = "age1m3jm6c5ywc5zntv5j4xhals0h28mpea88zzddq88zxcshmhteqwqu89qnh";
   vesuvio = "age1g2z0tztrv2w7wtludjrd85q7px3lvjms0cjj32zej9dqpjwpscwsle6xhf";
 
-  main = [fuji kilimandjaro mottarone];
-  all = main ++ [etna vesuvio];
-in {
+  main = [
+    fuji
+    kilimandjaro
+    mottarone
+  ];
+  all = main ++ [
+    etna
+    vesuvio
+  ];
+in
+{
   "shared/userPassword.age".publicKeys = all;
   "shared/tailscaleKey.age".publicKeys = all;
   "shared/frpToken.age".publicKeys = all;
@@ -17,19 +25,19 @@ in {
   "fuji-wsl/rootPassword.age".publicKeys = main;
   "kilimandjaro/rootPassword.age".publicKeys = main;
   "mottarone/rootPassword.age".publicKeys = main;
-  "etna/rootPassword.age".publicKeys = main ++ [etna];
-  "vesuvio/rootPassword.age".publicKeys = main ++ [vesuvio];
+  "etna/rootPassword.age".publicKeys = main ++ [ etna ];
+  "vesuvio/rootPassword.age".publicKeys = main ++ [ vesuvio ];
 
-  "etna/tunnelCreds.age".publicKeys = main ++ [etna];
-  "etna/apiRsEnv.age".publicKeys = main ++ [etna];
-  "etna/ukubotRsEnv.age".publicKeys = main ++ [etna];
-  "etna/minecraftEnv.age".publicKeys = main ++ [etna];
-  "etna/dendriteKey.age".publicKeys = main ++ [etna];
-  "etna/nextcloudAdminPass.age".publicKeys = main ++ [etna];
-  "etna/turnstileSecret.age".publicKeys = main ++ [etna];
-  "etna/navidromeEnv.age".publicKeys = main ++ [etna];
-  "etna/forgejoRunnerSecret.age".publicKeys = main ++ [etna];
-  "etna/vaultwardenEnv.age".publicKeys = main ++ [etna];
-  "etna/vmauthEnv.age".publicKeys = main ++ [etna];
-  "etna/upsdUserPass.age".publicKeys = main ++ [etna];
+  "etna/tunnelCreds.age".publicKeys = main ++ [ etna ];
+  "etna/apiRsEnv.age".publicKeys = main ++ [ etna ];
+  "etna/ukubotRsEnv.age".publicKeys = main ++ [ etna ];
+  "etna/minecraftEnv.age".publicKeys = main ++ [ etna ];
+  "etna/dendriteKey.age".publicKeys = main ++ [ etna ];
+  "etna/nextcloudAdminPass.age".publicKeys = main ++ [ etna ];
+  "etna/turnstileSecret.age".publicKeys = main ++ [ etna ];
+  "etna/navidromeEnv.age".publicKeys = main ++ [ etna ];
+  "etna/forgejoRunnerSecret.age".publicKeys = main ++ [ etna ];
+  "etna/vaultwardenEnv.age".publicKeys = main ++ [ etna ];
+  "etna/vmauthEnv.age".publicKeys = main ++ [ etna ];
+  "etna/upsdUserPass.age".publicKeys = main ++ [ etna ];
 }

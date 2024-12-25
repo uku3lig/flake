@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services = {
     xserver.desktopManager.gnome.enable = true;
     displayManager = {
@@ -13,14 +14,14 @@
   hm.programs.gnome-shell = {
     enable = true;
     extensions = with pkgs.gnomeExtensions; [
-      {package = appindicator;}
-      {package = dash-to-dock;}
-      {package = blur-my-shell;}
+      { package = appindicator; }
+      { package = dash-to-dock; }
+      { package = blur-my-shell; }
     ];
   };
 
   environment = with pkgs; {
-    systemPackages = [gnome-tweaks];
+    systemPackages = [ gnome-tweaks ];
 
     gnome.excludePackages = [
       gnome-tour

@@ -1,15 +1,13 @@
 {
   hm.programs.starship = {
     enable = true;
-    settings =
-      {
-        add_newline = false;
+    settings = {
+      add_newline = false;
 
-        directory = {
-          truncation_length = 3;
-          truncation_symbol = "…/";
-        };
-      }
-      // (import ./nerd-font.nix);
+      directory = {
+        truncation_length = 3;
+        truncation_symbol = "…/";
+      };
+    } // (import ./nerd-font.nix);
   };
 }

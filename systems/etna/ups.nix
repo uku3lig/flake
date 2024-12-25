@@ -2,10 +2,12 @@
   _utils,
   config,
   ...
-}: let
-  upsdPass = _utils.setupSingleSecret config "upsdUserPass" {};
-in {
-  imports = [upsdPass.generate];
+}:
+let
+  upsdPass = _utils.setupSingleSecret config "upsdUserPass" { };
+in
+{
+  imports = [ upsdPass.generate ];
 
   power.ups = {
     enable = true;
@@ -20,8 +22,11 @@ in {
 
     users.admin = {
       passwordFile = upsdPass.path;
-      instcmds = ["ALL"];
-      actions = ["SET" "FSD"];
+      instcmds = [ "ALL" ];
+      actions = [
+        "SET"
+        "FSD"
+      ];
     };
 
     ups.eaton-3s-850 = {
@@ -57,10 +62,10 @@ in {
       {
         job_name = "nut";
         metrics_path = "/ups_metrics";
-        params.ups = ["eaton-3s-850"];
+        params.ups = [ "eaton-3s-850" ];
         static_configs = [
           {
-            targets = ["localhost:${builtins.toString config.services.prometheus.exporters.nut.port}"];
+            targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.nut.port}" ];
             labels.ups = "eaton-3s-850";
           }
         ];

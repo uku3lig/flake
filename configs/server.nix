@@ -2,11 +2,13 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSharedSecrets config {
-    secrets = ["vmAuthToken"];
+    secrets = [ "vmAuthToken" ];
   };
-in {
+in
+{
   imports = [
     ./common.nix
     secrets.generate
@@ -21,7 +23,7 @@ in {
   };
 
   services = {
-    tailscale.extraUpFlags = ["--advertise-exit-node"];
+    tailscale.extraUpFlags = [ "--advertise-exit-node" ];
 
     openssh = {
       enable = true;
@@ -46,20 +48,22 @@ in {
     prometheus.exporters.node = {
       enable = true;
       port = 9091;
-      enabledCollectors = ["systemd"];
+      enabledCollectors = [ "systemd" ];
     };
 
     vmagent = {
       enable = true;
       remoteWrite.url = "https://metrics.uku3lig.net/api/v1/write";
-      extraArgs = ["-remoteWrite.bearerTokenFile=\${CREDENTIALS_DIRECTORY}/vm_auth_token"];
+      extraArgs = [ "-remoteWrite.bearerTokenFile=\${CREDENTIALS_DIRECTORY}/vm_auth_token" ];
       prometheusConfig = {
         global.scrape_interval = "15s";
 
         scrape_configs = [
           {
             job_name = "node";
-            static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
+            static_configs = [
+              { targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.node.port}" ]; }
+            ];
             relabel_configs = [
               {
                 target_label = "instance";
@@ -73,7 +77,7 @@ in {
   };
 
   systemd = {
-    services.vmagent.serviceConfig.LoadCredential = ["vm_auth_token:${secrets.get "vmAuthToken"}"];
+    services.vmagent.serviceConfig.LoadCredential = [ "vm_auth_token:${secrets.get "vmAuthToken"}" ];
 
     # For more detail, see:
     #   https://0pointer.de/blog/projects/watchdog.html

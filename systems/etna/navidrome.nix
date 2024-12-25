@@ -2,15 +2,17 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   cfg = config.services.navidrome;
 
   env = _utils.setupSingleSecret config "navidromeEnv" {
     inherit (cfg) group;
     owner = cfg.user;
   };
-in {
-  imports = [env.generate];
+in
+{
+  imports = [ env.generate ];
 
   cfTunnels."navidrome.uku3lig.net" = "http://localhost:4533";
 

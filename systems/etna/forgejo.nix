@@ -3,16 +3,21 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
-    secrets = ["turnstileSecret" "forgejoRunnerSecret"];
+    secrets = [
+      "turnstileSecret"
+      "forgejoRunnerSecret"
+    ];
     extra = {
       owner = "forgejo";
       group = "forgejo";
     };
   };
-in {
-  imports = [secrets.generate];
+in
+{
+  imports = [ secrets.generate ];
 
   cfTunnels."git.uku3lig.net" = "http://localhost:3000";
 

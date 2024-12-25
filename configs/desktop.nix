@@ -5,7 +5,8 @@
   catppuccin,
   lanzaboote,
   ...
-}: {
+}:
+{
   imports = [
     catppuccin.nixosModules.catppuccin
     lanzaboote.nixosModules.lanzaboote
@@ -24,10 +25,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
-    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
-    kernelModules = ["v4l2loopback"];
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+    kernelModules = [ "v4l2loopback" ];
 
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
 
     loader = {
       systemd-boot.enable = lib.mkForce false;
@@ -61,7 +62,7 @@
     ];
 
     fontconfig.defaultFonts = {
-      emoji = ["Twitter Color Emoji"];
+      emoji = [ "Twitter Color Emoji" ];
     };
   };
 
@@ -91,7 +92,7 @@
         strawberry
         teams-for-linux
         thunderbird
-        (vesktop.override {withSystemVencord = true;})
+        (vesktop.override { withSystemVencord = true; })
         vscode
 
         # libreoffice stuff

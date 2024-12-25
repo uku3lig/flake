@@ -2,8 +2,9 @@
   lib,
   pkgs,
   ...
-}: {
-  services.xserver.videoDrivers = lib.mkForce ["nvidia"];
+}:
+{
+  services.xserver.videoDrivers = lib.mkForce [ "nvidia" ];
 
   boot.kernelParams = [
     "nvidia.NVreg_EnableGpuFirmware=0"
@@ -16,7 +17,7 @@
   };
 
   hardware = {
-    graphics.extraPackages = [pkgs.vaapiVdpau];
+    graphics.extraPackages = [ pkgs.vaapiVdpau ];
     nvidia = {
       # package = config.boot.kernelPackages.nvidiaPackages.production;
       open = true;

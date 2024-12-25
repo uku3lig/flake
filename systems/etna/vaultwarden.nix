@@ -2,10 +2,12 @@
   config,
   _utils,
   ...
-}: let
-  envFile = _utils.setupSingleSecret config "vaultwardenEnv" {};
-in {
-  imports = [envFile.generate];
+}:
+let
+  envFile = _utils.setupSingleSecret config "vaultwardenEnv" { };
+in
+{
+  imports = [ envFile.generate ];
 
   cfTunnels."bw.uku3lig.net" = "http://localhost:8222";
 

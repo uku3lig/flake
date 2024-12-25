@@ -2,7 +2,8 @@
   pkgs,
   camasca,
   ...
-}: {
+}:
+{
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.sddm = {

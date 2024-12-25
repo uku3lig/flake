@@ -1,5 +1,5 @@
 -- sets the <Leader> "key", which can be used in shortcuts
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 vim.g.have_nerd_font = true
 
@@ -8,7 +8,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 
 -- enable mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- save undo history
 vim.opt.undofile = true
@@ -31,21 +31,19 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 
 -- preview substitutions (:s & :%s) while typing
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- highlight the line the cursor is on
 vim.opt.cursorline = true
 
 -- sync os clipboard and neovim
 vim.schedule(function()
-	vim.opt.clipboard = 'unnamedplus'
+	vim.opt.clipboard = "unnamedplus"
 end)
-
 
 -- [[ shortcuts, see `:help vim.keymap.set()` ]]
 -- hide search results when pressing esc
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -57,11 +55,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- [[ plugin configuration ]]
 require("nvim-treesitter.configs").setup({

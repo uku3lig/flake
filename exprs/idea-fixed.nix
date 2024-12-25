@@ -22,17 +22,19 @@
   pipewire,
   udev,
   xrandr,
-}: let
+}:
+let
   inherit (jetbrains) idea-ultimate;
 in
-  symlinkJoin {
-    name = "idea-ultimate-fixed-${idea-ultimate.version}";
+symlinkJoin {
+  name = "idea-ultimate-fixed-${idea-ultimate.version}";
 
-    paths = [idea-ultimate];
+  paths = [ idea-ultimate ];
 
-    nativeBuildInputs = [makeWrapper];
+  nativeBuildInputs = [ makeWrapper ];
 
-    postBuild = let
+  postBuild =
+    let
       runtimeLibs = [
         stdenv.cc.cc.lib
         ## native versions
@@ -63,9 +65,10 @@ in
         xrandr # needed for LWJGL [2.9.2, 3) https://github.com/LWJGL/lwjgl/issues/128
         esbuild
       ];
-    in ''
+    in
+    ''
       wrapProgram $out/bin/idea-ultimate \
         --set LD_LIBRARY_PATH ${lib.makeLibraryPath runtimeLibs} \
         --prefix PATH : ${lib.makeBinPath runtimePrograms}
     '';
-  }
+}

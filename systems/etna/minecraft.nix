@@ -4,17 +4,18 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   inherit (config.virtualisation.oci-containers) backend;
 
-  secret = _utils.setupSingleSecret config "minecraftEnv" {};
+  secret = _utils.setupSingleSecret config "minecraftEnv" { };
 
   lynn = _utils.mkMinecraftServer config {
     name = "lynn";
     port = 25567;
     remotePort = 6002;
     memory = "4G";
-    envFiles = [secret.path];
+    envFiles = [ secret.path ];
     env = {
       USE_AIKAR_FLAGS = "true";
       TYPE = "MODRINTH";
@@ -27,7 +28,7 @@
     port = 25565;
     remotePort = 6005;
     memory = "4G";
-    envFiles = [secret.path];
+    envFiles = [ secret.path ];
     env = {
       USE_AIKAR_FLAGS = "true";
       TYPE = "MODRINTH";
@@ -40,7 +41,7 @@
     port = 25566;
     remotePort = 6006;
     memory = "4G";
-    envFiles = [secret.path];
+    envFiles = [ secret.path ];
     env = {
       USE_AIKAR_FLAGS = "true";
       TYPE = "MODRINTH";
@@ -48,7 +49,8 @@
       MODRINTH_PROJECTS = "spark, no-chat-reports";
     };
   };
-in {
+in
+{
   imports = [
     secret.generate
 
@@ -58,7 +60,7 @@ in {
   ];
 
   systemd.services.restart-minecraft-servers = {
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
     startAt = "*-*-* 05:00:00";
     restartIfChanged = false;
 

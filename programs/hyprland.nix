@@ -2,7 +2,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hyprland-misc.nix
     ./alacritty.nix
@@ -20,7 +21,7 @@
     };
   };
 
-  xdg.portal.extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
 
   hm = {
     home.packages = with pkgs; [
@@ -37,11 +38,24 @@
 
     wayland.windowManager.hyprland = {
       enable = true;
-      settings = let
-        inherit (lib) getExe getExe';
-        keys = ["ampersand" "eacute" "quotedbl" "apostrophe" "parenleft" "minus" "egrave" "underscore" "ccedilla" "agrave"];
-      in
-        with pkgs; {
+      settings =
+        let
+          inherit (lib) getExe getExe';
+          keys = [
+            "ampersand"
+            "eacute"
+            "quotedbl"
+            "apostrophe"
+            "parenleft"
+            "minus"
+            "egrave"
+            "underscore"
+            "ccedilla"
+            "agrave"
+          ];
+        in
+        with pkgs;
+        {
           "$mod" = "SUPER";
           "$wl-paste" = getExe' wl-clipboard "wl-paste";
           "$wpctl" = getExe' wireplumber "wpctl";
@@ -152,12 +166,18 @@
             ++
             # Switch workspaces with mod + [0-9]
             # Move active window to a workspace with mod + SHIFT + [0-9]
-            lib.flatten (builtins.map (i: let
-              key = builtins.elemAt keys (i - 1);
-            in [
-              "$mod, ${key}, workspace, ${toString i}"
-              "$mod SHIFT, ${key}, movetoworkspace, ${toString i}"
-            ]) (lib.range 1 10));
+            lib.flatten (
+              builtins.map (
+                i:
+                let
+                  key = builtins.elemAt keys (i - 1);
+                in
+                [
+                  "$mod, ${key}, workspace, ${toString i}"
+                  "$mod SHIFT, ${key}, movetoworkspace, ${toString i}"
+                ]
+              ) (lib.range 1 10)
+            );
 
           bindm = [
             "$mod, mouse:272, movewindow"

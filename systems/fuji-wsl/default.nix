@@ -3,12 +3,13 @@
   pkgs,
   nixos-wsl,
   ...
-}: {
+}:
+{
   imports = [
     nixos-wsl.nixosModules.default
   ];
 
-  environment.sessionVariables.LD_LIBRARY_PATH = ["/run/opengl-driver/lib"];
+  environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
 
   wsl = {
     enable = true;

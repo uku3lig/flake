@@ -3,14 +3,17 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (config.lib.file) mkOutOfStoreSymlink;
-in {
+in
+{
   home = {
-    packages = [pkgs.jetbrains.rider];
+    packages = [ pkgs.jetbrains.rider ];
 
     file = {
-      ".dotnet/8".source = mkOutOfStoreSymlink "${pkgs.dotnetCorePackages.dotnet_8.sdk.unwrapped}/share/dotnet";
+      ".dotnet/8".source =
+        mkOutOfStoreSymlink "${pkgs.dotnetCorePackages.dotnet_8.sdk.unwrapped}/share/dotnet";
       ".dotnet/mono".source = mkOutOfStoreSymlink pkgs.mono;
     };
   };

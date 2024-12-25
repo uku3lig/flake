@@ -2,7 +2,8 @@
   pkgs,
   vscode-extensions,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) system;
   extensions = vscode-extensions.extensions.${system};
 
@@ -13,14 +14,16 @@
     rust-lang.rust-analyzer
     wakatime.vscode-wakatime
   ];
-in {
+in
+{
   hm.programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
 
-    extensions = with extensions.vscode-marketplace;
+    extensions =
+      with extensions.vscode-marketplace;
       patched
       ++ [
         # style
@@ -49,8 +52,12 @@ in {
 
         # cpp
         mesonbuild.mesonbuild
-        (ms-vscode.cmake-tools.overrideAttrs (_: {sourceRoot = "extension";}))
-        (ms-vscode.makefile-tools.overrideAttrs (_: {sourceRoot = "extension";}))
+        (ms-vscode.cmake-tools.overrideAttrs (_: {
+          sourceRoot = "extension";
+        }))
+        (ms-vscode.makefile-tools.overrideAttrs (_: {
+          sourceRoot = "extension";
+        }))
         twxs.cmake
         xaver.clang-format
 

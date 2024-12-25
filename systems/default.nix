@@ -2,15 +2,17 @@
   lib,
   inputs,
   ...
-}: let
-  _utils = import ../global/utils.nix {inherit lib;};
+}:
+let
+  _utils = import ../global/utils.nix { inherit lib; };
 
-  toSystem = name: {
-    role,
-    system,
-  }:
-    inputs.nixpkgs.lib.nixosSystem
+  toSystem =
+    name:
     {
+      role,
+      system,
+    }:
+    inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
       modules = [
@@ -18,12 +20,15 @@
         ./${name}/hardware-configuration.nix
         ../configs/${role}.nix
 
-        {networking.hostName = name;}
+        { networking.hostName = name; }
       ];
 
-      specialArgs = inputs // {inherit _utils;};
+      specialArgs = inputs // {
+        inherit _utils;
+      };
     };
-in {
+in
+{
   flake.nixosConfigurations = lib.mapAttrs toSystem {
     fuji = {
       role = "desktop";

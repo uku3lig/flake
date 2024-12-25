@@ -1,11 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   hm.programs.neovim = {
     enable = true;
     defaultEditor = true;
     extraLuaConfig = builtins.readFile ./init.lua;
 
     extraPackages = with pkgs; [
-      (lua5_1.withPackages (ps: with ps; [luarocks]))
+      (lua5_1.withPackages (ps: with ps; [ luarocks ]))
       tree-sitter
     ];
 

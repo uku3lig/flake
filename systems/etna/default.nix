@@ -4,15 +4,17 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   tunnelId = "57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5";
 
-  secrets = _utils.setupSharedSecrets config {secrets = ["frpToken"];};
+  secrets = _utils.setupSharedSecrets config { secrets = [ "frpToken" ]; };
   cfTunnelSecret = _utils.setupSingleSecret config "tunnelCreds" {
     owner = "cloudflared";
     group = "cloudflared";
   };
-in {
+in
+{
   assertions = [
     {
       assertion = lib.versionAtLeast config.boot.kernelPackages.kernel.version "6.6.31";
@@ -21,7 +23,7 @@ in {
   ];
 
   imports = [
-    (lib.mkAliasOptionModule ["cfTunnels"] ["services" "cloudflared" "tunnels" tunnelId "ingress"])
+    (lib.mkAliasOptionModule [ "cfTunnels" ] [ "services" "cloudflared" "tunnels" tunnelId "ingress" ])
 
     secrets.generate
     cfTunnelSecret.generate

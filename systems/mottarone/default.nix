@@ -3,9 +3,11 @@
   pkgs,
   camasca,
   ...
-}: let
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) system;
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     gtkterm
     remmina

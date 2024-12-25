@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./common.nix
 
@@ -7,7 +8,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (ffmpeg-full.override {withUnfree = true;})
+    (ffmpeg-full.override { withUnfree = true; })
     fastfetch
     lazygit
     nixd
@@ -15,8 +16,8 @@
 
   hm.programs.keychain = {
     enable = true;
-    agents = ["ssh"];
-    keys = ["id_ed25519"];
+    agents = [ "ssh" ];
+    keys = [ "id_ed25519" ];
   };
 
   networking = {
@@ -24,7 +25,7 @@
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
-      plugins = [pkgs.networkmanager-fortisslvpn];
+      plugins = [ pkgs.networkmanager-fortisslvpn ];
     };
   };
 

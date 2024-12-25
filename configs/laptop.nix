@@ -3,10 +3,11 @@
   pkgs,
   config,
   ...
-}: {
-  imports = [./desktop.nix];
+}:
+{
+  imports = [ ./desktop.nix ];
 
-  boot.initrd.kernelModules = ["xe"];
+  boot.initrd.kernelModules = [ "xe" ];
 
   hardware = {
     bluetooth.enable = true;
@@ -18,7 +19,7 @@
         vpl-gpu-rt
       ];
 
-      extraPackages32 = [pkgs.driversi686Linux.intel-media-driver];
+      extraPackages32 = [ pkgs.driversi686Linux.intel-media-driver ];
     };
   };
 
@@ -30,7 +31,7 @@
   programs.light.enable = true;
 
   # hyprland stuff
-  services.blueman = lib.mkIf config.programs.hyprland.enable {enable = true;};
+  services.blueman = lib.mkIf config.programs.hyprland.enable { enable = true; };
   hm.wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
     "${lib.getExe networkmanagerapplet}"
     "${lib.getExe' blueman "blueman-applet"}"
