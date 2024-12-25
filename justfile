@@ -6,7 +6,7 @@ check:
 
 switch *args:
     @sudo -v
-    sudo nixos-rebuild switch --flake . --keep-going {{args}}
+    nh os switch --ask . -- --keep-going {{args}}
 
 rollback:
     @sudo -v
@@ -14,14 +14,16 @@ rollback:
 
 boot *args:
     @sudo -v
-    sudo nixos-rebuild boot --flake . --keep-going {{args}}
+    nh os boot --ask . -- --keep-going {{args}}
 
 deploy system user="leo":
     #!/usr/bin/env bash
     set -euxo pipefail
     flake=$(nix eval --impure --raw --expr "(builtins.getFlake \"$PWD\").outPath")
     nix copy "$flake" --to "ssh://{{user}}@{{system}}"
-    ssh -t "{{user}}@{{system}}" "sudo flock -w 60 /dev/shm/deploy-{{system}} nixos-rebuild switch --flake $flake#{{system}}"
+    # -R/--bypass-root-check is needed because of a Git CVE regression in Nix 2.20
+    # See NixOS/nix#10202, viperML/nh#200
+    ssh -t "{{user}}@{{system}}" "flock -w 60 /dev/shm/deploy-{{system}} nix run n#nh -- os switch -R -H {{system}} --ask $flake"
 
 lint *args:
     statix check -i flake.nix **/hardware-configuration.nix {{args}}
