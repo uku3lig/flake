@@ -23,7 +23,7 @@ deploy system user="leo":
     nix copy "$flake" --to "ssh://{{user}}@{{system}}"
     # -R/--bypass-root-check is needed because of a Git CVE regression in Nix 2.20
     # See NixOS/nix#10202, viperML/nh#200
-    ssh -t "{{user}}@{{system}}" "flock -w 60 /dev/shm/deploy-{{system}} nix run n#nh -- os switch -R -H {{system}} --ask $flake"
+    ssh -t "{{user}}@{{system}}" "sudo flock -w 60 /dev/shm/deploy-{{system}} nix run n#nh -- os switch -R -H {{system}} --ask $flake"
 
 lint *args:
     statix check -i flake.nix **/hardware-configuration.nix {{args}}
