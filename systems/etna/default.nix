@@ -28,6 +28,7 @@ in
     secrets.generate
     cfTunnelSecret.generate
 
+    ./cobalt.nix
     ./dendrite.nix
     ./forgejo.nix
     ./immich.nix

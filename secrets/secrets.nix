@@ -40,4 +40,5 @@ in
   "etna/vaultwardenEnv.age".publicKeys = main ++ [ etna ];
   "etna/vmauthEnv.age".publicKeys = main ++ [ etna ];
   "etna/upsdUserPass.age".publicKeys = main ++ [ etna ];
+  "etna/cobaltTokens.age".publicKeys = main ++ [ etna ];
 }
