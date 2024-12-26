@@ -23,7 +23,6 @@
         {
           pkgs,
           system,
-          self',
           ...
         }:
         {
@@ -32,7 +31,7 @@
               agenix.packages.${system}.default
               just
               nh
-              self'.formatter
+              nixfmt-rfc-style
               statix
             ];
           };
