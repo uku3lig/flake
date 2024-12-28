@@ -36,4 +36,11 @@
       mysqld.bind_address = "127.0.0.1";
     };
   };
+
+  system.replaceDependencies.replacements = [
+    {
+      oldDependency = pkgs.ffmpeg-full;
+      newDependency = (pkgs.ffmpeg-full.override { withUnfree = true; });
+    }
+  ];
 }

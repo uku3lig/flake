@@ -8,7 +8,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (ffmpeg-full.override { withUnfree = true; })
+    ffmpeg-full
     fastfetch
     lazygit
     nixd
