@@ -2,13 +2,11 @@
   lib,
   pkgs,
   config,
-  catppuccin,
   lanzaboote,
   ...
 }:
 {
   imports = [
-    catppuccin.nixosModules.catppuccin
     lanzaboote.nixosModules.lanzaboote
 
     ./client.nix
@@ -77,7 +75,6 @@
 
   hm = {
     imports = [
-      catppuccin.homeManagerModules.catppuccin
       ../programs/java.nix
     ];
 

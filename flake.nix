@@ -73,8 +73,6 @@
       inputs.darwin.follows = "";
     };
 
-    catppuccin.url = "github:Stonks3141/ctp-nix";
-
     crane.url = "github:ipetkov/crane";
 
     flake-parts = {

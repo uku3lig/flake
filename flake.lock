@@ -70,21 +70,6 @@
         "url": "https://git.uku3lig.net/uku/camasca"
       }
     },
-    "catppuccin": {
-      "locked": {
-        "lastModified": 1735028008,
-        "narHash": "sha256-crbQNRVQgPH0hX5vZk8xL9JStXo74Es7zDBjRcc4i+A=",
-        "owner": "Stonks3141",
-        "repo": "ctp-nix",
-        "rev": "bfd20bcf45f1de0e97b551be51495abf8a727f1a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Stonks3141",
-        "repo": "ctp-nix",
-        "type": "github"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1734808813,
@@ -297,7 +282,6 @@
         "agenix": "agenix",
         "api-rs": "api-rs",
         "camasca": "camasca",
-        "catppuccin": "catppuccin",
         "crane": "crane",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
