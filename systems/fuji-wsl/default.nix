@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   nixos-wsl,
@@ -37,10 +38,13 @@
     };
   };
 
-  system.replaceDependencies.replacements = [
-    {
-      oldDependency = pkgs.ffmpeg-full;
-      newDependency = (pkgs.ffmpeg-full.override { withUnfree = true; });
-    }
-  ];
+  system.replaceDependencies = {
+    cutoffPackages = lib.mkForce [ ]; # wsl does not have a ramdisk
+    replacements = [
+      {
+        oldDependency = pkgs.ffmpeg-full;
+        newDependency = (pkgs.ffmpeg-full.override { withUnfree = true; });
+      }
+    ];
+  };
 }
