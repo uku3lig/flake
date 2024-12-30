@@ -85,13 +85,6 @@
       inputs.systems.follows = "systems";
     };
 
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-      inputs.flake-compat.follows = "";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
