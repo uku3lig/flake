@@ -77,7 +77,10 @@ in
   };
 
   systemd = {
-    services.vmagent.serviceConfig.LoadCredential = [ "vm_auth_token:${secrets.get "vmAuthToken"}" ];
+    services = {
+      vmagent.serviceConfig.LoadCredential = [ "vm_auth_token:${secrets.get "vmAuthToken"}" ];
+      tailscaled.restartIfChanged = false;
+    };
 
     # For more detail, see:
     #   https://0pointer.de/blog/projects/watchdog.html
