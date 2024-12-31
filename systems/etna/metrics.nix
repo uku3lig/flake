@@ -24,51 +24,53 @@ in
     };
   };
 
-  services.grafana = {
-    enable = true;
-    settings = {
-      server = {
-        http_port = 2432;
-        root_url = "https://grafana.uku3lig.net";
+  services = {
+    grafana = {
+      enable = true;
+      settings = {
+        server = {
+          http_port = 2432;
+          root_url = "https://grafana.uku3lig.net";
+        };
       };
     };
-  };
 
-  services.victoriametrics = {
-    enable = true;
-    listenAddress = "127.0.0.1:9090";
-    retentionPeriod = "5y";
-  };
+    victoriametrics = {
+      enable = true;
+      listenAddress = "127.0.0.1:9090";
+      retentionPeriod = "5y";
+    };
 
-  services.vmagent = {
-    enable = true;
-    prometheusConfig = {
-      global.scrape_interval = "15s";
+    vmagent = {
+      enable = true;
+      prometheusConfig = {
+        global.scrape_interval = "15s";
 
-      # node scraping is sent to vm directly via vmauth
-      scrape_configs = [
+        # node scraping is sent to vm directly via vmauth
+        scrape_configs = [
+          {
+            job_name = "victoriametrics";
+            static_configs = [ { targets = [ "${builtins.toString vmcfg.listenAddress}" ]; } ];
+          }
+
+          {
+            job_name = "api-rs";
+            static_configs = [ { targets = [ "localhost:5001" ]; } ];
+          }
+        ];
+      };
+    };
+
+    vmauth = {
+      enable = true;
+      listenAddress = "127.0.0.1:9089";
+      environmentFile = vmauthEnv.path;
+      authConfig.users = [
         {
-          job_name = "victoriametrics";
-          static_configs = [ { targets = [ "${builtins.toString vmcfg.listenAddress}" ]; } ];
-        }
-
-        {
-          job_name = "api-rs";
-          static_configs = [ { targets = [ "localhost:5001" ]; } ];
+          bearer_token = "%{VM_AUTH_TOKEN}";
+          url_prefix = "http://${vmcfg.listenAddress}";
         }
       ];
     };
-  };
-
-  services.vmauth = {
-    enable = true;
-    listenAddress = "127.0.0.1:9089";
-    environmentFile = vmauthEnv.path;
-    authConfig.users = [
-      {
-        bearer_token = "%{VM_AUTH_TOKEN}";
-        url_prefix = "http://${vmcfg.listenAddress}";
-      }
-    ];
   };
 }

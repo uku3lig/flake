@@ -43,7 +43,7 @@
     replacements = [
       {
         oldDependency = pkgs.ffmpeg-full;
-        newDependency = (pkgs.ffmpeg-full.override { withUnfree = true; });
+        newDependency = pkgs.ffmpeg-full.override { withUnfree = true; };
       }
     ];
   };
