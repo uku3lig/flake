@@ -12,9 +12,10 @@
     };
   };
 
+  security.pam.services.sddm.kwallet.enable = true;
+
   environment = {
     systemPackages = with pkgs; [
-      flameshot
       gnome-calculator
       camasca.packages.${pkgs.system}.koi
     ];

@@ -3,8 +3,9 @@
   imports = [
     ./common.nix
 
-    ../programs/rust.nix
     ../programs/neovim
+    ../programs/rust.nix
+    ../programs/ssh-agent.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -13,12 +14,6 @@
     lazygit
     nixd
   ];
-
-  hm.programs.keychain = {
-    enable = true;
-    agents = [ "ssh" ];
-    keys = [ "id_ed25519" ];
-  };
 
   networking = {
     useNetworkd = false;
