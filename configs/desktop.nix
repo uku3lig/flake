@@ -12,12 +12,7 @@
     ./client.nix
 
     ../programs/ghostty.nix
-    ../programs/kde.nix
-    # ../programs/vscode.nix
-
-    # the world if hyprland
-    # ../programs/hyprland.nix
-    # ../programs/alacritty.nix
+    ../programs/gnome.nix
   ];
 
   boot = {
