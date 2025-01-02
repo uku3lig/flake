@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services = {
-    xserver.desktopManager.gnome.enable = true;
-    displayManager = {
-      defaultSession = "gnome";
-      gdm = {
+    displayManager.defaultSession = "gnome";
+    xserver = {
+      desktopManager.gnome.enable = true;
+      displayManager.gdm = {
         enable = true;
         wayland = true;
       };
@@ -19,6 +19,10 @@
       { package = blur-my-shell; }
     ];
   };
+
+  # ssh-agent is provided by gnome-keyring-daemon
+  # (mabye soon by gcr, see NixOS/nixpkgs#140824)
+  programs.ssh.startAgent = lib.mkForce false;
 
   environment = with pkgs; {
     systemPackages = [ gnome-tweaks ];
