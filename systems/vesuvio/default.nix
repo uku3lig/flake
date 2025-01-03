@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./certificates.nix
     ./frp.nix
     ./hetzner.nix
   ];
@@ -10,8 +11,16 @@
     traceroute
   ];
 
-  services.openssh = {
-    ports = [ 4269 ];
-    openFirewall = true;
+  services = {
+    nginx.enable = true;
+    openssh = {
+      ports = [ 4269 ];
+      openFirewall = true;
+    };
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }
