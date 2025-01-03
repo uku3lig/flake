@@ -1,15 +1,4 @@
-{ lib, pkgs, ... }:
-let
-  osuSessionFile =
-    (pkgs.writeTextDir "share/wayland-sessions/osu.desktop" ''
-      [Desktop Entry]
-      Name=osu!
-      Comment=Free-to-win rhythm game
-      Exec=${lib.getExe pkgs.gamescope} -- ${lib.getExe pkgs.osu-lazer-bin}
-      Type=Application
-    '').overrideAttrs
-      { passthru.providedSessions = [ "osu" ]; };
-in
+{ pkgs, ... }:
 {
   hardware = {
     xone.enable = true;
@@ -37,6 +26,4 @@ in
 
     gamemode.enable = true;
   };
-
-  services.displayManager.sessionPackages = [ osuSessionFile ];
 }
