@@ -7,6 +7,14 @@
 
       settings.port = 5432;
       enableTCPIP = true;
+
+      ensureDatabases = [
+        "maddy"
+      ];
+
+      authentication = ''
+        host maddy maddy vesuvio.fossa-macaroni.ts.net scram-sha-256
+      '';
     };
 
     postgresqlBackup = {

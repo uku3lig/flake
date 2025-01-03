@@ -4,6 +4,7 @@
     ./certificates.nix
     ./frp.nix
     ./hetzner.nix
+    ./mail
     ./nginx.nix
   ];
 
