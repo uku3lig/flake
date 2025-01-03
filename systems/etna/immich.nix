@@ -1,4 +1,7 @@
+{ config, ... }:
 {
+  cfTunnels."im.uku.moe" = "http://localhost:${builtins.toString config.services.immich.port}";
+
   services.immich = {
     enable = true;
 
@@ -8,8 +11,5 @@
     environment = {
       TZ = "Europe/Paris";
     };
-
-    host = "0.0.0.0";
-    openFirewall = true;
   };
 }
