@@ -1,6 +1,9 @@
-{ config, ... }:
+{ config, _utils, ... }:
+let
+  frp = _utils.mkFrpPassthrough "immich" config.services.immich.port;
+in
 {
-  cfTunnels."im.uku.moe" = "http://localhost:${builtins.toString config.services.immich.port}";
+  imports = [ frp ];
 
   services.immich = {
     enable = true;

@@ -4,6 +4,7 @@
     ./certificates.nix
     ./frp.nix
     ./hetzner.nix
+    ./nginx.nix
   ];
 
   environment.systemPackages = with pkgs; [
