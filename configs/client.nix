@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ./common.nix
@@ -15,8 +15,7 @@
       nixd
     ];
 
-    # fix for wsl, `prefer` does not work if your SSH_ASKPASS is empty/unset
-    variables.SSH_ASKPASS_REQUIRE = if config.programs.ssh.enableAskPassword then "prefer" else "never";
+    variables.SSH_ASKPASS_REQUIRE = "prefer";
   };
 
   networking = {
@@ -30,7 +29,11 @@
 
   programs = {
     nix-ld.enable = true;
-    ssh.startAgent = true;
+    ssh = {
+      startAgent = true;
+      enableAskPassword = true;
+      askPassword = lib.mkDefault "${pkgs.curses-ssh-askpass}"; # see exprs/curses-ssh-askpass.nix
+    };
   };
 
   virtualisation.docker.enable = true;
