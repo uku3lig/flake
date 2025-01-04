@@ -84,4 +84,16 @@
 
       systemd.services."${backend}-mc-${name}".serviceConfig.TimeoutSec = "300";
     };
+
+  mkFrpPassthrough = name: port: {
+    services.frp.settings.proxies = [
+      {
+        inherit name;
+        type = "tcp";
+        localIp = "localhost";
+        localPort = port;
+        remotePort = port;
+      }
+    ];
+  };
 }
