@@ -28,6 +28,7 @@ in
 
     config = {
       adminpassFile = adminPass.path;
+      dbtype = "sqlite";
     };
   };
 }
