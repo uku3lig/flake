@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   _utils,
   ...
@@ -28,6 +27,10 @@ in
     secrets.generate
     cfTunnelSecret.generate
 
+    # essential configs, do not remove
+    ./postgresql.nix
+
+    # services
     ./cobalt.nix
     ./dendrite.nix
     ./forgejo.nix
@@ -58,11 +61,6 @@ in
 
     openssh.openFirewall = true;
     nginx.enable = true;
-
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql_16;
-    };
 
     frp = {
       enable = true;
