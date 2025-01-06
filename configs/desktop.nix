@@ -59,13 +59,9 @@
     };
   };
 
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    pulseaudio.enable = false;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   hm = {
@@ -127,6 +123,7 @@
 
     printing.enable = true;
 
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
