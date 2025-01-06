@@ -32,7 +32,7 @@
     ssh = {
       startAgent = true;
       enableAskPassword = true;
-      askPassword = lib.mkDefault "${pkgs.curses-ssh-askpass}"; # see exprs/curses-ssh-askpass.nix
+      askPassword = lib.mkOverride 1200 "${pkgs.curses-ssh-askpass}"; # see exprs/curses-ssh-askpass.nix
     };
   };
 
