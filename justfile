@@ -19,7 +19,7 @@ boot *args:
 deploy system user="leo":
     #!/usr/bin/env bash
     set -euxo pipefail
-    flake=$(nix eval --impure --raw --expr "(builtins.getFlake \"$PWD\").outPath")
+    flake=$(nix eval --impure --raw --expr "(builtins.getFlake \"git+file://$PWD\").outPath")
     nix copy "$flake" --to "ssh://{{user}}@{{system}}"
     # -R/--bypass-root-check is needed because of a Git CVE regression in Nix 2.20
     # See NixOS/nix#10202, viperML/nh#200
