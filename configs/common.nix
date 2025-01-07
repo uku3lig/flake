@@ -70,6 +70,8 @@ in
     neovim
     ripgrep
     wget
+
+    ghostty.terminfo
   ];
 
   hm = {
