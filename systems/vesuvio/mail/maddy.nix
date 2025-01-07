@@ -62,7 +62,9 @@ in
       ## message reception
 
       msgpipeline local_routing {
-        # TODO: checks (rspamd)
+        check {
+          rspamd
+        }
 
         modify {
           replace_rcpt &local_rewrites

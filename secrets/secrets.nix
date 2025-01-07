@@ -43,4 +43,5 @@ in
   "etna/cobaltTokens.age".publicKeys = main ++ [ etna ];
 
   "vesuvio/maddyEnv.age".publicKeys = main ++ [ vesuvio ];
+  "vesuvio/rspamdPassword.age".publicKeys = main ++ [ vesuvio ];
 }
