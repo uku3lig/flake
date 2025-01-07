@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   _utils,
   ...
@@ -21,6 +22,10 @@ in
     substituteOnTarget = true;
     hermetic = false; # hermetic fucks up for cross-system deployments
   };
+
+  environment.systemPackages = with pkgs; [
+    ghostty.terminfo
+  ];
 
   services = {
     tailscale.extraUpFlags = [ "--advertise-exit-node" ];
