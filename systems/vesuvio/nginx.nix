@@ -1,5 +1,13 @@
 {
   services.nginx.virtualHosts = {
+    # default server
+    "vps.uku3lig.net" = {
+      default = true;
+      addSSL = true;
+      enableACME = true;
+      locations."/".return = "404";
+    };
+
     # immich
     "im.uku.moe" = {
       forceSSL = true;
