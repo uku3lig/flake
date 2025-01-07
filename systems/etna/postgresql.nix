@@ -5,7 +5,7 @@
       enable = true;
       package = pkgs.postgresql_16;
 
-      port = 5432;
+      settings.port = 5432;
       enableTCPIP = true;
     };
 
