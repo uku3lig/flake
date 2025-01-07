@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   setupSecrets =
     _config:
@@ -96,4 +96,19 @@
       }
     ];
   };
+
+  # shamelessly stolen from soopyc's gensokyo
+  mkNginxFile =
+    {
+      filename ? "index.html",
+      content,
+      status ? 200,
+    }:
+    {
+      # gets the store path of the directory in which the file is contained
+      # we have to use writeTextDir because we don't want to expose the whole nix store to nginx
+      # and because you can't just return an absolute path to a file
+      alias = builtins.toString (pkgs.writeTextDir filename content) + "/";
+      tryFiles = "${filename} =${builtins.toString status}";
+    };
 }

@@ -4,7 +4,7 @@
   ...
 }:
 let
-  _utils = import ../global/utils.nix { inherit lib; };
+  mkUtils = import ../global/utils.nix;
 
   toSystem =
     name:
@@ -24,7 +24,10 @@ let
       ];
 
       specialArgs = inputs // {
-        inherit _utils;
+        _utils = mkUtils {
+          inherit lib;
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+        };
       };
     };
 in
