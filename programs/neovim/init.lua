@@ -84,6 +84,12 @@ require("lualine").setup({
 	extensions = { "trouble" },
 })
 
+local npairs = require("nvim-autopairs")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+npairs.setup({
+	check_ts = true,
+})
+
 local cmp = require("cmp")
 local cmp_caps = require("cmp_nvim_lsp").default_capabilities()
 cmp.setup({
@@ -95,6 +101,8 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 	},
 })
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 local lspformat = require("lsp-format")
 lspformat.setup({})

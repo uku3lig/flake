@@ -17,6 +17,7 @@
       cmp-nvim-lsp
       lsp-format-nvim
       lualine-nvim
+      nvim-autopairs
       nvim-cmp
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
