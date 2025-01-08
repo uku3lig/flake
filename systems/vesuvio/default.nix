@@ -19,6 +19,9 @@
       ports = [ 4269 ];
       openFirewall = true;
     };
+
+    # despite not having postgres here, we match with etna for safety
+    postgresql.package = pkgs.postgresql_16;
   };
 
   networking.firewall.allowedTCPPorts = [

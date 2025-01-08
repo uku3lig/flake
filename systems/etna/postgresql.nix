@@ -10,10 +10,12 @@
 
       ensureDatabases = [
         "maddy"
+        "roundcube"
       ];
 
       authentication = ''
         host maddy maddy vesuvio.fossa-macaroni.ts.net scram-sha-256
+        host roundcube roundcube vesuvio.fossa-macaroni.ts.net scram-sha-256
       '';
     };
 

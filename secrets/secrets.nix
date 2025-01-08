@@ -44,4 +44,5 @@ in
 
   "vesuvio/maddyEnv.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/rspamdPassword.age".publicKeys = main ++ [ vesuvio ];
+  "vesuvio/roundcubeDbPass.age".publicKeys = main ++ [ vesuvio ];
 }
