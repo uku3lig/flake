@@ -107,6 +107,8 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	}),
 	sources = {
+		{ name = "async_path" },
+		{ name = "buffer" },
 		{ name = "nvim_lsp" },
 	},
 })

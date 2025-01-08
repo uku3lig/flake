@@ -14,6 +14,8 @@
     plugins = with pkgs.vimPlugins; [
       barbar-nvim
       catppuccin-nvim
+      cmp-async-path
+      cmp-buffer
       cmp-nvim-lsp
       lsp-format-nvim
       lualine-nvim
