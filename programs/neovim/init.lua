@@ -36,6 +36,11 @@ vim.opt.inccommand = "split"
 -- highlight the line the cursor is on
 vim.opt.cursorline = true
 
+-- set default tab size
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.expandtab = true
+
 -- sync os clipboard and neovim
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
@@ -77,4 +82,32 @@ require("lualine").setup({
 		theme = "catppuccin",
 	},
 	extensions = { "trouble" },
+})
+
+local cmp = require("cmp")
+local cmp_caps = require("cmp_nvim_lsp").default_capabilities()
+cmp.setup({
+	mapping = cmp.mapping.preset.insert({
+		-- accept completion with enter
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = {
+		{ name = "nvim_lsp" },
+	},
+})
+
+local lspformat = require("lsp-format")
+lspformat.setup({})
+
+local lspconfig = require("lspconfig")
+lspconfig.nixd.setup({
+	on_attach = lspformat.on_attach,
+	capabilities = cmp_caps,
+	settings = {
+		["nixd"] = {
+			formatting = {
+				command = { "nixfmt" },
+			},
+		},
+	},
 })
