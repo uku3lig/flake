@@ -71,7 +71,11 @@ in
         }
 
         # catch-all setup inspired by https://github.com/foxcpp/maddy/issues/243#issuecomment-1406567636
-        # we don't have a destination_in clause because there is only one imap account
+        # if the email is one of the already existing imap mailboxes, redirect to that directly
+        destination_in &local_mailboxes {
+          deliver_to &local_mailboxes
+        }
+
         destination $(local_domains) {
           modify {
             replace_rcpt regexp ".*" "hi@uku.moe"
