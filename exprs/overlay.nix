@@ -12,7 +12,7 @@ inputs: final: prev: {
     };
 
     pnpmDeps = old.pnpmDeps.overrideAttrs (_: {
-      outputHash = "sha256-vVzERis1W3QZB/i6SQR9dQR56yDWadKWvFr+nLTQY9Y=";
+      outputHash = "sha256-ZUwtNtOmxjhOBpYB7vuytunGBRSuVxdlQsceRmeyhhI=";
       outputHashAlgo = "sha256";
     });
 
