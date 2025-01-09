@@ -3,12 +3,11 @@
   pkgs,
   config,
   _utils,
-  camasca,
-  nixpkgs,
   agenix,
+  camasca,
   home-manager,
+  nixpkgs,
   vencord,
-  hydro,
   ...
 }:
 let
@@ -35,7 +34,6 @@ in
 
     ../programs/fish.nix
     ../programs/git.nix
-    # ../programs/starship
   ];
 
   age = {
@@ -135,12 +133,10 @@ in
 
       substituters = [
         "https://uku3lig.cachix.org"
-        "https://ghostty.cachix.org"
       ];
 
       trusted-public-keys = [
         "uku3lig.cachix.org-1:C1/9DNUadh2pueAo+LUkVNUKyIVjF/CREd9RS9E+F2A="
-        "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
       ];
     };
   };
@@ -148,7 +144,7 @@ in
   nixpkgs = {
     config.allowUnfree = true;
     flake.setNixPath = false;
-    overlays = [ (import ../exprs/overlay.nix { inherit vencord hydro; }) ];
+    overlays = [ (import ../exprs/overlay.nix { inherit vencord; }) ];
   };
 
   programs = {
@@ -199,11 +195,6 @@ in
       ];
       authKeyFile = secrets.get "tailscaleKey";
     };
-  };
-
-  system.switch = {
-    enable = false;
-    enableNg = true;
   };
 
   systemd = {

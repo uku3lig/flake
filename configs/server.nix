@@ -15,14 +15,6 @@ in
     secrets.generate
   ];
 
-  _module.args.nixinate = {
-    host = config.networking.hostName;
-    sshUser = "leo";
-    buildOn = "remote";
-    substituteOnTarget = true;
-    hermetic = false; # hermetic fucks up for cross-system deployments
-  };
-
   environment.systemPackages = with pkgs; [
     ghostty.terminfo
   ];
