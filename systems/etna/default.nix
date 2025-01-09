@@ -35,9 +35,9 @@ in
     ./dendrite.nix
     ./forgejo.nix
     ./immich.nix
+    ./jellyfin.nix
     ./metrics.nix
     ./minecraft.nix
-    ./navidrome.nix
     ./nextcloud.nix
     ./reposilite.nix
     ./satisfactory.nix
