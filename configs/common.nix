@@ -67,7 +67,6 @@ in
     git
     htop
     ncdu
-    neovim
     ripgrep
     wget
   ];
@@ -159,6 +158,11 @@ in
     nix-index = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
     };
   };
 
