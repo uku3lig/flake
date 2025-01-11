@@ -130,3 +130,5 @@ lspconfig.nixd.setup({
 		},
 	},
 })
+
+require("gitsigns").setup()
