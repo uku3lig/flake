@@ -25,6 +25,7 @@
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons # for lualine
+      vim-wakatime
     ];
   };
 }
