@@ -13,7 +13,7 @@ in
     remmina
     camasca.packages.${system}.openwebstart
     camasca.packages.${system}.jaspersoft-studio-community
-    jetbrains.pycharm-professional
+    jetbrains.pycharm-community-bin
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
@@ -30,10 +30,5 @@ in
     };
 
     postgresql.enable = true;
-    pgadmin = {
-      enable = true;
-      initialEmail = "hi@uku.moe";
-      initialPasswordFile = "/run/pgadminpwd";
-    };
   };
 }
