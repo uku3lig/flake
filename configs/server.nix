@@ -15,6 +15,8 @@ in
     secrets.generate
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+
   environment.systemPackages = with pkgs; [
     ghostty.terminfo
   ];

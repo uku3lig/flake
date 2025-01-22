@@ -42,7 +42,7 @@ in
   };
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages; # use lts
+    # see ./server.nix and ./client.nix for kernel versions
     kernelParams = [
       "quiet"
       "loglevel=3"

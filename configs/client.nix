@@ -7,6 +7,8 @@
     ../programs/rust.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages; # lts
+
   environment = {
     systemPackages = with pkgs; [
       ffmpeg-full
