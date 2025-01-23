@@ -19,8 +19,8 @@ in
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
 
   hm.programs = {
-    git.enable = lib.mkForce false;
-    ssh.enable = lib.mkForce false;
+    git.includes = [ { path = "~/.config/git/work_config"; } ];
+    ssh.includes = [ "work_config" ];
   };
 
   services = {
