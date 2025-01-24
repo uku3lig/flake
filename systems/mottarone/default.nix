@@ -23,6 +23,8 @@ in
     ssh.includes = [ "work_config" ];
   };
 
+  networking.firewall.allowedTCPPorts = [ 8000 ];
+
   services = {
     resolved = {
       dnssec = "allow-downgrade";
