@@ -12,12 +12,6 @@
 
   environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
 
-  hm.programs.fish.interactiveShellInit = lib.mkAfter ''
-    if test -f ~/.ssh/id_ed25519
-      ssh-add -l | grep -q (ssh-keygen -lf ~/.ssh/id_ed25519) || ssh-add ~/.ssh/id_ed25519
-    end
-  '';
-
   wsl = {
     enable = true;
     defaultUser = "leo";
