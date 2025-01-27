@@ -32,6 +32,7 @@ in
 
       extraConfig = ''
         $config['imap_host'] = 'ssl://mx1.uku3lig.net:993';
+        $config['smtp_host'] = 'ssl://mx1.uku3lig.net:465';
       '';
     };
   };
