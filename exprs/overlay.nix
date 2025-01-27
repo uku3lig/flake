@@ -1,6 +1,5 @@
 inputs: final: prev: {
   idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix { };
-  curses-ssh-askpass = prev.callPackage ./curses-ssh-askpass.nix { };
 
   vencord = prev.vencord.overrideAttrs (old: rec {
     version = "${old.version}+git.${inputs.vencord.shortRev}";

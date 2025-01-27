@@ -112,6 +112,7 @@
   programs = {
     firefox.enable = true;
     virt-manager.enable = true;
+    ssh.enableAskPassword = true;
   };
 
   security.pam.services.login.enableGnomeKeyring = true;

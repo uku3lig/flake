@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [
     ./common.nix
@@ -17,7 +22,8 @@
       nixd
     ];
 
-    variables.SSH_ASKPASS_REQUIRE = "prefer";
+    # disable ssh-askpass on wsl namely, to simply have a normal prompt that reads from stdin
+    variables.SSH_ASKPASS_REQUIRE = if config.programs.ssh.enableAskPassword then "prefer" else "never";
   };
 
   networking = {
@@ -31,11 +37,7 @@
 
   programs = {
     nix-ld.enable = true;
-    ssh = {
-      startAgent = true;
-      enableAskPassword = true;
-      askPassword = lib.mkOverride 1200 "${pkgs.curses-ssh-askpass}"; # see exprs/curses-ssh-askpass.nix
-    };
+    ssh.startAgent = true;
   };
 
   virtualisation.docker.enable = true;
