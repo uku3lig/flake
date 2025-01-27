@@ -9,6 +9,7 @@ let
     secrets = [
       "turnstileSecret"
       "forgejoRunnerSecret"
+      "forgejoMailerPasswd"
     ];
     extra = {
       owner = "forgejo";
@@ -33,6 +34,7 @@ in
 
       secrets = {
         service.CF_TURNSTILE_SECRET = secrets.get "turnstileSecret";
+        mailer.PASSWD = secrets.get "forgejoMailerPasswd";
       };
 
       settings = {
@@ -48,6 +50,9 @@ in
 
         service = {
           ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
+          REGISTER_EMAIL_CONFIRM = true;
+          ENABLE_NOTIFY_EMAIL = true;
+          EMAIL_DOMAIN_BLOCK_DISPOSABLE = true;
           ENABLE_CAPTCHA = true;
           CAPTCHA_TYPE = "cfturnstile";
           CF_TURNSTILE_SITEKEY = "0x4AAAAAAAaemJiXmRluMxbQ";
@@ -56,6 +61,15 @@ in
         oauth2 = {
           # providers are configured in the admin panel
           ENABLED = true;
+        };
+
+        mailer = {
+          ENABLED = true;
+          FROM = "\"uku's forge\" <services@uku3lig.net>";
+          PROTOCOL = "smtps";
+          SMTP_ADDR = "mx1.uku3lig.net";
+          SMTP_PORT = 465;
+          USER = "services@uku3lig.net";
         };
 
         actions = {

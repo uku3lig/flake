@@ -37,6 +37,7 @@ in
   "etna/turnstileSecret.age".publicKeys = main ++ [ etna ];
   "etna/navidromeEnv.age".publicKeys = main ++ [ etna ];
   "etna/forgejoRunnerSecret.age".publicKeys = main ++ [ etna ];
+  "etna/forgejoMailerPasswd.age".publicKeys = main ++ [ etna ];
   "etna/vaultwardenEnv.age".publicKeys = main ++ [ etna ];
   "etna/vmauthEnv.age".publicKeys = main ++ [ etna ];
   "etna/upsdUserPass.age".publicKeys = main ++ [ etna ];

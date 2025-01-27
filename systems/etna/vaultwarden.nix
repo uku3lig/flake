@@ -22,10 +22,10 @@ in
       ROCKET_ADDRESS = "::1";
       ROCKET_PORT = 8222;
 
-      SMTP_HOST = "in-v3.mailjet.com";
-      SMTP_FROM = "vaultwarden@uku3lig.net";
-      SMTP_PORT = 587;
-      SMTP_SECURITY = "starttls";
+      SMTP_HOST = "mx1.uku3lig.net";
+      SMTP_FROM = "services@uku3lig.net";
+      SMTP_PORT = 465;
+      SMTP_SECURITY = "force_tls";
     };
   };
 }
