@@ -25,7 +25,10 @@
   programs.ssh.startAgent = lib.mkForce false;
 
   environment = with pkgs; {
-    systemPackages = [ gnome-tweaks ];
+    systemPackages = [
+      adw-gtk3
+      gnome-tweaks
+    ];
 
     gnome.excludePackages = [
       gnome-tour
