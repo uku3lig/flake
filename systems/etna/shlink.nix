@@ -1,13 +1,29 @@
+{ camasca, ... }:
 {
+  imports = [ camasca.nixosModules.shlink ];
+
   cfTunnels."uku.moe" = "http://localhost:8081";
 
-  virtualisation.oci-containers.containers.shlink = {
-    image = "shlinkio/shlink:stable";
-    ports = [ "8081:8080" ];
-    volumes = [ "/data/shlink/database.sqlite:/etc/shlink/data/database.sqlite" ];
-    environment = {
-      DEFAULT_DOMAIN = "uku.moe";
-      IS_HTTPS_ENABLED = "true";
+  services = {
+    shlink = {
+      enable = true;
+      environment = {
+        PORT = "8081";
+        DEFAULT_DOMAIN = "uku.moe";
+        IS_HTTPS_ENABLED = "true";
+        DB_DRIVER = "postgres";
+        DB_UNIX_SOCKET = "/var/run/postgresql";
+      };
+    };
+
+    postgresql = {
+      ensureDatabases = [ "shlink" ];
+      ensureUsers = [
+        {
+          name = "shlink";
+          ensureDBOwnership = true;
+        }
+      ];
     };
   };
 }
