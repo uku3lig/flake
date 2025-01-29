@@ -8,6 +8,10 @@ let
   inherit (pkgs.stdenv.hostPlatform) system;
 in
 {
+  imports = [
+    ./urbackup.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     gtkterm
     remmina
