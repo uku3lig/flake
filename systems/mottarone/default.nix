@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./glpi-agent.nix
     ./urbackup.nix
   ];
 
