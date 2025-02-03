@@ -43,6 +43,7 @@ in
   "etna/upsdUserPass.age".publicKeys = main ++ [ etna ];
   "etna/cobaltTokens.age".publicKeys = main ++ [ etna ];
 
+  "vesuvio/gatusEnv.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/maddyEnv.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/rspamdPassword.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/roundcubeDbPass.age".publicKeys = main ++ [ vesuvio ];

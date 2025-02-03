@@ -3,6 +3,7 @@
   imports = [
     ./certificates.nix
     ./frp.nix
+    ./gatus.nix
     ./hetzner.nix
     ./mail
     ./nginx.nix
