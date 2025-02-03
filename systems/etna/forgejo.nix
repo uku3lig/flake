@@ -51,7 +51,7 @@ in
         service = {
           ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
           REGISTER_EMAIL_CONFIRM = true;
-          ENABLE_NOTIFY_EMAIL = true;
+          ENABLE_NOTIFY_MAIL = true;
           EMAIL_DOMAIN_BLOCK_DISPOSABLE = true;
           ENABLE_CAPTCHA = true;
           CAPTCHA_TYPE = "cfturnstile";
