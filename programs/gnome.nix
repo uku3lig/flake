@@ -15,8 +15,7 @@
     enable = true;
     extensions = with pkgs.gnomeExtensions; [
       { package = appindicator; }
-      { package = dash-to-dock; }
-      { package = blur-my-shell; }
+      { package = dash-to-panel; }
     ];
   };
 
