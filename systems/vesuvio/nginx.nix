@@ -24,5 +24,15 @@
         send_timeout 600s;
       '';
     };
+
+    # dendrite
+    "m.uku.moe" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://etna:80";
+        recommendedProxySettings = true;
+      };
+    };
   };
 }

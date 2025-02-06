@@ -9,8 +9,6 @@ in
 {
   imports = [ secretKey.generate ];
 
-  cfTunnels."m.uku.moe" = "http://localhost:80";
-
   systemd.services.dendrite = {
     after = [ "postgresql.service" ];
     serviceConfig.RestartSec = 10;
@@ -32,15 +30,42 @@ in
         loadCredential = [ "private_key:${secretKey.path}" ];
 
         settings = {
+          version = 2;
+
           global = {
+            inherit database;
             server_name = "m.uku.moe";
             private_key = "$CREDENTIALS_DIRECTORY/private_key";
-            inherit database;
+
+            old_private_keys = [
+              {
+                public_key = "69NNU6gjAz4C3++7iX6fA1iiL/JXkOu1HtTqFeoKshU";
+                key_id = "ed25519:ShsA0qVs";
+                expired_at = 1713201107547;
+              }
+              {
+                public_key = "dWYWgSsaatJQgEV+Q4tuRDl4UYmN7F75Gp3NPaZN5kY";
+                key_id = "ed25519:a_bDJQ";
+                expired_at = 1712706212704;
+              }
+              {
+                public_key = "7W8BJr3pPH1XOhwB9YmvpShnDhnEj8svaEVePrTt4gE";
+                key_id = "ed25519:a_QYIk";
+                expired_at = 1712705368930;
+              }
+            ];
           };
 
           client_api = {
             registration_disabled = true;
           };
+
+          logging = [
+            {
+              type = "std";
+              level = "info";
+            }
+          ];
 
           app_service_api = { inherit database; };
           federation_api = { inherit database; };
@@ -58,7 +83,6 @@ in
       };
 
     postgresql = {
-      enable = true;
       ensureDatabases = [ "dendrite" ];
       ensureUsers = [
         {
