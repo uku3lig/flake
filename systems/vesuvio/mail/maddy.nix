@@ -130,8 +130,8 @@ in
           dane
           mtasts
           local_policy {
-            min_tls_level authenticated
-            min_mx_level mtasts
+            min_tls_level encrypted
+            min_mx_level none
           }
         }
       }
