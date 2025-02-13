@@ -42,6 +42,7 @@ in
     ./reposilite.nix
     ./satisfactory.nix
     ./shlink.nix
+    ./slskd.nix
     ./uku.nix
     ./ups.nix
     ./vaultwarden.nix
