@@ -30,11 +30,19 @@
     ];
   };
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-    settings = {
-      mysqld.bind_address = "127.0.0.1";
+  services = {
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+      settings = {
+        mysqld.bind_address = "127.0.0.1";
+      };
+    };
+
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_17;
+      enableTCPIP = true;
     };
   };
 
