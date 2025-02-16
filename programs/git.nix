@@ -9,6 +9,7 @@
       userEmail = "hi@uku.moe";
 
       signing = {
+        format = "ssh";
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8";
         signByDefault = true;
       };
@@ -19,7 +20,6 @@
         init.defaultBranch = "main";
         core.autocrlf = "input";
         push.autoSetupRemote = true;
-        gpg.format = "ssh";
         merge.conflictStyle = "zdiff3";
         rebase.autoStash = true;
         status.submoduleSummary = true;
