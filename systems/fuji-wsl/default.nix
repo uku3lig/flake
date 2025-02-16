@@ -15,7 +15,6 @@
   wsl = {
     enable = true;
     defaultUser = "leo";
-    nativeSystemd = true;
     useWindowsDriver = true;
     wslConf.network = {
       hostname = config.networking.hostName;
