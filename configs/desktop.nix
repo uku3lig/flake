@@ -77,6 +77,10 @@
     home = {
       packages = with pkgs; [
         chromium
+        (discord.override {
+          withOpenASAR = true;
+          withVencord = true;
+        })
         gimp
         gparted
         idea-ultimate-fixed
@@ -85,7 +89,6 @@
         strawberry
         teams-for-linux
         thunderbird
-        (vesktop.override { withSystemVencord = true; })
         vscode
 
         # libreoffice stuff
