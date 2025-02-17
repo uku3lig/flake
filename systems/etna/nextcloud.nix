@@ -24,11 +24,12 @@ in
     hostName = "cloud.uku3lig.net";
     datadir = "/data/nextcloud";
 
+    database.createLocally = true;
     configureRedis = true;
 
     config = {
       adminpassFile = adminPass.path;
-      dbtype = "sqlite";
+      dbtype = "pgsql";
     };
   };
 }
