@@ -9,7 +9,6 @@ let
 in
 {
   imports = [
-    ./glpi-agent.nix
     ./urbackup.nix
   ];
 
@@ -34,6 +33,16 @@ in
     resolved = {
       dnssec = "allow-downgrade";
       dnsovertls = "false";
+    };
+
+    glpiAgent = {
+      enable = true;
+      settings = {
+        server = "https://assistance.sciencespo-lyon.fr";
+        delaytime = 3600;
+        lazy = 0;
+        logger = "stderr";
+      };
     };
 
     postgresql.enable = true;
