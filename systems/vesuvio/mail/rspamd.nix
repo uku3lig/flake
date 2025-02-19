@@ -11,7 +11,7 @@ in
   services = {
     redis.servers.rspamd = {
       enable = true;
-      user = config.services.rspamd.user;
+      inherit (config.services.rspamd) user;
       port = 0; # disable tcp
     };
 

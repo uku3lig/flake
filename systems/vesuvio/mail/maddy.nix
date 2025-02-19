@@ -9,7 +9,7 @@ in
   imports = [ env.generate ];
 
   security.acme.certs.${hostname} = {
-    group = config.services.maddy.group;
+    inherit (config.services.maddy) group;
     extraLegoRenewFlags = [ "--reuse-key" ]; # soopyc said its more secure
   };
 
