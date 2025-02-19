@@ -248,7 +248,6 @@
         "systems": "systems",
         "treefmt-nix": "treefmt-nix",
         "ukubot-rs": "ukubot-rs",
-        "vencord": "vencord",
         "vscode-extensions": "vscode-extensions"
       }
     },
@@ -328,22 +327,6 @@
       "original": {
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "type": "github"
-      }
-    },
-    "vencord": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1739756829,
-        "narHash": "sha256-Szweth0AVabzI336SSHKTTET+0T77TMkexuIUukg9KY=",
-        "owner": "Vendicated",
-        "repo": "Vencord",
-        "rev": "1f6720318354e026fe24ed3e76935ec9e42d5193",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Vendicated",
-        "repo": "Vencord",
         "type": "github"
       }
     },

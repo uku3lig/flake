@@ -7,7 +7,6 @@
   camasca,
   home-manager,
   nixpkgs,
-  vencord,
   ...
 }:
 let
@@ -144,7 +143,7 @@ in
   nixpkgs = {
     config.allowUnfree = true;
     flake.setNixPath = false;
-    overlays = [ (import ../exprs/overlay.nix { inherit vencord; }) ];
+    overlays = [ (import ../exprs/overlay.nix) ];
   };
 
   programs = {
