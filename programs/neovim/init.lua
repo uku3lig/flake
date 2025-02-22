@@ -130,5 +130,12 @@ lspconfig.nixd.setup({
 		},
 	},
 })
+lspconfig.rust_analyzer.setup({
+	settings = {
+		["rust-analyzer"] = {
+			check = { command = "clippy" },
+		},
+	},
+})
 
 require("gitsigns").setup()
