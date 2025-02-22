@@ -16,6 +16,15 @@
     enable = true;
     defaultUser = "leo";
     useWindowsDriver = true;
+    interop.includePath = false;
+
+    extraBin = [
+      {
+        name = "code";
+        src = lib.escapeShellArg "/mnt/c/Users/Leo/AppData/Local/Programs/Microsoft VS Code/bin/code";
+      }
+    ];
+
     wslConf.network = {
       hostname = config.networking.hostName;
       generateResolvConf = false;
