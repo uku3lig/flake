@@ -247,8 +247,7 @@
         "nixpkgs": "nixpkgs",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix",
-        "ukubot-rs": "ukubot-rs",
-        "vscode-extensions": "vscode-extensions"
+        "ukubot-rs": "ukubot-rs"
       }
     },
     "rust-overlay": {
@@ -327,30 +326,6 @@
       "original": {
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "type": "github"
-      }
-    },
-    "vscode-extensions": {
-      "inputs": {
-        "flake-compat": [],
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1739929767,
-        "narHash": "sha256-4mcftoL28KCeBX+wyD37IdVGeY2MyXxigL8Jj2rzsus=",
-        "owner": "nix-community",
-        "repo": "nix-vscode-extensions",
-        "rev": "fe953b35b591faf57660800fb6e8b74956eea846",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nix-vscode-extensions",
         "type": "github"
       }
     }

@@ -120,13 +120,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "";
-    };
-
     # ==== uku3lig stuff ====
     api-rs = {
       url = "github:uku3lig/api-rs";
