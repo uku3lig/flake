@@ -17,6 +17,7 @@
       cmp-async-path
       cmp-buffer
       cmp-nvim-lsp
+      fidget-nvim
       gitsigns-nvim
       lsp-format-nvim
       lualine-nvim

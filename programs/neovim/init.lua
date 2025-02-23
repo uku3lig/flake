@@ -139,3 +139,5 @@ lspconfig.rust_analyzer.setup({
 })
 
 require("gitsigns").setup()
+
+require("fidget").setup()
