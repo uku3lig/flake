@@ -21,6 +21,7 @@
       gitsigns-nvim
       lsp-format-nvim
       lualine-nvim
+      neo-tree-nvim
       nvim-autopairs
       nvim-cmp
       nvim-lspconfig

@@ -1,5 +1,5 @@
 -- sets the <Leader> "key", which can be used in shortcuts
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 vim.g.have_nerd_font = true
 
@@ -64,6 +64,9 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- open neo-tree
+vim.keymap.set("n", "<leader>t", "<Cmd>Neotree reveal<CR>")
 
 -- [[ plugin configuration ]]
 require("catppuccin").setup({
@@ -141,3 +144,7 @@ lspconfig.rust_analyzer.setup({
 require("gitsigns").setup()
 
 require("fidget").setup()
+
+require("neo-tree").setup({
+	close_if_last_window = true,
+})
