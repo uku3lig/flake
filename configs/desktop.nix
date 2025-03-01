@@ -53,6 +53,7 @@
   fonts = {
     packages = with pkgs; [
       cantarell-fonts
+      google-sans # exprs/google-sans.nix
       inter
       iosevka-bin
       jetbrains-mono
