@@ -8,6 +8,7 @@
   hm.home.packages = with pkgs; [
     obs-studio
     osu-lazer-bin
+    krita
 
     (prismlauncher.override {
       jdks = [

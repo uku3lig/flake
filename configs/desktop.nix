@@ -85,7 +85,6 @@
         gimp
         gparted
         idea-ultimate-fixed
-        krita
         mpv
         obsidian
         strawberry
