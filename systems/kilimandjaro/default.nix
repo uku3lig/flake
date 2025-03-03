@@ -3,9 +3,8 @@
   imports = [
     camasca.nixosModules.asus-numpad
     ../../programs/games.nix
+    ../../programs/dotnet.nix.nix
   ];
-
-  hm.imports = [ ../../programs/dotnet.nix ];
 
   services.asus-numpad = {
     enable = true;

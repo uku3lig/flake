@@ -1,16 +1,8 @@
-# wee oo wee oo warning !!! this is a home manager module!!! destined to be put in hm's import, not nixos' !!!!
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
-let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-in
-{
-  home.file = {
-    ".jdks/temurin-21".source = mkOutOfStoreSymlink pkgs.temurin-bin-21;
-    ".jdks/temurin-17".source = mkOutOfStoreSymlink pkgs.temurin-bin-17;
-    ".jdks/temurin-8".source = mkOutOfStoreSymlink pkgs.temurin-bin-8;
-  };
+  systemd.tmpfiles.rules = [
+    "L /opt/temurin-21 - - - - ${pkgs.temurin-bin-21}"
+    "L /opt/temurin-17 - - - - ${pkgs.temurin-bin-17}"
+    "L /opt/temurin-8 - - - - ${pkgs.temurin-bin-8}"
+  ];
 }

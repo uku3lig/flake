@@ -13,6 +13,7 @@
 
     ../programs/ghostty.nix
     ../programs/gnome.nix
+    ../programs/java.nix
   ];
 
   boot = {
@@ -70,35 +71,29 @@
     enable32Bit = true;
   };
 
-  hm = {
-    imports = [
-      ../programs/java.nix
+  hm.home = {
+    packages = with pkgs; [
+      chromium
+      (discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
+      gimp
+      gparted
+      idea-ultimate-fixed
+      mpv
+      obsidian
+      strawberry
+      teams-for-linux
+      thunderbird
+      vscode
+
+      # libreoffice stuff
+      libreoffice-qt6-fresh
+      hunspell
+      hunspellDicts.en_US
+      hunspellDicts.fr-moderne
     ];
-
-    home = {
-      packages = with pkgs; [
-        chromium
-        (discord.override {
-          withOpenASAR = true;
-          withVencord = true;
-        })
-        gimp
-        gparted
-        idea-ultimate-fixed
-        mpv
-        obsidian
-        strawberry
-        teams-for-linux
-        thunderbird
-        vscode
-
-        # libreoffice stuff
-        libreoffice-qt6-fresh
-        hunspell
-        hunspellDicts.en_US
-        hunspellDicts.fr-moderne
-      ];
-    };
   };
 
   i18n.extraLocaleSettings = {
