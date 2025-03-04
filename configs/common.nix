@@ -196,6 +196,11 @@ in
     };
   };
 
+  system.activationScripts."upgrade-diff" = {
+    supportsDryActivation = true;
+    text = "${lib.getExe pkgs.nvd} --nix-bin-dir=${config.nix.package}/bin diff /run/current-system $systemConfig 1>&2";
+  };
+
   systemd = {
     services.NetworkManager-wait-online.enable = lib.mkForce false;
 

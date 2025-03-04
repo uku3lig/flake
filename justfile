@@ -6,31 +6,42 @@ check:
 
 switch *args:
     #!/usr/bin/env bash
-    set -euxo pipefail
-    flake=$(nix build ".#nixosConfigurations.$(hostname).config.system.build.toplevel" --print-out-paths --no-link --keep-going)
-    nvd diff /run/current-system "$flake"
-    read -p "Activate new configuration? [y/N] " answer
+    set -euo pipefail
+    configuration=$(sudo nixos-rebuild dry-activate --flake . --keep-going {{args}})
+    echo $configuration
+    read -n1 -p "Activate new configuration? [y/N] " answer
     if [[ $answer =~ ^[Yy]$ ]]; then
-      sudo "$flake/bin/switch-to-configuration" switch
+      sudo "$configuration/bin/switch-to-configuration" switch
+    else
+      echo "Not activating :("
+      exit 1
     fi
 
-
 rollback:
-    @sudo -v
     sudo nixos-rebuild switch --rollback
 
 boot *args:
-    @sudo -v
-    nh os boot --no-nom --ask . -- --keep-going {{args}}
+    sudo nixos-rebuild boot --flake . --keep-going {{args}}
 
 deploy system user="leo":
     #!/usr/bin/env bash
-    set -euxo pipefail
+    set -euo pipefail
     flake=$(nix eval --impure --raw --expr "(builtins.getFlake \"git+file://$PWD\").outPath")
+    sshout=$(mktemp)
+
     nix copy "$flake" --to "ssh://{{user}}@{{system}}"
-    # -R/--bypass-root-check is needed because of a Git CVE regression in Nix 2.20
-    # See NixOS/nix#10202, viperML/nh#200
-    ssh -t "{{user}}@{{system}}" "sudo flock -w 60 /dev/shm/deploy-{{system}} nix run n#nh -- os switch --no-nom -R -H {{system}} --ask $flake"
+    ssh -t "{{user}}@{{system}}" "sudo nixos-rebuild dry-activate --flake $flake --keep-going" | tee "$sshout"
+    configuration=$(tail -n1 "$sshout" | grep -Po "/nix/store/[\w\d\.\-]+")
+    echo "$configuration"
+    rm "$sshout"
+
+    read -n1 -p "Activate new configuration? [y/N] " answer
+    if [[ $answer =~ ^[Yy]$ ]]; then
+      ssh -t "{{user}}@{{system}}" "sudo \"$configuration/bin/switch-to-configuration\" switch"
+    else
+      echo "Not activating :("
+      exit 1
+    fi
 
 lint *args:
     statix check -i flake.nix **/hardware-configuration.nix {{args}}
