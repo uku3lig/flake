@@ -5,8 +5,15 @@ check:
     nix flake check
 
 switch *args:
-    @sudo -v
-    nh os switch --no-nom --ask . -- --keep-going {{args}}
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    flake=$(nix build ".#nixosConfigurations.$(hostname).config.system.build.toplevel" --print-out-paths --no-link --keep-going)
+    nvd diff /run/current-system "$flake"
+    read -p "Activate new configuration? [y/N] " answer
+    if [[ $answer =~ ^[Yy]$ ]]; then
+      sudo "$flake/bin/switch-to-configuration" switch
+    fi
+
 
 rollback:
     @sudo -v

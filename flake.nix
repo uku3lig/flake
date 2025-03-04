@@ -30,8 +30,8 @@
             packages = with pkgs; [
               agenix.packages.${system}.default
               just
-              nh
               nixfmt-rfc-style
+              nvd
               statix
             ];
           };
