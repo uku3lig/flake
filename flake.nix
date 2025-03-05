@@ -59,10 +59,11 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-camasca.url = "github:NixOS/nixpkgs/73cf49b8ad837ade2de76f87eb53fc85ed5d4680";
 
     camasca = {
       url = "git+https://git.uku3lig.net/uku/camasca";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-camasca";
     };
 
     agenix = {

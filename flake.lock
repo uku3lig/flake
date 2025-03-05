@@ -53,7 +53,7 @@
     "camasca": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-camasca"
         ]
       },
       "locked": {
@@ -232,6 +232,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-camasca": {
+      "locked": {
+        "lastModified": 1739866667,
+        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -245,6 +261,7 @@
         "mystia": "mystia",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-camasca": "nixpkgs-camasca",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix",
         "ukubot-rs": "ukubot-rs"
