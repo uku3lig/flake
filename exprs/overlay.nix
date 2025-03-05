@@ -1,5 +1,6 @@
 final: prev: {
-  idea-ultimate-fixed = prev.callPackage ./idea-fixed.nix { };
+  idea-wrapped = prev.callPackage ./idea-wrapped.nix { };
+  pycharm-wrapped = prev.callPackage ./pycharm-wrapped.nix { };
   google-sans = prev.callPackage ./google-sans.nix { };
 
   urbackup-client = prev.urbackup-client.overrideAttrs (old: {

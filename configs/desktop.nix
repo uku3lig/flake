@@ -80,7 +80,7 @@
       })
       gimp
       gparted
-      idea-ultimate-fixed
+      idea-wrapped
       mpv
       obsidian
       strawberry

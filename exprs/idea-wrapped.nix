@@ -27,7 +27,7 @@ let
   inherit (jetbrains) idea-ultimate;
 in
 symlinkJoin {
-  name = "idea-ultimate-fixed-${idea-ultimate.version}";
+  name = "idea-wrapped-${idea-ultimate.version}";
 
   paths = [ idea-ultimate ];
 

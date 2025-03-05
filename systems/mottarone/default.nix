@@ -17,7 +17,7 @@ in
     remmina
     camasca.packages.${system}.openwebstart
     camasca.packages.${system}.jaspersoft-studio-community
-    jetbrains.pycharm-community-bin
+    pycharm-wrapped
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
