@@ -105,6 +105,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nix-update-soopy.follows = "";
       inputs.flake-compat.follows = "";
+      inputs.treefmt-nix.follows = "";
     };
 
     nixos-wsl = {
