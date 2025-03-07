@@ -17,7 +17,6 @@ let
 in
 {
   "shared/userPassword.age".publicKeys = all;
-  "shared/tailscaleKey.age".publicKeys = all;
   "shared/frpToken.age".publicKeys = all;
   "shared/vmAuthToken.age".publicKeys = all;
 

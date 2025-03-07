@@ -15,10 +15,7 @@ let
 
   rootPassword = _utils.setupSingleSecret config "rootPassword" { };
   secrets = _utils.setupSharedSecrets config {
-    secrets = [
-      "userPassword"
-      "tailscaleKey"
-    ];
+    secrets = [ "userPassword" ];
   };
 in
 {
@@ -188,11 +185,6 @@ in
     tailscale = {
       enable = true;
       useRoutingFeatures = "both";
-      extraUpFlags = [
-        "--ssh"
-        "--stateful-filtering"
-      ];
-      authKeyFile = secrets.get "tailscaleKey";
     };
   };
 
