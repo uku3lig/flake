@@ -16,6 +16,7 @@ read -n1 -rp "${bold}Activate new configuration? [y/N]$reset " answer
 echo
 
 if [[ $answer =~ ^[Yy]$ ]]; then
+  sudo nix-env --profile /nix/var/nix/profiles/system --set "$configuration"
   sudo "$configuration/bin/switch-to-configuration" switch
 else
   echo "${bold}Not activating :($reset"
