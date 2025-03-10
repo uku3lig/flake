@@ -136,6 +136,7 @@ in
       ];
     };
 
+    distributedBuilds = true;
     buildMachines = [
       {
         hostName = "etna";
