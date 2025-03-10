@@ -135,6 +135,22 @@ in
         "uku3lig.cachix.org-1:C1/9DNUadh2pueAo+LUkVNUKyIVjF/CREd9RS9E+F2A="
       ];
     };
+
+    buildMachines = [
+      {
+        hostName = "etna";
+        system = "x86_64-linux";
+        maxJobs = 12;
+        sshUser = username;
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVua0tTZDRJVitQTTg4V0tISGZFaFNUbGtuSFQwRlZYekEwSlVjQ3pPcCsgcm9vdEBldG5hCg==";
+        supportedFeatures = [
+          "nixos-test"
+          "benchmark"
+          "big-parallel"
+          "kvm"
+        ];
+      }
+    ];
   };
 
   nixpkgs = {
