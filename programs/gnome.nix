@@ -11,6 +11,11 @@
     };
   };
 
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ghostty";
+  };
+
   hm.programs.gnome-shell = {
     enable = true;
     extensions = with pkgs.gnomeExtensions; [
