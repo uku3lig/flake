@@ -69,15 +69,15 @@
     "camasca": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-camasca"
+          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1741564857,
-        "narHash": "sha256-seeWXSodZwEhFDdLp3wCLsVVO5qWYW4N/ObKacw/DFA=",
+        "lastModified": 1741702774,
+        "narHash": "sha256-q8gnXN+3BfkrXxwPWQbskytPNmoATSQipsTndxOj/bI=",
         "ref": "refs/heads/main",
-        "rev": "fed3841a8e48cde74c4e06c1b7e36a68da5bc62e",
-        "revCount": 63,
+        "rev": "33793e1c1329a7105e4553785892802510decd88",
+        "revCount": 64,
         "type": "git",
         "url": "https://git.uku3lig.net/uku/camasca"
       },
@@ -250,22 +250,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-camasca": {
-      "locked": {
-        "lastModified": 1739866667,
-        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -279,7 +263,6 @@
         "mystia": "mystia",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-camasca": "nixpkgs-camasca",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix",
         "ukubot-rs": "ukubot-rs"
