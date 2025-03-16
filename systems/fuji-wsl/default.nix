@@ -33,9 +33,7 @@
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
-      mesa.drivers
-    ];
+    extraPackages = [ pkgs.mesa ];
   };
 
   services = {
