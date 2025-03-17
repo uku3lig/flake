@@ -7,6 +7,7 @@
     ./hetzner.nix
     ./mail
     ./nginx.nix
+    ./nitter.nix
   ];
 
   environment.systemPackages = with pkgs; [
