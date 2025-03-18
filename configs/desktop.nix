@@ -43,6 +43,9 @@
     systemPackages = with pkgs; [
       sbctl
       wl-clipboard
+
+      niigo-miku-cursors
+      patchouli-cursors
     ];
 
     sessionVariables = {

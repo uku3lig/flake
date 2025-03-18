@@ -3,6 +3,9 @@ inputs: final: prev: {
   pycharm-wrapped = prev.callPackage ./pycharm-wrapped.nix { };
   google-sans = prev.callPackage ./google-sans.nix { };
 
+  niigo-miku-cursors = prev.callPackage ./niigo-miku-cursors.nix { };
+  patchouli-cursors = prev.callPackage ./patchouli-cursors.nix { };
+
   urbackup-client = prev.urbackup-client.overrideAttrs (old: {
     nativeBuildInputs = old.nativeBuildInputs or [ ] ++ [ prev.autoreconfHook ];
 
