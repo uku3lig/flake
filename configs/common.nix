@@ -59,6 +59,7 @@ in
   environment.systemPackages = with pkgs; [
     btop
     curl
+    fd
     git
     htop
     ncdu
