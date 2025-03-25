@@ -42,7 +42,6 @@ in
         endpoints = [
           (mkHttpEndpoint "Website" "core" "https://uku3lig.net")
 
-          # TODO postgres?
           (mkHttpEndpoint "API" "etna" "https://api.uku3lig.net/downloads/uku")
           (mkHttpEndpoint "Dendrite" "etna" "https://m.uku.moe/_matrix/static/")
           (mkHttpEndpoint "Forgejo" "etna" "https://git.uku3lig.net")
@@ -51,6 +50,7 @@ in
           (mkHttpEndpoint "NextCloud" "etna" "https://cloud.uku3lig.net")
           (mkHttpEndpoint "Reposilite" "etna" "https://maven.uku3lig.net/")
           (mkHttpEndpoint "Shlink" "etna" "https://uku.moe/rest/v3/health")
+          (mkHttpEndpoint "Slskd" "etna" "https://slsk.uku.moe")
           (mkHttpEndpoint "Vaultwarden" "etna" "https://bw.uku3lig.net")
 
           {
@@ -60,6 +60,7 @@ in
             interval = "5m";
             conditions = [ "[CONNECTED] == true" ];
           }
+          (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe")
           (mkHttpEndpoint "Roundcube" "vesuvio" "https://mail.uku3lig.net")
         ];
       };
