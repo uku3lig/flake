@@ -20,6 +20,11 @@ in
     pycharm-wrapped
   ];
 
+  fonts.packages = with pkgs; [
+    corefonts
+    vistafonts
+  ];
+
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
 
   hm.programs = {
