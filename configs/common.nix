@@ -62,6 +62,7 @@ in
     fd
     git
     htop
+    jq
     ncdu
     ripgrep
     wget
