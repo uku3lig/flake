@@ -74,6 +74,7 @@
     enable32Bit = true;
   };
 
+  hm.imports = [ ../programs/neovim/neovide.nix ];
   hm.home = {
     packages = with pkgs; [
       chromium
