@@ -17,6 +17,7 @@ in
     remmina
     camasca.packages.${system}.openwebstart
     camasca.packages.${system}.jaspersoft-studio-community
+    camasca.packages.${system}.sql-developer
     pycharm-wrapped
   ];
 
