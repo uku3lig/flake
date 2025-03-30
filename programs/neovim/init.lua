@@ -72,6 +72,11 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- open neo-tree
 vim.keymap.set("n", "<leader>t", "<Cmd>Neotree reveal<CR>")
 
+-- [[ neovide configuration ]]
+if vim.g.neovide then
+	vim.o.guifont = "IosevkaTerm Nerd Font:h12"
+end
+
 -- [[ plugin configuration ]]
 require("catppuccin").setup({
 	flavour = "auto",
