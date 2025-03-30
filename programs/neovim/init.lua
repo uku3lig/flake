@@ -41,6 +41,10 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
 
+-- disable netrw to avoid conflicts with neotree
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+
 -- sync os clipboard and neovim
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
