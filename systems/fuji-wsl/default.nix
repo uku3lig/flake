@@ -10,7 +10,12 @@
     nixos-wsl.nixosModules.default
   ];
 
-  environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+  environment = {
+    sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+    systemPackages = [
+      (pkgs.writeShellScriptBin "neovide" ''/bin/neovide-unwrapped --wsl "$@" &'')
+    ];
+  };
 
   wsl = {
     enable = true;
@@ -22,6 +27,10 @@
       {
         name = "code";
         src = lib.escapeShellArg "/mnt/c/Users/Leo/AppData/Local/Programs/Microsoft VS Code/bin/code";
+      }
+      {
+        name = "neovide-unwrapped";
+        src = lib.escapeShellArg "/mnt/c/Program Files/Neovide/neovide.exe";
       }
     ];
 
