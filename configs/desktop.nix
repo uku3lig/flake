@@ -62,6 +62,8 @@
       iosevka-bin
       jetbrains-mono
       twitter-color-emoji
+
+      nerd-fonts.iosevka-term
     ];
 
     fontconfig.defaultFonts = {

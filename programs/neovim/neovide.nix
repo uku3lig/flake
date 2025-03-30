@@ -5,7 +5,7 @@
     settings = {
       fork = true;
       font = {
-        normal = "Iosevka";
+        normal = "IosevkaTerm Nerd Font";
         size = 12;
       };
     };
