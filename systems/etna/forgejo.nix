@@ -77,6 +77,10 @@ in
           DEFAULT_ACTIONS_URL = "https://github.com";
         };
 
+        indexer = {
+          REPO_INDEXER_ENABLED = true;
+        };
+
         "ui.meta" = {
           AUTHOR = "uku's forge";
           DESCRIPTION = "the place where literally nothing gets done";
