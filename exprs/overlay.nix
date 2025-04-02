@@ -23,6 +23,11 @@ inputs: final: prev: {
     env = old.env // {
       VENCORD_REMOTE = "Vendicated/Vencord";
       VENCORD_HASH = inputs.vencord.shortRev;
+      ESBUILD_BINARY_PATH = prev.lib.getExe prev.esbuild; # 0.25.1
+    };
+
+    pnpmDeps = old.pnpmDeps.overrideAttrs {
+      outputHash = "sha256-hO6QKRr4jTfesRDAEGcpFeJmGTGLGMw6EgIvD23DNzw=";
     };
   });
 }
