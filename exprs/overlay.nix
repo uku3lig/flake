@@ -23,7 +23,18 @@ inputs: final: prev: {
     env = old.env // {
       VENCORD_REMOTE = "Vendicated/Vencord";
       VENCORD_HASH = inputs.vencord.shortRev;
-      ESBUILD_BINARY_PATH = prev.lib.getExe prev.esbuild; # 0.25.1
+      ESBUILD_BINARY_PATH = prev.lib.getExe (
+        prev.esbuild.overrideAttrs rec {
+          version = "0.25.1";
+          src = prev.fetchFromGitHub {
+            owner = "evanw";
+            repo = "esbuild";
+            rev = "v${version}";
+            hash = "sha256-vrhtdrvrcC3dQoJM6hWq6wrGJLSiVww/CNPlL1N5kQ8=";
+          };
+          vendorHash = "sha256-+BfxCyg0KkDQpHt/wycy/8CTG6YBA/VJvJFhhzUnSiQ=";
+        }
+      );
     };
 
     pnpmDeps = old.pnpmDeps.overrideAttrs {
