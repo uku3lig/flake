@@ -143,6 +143,7 @@ lspconfig.nixd.setup({
 	},
 })
 lspconfig.rust_analyzer.setup({
+	on_attach = lspformat.on_attach,
 	settings = {
 		["rust-analyzer"] = {
 			check = { command = "clippy" },
