@@ -72,6 +72,14 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- open neo-tree
 vim.keymap.set("n", "<leader>t", "<Cmd>Neotree reveal<CR>")
 
+-- lsp keybindings
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
+
+-- show lsp messages inline
+vim.diagnostic.config({
+	virtual_text = true,
+})
+
 -- [[ neovide configuration ]]
 if vim.g.neovide then
 	vim.o.guifont = "IosevkaTerm Nerd Font:h12"
