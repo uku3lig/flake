@@ -165,4 +165,9 @@ require("fidget").setup()
 
 require("neo-tree").setup({
 	close_if_last_window = true,
+	window = {
+		mappings = {
+			["Z"] = "expand_all_nodes",
+		},
+	},
 })
