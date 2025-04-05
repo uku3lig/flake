@@ -75,6 +75,10 @@ vim.keymap.set("n", "<leader>t", "<Cmd>Neotree reveal<CR>")
 -- lsp keybindings
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
 
+-- indent/dedent lines in visual mode
+vim.keymap.set("v", "<tab>", ">gv")
+vim.keymap.set("v", "<S-tab>", "<gv")
+
 -- show lsp messages inline
 vim.diagnostic.config({
 	virtual_text = true,
