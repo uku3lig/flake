@@ -72,11 +72,11 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1743700120,
-        "narHash": "sha256-8BjG/P0xnuCyVOXlYRwdI1B8nVtyYLf3oDwPSimqREY=",
+        "lastModified": 1743908961,
+        "narHash": "sha256-e1idZdpnnHWuosI3KsBgAgrhMR05T2oqskXCmNzGPq0=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "e316f19ee058e6db50075115783be57ac549c389",
+        "rev": "80ceeec0dc94ef967c371dcdc56adb280328f591",
         "type": "github"
       },
       "original": {
@@ -132,11 +132,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743717835,
-        "narHash": "sha256-LJm6FoIcUoBw3w25ty12/sBfut4zZuNGdN0phYj/ekU=",
+        "lastModified": 1743869639,
+        "narHash": "sha256-Xhe3whfRW/Ay05z9m1EZ1/AkbV1yo0tm1CbgjtCi4rQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "66a6ec65f84255b3defb67ff45af86c844dd451b",
+        "rev": "d094c6763c6ddb860580e7d3b4201f8f496a6836",
         "type": "github"
       },
       "original": {
@@ -184,11 +184,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1743747264,
-        "narHash": "sha256-dXHDBW/+0gg81E6nuAwQIPK35MUZxtak3Q3Q9nmZ8RI=",
+        "lastModified": 1743753730,
+        "narHash": "sha256-G7EIncEFJckeQZ4bnr+dXINi1P8wgZw7eLpscY542J0=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "ba3e2f6776ee5f1b0c3cb75eea0ba5648b027d52",
+        "rev": "f71fc1ca7688e8ed371a7a51e4ba72e67b2e3920",
         "type": "github"
       },
       "original": {
@@ -220,11 +220,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1743583204,
-        "narHash": "sha256-F7n4+KOIfWrwoQjXrL2wD9RhFYLs2/GGe/MQY1sSdlE=",
+        "lastModified": 1743827369,
+        "narHash": "sha256-rpqepOZ8Eo1zg+KJeWoq1HAOgoMCDloqv5r2EAa9TSA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2c8d3f48d33929642c1c12cd243df4cc7d2ce434",
+        "rev": "42a1c966be226125b48c384171c44c651c236c22",
         "type": "github"
       },
       "original": {
@@ -335,11 +335,11 @@
     "vencord": {
       "flake": false,
       "locked": {
-        "lastModified": 1743740171,
-        "narHash": "sha256-Ej04ONaeNt55mbQ5RTKM4MySYsw3UJky9ZK9h1gMEzo=",
+        "lastModified": 1743814386,
+        "narHash": "sha256-JDHw7FRMHmO4hV1zEzbzgqJ0rL1cxiX0DXeR0cj0MeA=",
         "owner": "Vendicated",
         "repo": "Vencord",
-        "rev": "22b50f03ca3fb9b1044bc6b8593e9e4c96028f31",
+        "rev": "d753478097294744398f84bb8c28fd6274b8195c",
         "type": "github"
       },
       "original": {
