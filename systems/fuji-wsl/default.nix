@@ -5,6 +5,14 @@
   nixos-wsl,
   ...
 }:
+let
+  mkExtraBin = lib.mapAttrsToList (
+    name: value: {
+      inherit name;
+      src = lib.escapeShellArg value;
+    }
+  );
+in
 {
   imports = [
     nixos-wsl.nixosModules.default
@@ -23,16 +31,11 @@
     useWindowsDriver = true;
     interop.includePath = false;
 
-    extraBin = [
-      {
-        name = "code";
-        src = lib.escapeShellArg "/mnt/c/Users/Leo/AppData/Local/Programs/Microsoft VS Code/bin/code";
-      }
-      {
-        name = "neovide-unwrapped";
-        src = lib.escapeShellArg "/mnt/c/Program Files/Neovide/neovide.exe";
-      }
-    ];
+    extraBin = mkExtraBin {
+      code = "/mnt/c/Users/Leo/AppData/Local/Programs/Microsoft VS Code/bin/code";
+      neovide-unwrapped = "/mnt/c/Program Files/Neovide/neovide.exe";
+      win32yank = "/mnt/c/Program Files/win32yank/win32yank.exe";
+    };
 
     wslConf.network = {
       hostname = config.networking.hostName;
