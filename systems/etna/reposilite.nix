@@ -1,6 +1,5 @@
 {
   config,
-  camasca,
   _utils,
   ...
 }:
@@ -11,10 +10,7 @@ let
   };
 in
 {
-  imports = [
-    camasca.nixosModules.reposilite
-    dbPass.generate
-  ];
+  imports = [ dbPass.generate ];
 
   cfTunnels."maven.uku3lig.net" = "http://localhost:8080";
 
