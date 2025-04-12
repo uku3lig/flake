@@ -22,6 +22,7 @@ in
     sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
     systemPackages = [
       (pkgs.writeShellScriptBin "neovide" ''/bin/neovide-unwrapped --wsl "$@" &'')
+      pkgs.parallel
     ];
   };
 
@@ -62,15 +63,5 @@ in
       package = pkgs.postgresql_17;
       enableTCPIP = true;
     };
-  };
-
-  system.replaceDependencies = {
-    cutoffPackages = lib.mkForce [ ]; # wsl does not have a ramdisk
-    replacements = [
-      {
-        oldDependency = pkgs.ffmpeg-full;
-        newDependency = pkgs.ffmpeg-full.override { withUnfree = true; };
-      }
-    ];
   };
 }
