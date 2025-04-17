@@ -31,6 +31,7 @@ in
 
     ../programs/fish.nix
     ../programs/git.nix
+    ../programs/neovim
   ];
 
   age = {
@@ -153,11 +154,6 @@ in
     nix-index = {
       enable = true;
       enableFishIntegration = true;
-    };
-
-    neovim = {
-      enable = true;
-      defaultEditor = true;
     };
   };
 

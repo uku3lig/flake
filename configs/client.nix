@@ -7,7 +7,6 @@
   imports = [
     ./common.nix
 
-    ../programs/neovim
     ../programs/rust.nix
   ];
 

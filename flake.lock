@@ -125,6 +125,26 @@
         "type": "github"
       }
     },
+    "getchvim": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744833748,
+        "narHash": "sha256-+kB8uBposUKOLL9wNOVySacNERmt0HOasg950YA0p94=",
+        "owner": "getchoo",
+        "repo": "getchvim",
+        "rev": "47f72d2e178a4b0d01ef7b1f9a742a86b4eb5dd8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "getchoo",
+        "repo": "getchvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -242,6 +262,7 @@
         "crane": "crane",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
+        "getchvim": "getchvim",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "mystia": "mystia",
