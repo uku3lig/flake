@@ -74,6 +74,7 @@ vim.keymap.set("n", "<leader>t", "<Cmd>Neotree reveal<CR>")
 
 -- lsp keybindings
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
+vim.keymap.set("n", "<M-CR>", require("actions-preview").code_actions)
 
 -- indent/dedent lines in visual mode
 vim.keymap.set("v", "<tab>", ">gv")

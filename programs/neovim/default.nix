@@ -21,6 +21,7 @@ in
         ];
 
         vimPluginPackages = with pkgs.vimPlugins; [
+          actions-preview-nvim
           barbar-nvim
           catppuccin-nvim
           cmp-async-path
@@ -37,6 +38,7 @@ in
           nvim-lspconfig
           nvim-treesitter.withAllGrammars
           nvim-web-devicons # for lualine
+          telescope-nvim
           vim-wakatime
         ];
       })
