@@ -84,7 +84,7 @@
         withOpenASAR = true;
         withVencord = true;
       })
-      gimp
+      gimp3
       gparted
       idea-wrapped
       mpv
