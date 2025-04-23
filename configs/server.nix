@@ -23,6 +23,7 @@ in
 
   services = {
     tailscale.extraUpFlags = [ "--advertise-exit-node" ];
+    redis.package = pkgs.valkey;
 
     openssh = {
       enable = true;
