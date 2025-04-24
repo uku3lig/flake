@@ -61,6 +61,7 @@
       inter
       iosevka-bin
       jetbrains-mono
+      noto-fonts-cjk-sans
       twitter-color-emoji
 
       nerd-fonts.iosevka-term
