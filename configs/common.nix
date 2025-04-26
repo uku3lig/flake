@@ -95,7 +95,7 @@ in
   };
 
   nix = {
-    # package = pkgs.nixVersions.latest;
+    package = pkgs.nixVersions.nix_2_24;
     channel.enable = false;
     # The `flake:` syntax in `$NIX_PATH` seems to do some weird copying on Nix 2.24
     nixPath = [ "nixpkgs=${config.nixpkgs.flake.source}" ];
