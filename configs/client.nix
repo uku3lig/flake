@@ -16,6 +16,7 @@
     systemPackages = with pkgs; [
       ffmpeg-full
       fastfetch
+      imagemagick
       lazygit
       nixd
     ];
