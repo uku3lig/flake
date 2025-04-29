@@ -19,6 +19,7 @@ in
     camasca.packages.${system}.jaspersoft-studio-community
     camasca.packages.${system}.sql-developer
     pycharm-wrapped
+    recaf-launcher
   ];
 
   fonts.packages = with pkgs; [
