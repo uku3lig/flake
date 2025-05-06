@@ -117,6 +117,11 @@
       inputs.flake-compat.follows = "";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nix's most elaborate, overcomplicated joke
     systems.url = "github:nix-systems/default";
 

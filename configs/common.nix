@@ -7,6 +7,7 @@
   camasca,
   home-manager,
   nixpkgs,
+  nix-index-database,
   vencord,
   ...
 }:
@@ -23,6 +24,7 @@ in
   imports = [
     agenix.nixosModules.default
     home-manager.nixosModules.home-manager
+    nix-index-database.nixosModules.nix-index
 
     (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
 
@@ -59,7 +61,6 @@ in
 
   environment.systemPackages = with pkgs; [
     btop
-    comma
     curl
     fd
     git
@@ -150,12 +151,7 @@ in
 
   programs = {
     direnv.enable = true;
-
-    command-not-found.enable = false;
-    nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    nix-index-database.comma.enable = true;
   };
 
   security = {
