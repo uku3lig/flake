@@ -1,36 +1,36 @@
-{ config, ... }:
+{ lib, pkgs, ... }:
 {
-  programs.git.enable = true;
+  environment.systemPackages = with pkgs; [
+    git
+    gh
+  ];
 
-  hm.programs = {
-    git = {
-      inherit (config.programs.git) enable package;
-      userName = "uku";
-      userEmail = "hi@uku.moe";
-
-      signing = {
-        format = "ssh";
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8";
-        signByDefault = true;
+  hjem.users.leo.files = {
+    ".gitconfig".text = lib.generators.toGitINI {
+      user = {
+        name = "uku";
+        email = "hi@uku.moe";
+        signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8";
       };
 
-      # delta.enable = true;
-
-      extraConfig = {
-        init.defaultBranch = "main";
-        core.autocrlf = "input";
-        push.autoSetupRemote = true;
-        merge.conflictStyle = "zdiff3";
-        rebase.autoStash = true;
-        status.submoduleSummary = true;
-        diff.submodule = "log";
-        submodule.recurse = true;
-        commit.verbose = true;
+      commit = {
+        gpgSign = true;
+        verbose = true;
       };
+
+      gpg.format = "ssh";
+      tag.gpgSign = true;
+      core.autocrlf = "input";
+      diff.submodule = "log";
+      init.defaultBranch = "main";
+      merge.conflictStyle = "zdiff3";
+      push.autoSetupRemote = true;
+      rebase.autoStash = true;
+      status.submoduleSummary = true;
+      submodule.recurse = true;
     };
 
-    gh = {
-      enable = true;
+    ".config/gh/config.yml".text = lib.generators.toYAML { } {
       settings.git_protocol = "ssh";
     };
   };

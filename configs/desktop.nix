@@ -14,6 +14,7 @@
     ../programs/ghostty.nix
     ../programs/gnome.nix
     ../programs/java.nix
+    ../programs/neovim/neovide.nix
   ];
 
   boot = {
@@ -44,8 +45,30 @@
       sbctl
       wl-clipboard
 
+      chromium
+      (discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
+      gimp3
+      gparted
+      idea-wrapped
+      mpv
+      obsidian
+      strawberry
+      teams-for-linux
+      thunderbird
+      vscode
+
       niigo-miku-cursors
       patchouli-cursors
+
+      # libreoffice stuff
+      libreoffice-qt6-fresh
+      hunspell
+      hunspellDicts.en_US
+      hunspellDicts.fr-moderne
+
     ];
 
     sessionVariables = {
@@ -75,32 +98,6 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-  };
-
-  hm.imports = [ ../programs/neovim/neovide.nix ];
-  hm.home = {
-    packages = with pkgs; [
-      chromium
-      (discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
-      gimp3
-      gparted
-      idea-wrapped
-      mpv
-      obsidian
-      strawberry
-      teams-for-linux
-      thunderbird
-      vscode
-
-      # libreoffice stuff
-      libreoffice-qt6-fresh
-      hunspell
-      hunspellDicts.en_US
-      hunspellDicts.fr-moderne
-    ];
   };
 
   i18n.extraLocaleSettings = {

@@ -16,14 +16,6 @@
     terminal = "ghostty";
   };
 
-  hm.programs.gnome-shell = {
-    enable = true;
-    extensions = with pkgs.gnomeExtensions; [
-      { package = appindicator; }
-      { package = dash-to-panel; }
-    ];
-  };
-
   # ssh-agent is provided by gnome-keyring-daemon
   # (mabye soon by gcr, see NixOS/nixpkgs#140824)
   programs.ssh.startAgent = lib.mkForce false;
@@ -32,6 +24,8 @@
     systemPackages = [
       adw-gtk3
       gnome-tweaks
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-panel
     ];
 
     gnome.excludePackages = [

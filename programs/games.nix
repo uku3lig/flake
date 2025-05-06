@@ -5,7 +5,7 @@
     xpadneo.enable = true;
   };
 
-  hm.home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     obs-studio
     osu-lazer-bin
     krita

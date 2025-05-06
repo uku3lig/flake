@@ -29,9 +29,14 @@ in
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
 
-  hm.programs = {
-    git.includes = [ { path = "~/.config/git/work_config"; } ];
-    ssh.includes = [ "work_config" ];
+  hjem.users.leo.files = {
+    ".gitconfig".text = lib.generators.toGitINI {
+      include.path = "~/.config/git/work_config";
+    };
+
+    ".ssh/config".text = lib.mkBefore ''
+      Include work_config
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [ 8000 ];

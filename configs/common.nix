@@ -5,16 +5,13 @@
   _utils,
   agenix,
   camasca,
-  home-manager,
+  hjem,
   nixpkgs,
   nix-index-database,
   vencord,
   ...
 }:
 let
-  username = "leo";
-  stateVersion = "24.11";
-
   rootPassword = _utils.setupSingleSecret config "rootPassword" { };
   secrets = _utils.setupSharedSecrets config {
     secrets = [ "userPassword" ];
@@ -23,10 +20,8 @@ in
 {
   imports = [
     agenix.nixosModules.default
-    home-manager.nixosModules.home-manager
+    hjem.nixosModules.default
     nix-index-database.nixosModules.nix-index
-
-    (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" username ])
 
     rootPassword.generate
     secrets.generate
@@ -71,19 +66,15 @@ in
     wget
   ];
 
-  hm = {
-    home = { inherit stateVersion; };
-
-    programs.ssh = {
-      enable = true;
-      addKeysToAgent = "yes";
-      forwardAgent = true;
+  hjem = {
+    clobberByDefault = true;
+    users.leo.files = {
+      ".ssh/config".text = ''
+        Host *
+          ForwardAgent yes
+          AddKeysToAgent yes
+      '';
     };
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -196,7 +187,7 @@ in
   time.timeZone = "Europe/Paris";
 
   users.users = {
-    "${username}" = {
+    leo = {
       isNormalUser = true;
       shell = pkgs.fish;
       extraGroups = [
@@ -225,5 +216,5 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = lib.mkDefault stateVersion; # Did you read the comment?
+  system.stateVersion = lib.mkDefault "24.11"; # Did you read the comment?
 }

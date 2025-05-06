@@ -1,14 +1,12 @@
+{ pkgs, ... }:
 {
-  hm.programs.ghostty = {
-    enable = true;
-    settings = {
-      theme = "light:catppuccin-latte,dark:catppuccin-mocha";
-      font-family = "Iosevka Term";
-      font-size = 12;
-      font-feature = [
-        "-calt"
-        "-dlig"
-      ];
-    };
-  };
+  environment.systemPackages = [ pkgs.ghostty ];
+
+  hjem.users.leo.files.".config/ghostty/config".text = ''
+    font-family = Iosevka Term
+    font-feature = -calt
+    font-feature = -dlig
+    font-size = 12
+    theme = light:catppuccin-latte,dark:catppuccin-mocha
+  '';
 }

@@ -68,7 +68,7 @@
       url = "github:uku3lig/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
-      inputs.home-manager.follows = "home-manager";
+      inputs.home-manager.follows = "";
       inputs.darwin.follows = "";
     };
 
@@ -89,8 +89,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -8,8 +8,8 @@ let
   toml = pkgs.formats.toml { };
 in
 {
-  hm.home.file.".cargo/config.toml".source = toml.generate "config.toml" {
-    build.target-dir = "${config.hm.home.homeDirectory}/.cargo/target";
+  hjem.users.leo.files.".cargo/config.toml".source = toml.generate "config.toml" {
+    build.target-dir = "${config.hjem.users.leo.directory}/.cargo/target";
 
     target.x86_64-unknown-linux-gnu = {
       linker = "${lib.getExe pkgs.clang}";
