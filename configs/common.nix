@@ -59,6 +59,7 @@ in
 
   environment.systemPackages = with pkgs; [
     btop
+    comma
     curl
     fd
     git
