@@ -2,7 +2,7 @@
 {
   environment.systemPackages = [ pkgs.ghostty ];
 
-  hjem.users.leo.files.".config/ghostty/config".text = ''
+  hj.".config/ghostty/config".text = ''
     font-family = Iosevka Term
     font-feature = -calt
     font-feature = -dlig

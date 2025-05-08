@@ -5,7 +5,7 @@
     gh
   ];
 
-  hjem.users.leo.files = {
+  hj = {
     ".gitconfig".text = lib.generators.toGitINI {
       user = {
         name = "uku";

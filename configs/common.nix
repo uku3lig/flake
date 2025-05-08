@@ -23,6 +23,8 @@ in
     hjem.nixosModules.default
     nix-index-database.nixosModules.nix-index
 
+    (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" "leo" "files" ])
+
     rootPassword.generate
     secrets.generate
 

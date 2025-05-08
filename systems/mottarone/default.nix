@@ -29,7 +29,7 @@ in
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
 
-  hjem.users.leo.files = {
+  hj = {
     ".gitconfig".text = lib.generators.toGitINI {
       include.path = "~/.config/git/work_config";
     };

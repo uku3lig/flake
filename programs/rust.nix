@@ -8,7 +8,7 @@ let
   toml = pkgs.formats.toml { };
 in
 {
-  hjem.users.leo.files.".cargo/config.toml".source = toml.generate "config.toml" {
+  hj.".cargo/config.toml".source = toml.generate "config.toml" {
     build.target-dir = "${config.hjem.users.leo.directory}/.cargo/target";
 
     target.x86_64-unknown-linux-gnu = {

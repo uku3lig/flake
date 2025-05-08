@@ -6,7 +6,7 @@
     fishPlugins.hydro
   ];
 
-  hjem.users.leo.files.".config/fish/config.fish".text = ''
+  hj.".config/fish/config.fish".text = ''
     function fish_greeting
     end
 

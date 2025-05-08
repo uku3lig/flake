@@ -2,5 +2,5 @@
 {
   environment.systemPackages = [ pkgs.neovide ];
 
-  hjem.users.leo.files.".config/neovide/config.toml".text = "fork = true";
+  hj.".config/neovide/config.toml".text = "fork = true";
 }
