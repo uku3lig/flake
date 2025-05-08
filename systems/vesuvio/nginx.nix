@@ -34,5 +34,19 @@
         recommendedProxySettings = true;
       };
     };
+
+    "zipline.uku3lig.net" = {
+      serverAliases = [ "v.uku.moe" ];
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://etna:3001";
+        recommendedProxySettings = true;
+      };
+
+      extraConfig = ''
+        client_max_body_size 1000M;
+      '';
+    };
   };
 }

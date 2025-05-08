@@ -68,6 +68,7 @@ in
     ./uku.nix
     ./ups.nix
     ./vaultwarden.nix
+    ./zipline.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
