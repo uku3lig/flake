@@ -1,5 +1,8 @@
 {
+  lib,
   pkgs,
+  config,
+  _utils,
   ...
 }:
 {
@@ -29,9 +32,11 @@
   programs.light.enable = true;
 
   # hyprland stuff
-  # services.blueman = lib.mkIf config.programs.hyprland.enable { enable = true; };
-  # hm.wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
-  #   "${lib.getExe networkmanagerapplet}"
-  #   "${lib.getExe' blueman "blueman-applet"}"
-  # ];
+  services.blueman = lib.mkIf config.programs.hyprland.enable { enable = true; };
+  hj.".config/hypr/hyprland.conf".text = _utils.toHyprconf {
+    exec-once = with pkgs; [
+      "${lib.getExe networkmanagerapplet}"
+      "${lib.getExe' blueman "blueman-applet"}"
+    ];
+  };
 }

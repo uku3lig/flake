@@ -111,4 +111,62 @@
       alias = builtins.toString (pkgs.writeTextDir filename content) + "/";
       tryFiles = "${filename} =${builtins.toString status}";
     };
+
+  # https://github.com/nix-community/home-manager/blob/ec71b5162848e6369bdf2be8d2f1dd41cded88e8/modules/lib/generators.nix#L4-L61
+  toHyprconf =
+    attrs:
+    let
+      inherit (lib)
+        all
+        concatMapStringsSep
+        concatStrings
+        concatStringsSep
+        filterAttrs
+        foldl
+        generators
+        hasPrefix
+        isAttrs
+        isList
+        mapAttrsToList
+        replicate
+        ;
+
+      indentLevel = 0;
+      importantPrefixes = [ "$" ];
+      initialIndent = concatStrings (replicate indentLevel "  ");
+
+      toHyprconf' =
+        indent: attrs:
+        let
+          sections = filterAttrs (n: v: isAttrs v || (isList v && all isAttrs v)) attrs;
+
+          mkSection =
+            n: attrs:
+            if lib.isList attrs then
+              (concatMapStringsSep "\n" (a: mkSection n a) attrs)
+            else
+              ''
+                ${indent}${n} {
+                ${toHyprconf' "  ${indent}" attrs}${indent}}
+              '';
+
+          mkFields = generators.toKeyValue {
+            listsAsDuplicateKeys = true;
+            inherit indent;
+          };
+
+          allFields = filterAttrs (n: v: !(isAttrs v || (isList v && all isAttrs v))) attrs;
+
+          isImportantField =
+            n: _: foldl (acc: prev: if hasPrefix prev n then true else acc) false importantPrefixes;
+
+          importantFields = filterAttrs isImportantField allFields;
+
+          fields = builtins.removeAttrs allFields (mapAttrsToList (n: _: n) importantFields);
+        in
+        mkFields importantFields
+        + concatStringsSep "\n" (mapAttrsToList mkSection sections)
+        + mkFields fields;
+    in
+    toHyprconf' initialIndent attrs;
 }

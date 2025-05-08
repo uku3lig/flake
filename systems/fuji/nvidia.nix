@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  _utils,
   ...
 }:
 {
@@ -37,10 +38,12 @@
     };
   };
 
-  # hm.wayland.windowManager.hyprland.settings.env = [
-  #   "XDG_SESSION_TYPE,wayland"
-  #   "GBM_BACKEND,nvidia-drm"
-  #   "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-  #   "NVD_BACKEND,direct"
-  # ];
+  hj.".config/hypr/hyprland.conf".text = _utils.toHyprconf {
+    env = [
+      "XDG_SESSION_TYPE,wayland"
+      "GBM_BACKEND,nvidia-drm"
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      "NVD_BACKEND,direct"
+    ];
+  };
 }

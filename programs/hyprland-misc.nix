@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   # utility packages for hyprland, since you know it's not a DE
-
-  hm.home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     gnome.gnome-calculator
     mate.eom
     nwg-look
