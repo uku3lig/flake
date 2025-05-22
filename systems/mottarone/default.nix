@@ -30,9 +30,11 @@ in
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
 
   hj = {
-    ".gitconfig".text = lib.generators.toGitINI {
-      include.path = "~/.config/git/work_config";
-    };
+    ".gitconfig".text = lib.mkAfter (
+      lib.generators.toGitINI {
+        include.path = "~/.config/git/work_config";
+      }
+    );
 
     ".ssh/config".text = lib.mkBefore ''
       Include work_config
