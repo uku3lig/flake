@@ -57,7 +57,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "https://uku.moe/unstable.tar.xz";
 
     camasca = {
       url = "git+https://git.uku3lig.net/uku/camasca";
