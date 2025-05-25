@@ -20,9 +20,11 @@ in
 
   environment = {
     sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
-    systemPackages = [
-      (pkgs.writeShellScriptBin "neovide" ''/bin/neovide-unwrapped --wsl "$@" &'')
-      pkgs.parallel
+    systemPackages = with pkgs; [
+      (writeShellScriptBin "neovide" ''/bin/neovide-unwrapped --wsl "$@" &'')
+      opusTools
+      opustags
+      parallel
     ];
   };
 
