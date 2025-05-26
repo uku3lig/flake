@@ -60,7 +60,7 @@
     nixpkgs.url = "https://uku.moe/unstable.tar.xz";
 
     camasca = {
-      url = "git+https://git.uku3lig.net/uku/camasca";
+      url = "https://git.uku3lig.net/uku/camasca/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
