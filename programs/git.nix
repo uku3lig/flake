@@ -31,6 +31,7 @@
     };
 
     ".config/gh/config.yml".text = lib.generators.toYAML { } {
+      version = "1";
       settings.git_protocol = "ssh";
     };
   };
