@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747897591,
-        "narHash": "sha256-AUGcKqk9Z3qU0kAFXtoTxBP6/XgdB0kEhTOQ0xQ642A=",
+        "lastModified": 1748292657,
+        "narHash": "sha256-rEoolFmaq2lbmhAVWbfck0WZiq5UueNFACAqJtME1Gk=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "c2df36bfdfc00d81958ba26fcf2bd3aad0c6c6e1",
+        "rev": "29b355e88e30daee7c801ee9c2567cec3cdb1c53",
         "type": "github"
       },
       "original": {
@@ -256,11 +256,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1748107403,
-        "narHash": "sha256-3W3+7hGHD71iQ1AApEhn07laT/LSmHQCiEJW3ggPnkI=",
-        "rev": "063f43f2dbdef86376cc29ad646c45c46e93234c",
+        "lastModified": 1748281463,
+        "narHash": "sha256-0VFAX85s2QcFpcNVy7J4yn7j8Cn2IZADd1wsbT+1TYs=",
+        "rev": "62b852f6c6742134ade1abdd2a21685fd617a291",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre804993.063f43f2dbde/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre805967.62b852f6c674/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -331,11 +331,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747912973,
-        "narHash": "sha256-XgxghfND8TDypxsMTPU2GQdtBEsHTEc3qWE6RVEk8O0=",
+        "lastModified": 1748243702,
+        "narHash": "sha256-9YzfeN8CB6SzNPyPm2XjRRqSixDopTapaRsnTpXUEY8=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "020cb423808365fa3f10ff4cb8c0a25df35065a3",
+        "rev": "1f3f7b784643d488ba4bf315638b2b0a4c5fb007",
         "type": "github"
       },
       "original": {
@@ -354,11 +354,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747897614,
-        "narHash": "sha256-06ECkkAKCpAf/CySNILBwRf9VvnqBNaxIsX1KjqDdLg=",
+        "lastModified": 1748240685,
+        "narHash": "sha256-8/xjY35CjIKruf2mwJa9sMJGc5e/SrkKbVOzw0K65KQ=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "7ec9f105b125d7bc2792fd2b052d026a2fde83a3",
+        "rev": "766f32dee4d3a02c68d79b7ee0f8628265cdc0d8",
         "type": "github"
       },
       "original": {
