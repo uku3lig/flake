@@ -11,11 +11,6 @@
     };
   };
 
-  programs.nautilus-open-any-terminal = {
-    enable = true;
-    terminal = "ghostty";
-  };
-
   # ssh-agent is provided by gnome-keyring-daemon
   # (mabye soon by gcr, see NixOS/nixpkgs#140824)
   programs.ssh.startAgent = lib.mkForce false;
