@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   _utils,
   ...
@@ -21,7 +20,6 @@ in
       CORE_PORT = 3001;
       DATASOURCE_TYPE = "local";
       DATASOURCE_LOCAL_DIRECTORY = "/data/zipline";
-      FFMPEG_PATH = lib.getExe pkgs.ffmpeg;
     };
   };
 
