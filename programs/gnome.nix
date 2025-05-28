@@ -21,6 +21,7 @@
       gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-panel
+      nautilus-python
     ];
 
     gnome.excludePackages = [
