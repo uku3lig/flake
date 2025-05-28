@@ -59,7 +59,14 @@ in
       };
     };
 
-    postgresql.enable = true;
+    postgresql = {
+      enable = true;
+      authentication = ''
+        local all postgres peer
+        local all leo peer
+        local all all md5
+      '';
+    };
     pgadmin = {
       enable = true;
       initialEmail = "hi@uku.moe";
