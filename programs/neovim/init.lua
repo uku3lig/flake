@@ -72,6 +72,10 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- open neo-tree
 vim.keymap.set("n", "<leader>t", "<Cmd>Neotree reveal<CR>")
 
+-- global search
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "<leader>rg", telescope.live_grep)
+
 -- lsp keybindings
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
 vim.keymap.set("n", "<M-CR>", require("actions-preview").code_actions)
