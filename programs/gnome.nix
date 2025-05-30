@@ -19,10 +19,12 @@
     systemPackages = [
       adw-gtk3
       gnome-tweaks
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-panel
       mission-center
       nautilus-python
+
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-panel
+      gnomeExtensions.night-theme-switcher
     ];
 
     gnome.excludePackages = [
