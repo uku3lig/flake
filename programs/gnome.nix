@@ -1,10 +1,10 @@
 { lib, pkgs, ... }:
 {
   services = {
-    displayManager.defaultSession = "gnome";
-    xserver = {
-      desktopManager.gnome.enable = true;
-      displayManager.gdm = {
+    desktopManager.gnome.enable = true;
+    displayManager = {
+      defaultSession = "gnome";
+      gdm = {
         enable = true;
         wayland = true;
       };
