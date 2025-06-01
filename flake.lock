@@ -354,11 +354,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748240685,
-        "narHash": "sha256-8/xjY35CjIKruf2mwJa9sMJGc5e/SrkKbVOzw0K65KQ=",
+        "lastModified": 1748772278,
+        "narHash": "sha256-+XFQadl1Vaqw+afJp3FECbPAqsiMVGpOHQlK4g8wcWo=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "766f32dee4d3a02c68d79b7ee0f8628265cdc0d8",
+        "rev": "c2c7d87461d79b3b5c199c85a02156f9911d8426",
         "type": "github"
       },
       "original": {
