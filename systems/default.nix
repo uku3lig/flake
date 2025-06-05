@@ -28,6 +28,8 @@ let
           inherit lib;
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         };
+
+        camascaPkgs = inputs.camasca.packages.${system};
       };
     };
 in

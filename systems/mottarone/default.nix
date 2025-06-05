@@ -1,12 +1,9 @@
 {
   lib,
   pkgs,
-  camasca,
+  camascaPkgs,
   ...
 }:
-let
-  inherit (pkgs.stdenv.hostPlatform) system;
-in
 {
   imports = [
     ./urbackup.nix
@@ -15,9 +12,9 @@ in
   environment.systemPackages = with pkgs; [
     gtkterm
     remmina
-    camasca.packages.${system}.openwebstart
-    camasca.packages.${system}.jaspersoft-studio-community
-    camasca.packages.${system}.sql-developer
+    camascaPkgs.openwebstart
+    camascaPkgs.jaspersoft-studio-community
+    camascaPkgs.sql-developer
     pycharm-wrapped
     recaf-launcher
   ];
