@@ -3,6 +3,7 @@
   pkgs,
   config,
   lanzaboote,
+  camascaPkgs,
   ...
 }:
 {
@@ -60,8 +61,8 @@
       thunderbird
       vscode
 
-      niigo-miku-cursors
-      patchouli-cursors
+      (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
+      (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
 
       # libreoffice stuff
       libreoffice-qt6-fresh
