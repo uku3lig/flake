@@ -10,19 +10,6 @@ let
 
   secret = _utils.setupSingleSecret config "minecraftEnv" { };
 
-  lynn = _utils.mkMinecraftServer config {
-    name = "lynn";
-    port = 25567;
-    remotePort = 6002;
-    memory = "4G";
-    envFiles = [ secret.path ];
-    env = {
-      USE_AIKAR_FLAGS = "true";
-      TYPE = "MODRINTH";
-      MODRINTH_MODPACK = "https://modrinth.com/modpack/adrenaline/version/1.24.0+1.20.6.fabric";
-    };
-  };
-
   nomifactory = _utils.mkMinecraftServer config {
     name = "nomi";
     port = 25565;
@@ -40,7 +27,6 @@ in
   imports = [
     secret.generate
 
-    lynn
     nomifactory
   ];
 

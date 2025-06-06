@@ -62,7 +62,7 @@ in
     ./minecraft.nix
     ./nextcloud.nix
     ./reposilite.nix
-    ./satisfactory.nix
+    # ./satisfactory.nix
     ./shlink.nix
     ./slskd.nix
     ./uku.nix
