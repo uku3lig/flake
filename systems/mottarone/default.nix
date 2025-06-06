@@ -70,4 +70,8 @@
       initialPasswordFile = "/opt/pgadminpwd";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "L+ /opt/liberica-17 - - - - ${camascaPkgs.liberica-17}"
+  ];
 }
