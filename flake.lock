@@ -256,11 +256,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1749008870,
-        "narHash": "sha256-5QEAcgawS2tOJrLr+U5DtzlShSCEpeg7PZDC7txvLQs=",
-        "rev": "c2a03962b8e24e669fb37b7df10e7c79531ff1a4",
+        "lastModified": 1749238035,
+        "narHash": "sha256-+w+VydE8NSQXu8RSNLhn0fVMaEoFPgUbNYa8m1rewuM=",
+        "rev": "d3d2d80a2191a73d1e86456a751b83aa13085d7d",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre810143.c2a03962b8e2/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre811203.d3d2d80a2191/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -331,11 +331,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748243702,
-        "narHash": "sha256-9YzfeN8CB6SzNPyPm2XjRRqSixDopTapaRsnTpXUEY8=",
+        "lastModified": 1749194973,
+        "narHash": "sha256-eEy8cuS0mZ2j/r/FE0/LYBSBcIs/MKOIVakwHVuqTfk=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "1f3f7b784643d488ba4bf315638b2b0a4c5fb007",
+        "rev": "a05be418a1af1198ca0f63facb13c985db4cb3c5",
         "type": "github"
       },
       "original": {
@@ -370,11 +370,11 @@
     "vencord": {
       "flake": false,
       "locked": {
-        "lastModified": 1748553058,
-        "narHash": "sha256-1xJC/yoOcD4/jrP0Mz84xoN2qXnewzfNn9nnb0V7SKw=",
+        "lastModified": 1749252664,
+        "narHash": "sha256-g9n1rV1DZzZgZIdYKACnhlDRdLCxilnyn0Vuj+fp5To=",
         "owner": "Vendicated",
         "repo": "Vencord",
-        "rev": "eafbc0d15a89bae8af403d9aef6b10eddfa8e78a",
+        "rev": "bb106b7c49a6f1019194738a66ee75c8584680a8",
         "type": "github"
       },
       "original": {
