@@ -56,6 +56,7 @@
       idea-wrapped
       mpv
       obsidian
+      signal-desktop
       strawberry
       teams-for-linux
       thunderbird
