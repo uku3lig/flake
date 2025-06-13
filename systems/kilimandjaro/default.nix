@@ -6,6 +6,8 @@
     ../../programs/dotnet.nix
   ];
 
+  environment.systemPackages = [ pkgs.jetbrains.datagrip ];
+
   services = {
     asus-numpad = {
       enable = true;
@@ -15,6 +17,11 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql_17;
+    };
+
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb_1011;
     };
   };
 }
