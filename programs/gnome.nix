@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   services = {
     desktopManager.gnome.enable = true;
@@ -9,11 +9,12 @@
         wayland = true;
       };
     };
+
+    gnome.gcr-ssh-agent.enable = true;
   };
 
-  # ssh-agent is provided by gnome-keyring-daemon
-  # (mabye soon by gcr, see NixOS/nixpkgs#140824)
-  programs.ssh.startAgent = lib.mkForce false;
+  # ssh-agent is provided by gcr
+  programs.ssh.startAgent = false;
 
   environment = with pkgs; {
     systemPackages = [

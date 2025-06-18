@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   ...
@@ -36,7 +37,7 @@
 
   programs = {
     nix-ld.enable = true;
-    ssh.startAgent = true;
+    ssh.startAgent = lib.mkDefault true;
   };
 
   virtualisation.docker.enable = true;
