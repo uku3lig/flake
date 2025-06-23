@@ -13,8 +13,6 @@ inputs: final: prev: {
     ];
   });
 
-  pgadmin4 = prev.pgadmin4.override { python3 = prev.python312; };
-
   vencord = prev.vencord.overrideAttrs (old: {
     version = "${old.version}+git.${inputs.vencord.shortRev}";
     src = inputs.vencord;
