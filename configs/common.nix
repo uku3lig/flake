@@ -199,6 +199,7 @@ in
         "libvirtd"
         "input"
         "docker"
+        "vboxusers"
       ];
       hashedPasswordFile = secrets.get "userPassword";
       openssh.authorizedKeys.keys = [

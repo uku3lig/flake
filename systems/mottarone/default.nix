@@ -74,4 +74,13 @@
   systemd.tmpfiles.rules = [
     "L+ /opt/liberica-17 - - - - ${camascaPkgs.liberica-17}"
   ];
+
+  programs.virt-manager.enable = lib.mkForce false;
+  virtualisation = {
+    libvirtd.enable = lib.mkForce false;
+    virtualbox.host = {
+      enableKvm = true;
+      addNetworkInterface = false;
+    };
+  };
 }
