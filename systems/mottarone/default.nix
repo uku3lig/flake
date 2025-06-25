@@ -9,6 +9,8 @@
     ./urbackup.nix
   ];
 
+  boot.blacklistedKernelModules = [ "kvm_intel" ];
+
   environment.systemPackages = with pkgs; [
     gtkterm
     remmina
@@ -76,11 +78,5 @@
   ];
 
   programs.virt-manager.enable = lib.mkForce false;
-  virtualisation = {
-    libvirtd.enable = lib.mkForce false;
-    virtualbox.host = {
-      enableKvm = true;
-      addNetworkInterface = false;
-    };
-  };
+  virtualisation.libvirtd.enable = lib.mkForce false;
 }
