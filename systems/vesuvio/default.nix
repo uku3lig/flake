@@ -16,7 +16,6 @@
   ];
 
   services = {
-    nginx.enable = true;
     openssh = {
       ports = [ 4269 ];
       openFirewall = true;

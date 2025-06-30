@@ -1,12 +1,7 @@
-{ config, _utils, ... }:
-let
-  frp = _utils.mkFrpPassthrough "immich" config.services.immich.port;
-in
 {
-  imports = [ frp ];
-
   services.immich = {
     enable = true;
+    host = "0.0.0.0";
 
     settings = null;
     mediaLocation = "/data/immich";

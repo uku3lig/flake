@@ -91,35 +91,5 @@ in
         }
       ];
     };
-
-    nginx.virtualHosts."m.uku.moe".locations =
-      let
-        server = {
-          "m.server" = "m.uku.moe:443";
-        };
-        client = {
-          "m.homeserver"."base_url" = "https://m.uku.moe";
-        };
-      in
-      {
-        "=/.well-known/matrix/server" = {
-          return = "200 '${builtins.toJSON server}'";
-        };
-
-        "=/.well-known/matrix/client" = {
-          return = "200 '${builtins.toJSON client}'";
-        };
-
-        "/" = {
-          proxyPass = "http://localhost:8008";
-          proxyWebsockets = true;
-          extraConfig = ''
-            proxy_set_header Host      $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_read_timeout         600;
-            client_max_body_size       100M;
-          '';
-        };
-      };
   };
 }
