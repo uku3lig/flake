@@ -13,6 +13,8 @@ inputs: final: prev: {
     ];
   });
 
+  zipline = prev.zipline.override { nodejs_24 = prev.nodejs_22; };
+
   vencord = prev.vencord.overrideAttrs (old: {
     version = "${old.version}+git.${inputs.vencord.shortRev}";
     src = inputs.vencord;
