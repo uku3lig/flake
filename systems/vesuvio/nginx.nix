@@ -75,6 +75,15 @@
           client_max_body_size 1000M;
         '';
       };
+
+      "git.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://etna:3000";
+          recommendedProxySettings = true;
+        };
+      };
     };
   };
 

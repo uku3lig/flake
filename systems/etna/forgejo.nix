@@ -20,8 +20,6 @@ in
 {
   imports = [ secrets.generate ];
 
-  cfTunnels."git.uku3lig.net" = "http://localhost:3000";
-
   services = {
     forgejo = {
       enable = true;
@@ -42,9 +40,11 @@ in
 
         server = {
           ROOT_URL = "https://git.uku3lig.net";
+          HTTP_ADDR = "0.0.0.0";
+          HTTP_PORT = 3000;
           START_SSH_SERVER = true;
           BUILTIN_SSH_SERVER_USER = "git";
-          SSH_DOMAIN = "ssh.uku.moe";
+          SSH_DOMAIN = "git.uku3lig.net";
           SSH_LISTEN_PORT = 2222;
         };
 
@@ -120,7 +120,7 @@ in
         name = "forgejo-ssh";
         type = "tcp";
         localIp = "127.0.0.1";
-        localPort = 2222;
+        localPort = config.services.forgejo.settings.server.SSH_LISTEN_PORT;
         remotePort = 22;
       }
     ];
