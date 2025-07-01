@@ -12,13 +12,14 @@
   boot.blacklistedKernelModules = [ "kvm_intel" ];
 
   environment.systemPackages = with pkgs; [
-    gtkterm
-    remmina
-    camascaPkgs.openwebstart
     camascaPkgs.jaspersoft-studio-community
+    camascaPkgs.openwebstart
     camascaPkgs.sql-developer
+    gtkterm
+    postman
     pycharm-wrapped
     recaf-launcher
+    remmina
   ];
 
   fonts.packages = with pkgs; [
