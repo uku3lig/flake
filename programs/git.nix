@@ -18,9 +18,13 @@
         verbose = true;
       };
 
+      core = {
+        autocrlf = "input";
+        pager = "less --mouse";
+      };
+
       gpg.format = "ssh";
       tag.gpgSign = true;
-      core.autocrlf = "input";
       diff.submodule = "log";
       init.defaultBranch = "main";
       merge.conflictStyle = "zdiff3";
