@@ -35,7 +35,7 @@ inputs: final: prev: {
     };
 
     pnpmDeps = old.pnpmDeps.overrideAttrs {
-      outputHash = "sha256-QiD4qTRtz5vz0EEc6Q08ej6dbVGMlPLU2v0GVKNBQyc=";
+      outputHash = "sha256-JP9HOaP3DG+2F89tC77JZFD0ls35u/MzxNmvMCbBo9Y=";
     };
   });
 }
