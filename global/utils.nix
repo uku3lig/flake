@@ -68,7 +68,8 @@
         environment = {
           EULA = "true";
           MEMORY = memory;
-        } // env;
+        }
+        // env;
       };
 
       networking.firewall.allowedTCPPorts = [ port ];

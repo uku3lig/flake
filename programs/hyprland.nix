@@ -133,35 +133,34 @@
         # "immediate, class:^(steam_app_322170)$"
       ];
 
-      bind =
-        [
-          "$mod, Return, exec, ${getExe alacritty}"
-          "$mod SHIFT, A, killactive,"
-          "$mod SHIFT, E, exit,"
-          "$mod SHIFT, Space, togglefloating,"
-          "$mod, D, exec, ${getExe fuzzel}"
-          "$mod, F, fullscreen, 0"
-          "$mod, P, pseudo," # dwindle
-          "$mod, J, togglesplit," # dwindle
+      bind = [
+        "$mod, Return, exec, ${getExe alacritty}"
+        "$mod SHIFT, A, killactive,"
+        "$mod SHIFT, E, exit,"
+        "$mod SHIFT, Space, togglefloating,"
+        "$mod, D, exec, ${getExe fuzzel}"
+        "$mod, F, fullscreen, 0"
+        "$mod, P, pseudo," # dwindle
+        "$mod, J, togglesplit," # dwindle
 
-          # audio
-          ",XF86AudioRaiseVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-          ",XF86AudioLowerVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ",XF86AudioMute, exec, $wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ",XF86AudioMicMute, exec, $wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-          ",XF86AudioPause, exec, ${getExe playerctl} play-pause"
-          ",XF86AudioPlay, exec, ${getExe playerctl} play-pause"
-          ",XF86AudioNext, exec, ${getExe playerctl} next"
-          ",XF86AudioPrev, exec, ${getExe playerctl} previous"
+        # audio
+        ",XF86AudioRaiseVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, $wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, $wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, $wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86AudioPause, exec, ${getExe playerctl} play-pause"
+        ",XF86AudioPlay, exec, ${getExe playerctl} play-pause"
+        ",XF86AudioNext, exec, ${getExe playerctl} next"
+        ",XF86AudioPrev, exec, ${getExe playerctl} previous"
 
-          # backlight
-          ",XF86MonBrightnessUp, exec, ${getExe' light "light"} -A 5"
-          ",XF86MonBrightnessDown, exec, ${getExe' light "light"} -U 5"
+        # backlight
+        ",XF86MonBrightnessUp, exec, ${getExe' light "light"} -A 5"
+        ",XF86MonBrightnessDown, exec, ${getExe' light "light"} -U 5"
 
-          # screenshot
-          ",Print, exec, ${getExe grimblast} --freeze save area - | ${getExe swappy} -f -"
-        ]
-        ++
+        # screenshot
+        ",Print, exec, ${getExe grimblast} --freeze save area - | ${getExe swappy} -f -"
+      ]
+      ++
         # Switch workspaces with mod + [0-9]
         # Move active window to a workspace with mod + SHIFT + [0-9]
         lib.flatten (

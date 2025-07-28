@@ -18,21 +18,22 @@
 
       modules-left = [ "hyprland/workspaces" ];
       modules-center = [ ];
-      modules-right =
-        [ "memory" ]
-        ++ lib.optionals (builtins.elem "amdgpu" config.services.xserver.videoDrivers) [
-          "custom/gpu-usage"
-        ]
-        ++ [
-          "cpu"
-          "wireplumber"
-        ]
-        ++ lib.optionals config.services.power-profiles-daemon.enable [ "battery" ]
-        ++ lib.optionals config.programs.light.enable [ "backlight" ]
-        ++ [
-          "clock"
-          "tray"
-        ];
+      modules-right = [
+        "memory"
+      ]
+      ++ lib.optionals (builtins.elem "amdgpu" config.services.xserver.videoDrivers) [
+        "custom/gpu-usage"
+      ]
+      ++ [
+        "cpu"
+        "wireplumber"
+      ]
+      ++ lib.optionals config.services.power-profiles-daemon.enable [ "battery" ]
+      ++ lib.optionals config.programs.light.enable [ "backlight" ]
+      ++ [
+        "clock"
+        "tray"
+      ];
 
       "hyprland/workspaces" = {
         format = "{name}";
