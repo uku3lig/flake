@@ -63,7 +63,7 @@
       vscode
 
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
-      (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
+      # (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
 
       # libreoffice stuff
       libreoffice-qt6-fresh
