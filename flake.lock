@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753165450,
-        "narHash": "sha256-E5SvlOqPyhaFzHWTscxtLxEJepiN2r35VDdUNApm+ew=",
+        "lastModified": 1753819860,
+        "narHash": "sha256-hLlFRN779Y9WcOLcy/TC5e1m9SQbgW3nITcc1Pm5/Us=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "68fd4089fa60306cc5f1c1fb78d8151d7c741127",
+        "rev": "930f4bdb559cc4c5bf69ccd43c6d6c6fc8b7e422",
         "type": "github"
       },
       "original": {
@@ -201,11 +201,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1753689754,
-        "narHash": "sha256-2ac3thhNw1J17J98lPrp6vII6g9/D8KerWLN2tM90a4=",
+        "lastModified": 1753862548,
+        "narHash": "sha256-gCc+tvkzRSAa1fRcLNhEov7zkJlFc8JyBmp4GneQHOI=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "3b02400c37eb31c91758378a42e1eca602413efc",
+        "rev": "eec522c92fb813c2d6338e4f7595662fd5079f93",
         "type": "github"
       },
       "original": {
@@ -257,11 +257,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1753768348,
-        "narHash": "sha256-GBa/N8y1tJKl+TgKZJkfHB/KtSwYtFdb/PmSxsJjv0w=",
-        "rev": "dc9637876d0dcc8c9e5e22986b857632effeb727",
+        "lastModified": 1754039997,
+        "narHash": "sha256-H2AEz/qWRPYu4E4wUvY96GhLa2ZT14D99tr9Z8i/AX0=",
+        "rev": "94def634a20494ee057c76998843c015909d6311",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre836203.dc9637876d0d/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre837094.94def634a204/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -431,11 +431,11 @@
     "vencord": {
       "flake": false,
       "locked": {
-        "lastModified": 1753217128,
-        "narHash": "sha256-MS88KCH8ZdLyKoR0K45CSJutZSKUhz4FAE2VtrSx0ic=",
+        "lastModified": 1753993893,
+        "narHash": "sha256-nz0fv0tMOnlagiCEUSFLWPE5Rt3PydJuqJFgekERWbY=",
         "owner": "Vendicated",
         "repo": "Vencord",
-        "rev": "03fe7d15cf9c51f02922e23f3071b84c865d327c",
+        "rev": "cb36cf5706b68e28aa5857e21269ca9f81c1634e",
         "type": "github"
       },
       "original": {
