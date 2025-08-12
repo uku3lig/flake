@@ -27,6 +27,11 @@
   services = {
     libinput.enable = true;
     power-profiles-daemon.enable = true;
+
+    resolved = {
+      dnssec = "allow-downgrade";
+      dnsovertls = "false";
+    };
   };
 
   programs.light.enable = true;

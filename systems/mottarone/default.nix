@@ -60,11 +60,6 @@
   };
 
   services = {
-    resolved = {
-      dnssec = "allow-downgrade";
-      dnsovertls = "false";
-    };
-
     glpiAgent = {
       enable = true;
       settings = {
