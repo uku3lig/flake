@@ -5,13 +5,13 @@
 }:
 let
   inherit (pkgs.stdenv.hostPlatform) system;
-  inherit (getchvim.packages.${system}.getchvim) makeNeovimWrapper;
+  inherit (getchvim.packages.${system}.getchvim) mkNeovimWrapper;
 in
 {
   environment = {
     variables.EDITOR = "nvim";
     systemPackages = [
-      (makeNeovimWrapper {
+      (mkNeovimWrapper {
         pname = "ukuvim";
 
         luaRc = ./init.lua;
