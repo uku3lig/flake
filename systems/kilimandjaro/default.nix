@@ -6,7 +6,10 @@
     ../../programs/dotnet.nix
   ];
 
-  environment.systemPackages = [ pkgs.jetbrains.datagrip ];
+  environment.systemPackages = [
+    pkgs.jetbrains.datagrip
+    pkgs.foliate
+  ];
 
   services = {
     asus-numpad = {
