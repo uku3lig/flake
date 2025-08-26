@@ -20,6 +20,11 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql_17;
+      authentication = ''
+        local all postgres peer
+        local all leo peer
+        local all all md5
+      '';
     };
 
     mysql = {
