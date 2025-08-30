@@ -42,5 +42,7 @@ in
         }
       ];
     };
+
+    borgbackup.jobs.vaultwarden = config.passthru.makeBorg "vaultwarden" "/var/lib/vaultwarden";
   };
 }

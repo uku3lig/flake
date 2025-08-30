@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   services = {
     postgresql = {
@@ -30,5 +30,7 @@
       # TODO: should probably backup databases individually
       pgdumpOptions = "";
     };
+
+    borgbackup.jobs.postgresql = config.passthru.makeBorg "postgresql" "/data/backups/postgresql";
   };
 }

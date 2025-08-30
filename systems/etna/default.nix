@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   _utils,
   ...
@@ -7,8 +8,14 @@
 let
   tunnelId = "57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5";
 
-  secrets = _utils.setupSharedSecrets config { secrets = [ "frpToken" ]; };
-  cfTunnelSecret = _utils.setupSingleSecret config "tunnelCreds" { };
+  frpToken = _utils.setupSharedSecrets config { secrets = [ "frpToken" ]; };
+  secrets = _utils.setupSecrets config {
+    secrets = [
+      "tunnelCreds"
+      "borgSshKey"
+      "borgPassphrase"
+    ];
+  };
 in
 {
   assertions = [
@@ -16,13 +23,35 @@ in
       assertion = lib.versionAtLeast config.boot.kernelPackages.kernel.version "6.6.31";
       message = "Linux kernel is too old! Please upgrade to ~6.6.31 or 6.9+";
     }
+    {
+      assertion = lib.versions.majorMinor pkgs.borgbackup.version == "1.4";
+      message = "Borg is not version 1.4! Got: ${pkgs.borgbackup.version}";
+    }
   ];
+
+  passthru = {
+    makeBorg = name: paths: {
+      inherit paths;
+      repo = "ssh://u488412@u488412.your-storagebox.de:23/./${name}";
+      encryption = {
+        mode = "repokey";
+        passCommand = "cat ${secrets.get "borgPassphrase"}";
+      };
+      compression = "zstd,7";
+      extraArgs = [ "--remote-path=borg-1.4" ];
+      extraCreateArgs = [ "--stats" ];
+      startAt = "daily";
+      environment = {
+        BORG_RSH = "ssh -i ${secrets.get "borgSshKey"}";
+      };
+    };
+  };
 
   imports = [
     (lib.mkAliasOptionModule [ "cfTunnels" ] [ "services" "cloudflared" "tunnels" tunnelId "ingress" ])
 
+    frpToken.generate
     secrets.generate
-    cfTunnelSecret.generate
 
     # essential configs, do not remove
     ./postgresql.nix
@@ -77,7 +106,7 @@ in
     cloudflared = {
       enable = true;
       tunnels.${tunnelId} = {
-        credentialsFile = cfTunnelSecret.path;
+        credentialsFile = secrets.get "tunnelCreds";
         default = "http_status:404";
       };
     };
@@ -85,7 +114,7 @@ in
 
   systemd.services = {
     "cloudflared-tunnel-${tunnelId}".serviceConfig.RestartSec = "10s";
-    frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
+    frp.serviceConfig.EnvironmentFile = frpToken.get "frpToken";
   };
 
   virtualisation = {

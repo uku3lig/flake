@@ -44,6 +44,8 @@ in
   "etna/slskdEnv.age".publicKeys = main ++ [ etna ];
   "etna/reposiliteDbPass.age".publicKeys = main ++ [ etna ];
   "etna/ziplineEnv.age".publicKeys = main ++ [ etna ];
+  "etna/borgSshKey.age".publicKeys = main ++ [ etna ];
+  "etna/borgPassphrase.age".publicKeys = main ++ [ etna ];
 
   "vesuvio/gatusEnv.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/maddyEnv.age".publicKeys = main ++ [ vesuvio ];

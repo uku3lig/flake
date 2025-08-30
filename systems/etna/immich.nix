@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   services.immich = {
     enable = true;
@@ -9,5 +10,12 @@
     environment = {
       TZ = "Europe/Paris";
     };
+  };
+
+  services.borgbackup.jobs.immich = config.passthru.makeBorg "immich" "/data/immich" // {
+    exclude = [
+      "*/thumbs/"
+      "*/encoded-video/"
+    ];
   };
 }
