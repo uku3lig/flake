@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1756221993,
-        "narHash": "sha256-VVe/l67DvGgsyrZtDgo83Zqrhzu0k/QjCuWy3GWkyhc=",
-        "rev": "dabf19d3da6592fa05dfa6b503a69e3060928f1a",
+        "lastModified": 1756456873,
+        "narHash": "sha256-uF2Y5jRv/+PjpM5SPwEIzAP3h+HwYho0s+OB3e5V+jI=",
+        "rev": "9720521ea7ab6f7ae04f5f651a1a8998e5251110",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/dabf19d3da6592fa05dfa6b503a69e3060928f1a.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/9720521ea7ab6f7ae04f5f651a1a8998e5251110.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -128,11 +128,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755913162,
-        "narHash": "sha256-f8Jhz37jDB5J0J4/HOHXGIhqe9zeCmJ34arFWvbGcGs=",
+        "lastModified": 1756517149,
+        "narHash": "sha256-ChDjnfU1RfwcSK+f8SvUGfWIOZ6MTbvsfquVicL+mFI=",
         "owner": "getchoo",
         "repo": "getchvim",
-        "rev": "71f5b79acf19b5e0025805841ab12cf3a2bb2d04",
+        "rev": "dd4de7794f2001074abd839c3178cc7253a5fbb9",
         "type": "github"
       },
       "original": {
@@ -201,11 +201,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1756208965,
-        "narHash": "sha256-vOIAYDdcbjI/os3DUG/0pFMjaMRaMXkzC60J1T1mado=",
+        "lastModified": 1756454533,
+        "narHash": "sha256-bF3sJ914KrKXfYPjVc6bbGHxbDi0/94pFRvl0wOpucQ=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "4f2e1f0b05963632069cd18e0ed40d5ee8fd5730",
+        "rev": "81208cceeda011f1d252183c0d76161d70c42c01",
         "type": "github"
       },
       "original": {
@@ -257,11 +257,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1756323149,
-        "narHash": "sha256-rRfBRJzq5gqKdR75XT15PJu7b1eRhYVk/DBRva2+UsM=",
-        "rev": "8a6d5427d99ec71c64f0b93d45778c889005d9c2",
+        "lastModified": 1756479261,
+        "narHash": "sha256-z4vdYBMStriKK8FE5apd/8oJDdIttr02o9rwqHQDb0o=",
+        "rev": "dfb2f12e899db4876308eba6d93455ab7da304cd",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre852432.8a6d5427d99e/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre853093.dfb2f12e899d/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -431,11 +431,11 @@
     "vencord": {
       "flake": false,
       "locked": {
-        "lastModified": 1755908192,
-        "narHash": "sha256-WyhCt2qmyiLDyCOIdqOU9kPHFr2WA0k7v6JN/5QhYbo=",
+        "lastModified": 1756495403,
+        "narHash": "sha256-2GNwiLbGX/fojL3IVWU4JS0gC1YrQLY8YvtOY7ACRNY=",
         "owner": "Vendicated",
         "repo": "Vencord",
-        "rev": "76a60e07e9d299953461640b3409aff13045295d",
+        "rev": "8807564053c7b4cc05c763e2dc7171f5d61e39c7",
         "type": "github"
       },
       "original": {
