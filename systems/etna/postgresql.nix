@@ -26,6 +26,9 @@
       backupAll = true;
       compression = "zstd";
       location = "/data/backups/postgresql";
+      # default is -C, which is not an option in dumpall
+      # TODO: should probably backup databases individually
+      pgdumpOptions = "";
     };
   };
 }
