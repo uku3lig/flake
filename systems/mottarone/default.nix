@@ -16,6 +16,7 @@
     camascaPkgs.openwebstart
     camascaPkgs.sql-developer
     gtkterm
+    nagstamon
     postman
     pycharm-wrapped
     recaf-launcher
