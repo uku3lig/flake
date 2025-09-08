@@ -69,6 +69,7 @@ in
     # ./satisfactory.nix
     ./shlink.nix
     ./slskd.nix
+    ./synapse.nix
     ./uku.nix
     ./ups.nix
     ./vaultwarden.nix

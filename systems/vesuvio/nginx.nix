@@ -62,6 +62,41 @@
           };
       };
 
+      # synapse
+      "rei.uku.moe" = {
+        forceSSL = true;
+        enableACME = true;
+        locations =
+          let
+            server = {
+              "m.server" = "rei.uku.moe:443";
+            };
+            client = {
+              "m.homeserver"."base_url" = "https://rei.uku.moe";
+            };
+          in
+          {
+            "=/.well-known/matrix/server" = {
+              return = "200 '${builtins.toJSON server}'";
+            };
+
+            "=/.well-known/matrix/client" = {
+              return = "200 '${builtins.toJSON client}'";
+            };
+
+            "/" = {
+              proxyPass = "http://etna:8009";
+              proxyWebsockets = true;
+              extraConfig = ''
+                proxy_set_header Host      $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_read_timeout         600;
+                client_max_body_size       1000M;
+              '';
+            };
+          };
+      };
+
       "zipline.uku3lig.net" = {
         serverAliases = [ "v.uku.moe" ];
         forceSSL = true;
