@@ -58,7 +58,7 @@ in
 
     # services
     ./cobalt.nix
-    ./dendrite.nix
+    # ./dendrite.nix
     ./forgejo.nix
     ./immich.nix
     ./jellyfin.nix
