@@ -17,6 +17,7 @@
         locations."/" = {
           proxyPass = "http://etna:2283";
           proxyWebsockets = true;
+          recommendedProxySettings = true;
         };
 
         extraConfig = ''
@@ -87,9 +88,8 @@
             "/" = {
               proxyPass = "http://etna:8009";
               proxyWebsockets = true;
+              recommendedProxySettings = true;
               extraConfig = ''
-                proxy_set_header Host      $host;
-                proxy_set_header X-Real-IP $remote_addr;
                 proxy_read_timeout         600;
                 client_max_body_size       1000M;
               '';
