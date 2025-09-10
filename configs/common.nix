@@ -56,17 +56,28 @@ in
 
   console.keyMap = "fr";
 
-  environment.systemPackages = with pkgs; [
-    btop
-    curl
-    fd
-    git
-    htop
-    jq
-    ncdu
-    ripgrep
-    wget
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      btop
+      curl
+      fd
+      git
+      htop
+      jq
+      ncdu
+      ripgrep
+      wget
+    ];
+
+    variables = {
+      # F -> exit if everything can be displayed on one screen
+      # R -> color (ansi escape codes to be precise)
+      # S -> chop-long-lines (scroll instead of wrap)
+      # M -> show line count at the bottom
+      # K -> exit on CTRL+C
+      SYSTEMD_LESS = "FRSMK";
+    };
+  };
 
   hjem = {
     clobberByDefault = true;
