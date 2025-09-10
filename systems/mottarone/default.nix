@@ -15,6 +15,7 @@
     camascaPkgs.jaspersoft-studio-community
     camascaPkgs.openwebstart
     camascaPkgs.sql-developer
+    gnomeExtensions.solaar-extension
     gtkterm
     nagstamon
     postman
@@ -40,6 +41,11 @@
     ".ssh/config".text = lib.mkBefore ''
       Include work_config
     '';
+  };
+
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
   };
 
   networking = {
