@@ -31,6 +31,7 @@
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
+      plugins = [ pkgs.networkmanager-openvpn ];
     };
   };
 
