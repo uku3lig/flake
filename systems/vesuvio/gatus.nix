@@ -43,15 +43,17 @@ in
           (mkHttpEndpoint "Website" "core" "https://uku3lig.net")
 
           (mkHttpEndpoint "API" "etna" "https://api.uku3lig.net/downloads/uku")
-          (mkHttpEndpoint "Dendrite" "etna" "https://m.uku.moe/_matrix/static/")
           (mkHttpEndpoint "Forgejo" "etna" "https://git.uku3lig.net")
           (mkHttpEndpoint "Grafana" "etna" "https://grafana.uku3lig.net")
           (mkHttpEndpoint "Immich" "etna" "https://im.uku.moe")
+          (mkHttpEndpoint "Jellyfin" "etna" "https://jellyfin.uku3lig.net/web/")
           (mkHttpEndpoint "NextCloud" "etna" "https://cloud.uku3lig.net")
           (mkHttpEndpoint "Reposilite" "etna" "https://maven.uku3lig.net/")
           (mkHttpEndpoint "Shlink" "etna" "https://uku.moe/rest/v3/health")
           (mkHttpEndpoint "Slskd" "etna" "https://slsk.uku.moe")
+          (mkHttpEndpoint "Synapse" "etna" "https://rei.uku.moe/_matrix/static/")
           (mkHttpEndpoint "Vaultwarden" "etna" "https://bw.uku3lig.net")
+          (mkHttpEndpoint "Zipline" "etna" "https://zipline.uku3lig.net/dashboard")
 
           {
             name = "Maddy";
