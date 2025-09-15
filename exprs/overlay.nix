@@ -13,10 +13,6 @@ inputs: final: prev: {
     ];
   });
 
-  nagstamon = prev.nagstamon.overridePythonAttrs (old: {
-    dependencies = old.dependencies ++ [ prev.python3Packages.setuptools ];
-  });
-
   vencord = prev.vencord.overrideAttrs (old: {
     version = "${old.version}+git.${inputs.vencord.shortRev}";
     src = inputs.vencord;
