@@ -7,6 +7,6 @@
     font-feature = -calt
     font-feature = -dlig
     font-size = 12
-    theme = light:catppuccin-latte,dark:catppuccin-mocha
+    theme = light:Catppuccin Latte,dark:Catppuccin Mocha
   '';
 }
