@@ -22,9 +22,6 @@ in
     sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
     systemPackages = with pkgs; [
       (writeShellScriptBin "neovide" ''/bin/neovide-unwrapped --wsl "$@" &'')
-      opusTools
-      opustags
-      parallel
     ];
   };
 
