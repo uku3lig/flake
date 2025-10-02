@@ -144,11 +144,11 @@ cmp.setup({
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
+-- LSP
 local lspformat = require("lsp-format")
 lspformat.setup({})
 
-local lspconfig = require("lspconfig")
-lspconfig.nixd.setup({
+vim.lsp.config("nixd", {
 	on_attach = lspformat.on_attach,
 	capabilities = cmp_caps,
 	settings = {
@@ -159,7 +159,9 @@ lspconfig.nixd.setup({
 		},
 	},
 })
-lspconfig.rust_analyzer.setup({
+vim.lsp.enable("nixd")
+
+vim.lsp.config("rust_analyzer", {
 	on_attach = lspformat.on_attach,
 	settings = {
 		["rust-analyzer"] = {
@@ -167,6 +169,7 @@ lspconfig.rust_analyzer.setup({
 		},
 	},
 })
+vim.lsp.enable("rust_analyzer")
 
 require("gitsigns").setup()
 
