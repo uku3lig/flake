@@ -30,6 +30,8 @@ in
         createDatabase = true;
       };
 
+      lfs.enable = true;
+
       secrets = {
         service.CF_TURNSTILE_SECRET = secrets.get "turnstileSecret";
         mailer.PASSWD = secrets.get "forgejoMailerPasswd";
