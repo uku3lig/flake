@@ -40,7 +40,14 @@ in
       compression = "zstd,7";
       extraArgs = [ "--remote-path=borg-1.4" ];
       extraCreateArgs = [ "--stats" ];
+      extraPruneArgs = [ "--stats" ];
+      extraCompactArgs = [ "--verbose" ];
       startAt = "daily";
+      prune.keep = {
+        daily = 7;
+        weekly = 4;
+        monthly = 2;
+      };
       environment = {
         BORG_RSH = "ssh -i ${secrets.get "borgSshKey"}";
       };
