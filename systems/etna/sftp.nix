@@ -5,10 +5,10 @@
     sftpServerExecutable = "internal-sftp";
     extraConfig = ''
       Match user storage
-        ChrootDirectory /data/storage
+        ChrootDirectory /data
         AllowTcpForwarding no
         AllowAgentForwarding no
-        ForceCommand internal-sftp
+        ForceCommand internal-sftp -d /storage
     '';
   };
 
