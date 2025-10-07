@@ -83,6 +83,10 @@
           proxyPass = "http://etna:3000";
           recommendedProxySettings = true;
         };
+
+        extraConfig = ''
+          client_max_body_size 200M;
+        '';
       };
     };
   };
