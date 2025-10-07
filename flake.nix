@@ -57,7 +57,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "https://uku.moe/unstable.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
 
     camasca = {
       url = "https://git.uku3lig.net/uku/camasca/archive/main.tar.gz";

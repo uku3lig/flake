@@ -1,16 +1,14 @@
 { pkgs, ... }:
 {
   services = {
-    desktopManager.gnome.enable = true;
-    displayManager = {
-      defaultSession = "gnome";
-      gdm = {
+    displayManager.defaultSession = "gnome";
+    xserver = {
+      desktopManager.gnome.enable = true;
+      displayManager.gdm = {
         enable = true;
         wayland = true;
       };
     };
-
-    gnome.gcr-ssh-agent.enable = true;
   };
 
   # ssh-agent is provided by gcr
