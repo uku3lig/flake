@@ -32,7 +32,7 @@ in
     interop.includePath = false;
 
     extraBin = mkExtraBin {
-      code = "/mnt/c/Users/Leo/AppData/Local/Programs/Microsoft VS Code/bin/code";
+      codium = "/mnt/c/Users/Leo/AppData/Local/Programs/VSCodium/bin/codium";
       neovide-unwrapped = "/mnt/c/Program Files/Neovide/neovide.exe";
       win32yank = "/mnt/c/Program Files/win32yank/win32yank.exe";
     };
