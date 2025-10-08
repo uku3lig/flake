@@ -97,6 +97,8 @@ in
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
+      "8.8.8.8"
+      "8.4.4.8"
     ];
   };
 
@@ -178,8 +180,8 @@ in
 
     resolved = {
       enable = true;
-      dnssec = lib.mkDefault "true";
-      dnsovertls = lib.mkDefault "true";
+      dnssec = lib.mkDefault "allow-downgrade";
+      dnsovertls = lib.mkDefault "opportunistic";
     };
 
     tailscale = {

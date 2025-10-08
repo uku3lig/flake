@@ -5,10 +5,7 @@
     qemuGuest.enable = true;
 
     # Hetzner DNS does not work with DoT
-    resolved = {
-      dnssec = "allow-downgrade";
-      dnsovertls = "false";
-    };
+    resolved.dnsovertls = "false";
   };
 
   # https://discourse.nixos.org/t/qemu-guest-agent-on-hetzner-cloud-doesnt-work/8864/2
