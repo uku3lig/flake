@@ -50,20 +50,7 @@
 
   networking = {
     firewall.allowedTCPPorts = [ 8000 ];
-    networkmanager = {
-      plugins = [ pkgs.networkmanager-openconnect ];
-      dispatcherScripts = [
-        {
-          type = "basic";
-          source = pkgs.writeShellScript "vpnUpHook" ''
-            if [ "$2" == "vpn-up" ]; then
-              resolvectl default-route tun0 true
-              logger "Set default-route to tun0"
-            fi
-          '';
-        }
-      ];
-    };
+    networkmanager.plugins = [ pkgs.networkmanager-openconnect ];
   };
 
   services = {

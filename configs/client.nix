@@ -26,14 +26,7 @@
     variables.SSH_ASKPASS_REQUIRE = if config.programs.ssh.enableAskPassword then "prefer" else "never";
   };
 
-  networking = {
-    useNetworkd = false;
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-      plugins = [ pkgs.networkmanager-openvpn ];
-    };
-  };
+  networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
 
   programs = {
     nix-ld.enable = true;
