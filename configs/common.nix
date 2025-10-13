@@ -77,19 +77,6 @@ in
       # K -> exit on CTRL+C
       SYSTEMD_LESS = "FRSMK";
     };
-
-    etc."resolv.conf".text = ''
-      # uku's splendiful resolv.conf
-
-      # tailscale
-      nameserver 100.100.100.100
-      search fossa-macaroni.ts.net
-      # cloudflare
-      nameserver 1.1.1.1
-      nameserver 1.0.0.1
-      # options
-      options edns0
-    '';
   };
 
   hjem = {
@@ -106,12 +93,13 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
-      "8.8.8.8"
-      "8.4.4.8"
     ];
   };
 
@@ -189,6 +177,12 @@ in
     openssh = {
       enable = true;
       openFirewall = lib.mkDefault false;
+    };
+
+    resolved = {
+      enable = true;
+      dnssec = "false";
+      dnsovertls = "false";
     };
 
     tailscale = {
