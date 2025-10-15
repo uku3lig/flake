@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760388428,
-        "narHash": "sha256-14L4jksD6FuLgAuMrIzmOyrUaP9VlqdatVUmKkjtnHk=",
+        "lastModified": 1760514515,
+        "narHash": "sha256-2moZpfwVh7act53iO1tP0RwQLboCZhCjOVfeM6leIJA=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "9e07b128bbccb20ad50a0eead283fd2d738dd0c7",
+        "rev": "0016a921318fe2e067ae62c54116b6ae02c1a68f",
         "type": "github"
       },
       "original": {
@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760313699,
-        "narHash": "sha256-EM3AGaI2Q6eGRjInyY7LKjT0lrTStGVSX1QTf9zNhBM=",
-        "rev": "87f7679511ff72512ee177a16198b89c2ddd6b3c",
+        "lastModified": 1760435918,
+        "narHash": "sha256-FQoHz3CbfVwv9OaXF/OtMeEhoz2WmFxshuR3jk28/0A=",
+        "rev": "6ed11f330f5fcfaadb71ad749ef07acf5ce5fb87",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/87f7679511ff72512ee177a16198b89c2ddd6b3c.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/6ed11f330f5fcfaadb71ad749ef07acf5ce5fb87.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -299,11 +299,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760401123,
-        "narHash": "sha256-+SqngIVSellamVTFUnSVn+tGEGJZ4OSmbQvd7MxpGwQ=",
+        "lastModified": 1760454217,
+        "narHash": "sha256-qG4cQaYRKrAMj4OjISYYoWqJc+xcoJnLx2jsws7EdGg=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "59bf0375c5db92ef19456e7a659b627adb675fe2",
+        "rev": "a8209ae46721f2a70214d0a70388a812ec7740da",
         "type": "github"
       },
       "original": {
@@ -487,11 +487,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760388439,
-        "narHash": "sha256-HS+U3el2ZMI2LrepHeloZEdCcd25X2Zhqdezh0AJeEo=",
+        "lastModified": 1760514527,
+        "narHash": "sha256-fbIyPap/31Kt9gky4wrfCcePPHylzRPXXqWo1pgUhto=",
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "rev": "76a99703208695cbd5d4da8940743d1b598f175c",
+        "rev": "384bf0df44b03281f871769ed02072d2f87d7b17",
         "type": "github"
       },
       "original": {
