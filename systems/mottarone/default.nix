@@ -94,6 +94,7 @@
 
   systemd.tmpfiles.rules = [
     "L+ /opt/liberica-17 - - - - ${camascaPkgs.liberica-17}"
+    "r /home/leo/Downloads/*.jnlp"
   ];
 
   programs.virt-manager.enable = lib.mkForce false;
