@@ -74,7 +74,7 @@ in
     ./nextcloud.nix
     ./reposilite.nix
     # ./satisfactory.nix
-    ./sftp.nix
+    ./share.nix
     ./shlink.nix
     ./slskd.nix
     ./synapse.nix
