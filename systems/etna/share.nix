@@ -40,6 +40,8 @@
       enable = true;
       openFirewall = true;
     };
+
+    borgbackup.jobs.share = config.passthru.makeBorg "share" "/data/storage";
   };
 
   users = {
