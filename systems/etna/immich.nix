@@ -6,6 +6,7 @@
 
     settings = null;
     mediaLocation = "/data/immich";
+    accelerationDevices = [ "/dev/dri/renderD128" ];
 
     environment = {
       TZ = "Europe/Paris";

@@ -86,6 +86,11 @@ in
 
   boot.loader.systemd-boot.enable = true;
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-media-driver ];
+  };
+
   networking.interfaces.eno1 = {
     wakeOnLan.enable = true;
   };
