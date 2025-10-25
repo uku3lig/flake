@@ -21,8 +21,6 @@
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     kernelModules = [ "v4l2loopback" ];
 
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
-
     # intellij async-profiler
     kernel.sysctl = {
       "kernel.perf_event_paranoid" = 1;
