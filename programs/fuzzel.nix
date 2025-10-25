@@ -4,13 +4,14 @@
 
   hj.".config/fuzzel/fuzzel.ini".text = lib.generators.toINI { } {
     main = {
-      font = "Iosevka Nerd Font:size=16";
+      font = "Inter:size=16";
       dpi-aware = false;
       horizontal-pad = 20;
     };
 
     border.radius = 8;
 
+    # TODO light-dark switch ?
     colors = {
       background = "24273aff"; # base
       border = "91d7e3cc"; # sky

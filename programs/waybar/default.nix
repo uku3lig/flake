@@ -64,7 +64,7 @@
 
       backlight = {
         format = "LGT {percent}%";
-        scroll-step = 5;
+        scroll-step = 2;
       };
 
       battery = {
