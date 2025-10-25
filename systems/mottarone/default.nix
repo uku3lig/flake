@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ../../programs/gnome.nix
     ./urbackup.nix
   ];
 

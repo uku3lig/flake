@@ -13,7 +13,6 @@
     ./client.nix
 
     ../programs/ghostty.nix
-    ../programs/gnome.nix
     ../programs/java.nix
     ../programs/neovim/neovide.nix
   ];
@@ -72,7 +71,6 @@
       hunspell
       hunspellDicts.en_US
       hunspellDicts.fr-moderne
-
     ];
 
     sessionVariables = {

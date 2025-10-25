@@ -2,6 +2,7 @@
 {
   imports = [
     camasca.nixosModules.asus-numpad
+    ../../programs/gnome.nix
     ../../programs/games.nix
     ../../programs/dotnet.nix
   ];

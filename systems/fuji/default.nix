@@ -2,6 +2,7 @@
 {
   imports = [
     ./nvidia.nix
+    ../../programs/gnome.nix
     ../../programs/games.nix
   ];
 
