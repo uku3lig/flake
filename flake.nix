@@ -99,6 +99,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.crane.follows = "crane";
+      inputs.rust-overlay.follows = "rust-overlay";
       inputs.pre-commit-hooks-nix.follows = "";
       inputs.flake-compat.follows = "";
     };
@@ -119,6 +120,11 @@
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
