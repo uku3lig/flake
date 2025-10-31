@@ -19,7 +19,7 @@
   };
 
   hardware = {
-    graphics.extraPackages = [ pkgs.vaapiVdpau ];
+    graphics.extraPackages = [ pkgs.libva-vdpau-driver ];
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.production;
       open = true;
