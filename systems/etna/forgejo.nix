@@ -95,7 +95,7 @@ in
     };
 
     gitea-actions-runner = {
-      package = pkgs.forgejo-actions-runner;
+      package = pkgs.forgejo-runner;
       instances.etna = {
         enable = true;
         name = "etna";
