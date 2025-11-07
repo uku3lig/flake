@@ -27,7 +27,7 @@
 
   fonts.packages = with pkgs; [
     corefonts
-    vistafonts
+    vista-fonts
   ];
 
   i18n.defaultLocale = lib.mkForce "fr_FR.UTF-8";
