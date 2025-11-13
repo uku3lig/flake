@@ -8,6 +8,7 @@
     ./mail
     ./nginx.nix
     ./nitter.nix
+    ./pocket-id.nix
   ];
 
   environment.systemPackages = with pkgs; [

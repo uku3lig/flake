@@ -54,4 +54,5 @@ in
   "vesuvio/rspamdPassword.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/roundcubeDbPass.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/nitterAccounts.age".publicKeys = main ++ [ vesuvio ];
+  "vesuvio/pocketIdEnv.age".publicKeys = main ++ [ vesuvio ];
 }
