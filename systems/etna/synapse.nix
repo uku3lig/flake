@@ -17,6 +17,12 @@ in
 
   services.matrix-synapse = {
     enable = true;
+    extras = [
+      "oidc" # OpenID Connect authentication
+      "postgres" # PostgreSQL database backend
+      "systemd" # Provide the JournalHandler used in the default log_config
+      "url-preview" # Support for oEmbed URL previews
+    ];
 
     # note that this doesn't properly merge config files,
     # which is why all the db config is in the secret file
@@ -24,6 +30,7 @@ in
 
     settings = {
       server_name = "rei.uku.moe";
+      public_baseurl = "https://rei.uku.moe";
       allow_public_rooms_over_federation = true;
       federation_client_minimum_tls_version = 1.2;
       url_preview_enabled = true;
@@ -37,6 +44,7 @@ in
         {
           bind_addresses = [ "0.0.0.0" ];
           port = 8009;
+          x_forwarded = true;
           tls = false;
           resources = [
             {
