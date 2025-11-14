@@ -12,6 +12,8 @@
   ...
 }:
 let
+  inherit (pkgs.stdenv.hostPlatform) system;
+
   rootPassword = _utils.setupSingleSecret config "rootPassword" { };
   secrets = _utils.setupSharedSecrets config {
     secrets = [ "userPassword" ];
@@ -80,6 +82,7 @@ in
   };
 
   hjem = {
+    linker = hjem.packages.${system}.smfh;
     clobberByDefault = true;
     users.leo.files = {
       ".ssh/config".text = ''
