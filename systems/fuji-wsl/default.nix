@@ -1,17 +1,18 @@
 {
-  lib,
   config,
   pkgs,
   nixos-wsl,
   ...
 }:
 let
-  mkExtraBin = lib.mapAttrsToList (
-    name: value: {
-      inherit name;
-      src = lib.escapeShellArg value;
-    }
-  );
+  windowsBin =
+    path:
+    let
+      name = builtins.elemAt (builtins.splitVersion (baseNameOf path)) 0;
+    in
+    (pkgs.writeShellScriptBin name ''
+      "${path}" "$@"
+    '');
 in
 {
   imports = [
@@ -21,7 +22,11 @@ in
   environment = {
     sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
     systemPackages = with pkgs; [
-      (writeShellScriptBin "neovide" ''/bin/neovide-unwrapped --wsl "$@" &'')
+      (writeShellScriptBin "neovide" ''"/mnt/c/Program Files/Neovide/neovide.exe" --wsl "$@" &'')
+      (windowsBin "/mnt/c/Users/Leo/AppData/Local/Programs/Microsoft VS Code/bin/code")
+      # both needed for neovim clipboard support
+      (windowsBin "/mnt/c/Windows/System32/clip.exe")
+      (windowsBin "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe")
     ];
   };
 
@@ -30,12 +35,6 @@ in
     defaultUser = "leo";
     useWindowsDriver = true;
     interop.includePath = false;
-
-    extraBin = mkExtraBin {
-      codium = "/mnt/c/Users/Leo/AppData/Local/Programs/VSCodium/bin/codium";
-      neovide-unwrapped = "/mnt/c/Program Files/Neovide/neovide.exe";
-      win32yank = "/mnt/c/Program Files/win32yank/win32yank.exe";
-    };
 
     wslConf.network = {
       hostname = config.networking.hostName;
