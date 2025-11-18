@@ -24,6 +24,8 @@ in
   services = {
     tailscale.extraUpFlags = [ "--advertise-exit-node" ];
     redis.package = pkgs.valkey;
+    # not all servers have postgres, but we sync the version just in case
+    postgresql.package = pkgs.postgresql_17;
 
     openssh = {
       enable = true;

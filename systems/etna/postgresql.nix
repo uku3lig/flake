@@ -6,7 +6,7 @@ in
   services = {
     postgresql = {
       enable = true;
-      package = pkgs.postgresql_16;
+      # package is defined in configs/server.nix
 
       settings.port = 5432;
       enableTCPIP = true;
