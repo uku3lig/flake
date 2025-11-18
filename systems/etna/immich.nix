@@ -8,6 +8,11 @@
     mediaLocation = "/data/immich";
     accelerationDevices = [ "/dev/dri/renderD128" ];
 
+    database = {
+      enableVectors = false;
+      enableVectorChord = true;
+    };
+
     environment = {
       TZ = "Europe/Paris";
     };
