@@ -88,6 +88,19 @@
           client_max_body_size 200M;
         '';
       };
+
+      "paper.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://etna:28981";
+          recommendedProxySettings = true;
+        };
+
+        extraConfig = ''
+          client_max_body_size 100M;
+        '';
+      };
     };
   };
 

@@ -72,6 +72,7 @@ in
     ./metrics.nix
     ./minecraft.nix
     ./nextcloud.nix
+    ./paperless.nix
     ./reposilite.nix
     # ./satisfactory.nix
     ./share.nix

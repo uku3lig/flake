@@ -48,6 +48,7 @@ in
   "etna/borgPassphrase.age".publicKeys = main ++ [ etna ];
   "etna/synapseSigningKey.age".publicKeys = main ++ [ etna ];
   "etna/synapseExtraConfig.age".publicKeys = main ++ [ etna ];
+  "etna/paperlessEnv.age".publicKeys = main ++ [ etna ];
 
   "vesuvio/gatusEnv.age".publicKeys = main ++ [ vesuvio ];
   "vesuvio/maddyEnv.age".publicKeys = main ++ [ vesuvio ];
