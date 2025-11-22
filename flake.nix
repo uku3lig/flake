@@ -97,11 +97,9 @@
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
       inputs.crane.follows = "crane";
       inputs.rust-overlay.follows = "rust-overlay";
-      inputs.pre-commit-hooks-nix.follows = "";
-      inputs.flake-compat.follows = "";
+      inputs.pre-commit.follows = "";
     };
 
     mystia = {
