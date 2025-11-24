@@ -59,6 +59,7 @@
       strawberry
       teams-for-linux
       thunderbird
+      tyrolienne
       vscode
 
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
