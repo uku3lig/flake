@@ -20,8 +20,8 @@
     systemPackages = [
       adw-gtk3
       gnome-tweaks
-      mission-center
       nautilus-python
+      resources
 
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-panel
