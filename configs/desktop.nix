@@ -46,10 +46,6 @@
       wl-clipboard
 
       chromium
-      (discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
       gimp3
       gparted
       idea-wrapped
@@ -60,6 +56,7 @@
       teams-for-linux
       thunderbird
       tyrolienne
+      vesktop
       vscode
 
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })

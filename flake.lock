@@ -284,8 +284,7 @@
         "rust-overlay": "rust-overlay_2",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix",
-        "ukubot-rs": "ukubot-rs",
-        "vencord": "vencord"
+        "ukubot-rs": "ukubot-rs"
       }
     },
     "rust-overlay": {
@@ -423,22 +422,6 @@
       "original": {
         "owner": "uku3lig",
         "repo": "ukubot-rs",
-        "type": "github"
-      }
-    },
-    "vencord": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1763823511,
-        "narHash": "sha256-BYSLLyQzl5oY+PouezQ7i5VWuyRLDeH0h2rDG++XtwU=",
-        "owner": "Vendicated",
-        "repo": "Vencord",
-        "rev": "a824452333148e436daa72040194264bef809e65",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Vendicated",
-        "repo": "Vencord",
         "type": "github"
       }
     }
