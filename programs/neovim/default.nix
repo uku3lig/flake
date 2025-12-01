@@ -18,6 +18,7 @@ in
 
         runtimePrograms = with pkgs; [
           nixfmt-rfc-style
+          zls
         ];
 
         vimPluginPackages = with pkgs.vimPlugins; [

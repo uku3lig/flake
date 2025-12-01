@@ -171,6 +171,8 @@ vim.lsp.config("rust_analyzer", {
 })
 vim.lsp.enable("rust_analyzer")
 
+vim.lsp.enable("zls")
+
 require("gitsigns").setup()
 
 require("fidget").setup()
