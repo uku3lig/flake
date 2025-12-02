@@ -126,5 +126,7 @@ in
         remotePort = 22;
       }
     ];
+
+    borgbackup.jobs.forgejo = config.passthru.makeBorg "forgejo" "/var/lib/forgejo";
   };
 }
