@@ -171,6 +171,7 @@ vim.lsp.config("rust_analyzer", {
 })
 vim.lsp.enable("rust_analyzer")
 
+vim.lsp.config("zls", { on_attach = lspformat.on_attach })
 vim.lsp.enable("zls")
 
 require("gitsigns").setup()
