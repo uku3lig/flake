@@ -30,7 +30,6 @@
             packages = with pkgs; [
               agenix.packages.${system}.default
               just
-              nixfmt-rfc-style
               statix
             ];
           };

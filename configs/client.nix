@@ -9,6 +9,7 @@
     ./common.nix
 
     ../programs/rust.nix
+    ../programs/neovim
   ];
 
   boot.kernelPackages = pkgs.linuxPackages; # lts

@@ -32,7 +32,6 @@ in
 
     ../programs/fish.nix
     ../programs/git.nix
-    ../programs/neovim
   ];
 
   age = {

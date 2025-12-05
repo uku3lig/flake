@@ -17,9 +17,13 @@ in
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
 
-  environment.systemPackages = with pkgs; [
-    ghostty.terminfo
-  ];
+  environment = {
+    variables.EDITOR = "nvim";
+    systemPackages = with pkgs; [
+      ghostty.terminfo
+      neovim
+    ];
+  };
 
   services = {
     tailscale.extraUpFlags = [ "--advertise-exit-node" ];

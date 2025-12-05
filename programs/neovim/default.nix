@@ -17,7 +17,8 @@ in
         luaRc = ./init.lua;
 
         runtimePrograms = with pkgs; [
-          nixfmt-rfc-style
+          nixfmt
+          rust-analyzer
           zls
         ];
 
