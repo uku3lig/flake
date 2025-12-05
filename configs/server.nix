@@ -15,7 +15,7 @@ in
     secrets.generate
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   environment = {
     variables.EDITOR = "nvim";
