@@ -10,9 +10,9 @@ let
     let
       name = builtins.elemAt (builtins.splitVersion (baseNameOf path)) 0;
     in
-    (pkgs.writeShellScriptBin name ''
+    pkgs.writeShellScriptBin name ''
       "${path}" "$@"
-    '');
+    '';
 in
 {
   imports = [
