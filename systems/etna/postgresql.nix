@@ -19,7 +19,6 @@ in
       ];
 
       authentication = ''
-        host gatus gatus vesuvio.fossa-macaroni.ts.net scram-sha-256
         host maddy maddy vesuvio.fossa-macaroni.ts.net scram-sha-256
         host pocketid pocketid vesuvio.fossa-macaroni.ts.net scram-sha-256
         host roundcube roundcube vesuvio.fossa-macaroni.ts.net scram-sha-256

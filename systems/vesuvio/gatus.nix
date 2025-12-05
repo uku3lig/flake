@@ -1,11 +1,8 @@
 {
   config,
-  _utils,
   ...
 }:
 let
-  env = _utils.setupSingleSecret config "gatusEnv" { };
-
   mkHttpEndpoint = name: group: url: {
     inherit name group url;
     interval = "5m";
@@ -16,19 +13,16 @@ let
   };
 in
 {
-  imports = [ env.generate ];
-
   services = {
     gatus = {
       enable = true;
-      environmentFile = env.path;
 
       settings = {
         web.port = 8080;
 
         storage = {
-          type = "postgres";
-          path = "postgres://gatus:\${DB_PASSWORD}@etna/gatus?sslmode=disable";
+          type = "sqlite";
+          path = "/var/lib/gatus/gatus.sqlite";
         };
 
         ui = {
