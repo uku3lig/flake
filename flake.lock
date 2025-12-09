@@ -141,6 +141,32 @@
         "type": "github"
       }
     },
+    "ghostty": {
+      "inputs": {
+        "flake-compat": [],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "zig": "zig",
+        "zon2nix": []
+      },
+      "locked": {
+        "lastModified": 1765256324,
+        "narHash": "sha256-LB4FO4xP9XlmaxEzruiW88S2n6SEYqALdzKE3oybGkI=",
+        "owner": "ghostty-org",
+        "repo": "ghostty",
+        "rev": "cf06417b7dfbd0daeb58a9143f9b6ee194cbce26",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ghostty-org",
+        "repo": "ghostty",
+        "type": "github"
+      }
+    },
     "hjem": {
       "inputs": {
         "nixpkgs": [
@@ -275,6 +301,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "getchvim": "getchvim",
+        "ghostty": "ghostty",
         "hjem": "hjem",
         "lanzaboote": "lanzaboote",
         "mystia": "mystia",
@@ -422,6 +449,35 @@
       "original": {
         "owner": "uku3lig",
         "repo": "ukubot-rs",
+        "type": "github"
+      }
+    },
+    "zig": {
+      "inputs": {
+        "flake-compat": [
+          "ghostty",
+          "flake-compat"
+        ],
+        "flake-utils": [
+          "ghostty",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "ghostty",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1760401936,
+        "narHash": "sha256-/zj5GYO5PKhBWGzbHbqT+ehY8EghuABdQ2WGfCwZpCQ=",
+        "owner": "mitchellh",
+        "repo": "zig-overlay",
+        "rev": "365085b6652259753b598d43b723858184980bbe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mitchellh",
+        "repo": "zig-overlay",
         "type": "github"
       }
     }

@@ -88,6 +88,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "";
+      inputs.zon2nix.follows = "";
+    };
+
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
