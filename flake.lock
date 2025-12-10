@@ -289,7 +289,7 @@
       },
       "original": {
         "type": "tarball",
-        "url": "https://uku.moe/unstable.tar.xz"
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
     "root": {
