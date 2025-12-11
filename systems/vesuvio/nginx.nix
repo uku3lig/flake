@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
+in
 {
   services.nginx = {
     enable = true;
@@ -80,7 +84,7 @@
         forceSSL = true;
         enableACME = true;
         locations."/" = {
-          proxyPass = "http://etna:3000";
+          proxyPass = "http://unix:${anubisBind "forgejo"}";
           recommendedProxySettings = true;
         };
 
@@ -106,4 +110,18 @@
 
   # we depend on etna, which makes nginx fail if it's started before tailscale
   systemd.services.nginx.after = [ "tailscaled.service" ];
+
+  # required due to unix socket permissions
+  users.users.nginx.extraGroups = [ config.users.groups.anubis.name ];
+
+  # anubis
+  services.anubis.instances = {
+    "forgejo".settings = {
+      TARGET = "http://etna:3000";
+      # TODO: I think this is not needed if you have 2 anubis instances
+      BIND = "/run/anubis/anubis-forgejo/anubis.sock";
+      # on everyone's miguel im not using metrics but module is yelling at me
+      METRICS_BIND = "/run/anubis/anubis-forgejo/anubis-metrics.sock";
+    };
+  };
 }
