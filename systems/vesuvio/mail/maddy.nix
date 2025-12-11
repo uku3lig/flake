@@ -153,6 +153,12 @@ in
         }
       }
 
+      table.chain allowed_emails {
+        optional_step static {
+          entry "hi@uku.moe" "*"
+        }
+      }
+
       submission tls://0.0.0.0:465 tcp://0.0.0.0:587 {
         limits {
           # Up to 50 msgs/sec across any amount of SMTP connections.
@@ -167,7 +173,7 @@ in
           check {
             authorize_sender {
               prepare_email &local_rewrites
-              user_to_email identity
+              user_to_email &allowed_emails
             }
           }
 
