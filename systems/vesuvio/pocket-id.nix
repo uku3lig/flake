@@ -24,7 +24,10 @@ in
     nginx.virtualHosts."pocket.uku.moe" = {
       forceSSL = true;
       enableACME = true;
-      locations."/".proxyPass = "http://localhost:${toString config.services.pocket-id.settings.PORT}";
+      locations."/" = {
+        proxyPass = "http://localhost:${toString config.services.pocket-id.settings.PORT}";
+        recommendedProxySettings = true;
+      };
     };
   };
 }
