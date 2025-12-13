@@ -88,6 +88,9 @@ in
         Host *
           ForwardAgent yes
           AddKeysToAgent yes
+
+        Host vesuvio*
+          Port 4269
       '';
     };
   };
