@@ -21,6 +21,16 @@ in
   services.nginx.virtualHosts."nit.uku.moe" = {
     forceSSL = true;
     enableACME = true;
-    locations."/".proxyPass = "http://localhost:8081";
+    locations."/" = {
+      proxyPass = "http://unix:${config.services.anubis.instances.nitter.settings.BIND}";
+      recommendedProxySettings = true;
+    };
+  };
+
+  services.anubis.instances."nitter".settings = {
+    TARGET = "http://localhost:${toString config.services.nitter.server.port}";
+    BIND = "/run/anubis/anubis-nitter/anubis.sock";
+    METRICS_BIND = "/run/anubis/anubis-nitter/anubis-metrics.sock";
+    DIFFICULTY = 6;
   };
 }
