@@ -105,7 +105,7 @@ in
     openssh.openFirewall = true;
     nginx.enable = true;
 
-    frp.instances.vesuvio = {
+    frp.instances.default = {
       enable = true;
       role = "client";
       environmentFiles = [ (frpToken.get "frpToken") ];
