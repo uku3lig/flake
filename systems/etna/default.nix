@@ -105,9 +105,10 @@ in
     openssh.openFirewall = true;
     nginx.enable = true;
 
-    frp = {
+    frp.instances.vesuvio = {
       enable = true;
       role = "client";
+      environmentFiles = [ (frpToken.get "frpToken") ];
       settings = {
         serverAddr = "49.13.148.129";
         serverPort = 7000;
@@ -129,7 +130,6 @@ in
 
   systemd.services = {
     "cloudflared-tunnel-${tunnelId}".serviceConfig.RestartSec = "10s";
-    frp.serviceConfig.EnvironmentFile = frpToken.get "frpToken";
   };
 
   virtualisation = {

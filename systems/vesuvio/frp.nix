@@ -5,9 +5,10 @@ in
 {
   imports = [ secrets.generate ];
 
-  services.frp = {
+  services.frp.instances.default = {
     enable = true;
     role = "server";
+    environmentFiles = [ (secrets.get "frpToken") ];
     settings = {
       bindPort = 7000;
       auth = {
@@ -26,6 +27,4 @@ in
       }
     ];
   };
-
-  systemd.services.frp.serviceConfig.EnvironmentFile = secrets.get "frpToken";
 }

@@ -74,7 +74,7 @@
 
       networking.firewall.allowedTCPPorts = [ port ];
 
-      services.frp.settings.proxies = [
+      services.frp.instances.default.settings.proxies = [
         {
           inherit name remotePort;
           type = "tcp";

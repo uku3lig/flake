@@ -117,7 +117,7 @@ in
       };
     };
 
-    frp.settings.proxies = [
+    frp.instances.default.settings.proxies = [
       {
         name = "forgejo-ssh";
         type = "tcp";
