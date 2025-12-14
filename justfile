@@ -13,12 +13,18 @@ rollback:
 boot *args:
     sudo nixos-rebuild boot --flake {{ justfile_directory() }} --keep-going {{args}}
 
-deploy system user="leo":
+deploy system *args:
     #!/usr/bin/env bash
     set -euo pipefail
     flake=$(nix eval --impure --raw --expr "(builtins.getFlake \"git+file://$PWD\").outPath")
-    nix copy "$flake" --to "ssh://{{user}}@{{system}}"
-    ssh -t "{{user}}@{{system}}" "bash $flake/switch.sh $flake"
+    nix copy "$flake" --to "ssh://{{system}}"
+    ssh -t "{{system}}" "bash $flake/switch.sh $flake {{args}}"
 
 lint *args:
     statix check -i flake.nix **/hardware-configuration.nix {{args}}
+
+eval system *args:
+    nix eval .#nixosConfigurations.{{system}}.config.system.build.toplevel {{args}}
+
+eval-all *args:
+    nix eval .#nixosConfigurations --apply 'builtins.mapAttrs (name: cfg: builtins.trace name cfg.config.system.build.toplevel)'
