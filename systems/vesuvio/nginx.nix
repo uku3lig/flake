@@ -115,9 +115,22 @@ in
   users.users.nginx.extraGroups = [ config.users.groups.anubis.name ];
 
   # anubis
-  services.anubis.instances."forgejo".settings = {
-    TARGET = "http://etna:3000";
-    BIND = "/run/anubis/anubis-forgejo/anubis.sock";
-    METRICS_BIND = "/run/anubis/anubis-forgejo/anubis-metrics.sock";
+  services.anubis.instances."forgejo" = {
+    settings = {
+      TARGET = "http://etna:3000";
+      BIND = "/run/anubis/anubis-forgejo/anubis.sock";
+      METRICS_BIND = "/run/anubis/anubis-forgejo/anubis-metrics.sock";
+    };
+
+    botPolicy = {
+      bots = [
+        { import = "(data)/meta/default-config.yaml"; }
+        {
+          name = "allow-git-nex";
+          action = "ALLOW";
+          expression = "userAgent.contains(\"GitNex\")";
+        }
+      ];
+    };
   };
 }

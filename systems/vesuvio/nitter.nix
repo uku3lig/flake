@@ -44,6 +44,5 @@ in
     TARGET = "http://localhost:${toString config.services.nitter.server.port}";
     BIND = "/run/anubis/anubis-nitter/anubis.sock";
     METRICS_BIND = "/run/anubis/anubis-nitter/anubis-metrics.sock";
-    DIFFICULTY = 6;
   };
 }
