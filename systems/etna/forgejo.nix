@@ -85,7 +85,7 @@ in
 
         "ui.meta" = {
           AUTHOR = "uku's forge";
-          DESCRIPTION = "the place where literally nothing gets done";
+          DESCRIPTION = "git forge for most of my personal projects";
         };
 
         "repository.signing" = {
@@ -99,7 +99,7 @@ in
       instances.etna = {
         enable = true;
         name = "etna";
-        url = "https://git.uku3lig.net";
+        url = "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
         tokenFile = secrets.get "forgejoRunnerSecret";
         labels = [
           "ubuntu-latest:docker://catthehacker/ubuntu:act-latest"
