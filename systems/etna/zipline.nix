@@ -20,6 +20,8 @@ in
       CORE_PORT = 3001;
       DATASOURCE_TYPE = "local";
       DATASOURCE_LOCAL_DIRECTORY = "/data/zipline";
+
+      FEATURES_OAUTH_REGISTRATION = "true";
     };
   };
 
