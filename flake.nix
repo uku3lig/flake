@@ -93,6 +93,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "";
+      inputs.home-manager.follows = "";
       inputs.zon2nix.follows = "";
     };
 
