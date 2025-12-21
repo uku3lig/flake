@@ -24,12 +24,12 @@
   xrandr,
 }:
 let
-  inherit (jetbrains) idea-ultimate;
+  inherit (jetbrains) idea;
 in
 symlinkJoin {
-  name = "idea-wrapped-${idea-ultimate.version}";
+  name = "idea-wrapped-${idea.version}";
 
-  paths = [ idea-ultimate ];
+  paths = [ idea ];
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -67,7 +67,7 @@ symlinkJoin {
       ];
     in
     ''
-      wrapProgram $out/bin/idea-ultimate \
+      wrapProgram $out/bin/idea \
         --set LD_LIBRARY_PATH ${lib.makeLibraryPath runtimeLibs} \
         --prefix PATH : ${lib.makeBinPath runtimePrograms}
     '';

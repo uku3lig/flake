@@ -6,17 +6,17 @@
   black,
 }:
 let
-  inherit (jetbrains) pycharm-community-bin;
+  inherit (jetbrains) pycharm;
 in
 symlinkJoin {
-  name = "pycharm-wrapped-${pycharm-community-bin.version}";
+  name = "pycharm-wrapped-${pycharm.version}";
 
-  paths = [ pycharm-community-bin ];
+  paths = [ pycharm ];
 
   nativeBuildInputs = [ makeWrapper ];
 
   postBuild = ''
-    wrapProgram $out/bin/pycharm-community \
+    wrapProgram $out/bin/pycharm \
       --prefix PATH : ${lib.makeBinPath [ black ]}
   '';
 }
