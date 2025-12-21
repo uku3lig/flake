@@ -58,6 +58,7 @@
       tyrolienne
       vesktop
       vscode
+      zed-editor
 
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
       # (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
