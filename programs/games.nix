@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, camascaPkgs, ... }:
 {
+  imports = [ ./mcsr ];
+
   hardware = {
     xone.enable = true;
     xpadneo.enable = true;
@@ -11,7 +13,17 @@
     krita
 
     (prismlauncher.override {
+      # stuff for speedrunning
+      glfw3-minecraft = camascaPkgs.glfw3-waywall;
+      additionalLibs = [
+        libxtst
+        libxkbcommon
+        libxt
+        libxinerama
+      ];
+
       jdks = [
+        temurin-bin-25
         temurin-bin-21
         temurin-bin-17
         temurin-bin-8
