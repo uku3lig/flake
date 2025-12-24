@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766361677,
-        "narHash": "sha256-eAxkcMVqZILKlPd7WCYcJOBCLbS28aNmkyU+hsPsL5A=",
-        "rev": "f5eda01946e7330b586abb6f252be6cd557ee03c",
+        "lastModified": 1766593324,
+        "narHash": "sha256-QJ5/KHb3Qh80bBIwcfzR5/LSyEALUKCrTIZN/DN8WfI=",
+        "rev": "908d5046770a60fa2ca14adecf041768f69bbb00",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/f5eda01946e7330b586abb6f252be6cd557ee03c.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/908d5046770a60fa2ca14adecf041768f69bbb00.tar.gz"
       },
       "original": {
         "type": "tarball",
