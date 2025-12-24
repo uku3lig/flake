@@ -3,6 +3,7 @@
   stdenvNoCC,
   fetchurl,
   libx11,
+  libxinerama,
   libxkbcommon,
   libxt,
   makeWrapper,
@@ -31,6 +32,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
         --prefix LD_LIBRARY_PATH : ${
           lib.makeLibraryPath [
             libx11
+            libxinerama
             libxkbcommon
             libxt
           ]

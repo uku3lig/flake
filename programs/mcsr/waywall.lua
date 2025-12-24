@@ -14,8 +14,9 @@ local ModeManager = Modes.ModeManager.new(waywall)
 local eye_dst = { x = 30, y = 340, w = 700, h = 400 }
 
 -- https://arjuncgore.github.io/waywall-boat-eye-calc/
-local normal_sens = 9.83776425
-local tall_sens = 0.66364969
+-- https://github.com/Esensats/mcsr-calcsens
+local normal_sens = 9.837764249225867
+local tall_sens = 0.6636496914906524
 
 scene:register("eye_measure", {
 	kind = "mirror",
@@ -78,6 +79,7 @@ local config = {
 	},
 	theme = {
 		background = "#303030ff",
+		ninb_anchor = "right",
 	},
 	actions = Keys.actions({
 		["Super-F"] = waywall.toggle_fullscreen,
