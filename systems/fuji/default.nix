@@ -3,10 +3,9 @@
   imports = [
     ./nvidia.nix
     ../../programs/gnome.nix
+    ../../programs/niri
     ../../programs/games.nix
   ];
-
-  services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull

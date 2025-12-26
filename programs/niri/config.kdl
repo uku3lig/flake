@@ -32,6 +32,12 @@ output "eDP-1" {
     position x=0 y=0
 }
 
+// fuji
+output "GIGA-BYTE TECHNOLOGY CO., LTD. M28U 23120B009519" {
+    mode "3840x2160@143.999"
+    scale 1.5
+}
+
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
