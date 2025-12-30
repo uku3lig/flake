@@ -7,7 +7,7 @@
   libxkbcommon,
   libxt,
   makeWrapper,
-  temurin-bin-21,
+  temurin-bin-17,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ninjabrain-bot";
@@ -27,7 +27,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     install -Dm644 $src $out/share/ninjabrain-bot/ninjabrain-bot.jar
 
-    makeWrapper ${lib.getExe temurin-bin-21} $out/bin/ninjabrain-bot \
+    makeWrapper ${lib.getExe temurin-bin-17} $out/bin/ninjabrain-bot \
         --add-flags "-Dawt.useSystemAAFontSettings=on -jar $out/share/ninjabrain-bot/ninjabrain-bot.jar" \
         --prefix LD_LIBRARY_PATH : ${
           lib.makeLibraryPath [

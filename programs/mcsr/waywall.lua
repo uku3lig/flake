@@ -11,7 +11,7 @@ local Processes = require("waywork.processes")
 local scene = Scene.SceneManager.new(waywall)
 local ModeManager = Modes.ModeManager.new(waywall)
 
-local eye_dst = { x = 30, y = 340, w = 700, h = 400 }
+local eye_dst = { x = 0, y = 317.5, w = 790, h = 444.375 }
 
 -- https://arjuncgore.github.io/waywall-boat-eye-calc/
 -- https://github.com/Esensats/mcsr-calcsens
@@ -82,14 +82,14 @@ local config = {
 		ninb_anchor = "right",
 	},
 	actions = Keys.actions({
-		["Super-F"] = waywall.toggle_fullscreen,
-		["N"] = function()
+		["Ctrl-Super-F"] = waywall.toggle_fullscreen,
+		["*-N"] = function()
 			return ModeManager:toggle("thin")
 		end,
-		["P"] = function()
+		["*-P"] = function()
 			return ModeManager:toggle("tall")
 		end,
-		["G"] = function()
+		["*-G"] = function()
 			return ModeManager:toggle("wide")
 		end,
 		["Ctrl-Shift-M"] = function()
