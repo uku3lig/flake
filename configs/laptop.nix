@@ -10,6 +10,8 @@
 
   boot.initrd.kernelModules = [ "xe" ];
 
+  environment.systemPackages = with pkgs; [ brightnessctl ];
+
   hardware = {
     bluetooth.enable = true;
 
@@ -27,6 +29,7 @@
   services = {
     libinput.enable = true;
     power-profiles-daemon.enable = true;
+    upower.enable = true;
   };
 
   programs.light.enable = true;

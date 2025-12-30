@@ -51,6 +51,8 @@
       idea-wrapped
       mpv
       obsidian
+      resources
+      showtime
       signal-desktop
       strawberry
       teams-for-linux

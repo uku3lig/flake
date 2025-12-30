@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  services.displayManager.gdm = {
+  services.displayManager.dms-greeter = {
     enable = true;
-    wayland = true;
+    compositor.name = "niri";
   };
 
   programs = {
@@ -13,7 +13,10 @@
 
   environment.systemPackages = with pkgs; [
     adw-gtk3
-    brightnessctl
+    adwaita-icon-theme
+    gnome-calculator
+    loupe
+    nautilus
     xwayland-satellite
   ];
 

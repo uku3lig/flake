@@ -21,7 +21,6 @@
       adw-gtk3
       gnome-tweaks
       nautilus-python
-      resources
 
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-panel
