@@ -15,8 +15,8 @@ local eye_dst = { x = 0, y = 317.5, w = 790, h = 444.375 }
 
 -- https://arjuncgore.github.io/waywall-boat-eye-calc/
 -- https://github.com/Esensats/mcsr-calcsens
-local normal_sens = 9.837764249225867
-local tall_sens = 0.6636496914906524
+local normal_sens = 13.117018998967824
+local tall_sens = 0.88486625532087
 
 scene:register("eye_measure", {
 	kind = "mirror",

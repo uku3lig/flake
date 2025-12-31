@@ -7,9 +7,12 @@
 
   programs = {
     niri.enable = true;
-    ssh.startAgent = false;
     dms-shell.enable = true;
+
+    ssh.startAgent = false;
   };
+
+  #  services.gnome.gcr-ssh-agent.enable = ;
 
   environment.systemPackages = with pkgs; [
     adw-gtk3
