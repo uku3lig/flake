@@ -1,4 +1,4 @@
-{ pkgs, camascaPkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./mcsr ];
 
@@ -13,8 +13,6 @@
     krita
 
     (prismlauncher.override {
-      # stuff for speedrunning
-      glfw3-minecraft = camascaPkgs.glfw3-waywall;
       additionalLibs = [
         jemalloc
         libxtst

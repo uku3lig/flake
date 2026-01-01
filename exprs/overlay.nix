@@ -11,4 +11,23 @@ inputs: final: prev: {
       "--localstatedir=/var/lib"
     ];
   });
+
+  waywall = prev.waywall.overrideAttrs (
+    f: p: {
+      version = "0.2025.12.30";
+
+      src = prev.fetchFromGitHub {
+        owner = "tesselslate";
+        repo = "waywall";
+        tag = f.version;
+        hash = "sha256-idtlOXT3RGjAOMgZ+e5vwZnxd33snc4sIjq0G6TU7HU=";
+      };
+
+      nativeBuildInputs = p.nativeBuildInputs ++ [ prev.makeWrapper ];
+
+      postInstall = ''
+        wrapProgram $out/bin/waywall --prefix PATH : ${prev.lib.makeBinPath [ prev.xwayland ]}
+      '';
+    }
+  );
 }
