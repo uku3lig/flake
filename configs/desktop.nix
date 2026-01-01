@@ -55,6 +55,7 @@
       showtime
       signal-desktop
       strawberry
+      tauon
       teams-for-linux
       thunderbird
       tyrolienne
@@ -95,9 +96,13 @@
     };
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    wooting.enable = true;
   };
 
   i18n.extraLocaleSettings = {
