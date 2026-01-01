@@ -294,6 +294,30 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
+    "ritornello": {
+      "inputs": {
+        "crane": [
+          "crane"
+        ],
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767292876,
+        "narHash": "sha256-zbbO7ApM93/oGPXumL1AWJFyhQ4yRvTivQPALPNgFOY=",
+        "rev": "063b72941396099cde0439902a8944a89499d82c",
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/ritornello/archive/063b72941396099cde0439902a8944a89499d82c.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/uku/ritornello/archive/1.0.0.tar.gz"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -310,6 +334,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "ritornello": "ritornello",
         "rust-overlay": "rust-overlay_2",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix",

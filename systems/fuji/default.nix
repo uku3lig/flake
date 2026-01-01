@@ -1,4 +1,12 @@
-{ pkgs, _utils, ... }:
+{
+  pkgs,
+  _utils,
+  ritornello,
+  ...
+}:
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in
 {
   imports = [
     ./nvidia.nix
@@ -8,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
+    ritornello.packages.${system}.ritornello
   ];
 
   hardware.bluetooth.enable = true;
