@@ -97,9 +97,9 @@ local config = {
 			helpers.toggle_floating()
 		end,
 	}),
-  experimental = {
-    debug = true
-  }
+	experimental = {
+		debug = true,
+	},
 }
 
 return config

@@ -29,4 +29,6 @@ in
       "XCURSOR_SIZE,24"
     ];
   };
+
+  programs.niri.cursorTheme = "Miku by wobb";
 }

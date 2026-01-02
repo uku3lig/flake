@@ -60,7 +60,7 @@ layout {
 }
 
 cursor {
-  xcursor-theme "Miku by wobb"
+  xcursor-theme "@cursorTheme@"
   xcursor-size 24
 }
 

@@ -1,27 +1,46 @@
-{ pkgs, ... }:
 {
-  services.displayManager.dms-greeter = {
-    enable = true;
-    compositor.name = "niri";
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
+  options = {
+    programs.niri.cursorTheme = lib.mkOption {
+      type = lib.types.str;
+      default = "N25 Miku";
+    };
   };
 
-  programs = {
-    niri.enable = true;
-    dms-shell.enable = true;
+  config = {
+    services.displayManager.dms-greeter = {
+      enable = true;
+      compositor.name = "niri";
+    };
 
-    ssh.startAgent = false;
+    programs = {
+      niri.enable = true;
+      dms-shell.enable = true;
+
+      ssh.startAgent = false;
+    };
+
+    environment.systemPackages = with pkgs; [
+      adw-gtk3
+      adwaita-icon-theme
+      gnome-calculator
+      loupe
+      nautilus
+      xwayland-satellite
+    ];
+
+    hj.".config/niri/config.kdl".source = pkgs.substitute {
+      src = ./config.kdl;
+      substitutions = [
+        "--replace"
+        "@cursorTheme@"
+        (config.programs.niri.cursorTheme)
+      ];
+    };
   };
-
-  #  services.gnome.gcr-ssh-agent.enable = ;
-
-  environment.systemPackages = with pkgs; [
-    adw-gtk3
-    adwaita-icon-theme
-    gnome-calculator
-    loupe
-    nautilus
-    xwayland-satellite
-  ];
-
-  hj.".config/niri/config.kdl".source = ./config.kdl;
 }
