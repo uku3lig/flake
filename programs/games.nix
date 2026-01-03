@@ -8,7 +8,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    obs-studio
     osu-lazer-bin
     krita
 
@@ -31,11 +30,17 @@
   ];
 
   programs = {
+    gamemode.enable = true;
     steam = {
       enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
-    gamemode.enable = true;
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-pipewire-audio-capture
+      ];
+    };
   };
 }

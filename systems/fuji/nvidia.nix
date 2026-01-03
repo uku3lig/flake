@@ -39,12 +39,5 @@
     ];
   };
 
-  system.replaceDependencies = {
-    replacements = [
-      {
-        oldDependency = pkgs.obs-studio;
-        newDependency = pkgs.obs-studio.override { cudaSupport = true; };
-      }
-    ];
-  };
+  programs.obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };
 }
