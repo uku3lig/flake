@@ -34,13 +34,17 @@
       xwayland-satellite
     ];
 
-    hj.".config/niri/config.kdl".source = pkgs.substitute {
-      src = ./config.kdl;
-      substitutions = [
-        "--replace"
-        "@cursorTheme@"
-        (config.programs.niri.cursorTheme)
-      ];
+    hj = {
+      ".config/niri/config.kdl".source = pkgs.substitute {
+        src = ./config.kdl;
+        substitutions = [
+          "--replace"
+          "@cursorTheme@"
+          (config.programs.niri.cursorTheme)
+        ];
+      };
+
+      ".config/niri/toggle-scale-1.sh".source = ./toggle-scale-1.sh;
     };
   };
 }

@@ -23,6 +23,8 @@ inputs: final: prev: {
         hash = "sha256-idtlOXT3RGjAOMgZ+e5vwZnxd33snc4sIjq0G6TU7HU=";
       };
 
+      patches = [ ./dispatch.patch ];
+
       nativeBuildInputs = p.nativeBuildInputs ++ [ prev.makeWrapper ];
 
       postInstall = ''

@@ -30,5 +30,11 @@ in
     ];
   };
 
-  programs.niri.cursorTheme = "Miku by wobb";
+  programs = {
+    niri.cursorTheme = "Miku by wobb";
+    waywall = {
+      width = 3840;
+      height = 2160;
+    };
+  };
 }

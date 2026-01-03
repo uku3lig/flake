@@ -38,4 +38,13 @@
       "NVD_BACKEND,direct"
     ];
   };
+
+  system.replaceDependencies = {
+    replacements = [
+      {
+        oldDependency = pkgs.obs-studio;
+        newDependency = pkgs.obs-studio.override { cudaSupport = true; };
+      }
+    ];
+  };
 }
