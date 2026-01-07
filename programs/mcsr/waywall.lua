@@ -10,7 +10,7 @@ local scene = Scene.SceneManager.new(waywall)
 local ModeManager = Modes.ModeManager.new(waywall)
 
 -- resolution is a magic global
-local thin_w = resolution.h * 0.32
+local thin_w = resolution.h * 0.28
 local tall_w = 384
 local tall_h = 16384
 
