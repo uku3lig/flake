@@ -14,22 +14,14 @@ inputs: final: prev: {
 
   waywall = prev.waywall.overrideAttrs (
     f: p: {
-      version = "0.2025.12.30";
+      version = "0-unstable-2026-01-06";
 
       src = prev.fetchFromGitHub {
         owner = "tesselslate";
         repo = "waywall";
-        tag = f.version;
-        hash = "sha256-idtlOXT3RGjAOMgZ+e5vwZnxd33snc4sIjq0G6TU7HU=";
+        rev = "c6504f95f8d757a2e060c4df8bd3ed145ad59e8d";
+        hash = "sha256-kfBsppc+esz0Q6iIIKAeOMwkIWdN12AlH3Dji8bU32c=";
       };
-
-      patches = [ ./dispatch.patch ];
-
-      nativeBuildInputs = p.nativeBuildInputs ++ [ prev.makeWrapper ];
-
-      postInstall = ''
-        wrapProgram $out/bin/waywall --prefix PATH : ${prev.lib.makeBinPath [ prev.xwayland ]}
-      '';
     }
   );
 }

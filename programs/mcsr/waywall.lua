@@ -115,11 +115,7 @@ ModeManager:define("tall", {
 })
 
 local ensure_ninjabrain = Processes.ensure_application(waywall, ninb_path)("ninjabrain.*\\.jar")
-
--- waywall.listen("load", function()
--- 	ensure_ninjabrain()
--- 	helpers.toggle_floating()
--- end)
+waywall.listen("load", ensure_ninjabrain)
 
 local config = {
 	input = {
@@ -132,8 +128,8 @@ local config = {
 	},
 	theme = {
 		background = "#303030ff",
-		-- broken, see https://github.com/Smithay/smithay/issues/1894
-		-- ninb_anchor = "right",
+		-- https://github.com/Smithay/smithay/issues/1894
+		ninb_anchor = "top",
 	},
 	actions = Keys.actions({
 		["Ctrl-Super-F"] = waywall.toggle_fullscreen,
