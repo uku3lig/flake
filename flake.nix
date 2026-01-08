@@ -157,7 +157,7 @@
     };
 
     ritornello = {
-      url = "https://git.uku3lig.net/uku/ritornello/archive/1.0.0.tar.gz";
+      url = "https://git.uku3lig.net/uku/ritornello/archive/1.0.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.crane.follows = "crane";
       inputs.flake-parts.follows = "flake-parts";

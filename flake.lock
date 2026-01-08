@@ -307,15 +307,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1767292876,
-        "narHash": "sha256-zbbO7ApM93/oGPXumL1AWJFyhQ4yRvTivQPALPNgFOY=",
-        "rev": "063b72941396099cde0439902a8944a89499d82c",
+        "lastModified": 1767868006,
+        "narHash": "sha256-B6HJJl5LPSfjhblhtLGqz6ZdGkX6LDflEPNQ7x/ljFM=",
+        "rev": "6abb2b04c8b8443ff67d6ca4e377153ed7cd29d3",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/ritornello/archive/063b72941396099cde0439902a8944a89499d82c.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/ritornello/archive/6abb2b04c8b8443ff67d6ca4e377153ed7cd29d3.tar.gz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://git.uku3lig.net/uku/ritornello/archive/1.0.0.tar.gz"
+        "url": "https://git.uku3lig.net/uku/ritornello/archive/1.0.1.tar.gz"
       }
     },
     "root": {
