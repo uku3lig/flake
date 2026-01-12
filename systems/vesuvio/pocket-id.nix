@@ -16,8 +16,6 @@ in
         APP_URL = "https://pocket.uku.moe";
         TRUST_PROXY = true;
         PORT = 1411;
-        DB_PROVIDER = "postgres";
-        KEYS_STORAGE = "database";
       };
     };
 
