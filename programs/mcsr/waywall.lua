@@ -131,6 +131,10 @@ local config = {
 		-- https://github.com/Smithay/smithay/issues/1894
 		ninb_anchor = "top",
 	},
+	window = {
+		fullscreen_width = resolution.w,
+		fullscreen_height = resolution.h,
+	},
 	actions = Keys.actions({
 		["Ctrl-Super-F"] = waywall.toggle_fullscreen,
 		["*-N"] = function()
