@@ -187,8 +187,10 @@ in
 
     resolved = {
       enable = true;
-      dnssec = "false";
-      dnsovertls = "false";
+      settings.Resolve = {
+        DNSSEC = "false";
+        DNSOverTLS = "false";
+      };
     };
 
     tailscale = {
