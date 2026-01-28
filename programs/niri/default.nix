@@ -23,6 +23,11 @@
       dms-shell.enable = true;
 
       ssh.startAgent = false;
+
+      nautilus-open-any-terminal = {
+        enable = true;
+        terminal = "ghostty";
+      };
     };
 
     environment.systemPackages = with pkgs; [
