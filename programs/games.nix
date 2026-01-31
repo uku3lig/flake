@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     osu-lazer-bin
     krita
+    ruffle
 
     (prismlauncher.override {
       additionalLibs = [
