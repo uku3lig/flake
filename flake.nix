@@ -150,8 +150,8 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    ukubot-rs = {
-      url = "github:uku3lig/ukubot-rs";
+    ukubot-ts = {
+      url = "https://git.uku3lig.net/uku/ukubot-ts/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };

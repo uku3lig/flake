@@ -72,7 +72,7 @@ mkSecrets {
     "synapseSigningKey"
     "tunnelCreds"
     "turnstileSecret"
-    "ukubotRsEnv"
+    "ukubotTsEnv"
     "upsdUserPass"
     "vaultwardenEnv"
     "vmauthEnv"

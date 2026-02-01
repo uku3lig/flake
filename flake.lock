@@ -338,7 +338,7 @@
         "rust-overlay": "rust-overlay_2",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix",
-        "ukubot-rs": "ukubot-rs"
+        "ukubot-ts": "ukubot-ts"
       }
     },
     "rust-overlay": {
@@ -456,7 +456,7 @@
         "type": "github"
       }
     },
-    "ukubot-rs": {
+    "ukubot-ts": {
       "inputs": {
         "flake-parts": [
           "flake-parts"
@@ -466,17 +466,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1768546952,
-        "narHash": "sha256-MeQQa8WLyubHR0AjrRdJ2BZaCZjuKgDLv5HA0wz1TTk=",
-        "owner": "uku3lig",
-        "repo": "ukubot-rs",
-        "rev": "b2c09045d709a999422acbb75e79f76c89fb44d2",
-        "type": "github"
+        "lastModified": 1769956134,
+        "narHash": "sha256-x/K8h588diQWQkDOsbIgdaVem67rdlpI2r8UcpikPLQ=",
+        "rev": "63c1c963878536ae70f7772816a26ce74266d5fb",
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/ukubot-ts/archive/63c1c963878536ae70f7772816a26ce74266d5fb.tar.gz"
       },
       "original": {
-        "owner": "uku3lig",
-        "repo": "ukubot-rs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/uku/ukubot-ts/archive/main.tar.gz"
       }
     },
     "zig": {

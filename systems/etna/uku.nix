@@ -2,21 +2,21 @@
   config,
   _utils,
   api-rs,
-  ukubot-rs,
+  ukubot-ts,
   ...
 }:
 let
   secrets = _utils.setupSecrets config {
     secrets = [
       "apiRsEnv"
-      "ukubotRsEnv"
+      "ukubotTsEnv"
     ];
   };
 in
 {
   imports = [
     api-rs.nixosModules.default
-    ukubot-rs.nixosModules.default
+    ukubot-ts.nixosModules.default
 
     secrets.generate
   ];
@@ -29,9 +29,10 @@ in
       environmentFile = secrets.get "apiRsEnv";
     };
 
-    ukubot-rs = {
+    ukubot-ts = {
       enable = true;
-      environmentFile = secrets.get "ukubotRsEnv";
+      environmentFile = secrets.get "ukubotTsEnv";
+      createDatabase = true;
     };
   };
 }
