@@ -61,7 +61,7 @@ layout {
 
 cursor {
   xcursor-theme "@cursorTheme@"
-  xcursor-size 24
+  xcursor-size @cursorSize@
 }
 
 hotkey-overlay {

@@ -6,9 +6,16 @@
 }:
 {
   options = {
-    programs.niri.cursorTheme = lib.mkOption {
-      type = lib.types.str;
-      default = "N25 Miku";
+    programs.niri = {
+      cursorTheme = lib.mkOption {
+        type = lib.types.str;
+        default = "N25 Miku";
+      };
+
+      cursorSize = lib.mkOption {
+        type = lib.types.int;
+        default = 24;
+      };
     };
   };
 
@@ -45,6 +52,9 @@
         "--replace"
         "@cursorTheme@"
         (config.programs.niri.cursorTheme)
+        "--replace"
+        "@cursorSize@"
+        (config.programs.niri.cursorSize)
       ];
     };
   };

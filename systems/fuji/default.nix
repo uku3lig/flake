@@ -31,7 +31,11 @@ in
   };
 
   programs = {
-    niri.cursorTheme = "Miku by wobb";
+    niri = {
+      cursorTheme = "Bibata-Modern-Ice";
+      cursorSize = 32;
+    };
+
     waywall = {
       width = 3840;
       height = 2160;

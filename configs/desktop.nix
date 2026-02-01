@@ -63,6 +63,7 @@
       vscode
       zed-editor
 
+      bibata-cursors
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
       # (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
 
