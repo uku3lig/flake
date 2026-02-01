@@ -225,7 +225,8 @@ in
       ];
       hashedPasswordFile = secrets.get "userPassword";
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8" # computer key
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICWQejw/9aFQWrlIUF5/q3WFsqYR086R3pU0W+8+iaEE" # termius key
       ];
     };
 
