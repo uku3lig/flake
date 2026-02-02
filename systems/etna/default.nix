@@ -80,7 +80,7 @@ in
     ./slskd.nix
     ./synapse.nix
     ./uku.nix
-    # ./ups.nix
+    ./ups.nix
     ./vaultwarden.nix
     ./zipline.nix
   ];
