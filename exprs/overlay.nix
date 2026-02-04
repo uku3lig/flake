@@ -12,6 +12,19 @@ inputs: final: prev: {
     ];
   });
 
+  dms-shell = prev.dms-shell.overrideAttrs {
+    version = "1.2.3-unstable-2026-02-04";
+
+    src = prev.fetchFromGitHub {
+      owner = "AvengeMedia";
+      repo = "DankMaterialShell";
+      rev = "fe156679866fd5633a2c2a70c765410c22ee356a";
+      hash = "sha256-9VFJof+LHB74dC0ZHEhsQf4TTFECQm2hNbR3PC6xrjk=";
+    };
+
+    vendorHash = "sha256-vsfCgpilOHzJbTaJjJfMK/cSvtyFYJsPDjY4m3iuoFg=";
+  };
+
   waywall = prev.waywall.overrideAttrs (
     f: p: {
       version = "0.2026.01.11-unstable-2026-01-19";
