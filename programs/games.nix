@@ -22,10 +22,12 @@
       ];
 
       jdks = [
-        temurin-bin-25
-        temurin-bin-21
-        temurin-bin-17
-        temurin-bin-8
+        # programs/java.nix
+        # avoids having to re-detect nix store paths every time
+        "/opt/temurin-25"
+        "/opt/temurin-21"
+        "/opt/temurin-17"
+        "/opt/temurin-8"
       ];
     })
   ];
