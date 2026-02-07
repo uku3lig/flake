@@ -30,7 +30,6 @@
   networking.networkmanager.plugins = [ pkgs.networkmanager-openvpn ];
 
   programs = {
-    nix-ld.enable = true;
     ssh.startAgent = lib.mkDefault true;
   };
 
