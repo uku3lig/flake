@@ -217,6 +217,27 @@
         "type": "github"
       }
     },
+    "mcsr-nixos": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770482952,
+        "narHash": "sha256-yUnpIcAQmpbkVMHaQo7/Z2+5uX9/T1Q/B6AN0zUHBuY=",
+        "rev": "b9b943fe5388c63cce85e98e9e6fbabdbddd1b44",
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/b9b943fe5388c63cce85e98e9e6fbabdbddd1b44.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz"
+      }
+    },
     "mystia": {
       "inputs": {
         "flake-compat": [],
@@ -330,6 +351,7 @@
         "ghostty": "ghostty",
         "hjem": "hjem",
         "lanzaboote": "lanzaboote",
+        "mcsr-nixos": "mcsr-nixos",
         "mystia": "mystia",
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",

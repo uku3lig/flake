@@ -156,6 +156,12 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    mcsr-nixos = {
+      url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+
     ritornello = {
       url = "https://git.uku3lig.net/uku/ritornello/archive/1.0.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";

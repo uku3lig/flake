@@ -35,7 +35,7 @@ local tall_sens = 0.88486625532087
 for _, name in ipairs({ "wide", "thin", "tall" }) do
 	scene:register(name .. "_bg", {
 		kind = "image",
-		path = images[name],
+		path = files[name],
 		options = {
 			dst = { x = 0, y = 0, w = resolution.w, h = resolution.h },
 			depth = -1,
@@ -67,7 +67,7 @@ scene:register("eye_measure", {
 
 scene:register("eye_overlay", {
 	kind = "image",
-	path = images.eye_overlay,
+	path = files.eye_overlay,
 	options = { dst = eye_dst, depth = 1 },
 	groups = { "tall" },
 })
@@ -111,10 +111,12 @@ ModeManager:define("tall", {
 		scene:enable_group("tall", false)
 		waywall.set_sensitivity(0)
 	end,
-	toggle_guard = mode_guard,
+	toggle_guard = function()
+		return not waywall.get_key("F3") and waywall.state().screen == "inworld"
+	end,
 })
 
-local ensure_ninjabrain = Processes.ensure_application(waywall, ninb_path)("ninjabrain.*\\.jar")
+local ensure_ninjabrain = Processes.ensure_application(waywall, programs.ninjabrain_bot)("ninjabrain.*\\.jar")
 waywall.listen("load", ensure_ninjabrain)
 
 local config = {
