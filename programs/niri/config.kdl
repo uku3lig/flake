@@ -2,7 +2,8 @@
 input {
     keyboard {
         xkb {
-            layout "fr"
+            layout "fr,us"
+            options "grp:win_space_toggle"
         }
     }
 
@@ -81,6 +82,12 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    open-focused false
 }
 
 window-rule {
