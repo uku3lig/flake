@@ -57,5 +57,14 @@
         (config.programs.niri.cursorSize)
       ];
     };
+
+    system.replaceDependencies.replacements = [
+      {
+        oldDependency = pkgs.signal-desktop;
+        newDependency = pkgs.signal-desktop.override {
+          commandLineArgs = "--password-store=gnome-libsecret";
+        };
+      }
+    ];
   };
 }
