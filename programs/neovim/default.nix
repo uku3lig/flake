@@ -16,11 +16,7 @@ in
 
         luaRc = ./init.lua;
 
-        runtimePrograms = with pkgs; [
-          nixfmt
-          rust-analyzer
-          zls
-        ];
+        runtimePrograms = with pkgs; [ nixfmt ];
 
         vimPluginPackages = with pkgs.vimPlugins; [
           actions-preview-nvim
