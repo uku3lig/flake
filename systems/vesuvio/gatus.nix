@@ -1,5 +1,6 @@
 {
   config,
+  _utils,
   ...
 }:
 let
@@ -10,12 +11,23 @@ let
       "[STATUS] < 300"
       "[CONNECTED] == true"
     ];
+    alerts = [
+      {
+        type = "discord";
+        send-on-resolved = true;
+      }
+    ];
   };
+
+  envFile = _utils.setupSingleSecret config "gatusEnv" { };
 in
 {
+  imports = [ envFile.generate ];
+
   services = {
     gatus = {
       enable = true;
+      environmentFile = envFile.path;
 
       settings = {
         web.port = 8080;
@@ -32,6 +44,8 @@ in
           logo = "https://avatars.githubusercontent.com/u/61147779?v=4";
           link = "https://git.uku3lig.net/uku/flake";
         };
+
+        alerting.discord.webhook-url = "$WEBHOOK_URL";
 
         endpoints = [
           (mkHttpEndpoint "Website" "core" "https://uku3lig.net")
@@ -55,6 +69,12 @@ in
             url = "starttls://mx1.uku3lig.net:587";
             interval = "5m";
             conditions = [ "[CONNECTED] == true" ];
+            alerts = [
+              {
+                type = "discord";
+                send-on-resolved = true;
+              }
+            ];
           }
           (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe")
           (mkHttpEndpoint "Roundcube" "vesuvio" "https://mail.uku3lig.net")
@@ -65,8 +85,7 @@ in
     nginx.virtualHosts."status.uku3lig.net" = {
       forceSSL = true;
       enableACME = true;
-      locations."/".proxyPass =
-        "http://localhost:${builtins.toString config.services.gatus.settings.web.port}";
+      locations."/".proxyPass = "http://localhost:${toString config.services.gatus.settings.web.port}";
     };
   };
 }
