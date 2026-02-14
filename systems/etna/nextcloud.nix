@@ -13,9 +13,6 @@ in
 {
   imports = [ adminPass.generate ];
 
-  # nextcloud generates nginx config
-  cfTunnels."cloud.uku3lig.net" = "http://localhost:80";
-
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud32;

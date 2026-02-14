@@ -5,8 +5,6 @@ in
 {
   imports = [ envFile.generate ];
 
-  cfTunnels."slsk.uku.moe" = "http://localhost:5030";
-
   services.slskd = {
     enable = true;
     domain = "slsk.uku.moe";

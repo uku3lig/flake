@@ -16,19 +16,12 @@ in
     vmauthEnv.generate
   ];
 
-  cfTunnels = {
-    "grafana.uku3lig.net" = "http://localhost:2432";
-    "metrics.uku3lig.net" = {
-      service = "http://localhost:9089";
-      path = "/api/.*/write";
-    };
-  };
-
   services = {
     grafana = {
       enable = true;
       settings = {
         server = {
+          http_addr = "0.0.0.0";
           http_port = 2432;
           root_url = "https://grafana.uku3lig.net";
         };
@@ -50,7 +43,7 @@ in
         scrape_configs = [
           {
             job_name = "victoriametrics";
-            static_configs = [ { targets = [ "${builtins.toString vmcfg.listenAddress}" ]; } ];
+            static_configs = [ { targets = [ "${toString vmcfg.listenAddress}" ]; } ];
           }
 
           {
@@ -63,7 +56,7 @@ in
 
     vmauth = {
       enable = true;
-      listenAddress = "127.0.0.1:9089";
+      listenAddress = "0.0.0.0:9089";
       environmentFile = vmauthEnv.path;
       authConfig.users = [
         {

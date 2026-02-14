@@ -9,8 +9,6 @@ in
 {
   imports = [ envFile.generate ];
 
-  cfTunnels."bw.uku3lig.net" = "http://localhost:8222";
-
   services = {
     vaultwarden = {
       enable = true;
@@ -21,7 +19,7 @@ in
         DOMAIN = "https://bw.uku3lig.net";
         SIGNUPS_ALLOWED = false;
 
-        ROCKET_ADDRESS = "::1";
+        ROCKET_ADDRESS = "::";
         ROCKET_PORT = 8222;
 
         DATABASE_URL = "postgresql:///vaultwarden";

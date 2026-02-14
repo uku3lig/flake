@@ -2,8 +2,6 @@
 {
   imports = [ camasca.nixosModules.shlink ];
 
-  cfTunnels."uku.moe" = "http://localhost:8081";
-
   services = {
     shlink = {
       enable = true;

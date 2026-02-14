@@ -5,8 +5,6 @@ in
 {
   imports = [ tokens.generate ];
 
-  cfTunnels."cobalt.uku3lig.net" = "http://localhost:9000";
-
   virtualisation.oci-containers.containers.cobalt = {
     image = "ghcr.io/imputnet/cobalt:10";
     user = "root:root";

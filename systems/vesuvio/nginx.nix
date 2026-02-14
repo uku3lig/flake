@@ -1,3 +1,4 @@
+# vim: foldmethod=marker
 { config, ... }:
 let
   anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
@@ -5,6 +6,7 @@ in
 {
   services.nginx = {
     enable = true;
+    recommendedProxySettings = true;
     virtualHosts = {
       # default server
       "vps.uku3lig.net" = {
@@ -14,14 +16,35 @@ in
         locations."/".return = "404";
       };
 
-      # immich
+      # === everything below this line is for services hosted on etna ===
+
+      # cobalt: {{{
+      "cobalt.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:9000";
+      };
+      # }}}
+
+      # forgejo: {{{
+      "git.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://unix:${anubisBind "forgejo"}";
+
+        extraConfig = ''
+          client_max_body_size 200M;
+        '';
+      };
+      # }}}
+
+      # immich {{{
       "im.uku.moe" = {
         forceSSL = true;
         enableACME = true;
         locations."/" = {
           proxyPass = "http://etna:2283";
           proxyWebsockets = true;
-          recommendedProxySettings = true;
         };
 
         extraConfig = ''
@@ -31,8 +54,85 @@ in
           send_timeout 600s;
         '';
       };
+      # }}}
 
-      # synapse
+      # jellyfin: {{{
+      "jellyfin.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:8096";
+      };
+      # }}}
+
+      # metrics {{{
+      "grafana.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:2432";
+      };
+
+      "metrics.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        # This is strictly a write-only exposure so anything else can explod.
+        locations."/".return = "444";
+        locations."~* /api/.*/write".proxyPass = "http://etna:9089";
+      };
+      # }}}
+
+      # nextcloud {{{
+      "cloud.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:80";
+
+        extraConfig = ''
+          client_max_body_size 500M;
+        '';
+      };
+      # }}}
+
+      # paperless-ngx {{{
+      "paper.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:28981";
+
+        extraConfig = ''
+          client_max_body_size 100M;
+        '';
+      };
+      # }}}
+
+      # reposilite {{{
+      "maven.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:8080";
+
+        extraConfig = ''
+          client_max_body_size 500M;
+        '';
+      };
+      # }}}
+
+      # shlink {{{
+      "uku.moe" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:8081";
+      };
+      # }}}
+
+      # slskd {{{
+      "slsk.uku.moe" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:5030";
+      };
+      # }}}
+
+      # synapse {{{
       "rei.uku.moe" = {
         forceSSL = true;
         enableACME = true;
@@ -57,7 +157,6 @@ in
             "/" = {
               proxyPass = "http://etna:8009";
               proxyWebsockets = true;
-              recommendedProxySettings = true;
               extraConfig = ''
                 proxy_read_timeout         600;
                 client_max_body_size       1000M;
@@ -65,46 +164,28 @@ in
             };
           };
       };
+      # }}}
 
+      # vaultwarden {{{
+      "bw.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:8222";
+      };
+      # }}}
+
+      # zipline {{{
       "zipline.uku3lig.net" = {
         serverAliases = [ "v.uku.moe" ];
         forceSSL = true;
         enableACME = true;
-        locations."/" = {
-          proxyPass = "http://etna:3001";
-          recommendedProxySettings = true;
-        };
+        locations."/".proxyPass = "http://etna:3001";
 
         extraConfig = ''
           client_max_body_size 1000M;
         '';
       };
-
-      "git.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://unix:${anubisBind "forgejo"}";
-          recommendedProxySettings = true;
-        };
-
-        extraConfig = ''
-          client_max_body_size 200M;
-        '';
-      };
-
-      "paper.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://etna:28981";
-          recommendedProxySettings = true;
-        };
-
-        extraConfig = ''
-          client_max_body_size 100M;
-        '';
-      };
+      # }}}
     };
   };
 
