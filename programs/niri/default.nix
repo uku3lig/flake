@@ -4,6 +4,21 @@
   config,
   ...
 }:
+let
+  # nixpkgs/pkgs/build-support/replace-vars/replace-vars-with.nix
+  subst-var-by = name: value: [
+    "--replace-fail"
+    "@${name}@"
+    value
+  ];
+
+  replaceVars' =
+    src: replacements:
+    pkgs.substitute {
+      inherit src;
+      substitutions = lib.concatLists (lib.mapAttrsToList subst-var-by replacements);
+    };
+in
 {
   options = {
     programs.niri = {
@@ -47,16 +62,9 @@
       xwayland-satellite
     ];
 
-    hj.".config/niri/config.kdl".source = pkgs.substitute {
-      src = ./config.kdl;
-      substitutions = [
-        "--replace"
-        "@cursorTheme@"
-        (config.programs.niri.cursorTheme)
-        "--replace"
-        "@cursorSize@"
-        (config.programs.niri.cursorSize)
-      ];
+    hj.".config/niri/config.kdl".source = replaceVars' ./config.kdl {
+      inherit (config.programs.niri) cursorTheme cursorSize;
+      switchLayout = ./switch-layout.fish;
     };
 
     system.replaceDependencies.replacements = [

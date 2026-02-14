@@ -61,8 +61,8 @@ layout {
 }
 
 cursor {
-  xcursor-theme "@cursorTheme@"
-  xcursor-size @cursorSize@
+    xcursor-theme "@cursorTheme@"
+    xcursor-size @cursorSize@
 }
 
 hotkey-overlay {
@@ -293,12 +293,10 @@ binds {
     Mod+W { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
-    // Note: if you uncomment these, make sure you do NOT have
-    // a matching layout switch hotkey configured in xkb options above.
-    // Having both at once on the same hotkey will break the switching,
-    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
+    // This is intentionally on the same key as the xkb switch, because for some
+    // reason that only affects the wayland keymap; therefore on the same key
+    // we invoke a script that switches the x11 layout too
+    Mod+Space { spawn "@switchLayout@"; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
