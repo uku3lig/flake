@@ -8,8 +8,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    osu-lazer-bin
+    avidemux
     krita
+    osu-lazer-bin
+    protonplus
     ruffle
 
     (prismlauncher.override {
