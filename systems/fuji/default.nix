@@ -15,7 +15,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     ritornello.packages.${system}.ritornello
   ];
 
