@@ -225,23 +225,23 @@ binds {
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
     Mod+Ampersand { focus-workspace 1; }
-    Mod+Eacute { focus-workspace 2; }
+    Mod+2 { focus-workspace 2; }
     Mod+Quotedbl { focus-workspace 3; }
     Mod+Apostrophe { focus-workspace 4; }
     Mod+Parenleft { focus-workspace 5; }
     Mod+Minus { focus-workspace 6; }
-    Mod+Egrave { focus-workspace 7; }
-    Mod+Ccedilla { focus-workspace 8; }
-    Mod+Agrave { focus-workspace 9; }
+    Mod+7 { focus-workspace 7; }
+    Mod+Underscore { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
     Mod+Ctrl+Ampersand { move-column-to-workspace 1; }
-    Mod+Ctrl+Eacute { move-column-to-workspace 2; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+Quotedbl { move-column-to-workspace 3; }
     Mod+Ctrl+Apostrophe { move-column-to-workspace 4; }
     Mod+Ctrl+Parenleft { move-column-to-workspace 5; }
     Mod+Ctrl+Minus { move-column-to-workspace 6; }
-    Mod+Ctrl+Egrave { move-column-to-workspace 7; }
-    Mod+Ctrl+Ccedilla { move-column-to-workspace 8; }
-    Mod+Ctrl+Agrave { move-column-to-workspace 9; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+Underscore { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
