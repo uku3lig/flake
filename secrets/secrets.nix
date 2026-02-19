@@ -62,6 +62,7 @@ mkSecrets {
     "dendriteKey"
     "forgejoMailerPasswd"
     "forgejoRunnerSecret"
+    "grafanaKey"
     "minecraftEnv"
     "navidromeEnv"
     "nextcloudAdminPass"
