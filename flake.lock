@@ -360,7 +360,8 @@
         "rust-overlay": "rust-overlay_2",
         "systems": "systems_2",
         "treefmt-nix": "treefmt-nix",
-        "ukubot-ts": "ukubot-ts"
+        "ukubot-ts": "ukubot-ts",
+        "vencord": "vencord"
       }
     },
     "rust-overlay": {
@@ -497,6 +498,22 @@
       "original": {
         "type": "tarball",
         "url": "https://git.uku3lig.net/uku/ukubot-ts/archive/main.tar.gz"
+      }
+    },
+    "vencord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770682757,
+        "narHash": "sha256-KYOdA41BCP3gnwM/yqmgh/qV+zKaR12c04k52RG6q6g=",
+        "owner": "vendicated",
+        "repo": "vencord",
+        "rev": "f9c404c229af828b362086ae954252647c80b208",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vendicated",
+        "repo": "vencord",
+        "type": "github"
       }
     },
     "zig": {

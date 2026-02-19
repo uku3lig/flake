@@ -168,5 +168,11 @@
       inputs.crane.follows = "crane";
       inputs.flake-parts.follows = "flake-parts";
     };
+
+    # ==== non-flake ====
+    vencord = {
+      url = "github:vendicated/vencord";
+      flake = false;
+    };
   };
 }
