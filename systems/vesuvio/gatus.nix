@@ -56,6 +56,7 @@ in
           (mkHttpEndpoint "Immich" "etna" "https://im.uku.moe")
           (mkHttpEndpoint "Jellyfin" "etna" "https://jellyfin.uku3lig.net/web/")
           (mkHttpEndpoint "NextCloud" "etna" "https://cloud.uku3lig.net")
+          (mkHttpEndpoint "Radicale" "etna" "https://dav.uku3lig.net")
           (mkHttpEndpoint "Reposilite" "etna" "https://maven.uku3lig.net/")
           (mkHttpEndpoint "Shlink" "etna" "https://uku.moe/rest/v3/health")
           (mkHttpEndpoint "Slskd" "etna" "https://slsk.uku.moe")

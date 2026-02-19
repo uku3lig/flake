@@ -104,6 +104,14 @@ in
       };
       # }}}
 
+      # radicale {{{
+      "dav.uku3lig.net" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:5232";
+      };
+      # }}}
+
       # reposilite {{{
       "maven.uku3lig.net" = {
         forceSSL = true;

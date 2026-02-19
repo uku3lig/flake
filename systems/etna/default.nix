@@ -73,6 +73,7 @@ in
     ./minecraft.nix
     ./nextcloud.nix
     ./paperless.nix
+    ./radicale.nix
     ./reposilite.nix
     # ./satisfactory.nix
     ./share.nix
