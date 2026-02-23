@@ -1,14 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ./certificates.nix
-    ./frp.nix
-    ./gatus.nix
-    ./hetzner.nix
     ./mail
-    ./nginx.nix
-    ./nitter.nix
-    ./pocket-id.nix
+    ./services
+    ./web
+    ./hetzner.nix
   ];
 
   environment.systemPackages = with pkgs; [

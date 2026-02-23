@@ -59,31 +59,13 @@ in
 
     frpToken.generate
     secrets.generate
-
-    # essential configs, do not remove
+    
     ./postgresql.nix
 
-    # services
-    ./cobalt.nix
-    # ./dendrite.nix
-    ./forgejo.nix
-    ./immich.nix
-    ./jellyfin.nix
-    ./metrics.nix
-    ./minecraft.nix
-    ./nextcloud.nix
-    ./paperless.nix
-    ./radicale.nix
-    ./reposilite.nix
-    # ./satisfactory.nix
-    ./share.nix
-    ./shlink.nix
-    ./slskd.nix
-    ./synapse.nix
-    ./uku.nix
-    ./ups.nix
-    ./vaultwarden.nix
-    ./zipline.nix
+    ./game
+    ./matrix
+    ./metrics
+    ./services
   ];
 
   boot.loader.systemd-boot.enable = true;

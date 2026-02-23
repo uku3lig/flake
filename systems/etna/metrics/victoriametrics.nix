@@ -8,32 +8,15 @@ let
   vmcfg = config.services.victoriametrics;
   secrets = _utils.setupSharedSecrets config { secrets = [ "vmAuthToken" ]; };
   vmauthEnv = _utils.setupSingleSecret config "vmauthEnv" { };
-  grafanaKey = _utils.setupSingleSecret config "grafanaKey" {
-    owner = "grafana";
-    group = "grafana";
-  };
 in
 {
   imports = [
     mystia.nixosModules.vmauth
     secrets.generate
     vmauthEnv.generate
-    grafanaKey.generate
   ];
 
   services = {
-    grafana = {
-      enable = true;
-      settings = {
-        server = {
-          http_addr = "0.0.0.0";
-          http_port = 2432;
-          root_url = "https://grafana.uku3lig.net";
-        };
-        security.secret_key = "$__file{${grafanaKey.path}}";
-      };
-    };
-
     victoriametrics = {
       enable = true;
       listenAddress = "127.0.0.1:9090";
