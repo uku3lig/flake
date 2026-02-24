@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771274415,
-        "narHash": "sha256-T9kTHC9tY72lFUBSOmEZ3wzlvpHBJDjunF91/da3O0U=",
+        "lastModified": 1771884499,
+        "narHash": "sha256-EPHuqOuaMPaGLsiOmzm8J7ZMZzl6l842DjcjB0IN5eE=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "4df08009bc42d2563320a07f703b41cdac5ad358",
+        "rev": "73325977185d361ab984d49a005d8eb0d1eea02b",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771641169,
-        "narHash": "sha256-+CQtr1gGGXveGkRIdLwBbglWSBUKTUKsGXp8a35q780=",
+        "lastModified": 1771866388,
+        "narHash": "sha256-nxeUk5U7JkifP+iQpTSJlmDWE5ITVa7Fr5oJ/m2J1rU=",
         "owner": "getchoo",
         "repo": "getchvim",
-        "rev": "94abdc5ed448e0a56809886427942082bd137900",
+        "rev": "127eda7c02ef1f5db2a350447b076255c7e743e7",
         "type": "github"
       },
       "original": {
@@ -155,11 +155,11 @@
         "zon2nix": []
       },
       "locked": {
-        "lastModified": 1771804964,
-        "narHash": "sha256-/WcotC/YCONDob/86441GEEMPRrlTO86HQXrZU5Ao3M=",
+        "lastModified": 1771905839,
+        "narHash": "sha256-notDX7PdNlsCseRDTGD0ZImE/SKkrLWrguYsqELi/0E=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "c61f184069336c61f7840e2268c6f4dc183b60af",
+        "rev": "c51f0d745d3f8048d9f1262c9f54c34a6e4ef422",
         "type": "github"
       },
       "original": {
@@ -304,11 +304,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1771369470,
-        "narHash": "sha256-QuLskcmhZmccr+kp9DhjrH7AkFvA9mf+dZdOQfNq/KI=",
-        "rev": "0182a361324364ae3f436a63005877674cf45efb",
+        "lastModified": 1771848320,
+        "narHash": "sha256-2j5NAPU1sTVgnrj1FLxkBABP63q2DiRU2eIfEG56kPk=",
+        "rev": "2fc6539b481e1d2569f25f8799236694180c0993",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre948083.0182a3613243/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre953160.2fc6539b481e/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -393,11 +393,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771816254,
-        "narHash": "sha256-vkp3iTF6QmHMvL+34DI93IiMPjS2lqcMlA1fl7nXVsQ=",
+        "lastModified": 1771902481,
+        "narHash": "sha256-svI5ivzggtu4KhCdoab3xR5+Btop24o7yLFtIPXrsPM=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "085bdbf5dde5477538e4c87d1684b6c6df56c0ad",
+        "rev": "5177426d9f8f7f1827001c9749b9a9c5570d456b",
         "type": "github"
       },
       "original": {
