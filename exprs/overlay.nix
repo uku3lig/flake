@@ -12,16 +12,6 @@ inputs: final: prev: {
     ];
   });
 
-  vencord = prev.vencord.overrideAttrs (old: {
-    version = "${old.version}+git.${inputs.vencord.shortRev}";
-    src = inputs.vencord;
-
-    env = old.env // {
-      VENCORD_REMOTE = "Vendicated/Vencord";
-      VENCORD_HASH = inputs.vencord.shortRev;
-    };
-  });
-
   python3Packages = prev.python3Packages.overrideScope (
     f: p: {
       picosvg = p.picosvg.overrideAttrs {
