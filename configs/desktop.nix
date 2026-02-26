@@ -59,13 +59,9 @@
       teams-for-linux
       thunderbird
       tyrolienne
+      vesktop
       vscode
       zed-editor
-
-      (discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
 
       bibata-cursors
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })

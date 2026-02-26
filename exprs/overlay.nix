@@ -11,14 +11,4 @@ inputs: final: prev: {
       "--localstatedir=/var/lib"
     ];
   });
-
-  vencord = prev.vencord.overrideAttrs (old: {
-    version = "${old.version}+git.${inputs.vencord.shortRev}";
-    src = inputs.vencord;
-
-    env = old.env // {
-      VENCORD_REMOTE = "Vendicated/Vencord";
-      VENCORD_HASH = inputs.vencord.shortRev;
-    };
-  });
 }
