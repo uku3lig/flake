@@ -11,7 +11,10 @@
 
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
     theme = "catppuccin-latte-pink";
   };
 }
