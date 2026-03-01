@@ -143,6 +143,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # ==== non flake ====
+    jay = {
+      url = "github:mahkoh/jay";
+      flake = false;
+    };
+
     # ==== uku3lig stuff ====
     api-rs = {
       url = "github:uku3lig/api-rs";

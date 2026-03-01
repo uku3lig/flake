@@ -1,0 +1,30 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 1
+}
+
+order += "ethernet enp12s0"
+order += "load"
+order += "memory"
+order += "tztime local"
+
+wireless wlan0 {
+        format_up = "W: (%quality at %essid, %bitrate) %ip"
+        format_down = "W: down"
+}
+
+ethernet enp12s0 {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+memory {
+        format = "MEM %used"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
