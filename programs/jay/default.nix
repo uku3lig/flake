@@ -15,6 +15,7 @@
       mako
       slurp
       swaybg
+      xwayland-satellite
 
       camascaPkgs.wl-tray-bridge
     ];

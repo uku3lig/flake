@@ -13,6 +13,7 @@ on-graphics-initialized = [
   { type = "exec", exec = "mako" },
   { type = "exec", exec = "wl-tray-bridge" },
   { type = "exec", exec = { shell = "swaybg -m fill -i ~/Images/swaybg" } },
+  { type = "exec", exec = { shell = "xwayland-satellite :1" } },
 ]
 
 render-device.name = "dedicated"
@@ -49,6 +50,10 @@ mode = { width = 3840, height = 2160, refresh-rate = 143.999 }
 match.is-pointer = true
 accel-profile = "Flat"
 accel-speed = -0.25
+
+[env]
+DISPLAY = ":1"
+SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh"
 
 [[clients]]
 match.comm = "swaybg"
