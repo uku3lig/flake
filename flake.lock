@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771835373,
-        "narHash": "sha256-UP8isJKDKjUubkQLFTy73dHy4jaiGlUmoL/mUxB0opE=",
-        "rev": "88adceb28bee8bd14c7449b9315d64f44207d3b7",
+        "lastModified": 1772382043,
+        "narHash": "sha256-4Plao5zGKCu1URKr/g0fN3CD9+uLeJQpCzE78Iez+oc=",
+        "rev": "92dfa10e26e202ec1aa8dcf5aa1ae477488b760e",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/88adceb28bee8bd14c7449b9315d64f44207d3b7.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/92dfa10e26e202ec1aa8dcf5aa1ae477488b760e.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -187,6 +187,22 @@
       "original": {
         "owner": "feel-co",
         "repo": "hjem",
+        "type": "github"
+      }
+    },
+    "jay": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772287835,
+        "narHash": "sha256-PjmYXgtI0+Zg5XFmcNrMsQ3v8mSKJDPu/8uyT+ZQ2Cc=",
+        "owner": "mahkoh",
+        "repo": "jay",
+        "rev": "29f3aaa93c2dad34138ad41611ed891359314965",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mahkoh",
+        "repo": "jay",
         "type": "github"
       }
     },
@@ -350,6 +366,7 @@
         "getchvim": "getchvim",
         "ghostty": "ghostty",
         "hjem": "hjem",
+        "jay": "jay",
         "lanzaboote": "lanzaboote",
         "mcsr-nixos": "mcsr-nixos",
         "mystia": "mystia",

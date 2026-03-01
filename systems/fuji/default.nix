@@ -11,6 +11,7 @@ in
   imports = [
     ./nvidia.nix
     ../../programs/niri
+    ../../programs/jay
     ../../programs/games.nix
   ];
 

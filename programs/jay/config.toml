@@ -1,0 +1,168 @@
+# The keymap that is used for shortcuts and also sent to clients.
+keymap = """
+    xkb_keymap {
+        xkb_keycodes { include "evdev+aliases(qwerty)" };
+        xkb_types    { include "complete"              };
+        xkb_compat   { include "complete"              };
+        xkb_symbols  { include "pc+fr+inet(evdev)"     };
+    };
+    """
+
+# An action that will be executed when the GPU has been initialized.
+on-graphics-initialized = [
+  { type = "exec", exec = "mako" },
+  { type = "exec", exec = "wl-tray-bridge" },
+  { type = "exec", exec = { shell = "swaybg -m fill -i ~/Images/swaybg" } },
+]
+
+render-device.name = "dedicated"
+workspace-display-order = "sorted"
+focus-follows-mouse = false
+window-management-key = "Super_L"
+xwayland.enabled = false
+
+[status]
+format = "i3bar"
+exec = "i3status"
+
+[theme]
+title-height = 18
+border-width = 2
+bar-position = "bottom"
+font = "Iosevka 11"
+bar-status-text-color = "#c6a0f6"
+captured-focused-title-bg-color = "#b97d3e"
+focused-inactive-title-text-color = "#e6c99d"
+focused-title-bg-color = "#8839ef"
+unfocused-title-text-color = "#c6a0f6"
+
+[[drm-devices]]
+name = "dedicated"
+match = { pci-vendor = 0x10de, pci-model = 0x2208 }
+
+[[outputs]]
+match.serial-number = "23120B009519"
+scale = 1.5
+mode = { width = 3840, height = 2160, refresh-rate = 143.999 }
+
+[[inputs]]
+match.is-pointer = true
+accel-profile = "Flat"
+accel-speed = -0.25
+
+[[clients]]
+match.comm = "swaybg"
+capabilities = "layer-shell"
+
+[[clients]]
+match.comm-regex = "wl-(copy|paste)"
+capabilities = "data-control"
+
+[[clients]]
+match.comm = "grim"
+capabilities = "screencopy"
+
+# Shortcuts that are processed by the compositor.
+# The left hand side should be a key, possibly prefixed with modifiers.
+# The right hand side should be an action.
+[shortcuts]
+# The focus-X actions move the keyboard focus to next window on the X.
+logo-h = "focus-left"
+logo-j = "focus-down"
+logo-k = "focus-up"
+logo-l = "focus-right"
+
+# The move-X actions move window that has the keyboard focus to the X.
+ctrl-logo-h = "move-left"
+ctrl-logo-j = "move-down"
+ctrl-logo-k = "move-up"
+ctrl-logo-l = "move-right"
+
+# The split-X action places the currently focused window in a container
+# and sets the split direction of the container to X.
+logo-b = "split-horizontal"
+logo-v = "split-vertical"
+
+# The toggle-split action changes the split direction of the current
+# container.
+logo-t = "toggle-split"
+# The toggle-mono action changes whether the current container shows
+# a single window or all windows next to each other.
+logo-m = "toggle-mono"
+# The toggle-fullscreen action toggles the current window between
+# windowed and fullscreen.
+logo-shift-f = "toggle-fullscreen"
+
+# The focus-parent action moves the keyboard focus to the parrent of
+# the currently focused window.
+logo-f = "focus-parent"
+# The close action requests the currently focused window to close.
+logo-q = "close"
+# The toggle-floating action changes the currently focused window between
+# floating and tiled.
+shift-logo-space = "toggle-floating"
+
+# All actions above are so-called simple actions that are identified by
+# a string. More complex actions take parameters and are written as a table.
+# For example, the exec action spawns an application and has the exec field
+# that describes how to spawn the application.
+logo-Return = { type = "exec", exec = "ghostty" }
+logo-d = { type = "exec", exec = "fuzzel" }
+
+# The quit action terminates the compositor.
+shift-logo-e = "quit"
+# The reload-config-toml action reloads the TOML configuration file.
+shift-logo-r = "reload-config-toml"
+
+# Screenshot
+Print = { type = "exec", exec = { shell = "grim -g $(slurp) - | wl-copy" } }
+ctrl-Print = { type = "exec", exec = { shell = "grim - | wl-copy" } }
+
+# Audio
+XF86AudioRaiseVolume = { type = "exec", exec = ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "0.05+", "-l", "1.0"] }
+XF86AudioLowerVolume = { type = "exec", exec = ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "0.05-"] }
+XF86AudioMute = { type = "exec", exec = ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"] }
+
+XF86AudioPlay = { type = "exec", exec = ["playerctl", "play-pause"] }
+XF86AudioStop = { type = "exec", exec = ["playerctl", "stop"] }
+XF86AudioPrev = { type = "exec", exec = ["playerctl", "previous"] }
+XF86AudioNext = { type = "exec", exec = ["playerctl", "next"] }
+
+# The switch-to-vt action switches to a different virtual terminal.
+ctrl-alt-F1 = { type = "switch-to-vt", num = 1 }
+ctrl-alt-F2 = { type = "switch-to-vt", num = 2 }
+ctrl-alt-F3 = { type = "switch-to-vt", num = 3 }
+ctrl-alt-F4 = { type = "switch-to-vt", num = 4 }
+ctrl-alt-F5 = { type = "switch-to-vt", num = 5 }
+ctrl-alt-F6 = { type = "switch-to-vt", num = 6 }
+ctrl-alt-F7 = { type = "switch-to-vt", num = 7 }
+ctrl-alt-F8 = { type = "switch-to-vt", num = 8 }
+ctrl-alt-F9 = { type = "switch-to-vt", num = 9 }
+ctrl-alt-F10 = { type = "switch-to-vt", num = 10 }
+ctrl-alt-F11 = { type = "switch-to-vt", num = 11 }
+ctrl-alt-F12 = { type = "switch-to-vt", num = 12 }
+
+# The show-workspace action switches to a workspace. If the workspace is not
+# currently being used, it is created on the output that contains the pointer.
+logo-ampersand = { type = "show-workspace", name = "1" }
+logo-eacute = { type = "show-workspace", name = "2" }
+logo-quotedbl = { type = "show-workspace", name = "3" }
+logo-apostrophe = { type = "show-workspace", name = "4" }
+logo-parenleft = { type = "show-workspace", name = "5" }
+logo-minus = { type = "show-workspace", name = "6" }
+logo-egrave = { type = "show-workspace", name = "7" }
+logo-underscore = { type = "show-workspace", name = "8" }
+logo-ccedilla = { type = "show-workspace", name = "9" }
+logo-agrave = { type = "show-workspace", name = "10" }
+
+# The move-to-workspace action moves the currently focused window to a workspace.
+ctrl-logo-ampersand = { type = "move-to-workspace", name = "1" }
+ctrl-logo-eacute = { type = "move-to-workspace", name = "2" }
+ctrl-logo-quotedbl = { type = "move-to-workspace", name = "3" }
+ctrl-logo-apostrophe = { type = "move-to-workspace", name = "4" }
+ctrl-logo-parenleft = { type = "move-to-workspace", name = "5" }
+ctrl-logo-minus = { type = "move-to-workspace", name = "6" }
+ctrl-logo-egrave = { type = "move-to-workspace", name = "7" }
+ctrl-logo-underscore = { type = "move-to-workspace", name = "8" }
+ctrl-logo-ccedilla = { type = "move-to-workspace", name = "9" }
+ctrl-logo-agrave = { type = "move-to-workspace", name = "10" }

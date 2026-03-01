@@ -8,7 +8,7 @@
   hjem,
   nixpkgs,
   nix-index-database,
-  vencord,
+  jay,
   ...
 }:
 let
@@ -159,7 +159,7 @@ in
   nixpkgs = {
     config.allowUnfree = true;
     flake.setNixPath = false;
-    overlays = [ (import ../exprs/overlay.nix { inherit vencord; }) ];
+    overlays = [ (import ../exprs/overlay.nix { inherit jay; }) ];
   };
 
   programs = {
