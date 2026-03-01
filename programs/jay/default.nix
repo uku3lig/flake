@@ -1,6 +1,9 @@
 { pkgs, camascaPkgs, ... }:
 {
-  imports = [ ../fuzzel.nix ];
+  imports = [
+    ../fuzzel.nix
+    ../sddm.nix
+  ];
 
   environment = {
     variables.XCURSOR_THEME = "Bibata-Modern-Ice";
