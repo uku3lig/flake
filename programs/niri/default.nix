@@ -20,6 +20,8 @@ let
     };
 in
 {
+  imports = [ ../sddm.nix ];
+
   options = {
     programs.niri = {
       cursorTheme = lib.mkOption {
@@ -35,11 +37,6 @@ in
   };
 
   config = {
-    services.displayManager.dms-greeter = {
-      enable = true;
-      compositor.name = "niri";
-    };
-
     programs = {
       niri.enable = true;
       dms-shell.enable = true;
