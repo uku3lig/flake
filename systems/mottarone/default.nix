@@ -67,6 +67,8 @@
     };
   };
 
+  programs.nix-ld.enable = true;
+
   services = {
     glpiAgent = {
       enable = true;
