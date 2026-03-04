@@ -65,15 +65,12 @@ in
 
     # services
     ./cobalt.nix
-    # ./dendrite.nix
     ./forgejo.nix
     ./immich.nix
     ./jellyfin.nix
     ./metrics.nix
     ./minecraft.nix
-    ./nextcloud.nix
     ./paperless.nix
-    ./radicale.nix
     ./reposilite.nix
     # ./satisfactory.nix
     ./share.nix
@@ -81,7 +78,7 @@ in
     ./slskd.nix
     ./synapse.nix
     ./uku.nix
-    ./ups.nix
+    # ./ups.nix
     ./vaultwarden.nix
     ./zipline.nix
   ];

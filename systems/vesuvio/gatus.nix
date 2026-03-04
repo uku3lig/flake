@@ -55,8 +55,6 @@ in
           (mkHttpEndpoint "Grafana" "etna" "https://grafana.uku3lig.net")
           (mkHttpEndpoint "Immich" "etna" "https://im.uku.moe")
           (mkHttpEndpoint "Jellyfin" "etna" "https://jellyfin.uku3lig.net/web/")
-          (mkHttpEndpoint "NextCloud" "etna" "https://cloud.uku3lig.net")
-          (mkHttpEndpoint "Radicale" "etna" "https://dav.uku3lig.net")
           (mkHttpEndpoint "Reposilite" "etna" "https://maven.uku3lig.net/")
           (mkHttpEndpoint "Shlink" "etna" "https://uku.moe/rest/v3/health")
           (mkHttpEndpoint "Slskd" "etna" "https://slsk.uku.moe")
@@ -77,7 +75,7 @@ in
               }
             ];
           }
-          (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe")
+          (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe/uku3lig")
           (mkHttpEndpoint "Roundcube" "vesuvio" "https://mail.uku3lig.net")
         ];
       };
