@@ -90,8 +90,9 @@ in
     extraPackages = with pkgs; [ intel-media-driver ];
   };
 
-  networking.interfaces.eno1 = {
-    wakeOnLan.enable = true;
+  systemd.network.networks."30-eno1" = {
+    matchConfig.Name = "eno1";
+    networkConfig.DHCP = "yes";
   };
 
   services = {

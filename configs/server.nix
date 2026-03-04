@@ -25,6 +25,14 @@ in
     ];
   };
 
+  networking = {
+    # managed by networkd
+    useDHCP = false;
+    networkmanager.enable = false;
+  };
+
+  systemd.network.enable = true;
+
   services = {
     tailscale.extraUpFlags = [ "--advertise-exit-node" ];
     redis.package = pkgs.valkey;
@@ -68,7 +76,7 @@ in
           {
             job_name = "node";
             static_configs = [
-              { targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.node.port}" ]; }
+              { targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ]; }
             ];
             relabel_configs = [
               {

@@ -98,14 +98,17 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   networking = {
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-    };
+    usePredictableInterfaceNames = true;
+
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
     ];
+
+    networkmanager = {
+      enable = lib.mkDefault true;
+      dns = "systemd-resolved";
+    };
   };
 
   nix = {
