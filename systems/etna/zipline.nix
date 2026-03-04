@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   _utils,
   ...
@@ -12,6 +13,11 @@ in
 
   services.zipline = {
     enable = true;
+    package = pkgs.zipline.overrideAttrs (p: {
+      env = p.env // {
+        NODE_PATH = "${pkgs.node-gyp}/lib/node_modules";
+      };
+    });
     database.createLocally = true;
     environmentFiles = [ envFile.path ];
 
