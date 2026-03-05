@@ -32,8 +32,6 @@
     upower.enable = true;
   };
 
-  programs.light.enable = true;
-
   # hyprland stuff
   services.blueman = lib.mkIf config.programs.hyprland.enable { enable = true; };
   hj.".config/hypr/hyprland.conf".text = _utils.toHyprconf {
