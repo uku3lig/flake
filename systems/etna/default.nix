@@ -72,7 +72,7 @@ in
     ./minecraft.nix
     ./paperless.nix
     ./reposilite.nix
-    # ./satisfactory.nix
+    ./satisfactory.nix
     ./share.nix
     ./shlink.nix
     ./slskd.nix

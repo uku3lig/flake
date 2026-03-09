@@ -19,8 +19,18 @@ in
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ 22 ]; # forgejo-ssh
+    allowedTCPPorts = [
+      22 # forgejo-ssh
+      7777 # satisfactory
+      8888 # satisfactory
+    ];
+
+    allowedUDPPorts = [
+      7777 # satisfactory
+    ];
+
     allowedTCPPortRanges = [
+      # minecraft servers
       {
         from = 6000;
         to = 7000;
