@@ -7,7 +7,7 @@ reset=$(tput sgr0)
 flake="$1"
 
 echo "${bold}Building configuration...$reset"
-configuration=$(sudo nixos-rebuild dry-activate --flake "$flake" --keep-going "${@:2}")
+configuration=$(sudo nixos-rebuild dry-activate --flake "$flake" --keep-going "${@:2}" | tail -1)
 echo "$configuration"
 
 nix run "$flake#nixosConfigurations.$(hostname).pkgs.nvd" -- diff /run/current-system "$configuration"
