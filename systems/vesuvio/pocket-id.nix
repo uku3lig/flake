@@ -28,4 +28,6 @@ in
       };
     };
   };
+
+  systemd.services."pocket-id".serviceConfig.RestartSec = "10s";
 }
