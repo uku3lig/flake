@@ -151,15 +151,29 @@ in
             };
             client = {
               "m.homeserver"."base_url" = "https://rei.uku.moe";
+              "org.matrix.msc4143.rtc_foci" = [
+                {
+                  "type" = "livekit";
+                  "livekit_service_url" = "https://rei.uku.moe/livekit/jwt";
+                }
+              ];
             };
           in
           {
             "=/.well-known/matrix/server" = {
               return = "200 '${builtins.toJSON server}'";
+              extraConfig = ''
+                default_type application/json;
+                add_header Access-Control-Allow-Origin *;
+              '';
             };
 
             "=/.well-known/matrix/client" = {
               return = "200 '${builtins.toJSON client}'";
+              extraConfig = ''
+                default_type application/json;
+                add_header Access-Control-Allow-Origin *;
+              '';
             };
 
             "/" = {

@@ -64,6 +64,8 @@ in
     ./postgresql.nix
 
     # services
+    ./matrix
+
     ./cobalt.nix
     ./forgejo.nix
     ./immich.nix
@@ -76,7 +78,6 @@ in
     ./share.nix
     ./shlink.nix
     ./slskd.nix
-    ./synapse.nix
     ./uku.nix
     # ./ups.nix
     ./vaultwarden.nix

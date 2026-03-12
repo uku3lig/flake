@@ -37,8 +37,25 @@ in
       enable_registration = false;
       max_upload_size = "100M";
       suppress_key_server_warning = true;
+      max_event_delay_duration = "24h";
 
       signing_key_path = secrets.get "synapseSigningKey";
+
+      experimental_features = {
+        # required for element-call
+        msc3266_enabled = true; # room summary api
+        msc4222_enabled = true; # syncv2 state_after (whatever that means)
+      };
+
+      # relax rate limits, required for element-call
+      rc_message = {
+        per_second = 0.5;
+        burst_count = 30;
+      };
+      rc_delayed_event_mgmt = {
+        per_second = 1;
+        burst_count = 20;
+      };
 
       listeners = [
         {

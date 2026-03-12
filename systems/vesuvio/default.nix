@@ -2,6 +2,7 @@
 {
   imports = [
     ./certificates.nix
+    ./element-call.nix
     ./frp.nix
     ./gatus.nix
     ./mail

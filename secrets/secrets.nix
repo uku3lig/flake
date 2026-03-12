@@ -83,6 +83,7 @@ mkSecrets {
   vesuvio = [
     "rootPassword"
     "gatusEnv"
+    "livekitKey"
     "maddyEnv"
     "nitterAccounts"
     "pocketIdEnv"
