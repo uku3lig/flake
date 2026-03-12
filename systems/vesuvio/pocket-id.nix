@@ -1,4 +1,9 @@
-{ config, _utils, ... }:
+{
+  lib,
+  config,
+  _utils,
+  ...
+}:
 let
   envFile = _utils.setupSingleSecret config "pocketIdEnv" { };
 in
@@ -29,5 +34,5 @@ in
     };
   };
 
-  systemd.services."pocket-id".serviceConfig.RestartSec = "10s";
+  systemd.services."pocket-id".serviceConfig.RestartSec = lib.mkForce "10s";
 }
