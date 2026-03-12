@@ -1,9 +1,6 @@
-{ pkgs, ghostty, ... }:
-let
-  inherit (pkgs.stdenv.hostPlatform) system;
-in
+{ pkgs, ... }:
 {
-  environment.systemPackages = [ ghostty.packages.${system}.ghostty ];
+  environment.systemPackages = [ pkgs.ghostty ];
 
   hj.".config/ghostty/config".text = ''
     font-family = Iosevka Term
