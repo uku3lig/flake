@@ -10,7 +10,7 @@ echo "${bold}Building configuration...$reset"
 configuration=$(sudo nixos-rebuild dry-activate --flake "$flake" --keep-going "${@:2}" | tail -1)
 echo "$configuration"
 
-nix run "$flake#nixosConfigurations.$(hostname).pkgs.nvd" -- diff /run/current-system "$configuration"
+nix run "$flake#nixosConfigurations.$(hostname).pkgs.dix" -- /run/current-system "$configuration"
 
 read -n1 -rp "${bold}Activate new configuration? [y/N]$reset " answer
 echo
