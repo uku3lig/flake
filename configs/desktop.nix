@@ -61,7 +61,7 @@
       tyrolienne
       vesktop
       vscode
-      zed-editor
+      zed-editor-fhs
 
       bibata-cursors
       (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
