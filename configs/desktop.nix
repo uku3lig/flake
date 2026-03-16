@@ -56,7 +56,6 @@
       signal-desktop
       strawberry
       tauon
-      teams-for-linux
       thunderbird
       tyrolienne
       vesktop
