@@ -1,12 +1,5 @@
 # The keymap that is used for shortcuts and also sent to clients.
-keymap = """
-    xkb_keymap {
-        xkb_keycodes { include "evdev+aliases(qwerty)" };
-        xkb_types    { include "complete"              };
-        xkb_compat   { include "complete"              };
-        xkb_symbols  { include "pc+fr+inet(evdev)"     };
-    };
-    """
+keymap.rmlvo.layout = "fr"
 
 # An action that will be executed when the GPU has been initialized.
 on-graphics-initialized = [
