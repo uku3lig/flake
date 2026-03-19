@@ -53,7 +53,7 @@
       obsidian
       resources
       showtime
-      signal-desktop
+      (signal-desktop.override { commandLineArgs = "--password-store=gnome-libsecret"; })
       strawberry
       tauon
       thunderbird

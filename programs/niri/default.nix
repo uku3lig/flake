@@ -63,14 +63,5 @@ in
       inherit (config.programs.niri) cursorTheme cursorSize;
       switchLayout = ./switch-layout.fish;
     };
-
-    system.replaceDependencies.replacements = [
-      {
-        oldDependency = pkgs.signal-desktop;
-        newDependency = pkgs.signal-desktop.override {
-          commandLineArgs = "--password-store=gnome-libsecret";
-        };
-      }
-    ];
   };
 }
