@@ -5,6 +5,7 @@ keymap.rmlvo.layout = "fr"
 on-graphics-initialized = [
   { type = "exec", exec = "mako" },
   { type = "exec", exec = "wl-tray-bridge" },
+  { type = "exec", exec = "hulk" },
   { type = "exec", exec = { shell = "swaybg -m fill -i ~/Images/swaybg" } },
   { type = "exec", exec = { shell = "xwayland-satellite :1" } },
 ]
@@ -59,6 +60,10 @@ capabilities = "data-control"
 [[clients]]
 match.comm = "grim"
 capabilities = "screencopy"
+
+[[clients]]
+match.comm = "hulk"
+capabilities = "gamma-control-manager"
 
 # Shortcuts that are processed by the compositor.
 # The left hand side should be a key, possibly prefixed with modifiers.

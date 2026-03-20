@@ -17,6 +17,7 @@
       swaybg
       xwayland-satellite
 
+      camascaPkgs.hulk-gamma
       camascaPkgs.wl-tray-bridge
     ];
   };
