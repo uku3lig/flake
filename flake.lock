@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774027574,
-        "narHash": "sha256-B+YP6l9lZ4zmtopzib7f32hqURlRsiiaA+5oEhbXY8U=",
-        "rev": "d462c23a6cb79f301b8d0f0b08ea82b8c2947cc4",
+        "lastModified": 1774224047,
+        "narHash": "sha256-6uTH8VAiXENhkph02ROEXEN0jYXLf6BN+VNS0RQ4oJY=",
+        "rev": "265f51d8024c9050622a091dda8f78f288e385b1",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/d462c23a6cb79f301b8d0f0b08ea82b8c2947cc4.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/265f51d8024c9050622a091dda8f78f288e385b1.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -128,11 +128,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773453770,
-        "narHash": "sha256-pfj9T4TgqEQIL9FigDdc40wdk14jvDMa4XbXhQxVA9U=",
+        "lastModified": 1774058478,
+        "narHash": "sha256-bAzV5LZIaovKsquE4WFBd8T5cr3051uK1E48Qh0Mnvo=",
         "owner": "getchoo",
         "repo": "getchvim",
-        "rev": "84aea70e773d5a3eb2a51494c14c30eeb795a297",
+        "rev": "b3d36adfdf63074d06b322f33dd7e92b8de452b5",
         "type": "github"
       },
       "original": {
@@ -166,11 +166,11 @@
     "jay": {
       "flake": false,
       "locked": {
-        "lastModified": 1773863375,
-        "narHash": "sha256-r7AYPBpxlpR/iUch0/ncj6QFrmUPw3/kMsnTKpP9VYE=",
+        "lastModified": 1774181754,
+        "narHash": "sha256-zh/BMeqcXWVxZx6kXx95RdFY2KJ7+nzHYL+wPs02Mak=",
         "owner": "mahkoh",
         "repo": "jay",
-        "rev": "7e479490c9077112b38e93ec4beb1c6ee31454a6",
+        "rev": "65aca4903b2ac9ce70c30f41d0cdbc4bc19407b3",
         "type": "github"
       },
       "original": {
@@ -237,11 +237,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1773824050,
-        "narHash": "sha256-ke/AZ+eob/FmBIZk7N5hdswR7AcAyLHHiIFAGgLySxg=",
+        "lastModified": 1774253698,
+        "narHash": "sha256-u6m+OrvH/HKwayZTcRzPk3vgt7A8KmYx7UXtJWDRYhc=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "7cf4f643680e2fb61a38cd632c347e88d4e1cae7",
+        "rev": "70347b0deb6b5ac149378b6a4a0c094ed767ab79",
         "type": "github"
       },
       "original": {
@@ -257,11 +257,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773552174,
-        "narHash": "sha256-mHSRNrT1rjeYBgkAlj07dW3+1nFEgAd8Gu6lgyfT9DU=",
+        "lastModified": 1774156144,
+        "narHash": "sha256-gdYe9wTPl4ignDyXUl1LlICWj41+S0GB5lG1fKP17+A=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "8faeb68130df077450451b6734a221ba0d6cde42",
+        "rev": "55b588747fa3d7fc351a11831c4b874dab992862",
         "type": "github"
       },
       "original": {
@@ -293,11 +293,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1773821835,
-        "narHash": "sha256-p0tPeJJbg+PKaH741F1CWa9Bf9vf6g02HK9V/g4TkHo=",
-        "rev": "b40629efe5d6ec48dd1efba650c797ddbd39ace0",
+        "lastModified": 1774106199,
+        "narHash": "sha256-n6Edjl/GL8HQ5SURLc7yE3qAb1hf+9ues8aNtHZnjTA=",
+        "rev": "6c9a78c09ff4d6c21d0319114873508a6ec01655",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre964859.b40629efe5d6/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre967235.6c9a78c09ff4/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -381,11 +381,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773889863,
-        "narHash": "sha256-tSsmZOHBgq4qfu5MNCAEsKZL1cI4avNLw2oUTXWeb74=",
+        "lastModified": 1774235565,
+        "narHash": "sha256-D8OOwvq3zDDCtIhMcNueb9tGSZaZUanKpWDleRgQ80U=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "dbfd51be2692cb7022e301d14c139accb4ee63f0",
+        "rev": "dc00324a2438762582b49954373112b8eab29cab",
         "type": "github"
       },
       "original": {
