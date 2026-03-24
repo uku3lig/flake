@@ -47,6 +47,8 @@ in
     extraPackages = [ pkgs.mesa ];
   };
 
+  programs.nix-ld.enable = true;
+
   services = {
     mysql = {
       enable = true;
