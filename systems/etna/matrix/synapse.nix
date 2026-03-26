@@ -4,6 +4,7 @@ let
     secrets = [
       "synapseSigningKey"
       "synapseExtraConfig"
+      "masSharedSecret"
     ];
     extra.owner = "matrix-synapse";
   };
@@ -40,6 +41,12 @@ in
       max_event_delay_duration = "24h";
 
       signing_key_path = secrets.get "synapseSigningKey";
+
+      matrix_authentication_service = {
+        enabled = true;
+        endpoint = "http://localhost:8010/";
+        secret_path = secrets.get "masSharedSecret";
+      };
 
       experimental_features = {
         # required for element-call

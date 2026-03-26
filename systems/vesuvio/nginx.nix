@@ -151,6 +151,10 @@ in
             };
             client = {
               "m.homeserver"."base_url" = "https://rei.uku.moe";
+              "org.matrix.msc2965.authentication" = {
+                "issuer" = "https://auth.rei.uku.moe/";
+                "account" = "https://auth.rei.uku.moe/account/";
+              };
               "org.matrix.msc4143.rtc_foci" = [
                 {
                   "type" = "livekit";
@@ -176,6 +180,11 @@ in
               '';
             };
 
+            "~ ^/_matrix/client/(.*)/(login|logout|refresh)" = {
+              proxyPass = "http://etna:8010"; # mas
+              priority = 990;
+            };
+
             "/" = {
               proxyPass = "http://etna:8009";
               proxyWebsockets = true;
@@ -185,6 +194,12 @@ in
               '';
             };
           };
+      };
+
+      "auth.rei.uku.moe" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://etna:8010";
       };
       # }}}
 
