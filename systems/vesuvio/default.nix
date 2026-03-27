@@ -2,14 +2,11 @@
 {
   imports = [
     ./mail
+    ./services
     ./web
 
-    ./element-call.nix
     ./frp.nix
-    ./gatus.nix
     ./networking.nix
-    ./nitter.nix
-    ./pocket-id.nix
   ];
 
   environment.systemPackages = with pkgs; [
