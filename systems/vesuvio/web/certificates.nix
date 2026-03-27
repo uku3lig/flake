@@ -6,6 +6,33 @@
       email = "acme@uku.moe";
       webroot = "/var/lib/acme/acme-challenge";
     };
+
+    certs."vps.uku3lig.net".extraDomainNames = [
+      "bw.uku3lig.net"
+      "cobalt.uku3lig.net"
+      "git.uku3lig.net"
+      "grafana.uku3lig.net"
+      "jellyfin.uku3lig.net"
+      "maven.uku3lig.net"
+      "metrics.uku3lig.net"
+      "paper.uku3lig.net"
+      "status.uku3lig.net"
+      "zipline.uku3lig.net"
+
+      "uku.moe"
+      "auth.rei.uku.moe"
+      "im.uku.moe"
+      "nit.uku.moe"
+      "pocket.uku.moe"
+      "rei.uku.moe"
+      "slsk.uku.moe"
+      "v.uku.moe"
+
+      # mail
+      "mail.uku3lig.net"
+      "mta-sts.uku3lig.net"
+      "mta-sts.uku.moe"
+    ];
   };
 
   services.nginx.virtualHosts = {

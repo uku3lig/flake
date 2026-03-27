@@ -1,7 +1,17 @@
 # vim: foldmethod=marker
-{ config, ... }:
+{ lib, config, ... }:
 let
   anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
+
+  _vhost =
+    a:
+    lib.mkMerge [
+      a
+      {
+        forceSSL = true;
+        useACMEHost = "vps.uku3lig.net";
+      }
+    ];
 in
 {
   services.nginx = {
@@ -12,24 +22,20 @@ in
       "vps.uku3lig.net" = {
         default = true;
         addSSL = true;
-        enableACME = true;
+        useACMEHost = "vps.uku3lig.net";
         locations."/".return = "404";
       };
 
       # === everything below this line is for services hosted on etna ===
 
       # cobalt: {{{
-      "cobalt.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "cobalt.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:9000";
       };
       # }}}
 
       # forgejo: {{{
-      "git.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "git.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://unix:${anubisBind "forgejo"}";
 
         extraConfig = ''
@@ -39,9 +45,7 @@ in
       # }}}
 
       # immich {{{
-      "im.uku.moe" = {
-        forceSSL = true;
-        enableACME = true;
+      "im.uku.moe" = _vhost {
         locations."/" = {
           proxyPass = "http://etna:2283";
           proxyWebsockets = true;
@@ -57,45 +61,25 @@ in
       # }}}
 
       # jellyfin: {{{
-      "jellyfin.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "jellyfin.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:8096";
       };
       # }}}
 
       # metrics {{{
-      "grafana.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "grafana.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:2432";
       };
 
-      "metrics.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "metrics.uku3lig.net" = _vhost {
         # This is strictly a write-only exposure so anything else can explod.
         locations."/".return = "444";
         locations."~* /api/.*/write".proxyPass = "http://etna:9089";
       };
       # }}}
 
-      # nextcloud {{{
-      "cloud.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/".proxyPass = "http://etna:80";
-
-        extraConfig = ''
-          client_max_body_size 500M;
-        '';
-      };
-      # }}}
-
       # paperless-ngx {{{
-      "paper.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "paper.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:28981";
 
         extraConfig = ''
@@ -104,18 +88,8 @@ in
       };
       # }}}
 
-      # radicale {{{
-      "dav.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/".proxyPass = "http://etna:5232";
-      };
-      # }}}
-
       # reposilite {{{
-      "maven.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "maven.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:8080";
 
         extraConfig = ''
@@ -125,25 +99,19 @@ in
       # }}}
 
       # shlink {{{
-      "uku.moe" = {
-        forceSSL = true;
-        enableACME = true;
+      "uku.moe" = _vhost {
         locations."/".proxyPass = "http://etna:8081";
       };
       # }}}
 
       # slskd {{{
-      "slsk.uku.moe" = {
-        forceSSL = true;
-        enableACME = true;
+      "slsk.uku.moe" = _vhost {
         locations."/".proxyPass = "http://etna:5030";
       };
       # }}}
 
       # synapse {{{
-      "rei.uku.moe" = {
-        forceSSL = true;
-        enableACME = true;
+      "rei.uku.moe" = _vhost {
         locations =
           let
             server = {
@@ -196,26 +164,20 @@ in
           };
       };
 
-      "auth.rei.uku.moe" = {
-        forceSSL = true;
-        enableACME = true;
+      "auth.rei.uku.moe" = _vhost {
         locations."/".proxyPass = "http://etna:8010";
       };
       # }}}
 
       # vaultwarden {{{
-      "bw.uku3lig.net" = {
-        forceSSL = true;
-        enableACME = true;
+      "bw.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:8222";
       };
       # }}}
 
       # zipline {{{
-      "zipline.uku3lig.net" = {
+      "zipline.uku3lig.net" = _vhost {
         serverAliases = [ "v.uku.moe" ];
-        forceSSL = true;
-        enableACME = true;
         locations."/".proxyPass = "http://etna:3001";
 
         extraConfig = ''
@@ -228,34 +190,4 @@ in
 
   # we depend on etna, which makes nginx fail if it's started before tailscale
   systemd.services.nginx.after = [ "tailscaled.service" ];
-
-  # required due to unix socket permissions
-  users.users.nginx.extraGroups = [ config.users.groups.anubis.name ];
-
-  # anubis
-  services.anubis = {
-    defaultOptions.policy.settings = {
-      openGraph = {
-        enabled = true;
-        considerHost = false;
-        ttl = "4h";
-      };
-    };
-
-    instances."forgejo" = {
-      settings = {
-        TARGET = "http://etna:3000";
-        BIND = "/run/anubis/anubis-forgejo/anubis.sock";
-        METRICS_BIND = "/run/anubis/anubis-forgejo/anubis-metrics.sock";
-      };
-
-      policy.extraBots = [
-        {
-          name = "allow-git-nex";
-          action = "ALLOW";
-          expression = "userAgent.contains(\"GitNex\")";
-        }
-      ];
-    };
-  };
 }

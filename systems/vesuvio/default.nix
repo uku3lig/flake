@@ -1,13 +1,13 @@
 { pkgs, ... }:
 {
   imports = [
-    ./certificates.nix
+    ./mail
+    ./web
+
     ./element-call.nix
     ./frp.nix
     ./gatus.nix
-    ./mail
     ./networking.nix
-    ./nginx.nix
     ./nitter.nix
     ./pocket-id.nix
   ];

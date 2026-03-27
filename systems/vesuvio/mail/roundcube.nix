@@ -35,5 +35,10 @@ in
         $config['smtp_host'] = 'ssl://mx1.uku3lig.net:465';
       '';
     };
+
+    nginx.virtualHosts."mail.uku3lig.net" = {
+      enableACME = false;
+      useACMEHost = "vps.uku3lig.net";
+    };
   };
 }

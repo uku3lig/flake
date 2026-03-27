@@ -26,7 +26,7 @@ in
 
     nginx.virtualHosts."pocket.uku.moe" = {
       forceSSL = true;
-      enableACME = true;
+      useACMEHost = "vps.uku3lig.net";
       locations."/" = {
         proxyPass = "http://localhost:${toString config.services.pocket-id.settings.PORT}";
         recommendedProxySettings = true;

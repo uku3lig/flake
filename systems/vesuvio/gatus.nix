@@ -83,7 +83,7 @@ in
 
     nginx.virtualHosts."status.uku3lig.net" = {
       forceSSL = true;
-      enableACME = true;
+      useACMEHost = "vps.uku3lig.net";
       locations."/".proxyPass = "http://localhost:${toString config.services.gatus.settings.web.port}";
     };
   };
