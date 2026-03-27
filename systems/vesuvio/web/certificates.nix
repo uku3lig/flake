@@ -14,6 +14,7 @@
       "grafana.uku3lig.net"
       "jellyfin.uku3lig.net"
       "maven.uku3lig.net"
+      "memos.uku3lig.net"
       "metrics.uku3lig.net"
       "paper.uku3lig.net"
       "status.uku3lig.net"

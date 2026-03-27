@@ -66,6 +66,12 @@ in
       };
       # }}}
 
+      # memos {{{
+      "memos.uku3lig.net" = _vhost {
+        locations."/".proxyPass = "http://etna:5230";
+      };
+      # }}}
+
       # metrics {{{
       "grafana.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:2432";
