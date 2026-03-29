@@ -31,6 +31,20 @@ in
     ];
   };
 
+  networking = {
+    # managed by networkd
+    useDHCP = false;
+    networkmanager.enable = false;
+  };
+
+  systemd.network = {
+    enable = true;
+    networks."30-enp12s0" = {
+      matchConfig.Name = "enp12s0";
+      networkConfig.DHCP = "yes";
+    };
+  };
+
   programs = {
     niri = {
       cursorTheme = "Bibata-Modern-Ice";
