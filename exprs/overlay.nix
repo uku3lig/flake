@@ -12,15 +12,6 @@ inputs: final: prev: {
     ];
   });
 
-  weston = prev.weston.overrideAttrs (p: {
-    patches = [
-      (final.fetchpatch {
-        url = "https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1993.patch";
-        hash = "sha256-705GIM7drTzv0N5Hk5dO18LWBnhhi1VoX8sfITHRYc4=";
-      })
-    ];
-  });
-
   jay = prev.jay.overrideAttrs (p: {
     version = "${p.version}+git.${inputs.jay.shortRev}";
     src = inputs.jay;
