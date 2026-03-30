@@ -18,8 +18,8 @@
     camascaPkgs.sql-developer
     gnomeExtensions.solaar-extension
     gtkterm
+    hoppscotch
     nagstamon
-    postman
     pycharm-wrapped
     recaf-launcher
     remmina
