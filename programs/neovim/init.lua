@@ -122,9 +122,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 require("lualine").setup({
-	options = {
-		theme = "catppuccin",
-	},
 	extensions = { "trouble" },
 })
 
