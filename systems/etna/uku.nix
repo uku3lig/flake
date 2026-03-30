@@ -21,8 +21,6 @@ in
     secrets.generate
   ];
 
-  cfTunnels."api.uku3lig.net" = "http://localhost:5000";
-
   services = {
     api-rs = {
       enable = true;

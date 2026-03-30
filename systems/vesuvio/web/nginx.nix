@@ -28,6 +28,12 @@ in
 
       # === everything below this line is for services hosted on etna ===
 
+      # api {{{
+      "api.uku3lig.net" = _vhost {
+        locations."/".proxyPass = "http://etna:5000";
+      };
+      # }}}
+
       # cobalt: {{{
       "cobalt.uku3lig.net" = _vhost {
         locations."/".proxyPass = "http://etna:9000";

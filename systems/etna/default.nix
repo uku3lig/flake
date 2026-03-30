@@ -6,12 +6,9 @@
   ...
 }:
 let
-  tunnelId = "57f51ad7-25a0-45f3-b113-0b6ae0b2c3e5";
-
   frpToken = _utils.setupSharedSecrets config { secrets = [ "frpToken" ]; };
   secrets = _utils.setupSecrets config {
     secrets = [
-      "tunnelCreds"
       "borgSshKey"
       "borgPassphrase"
     ];
@@ -55,8 +52,6 @@ in
   };
 
   imports = [
-    (lib.mkAliasOptionModule [ "cfTunnels" ] [ "services" "cloudflared" "tunnels" tunnelId "ingress" ])
-
     frpToken.generate
     secrets.generate
 
@@ -119,18 +114,6 @@ in
         };
       };
     };
-
-    cloudflared = {
-      enable = true;
-      tunnels.${tunnelId} = {
-        credentialsFile = secrets.get "tunnelCreds";
-        default = "http_status:404";
-      };
-    };
-  };
-
-  systemd.services = {
-    "cloudflared-tunnel-${tunnelId}".serviceConfig.RestartSec = "10s";
   };
 
   virtualisation = {

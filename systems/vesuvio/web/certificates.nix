@@ -8,6 +8,7 @@
     };
 
     certs."vps.uku3lig.net".extraDomainNames = [
+      "api.uku3lig.net"
       "bw.uku3lig.net"
       "cobalt.uku3lig.net"
       "git.uku3lig.net"

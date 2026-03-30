@@ -74,7 +74,6 @@ mkSecrets {
     "slskdEnv"
     "synapseExtraConfig"
     "synapseSigningKey"
-    "tunnelCreds"
     "turnstileSecret"
     "ukubotTsEnv"
     "upsdUserPass"
