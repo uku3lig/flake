@@ -155,9 +155,7 @@ ModeManager:define("tall", {
 		smart_enable_group("tall", false)
 		waywall.set_sensitivity(0)
 	end,
-	toggle_guard = function()
-		return not waywall.get_key("F3") and waywall.state().screen == "inworld"
-	end,
+	toggle_guard = mode_guard,
 })
 -- }}}
 
