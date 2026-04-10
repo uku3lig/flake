@@ -162,22 +162,6 @@
         "type": "github"
       }
     },
-    "jay": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1775756243,
-        "narHash": "sha256-Ft/pEgh6ZGfoJG2uIMhYM7K/kX1NJovdFF91yBIDYgI=",
-        "owner": "mahkoh",
-        "repo": "jay",
-        "rev": "271fa858f93bc605a0d0b38eec84b79049c544e9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mahkoh",
-        "repo": "jay",
-        "type": "github"
-      }
-    },
     "lanzaboote": {
       "inputs": {
         "crane": [
@@ -337,7 +321,6 @@
         "flake-utils": "flake-utils",
         "getchvim": "getchvim",
         "hjem": "hjem",
-        "jay": "jay",
         "lanzaboote": "lanzaboote",
         "mcsr-nixos": "mcsr-nixos",
         "mystia": "mystia",

@@ -11,13 +11,4 @@ inputs: final: prev: {
       "--localstatedir=/var/lib"
     ];
   });
-
-  jay = prev.jay.overrideAttrs (p: {
-    version = "${p.version}+git.${inputs.jay.shortRev}";
-    src = inputs.jay;
-
-    cargoDeps = final.rustPlatform.importCargoLock {
-      lockFile = "${inputs.jay}/Cargo.lock";
-    };
-  });
 }

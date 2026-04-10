@@ -15,10 +15,10 @@
       mako
       slurp
       swaybg
+      wl-tray-bridge
       xwayland-satellite
 
       camascaPkgs.hulk-gamma
-      camascaPkgs.wl-tray-bridge
     ];
   };
 
