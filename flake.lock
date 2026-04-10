@@ -59,7 +59,7 @@
         "narHash": "sha256-/4klx/0UuREQnqbk/MoTnGdaOiSeCJsTaTh6hcbkRbI=",
         "rev": "b796115612828a4f7eeeec0831b58b07ff1b52d5",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/b796115612828a4f7eeeec0831b58b07ff1b52d5.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/b796115612828a4f7eeeec0831b58b07ff1b52d5.tar.gz?rev=b796115612828a4f7eeeec0831b58b07ff1b52d5"
       },
       "original": {
         "type": "tarball",
@@ -68,11 +68,11 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1775236976,
-        "narHash": "sha256-gCgX+AXN7K1gAIEqcLcZHxmC+QoZcwn9m6Z9r2Az+N8=",
+        "lastModified": 1775790182,
+        "narHash": "sha256-pG2RWVQY0Pe+rmmXJx+Jpyi+JcgjWzS18m7fcD1B64Q=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "6c23998526351a53ce734f0ac84940da988ccef1",
+        "rev": "534982f1c41834b101e381b07b1121a4f065a374",
         "type": "github"
       },
       "original": {
@@ -165,11 +165,11 @@
     "jay": {
       "flake": false,
       "locked": {
-        "lastModified": 1775675805,
-        "narHash": "sha256-hMB7HMucHMOE+vBp39pijCZwYed73o0FTnxtfXW3ORw=",
+        "lastModified": 1775756243,
+        "narHash": "sha256-Ft/pEgh6ZGfoJG2uIMhYM7K/kX1NJovdFF91yBIDYgI=",
         "owner": "mahkoh",
         "repo": "jay",
-        "rev": "a07f1bcdfd0ab9fc96d6d968b3ca386a5f4ff473",
+        "rev": "271fa858f93bc605a0d0b38eec84b79049c544e9",
         "type": "github"
       },
       "original": {
@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775653335,
-        "narHash": "sha256-qKK410TIdAtS/2kg0w4oR1TdMQfH3TxONbaAvK5hrkM=",
+        "lastModified": 1775815947,
+        "narHash": "sha256-zKmhefgqP+mlTwfSIJaI1Dw8IePnc17WwzrzRQ6JQ6Q=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "a7127cc13bebac85d0aabe908018ece29e39237b",
+        "rev": "a5f5623a443d37deede6bce12c31ba03caecadcd",
         "type": "github"
       },
       "original": {
@@ -219,7 +219,7 @@
         "narHash": "sha256-d/SLw/5B4mPzZtwuU1xzGq5+b2fpHB3wrGI/POinAFE=",
         "rev": "e6347d9528b21a01d164251783ac60cdbba646f4",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/e6347d9528b21a01d164251783ac60cdbba646f4.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/e6347d9528b21a01d164251783ac60cdbba646f4.tar.gz?rev=e6347d9528b21a01d164251783ac60cdbba646f4"
       },
       "original": {
         "type": "tarball",
@@ -236,11 +236,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1775636492,
-        "narHash": "sha256-eyopmxF1Vzvz/yr+ctFfWpIHeE07UKbxRd0q68xuZrM=",
+        "lastModified": 1775809643,
+        "narHash": "sha256-02WKiHGzOVX5NNWn7eQG1y8jarkqkR0xhZq5SJ2Dk34=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "cab674e84aa153a019ee70a2b1858d588792c13b",
+        "rev": "54b8b0ef5ed1b9d5617be04ca10991e3e0e63ad3",
         "type": "github"
       },
       "original": {
@@ -292,11 +292,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1775423009,
-        "narHash": "sha256-hvNLo3SaIwi6+Cm5NMLyFQYJrYagpsYap4EfQe9CQpc=",
-        "rev": "68d8aa3d661f0e6bd5862291b5bb263b2a6595c9",
+        "lastModified": 1775710090,
+        "narHash": "sha256-WGjBfvXv/mcg5yBg+AtK1Q3FHyXfjAAeJROmg7DLYfM=",
+        "rev": "4c1018dae018162ec878d42fec712642d214fdfa",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre975402.68d8aa3d661f/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre977467.4c1018dae018/nixexprs.tar.xz?lastModified=1775710090&rev=4c1018dae018162ec878d42fec712642d214fdfa"
       },
       "original": {
         "type": "tarball",
@@ -320,7 +320,7 @@
         "narHash": "sha256-B6HJJl5LPSfjhblhtLGqz6ZdGkX6LDflEPNQ7x/ljFM=",
         "rev": "6abb2b04c8b8443ff67d6ca4e377153ed7cd29d3",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/ritornello/archive/6abb2b04c8b8443ff67d6ca4e377153ed7cd29d3.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/ritornello/archive/6abb2b04c8b8443ff67d6ca4e377153ed7cd29d3.tar.gz?rev=6abb2b04c8b8443ff67d6ca4e377153ed7cd29d3"
       },
       "original": {
         "type": "tarball",
@@ -358,11 +358,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775617983,
-        "narHash": "sha256-2NWGA/I4j/qlx6qbg86QvJiK1/GyH9gnf0hFiARWVwE=",
+        "lastModified": 1775790837,
+        "narHash": "sha256-RAHjn8sjgfF3D17BaV8iv69o3P+L9aCuE36PFwzoqHU=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "d98b91b1feae7ef07fa2ccb3aa3f83f11abfae54",
+        "rev": "c913e0b9525311f103b7e1463ebb0f28c6865d8d",
         "type": "github"
       },
       "original": {
@@ -420,7 +420,7 @@
         "narHash": "sha256-x/K8h588diQWQkDOsbIgdaVem67rdlpI2r8UcpikPLQ=",
         "rev": "63c1c963878536ae70f7772816a26ce74266d5fb",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/ukubot-ts/archive/63c1c963878536ae70f7772816a26ce74266d5fb.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/ukubot-ts/archive/63c1c963878536ae70f7772816a26ce74266d5fb.tar.gz?rev=63c1c963878536ae70f7772816a26ce74266d5fb"
       },
       "original": {
         "type": "tarball",
