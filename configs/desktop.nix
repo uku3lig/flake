@@ -63,7 +63,8 @@
       zed-editor-fhs
 
       bibata-cursors
-      (camascaPkgs.project-sekai-cursors.override { group = "N25"; })
+      (camascaPkgs.project-sekai-cursors.override { character = "N25 Miku"; })
+      (camascaPkgs.project-sekai-cursors.override { character = "Mizuki"; })
       # (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
 
       # libreoffice stuff
