@@ -16,7 +16,14 @@ in
 {
   services.nginx = {
     enable = true;
+    recommendedOptimisation = true;
     recommendedProxySettings = true;
+    recommendedBrotliSettings = true;
+
+    commonHttpConfig = ''
+      access_log off;
+    '';
+
     virtualHosts = {
       # default server
       "vps.uku3lig.net" = {
