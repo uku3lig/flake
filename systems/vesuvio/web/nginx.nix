@@ -30,7 +30,10 @@ in
 
       # api {{{
       "api.uku3lig.net" = _vhost {
-        locations."/".proxyPass = "http://etna:5000";
+        locations = {
+          "/".proxyPass = "http://etna:5000";
+          "/tiers".return = "404";
+        };
       };
       # }}}
 
