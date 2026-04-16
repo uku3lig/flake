@@ -53,7 +53,6 @@
       obsidian
       resources
       showtime
-      (signal-desktop.override { commandLineArgs = "--password-store=gnome-libsecret"; })
       strawberry
       tauon
       thunderbird
@@ -61,6 +60,12 @@
       vesktop
       vscode
       zed-editor-fhs
+
+      (signal-desktop.overrideAttrs {
+        postInstall = ''
+          wrapProgram "$out/bin/signal-desktop" --add-flags "--password-store=gnome-libsecret"
+        '';
+      })
 
       bibata-cursors
       (camascaPkgs.project-sekai-cursors.override { character = "N25 Miku"; })
