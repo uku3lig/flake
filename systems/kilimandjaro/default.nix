@@ -8,8 +8,6 @@
   ];
 
   environment.systemPackages = [
-    pkgs.android-studio
-    pkgs.jetbrains.datagrip
     pkgs.foliate
   ];
 
