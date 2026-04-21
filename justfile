@@ -4,6 +4,9 @@ alias d := deploy
 check:
     nix flake check
 
+build system:
+    nom build .#nixosConfigurations.{{system}}.config.system.build.toplevel
+
 switch *args:
     bash switch.sh {{ justfile_directory() }} {{args}}
 

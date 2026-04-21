@@ -30,6 +30,7 @@
             packages = with pkgs; [
               agenix.packages.${system}.default
               just
+              nix-output-monitor
               statix
             ];
           };
