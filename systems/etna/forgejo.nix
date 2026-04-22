@@ -103,7 +103,6 @@ in
         tokenFile = secrets.get "forgejoRunnerSecret";
         labels = [
           "ubuntu-latest:docker://catthehacker/ubuntu:act-latest"
-          "bare-metal:host"
         ];
 
         settings = {
