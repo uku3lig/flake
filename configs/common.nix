@@ -168,6 +168,7 @@ in
   programs = {
     direnv.enable = true;
     nix-index-database.comma.enable = true;
+    command-not-found.enable = false; # needed for nix-index
   };
 
   security = {
