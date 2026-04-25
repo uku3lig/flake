@@ -37,6 +37,11 @@ in
     networkmanager.enable = false;
   };
 
+  services.input-remapper = {
+    enable = true;
+    enableUdevRules = true;
+  };
+
   systemd.network = {
     enable = true;
     networks."30-enp12s0" = {

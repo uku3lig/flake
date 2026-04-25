@@ -29,6 +29,7 @@ in
 
   environment.systemPackages = with pkgs; [
     avidemux
+    gamescope
     krita
     osu
     protonplus
