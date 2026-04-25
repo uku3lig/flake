@@ -56,12 +56,14 @@ in
       gnome-calculator
       loupe
       nautilus
+      polkit_gnome
       xwayland-satellite
     ];
 
     hj.".config/niri/config.kdl".source = replaceVars' ./config.kdl {
       inherit (config.programs.niri) cursorTheme cursorSize;
       switchLayout = ./switch-layout.fish;
+      polkitAgent = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
     };
   };
 }
