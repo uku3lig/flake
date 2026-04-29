@@ -30,7 +30,9 @@ in
   environment.systemPackages = with pkgs; [
     avidemux
     gamescope
+    heroic
     krita
+    mangohud
     osu
     protonplus
     ruffle

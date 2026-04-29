@@ -16,8 +16,9 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    wineWow64Packages.waylandFull
     ritornello.packages.${system}.ritornello
+    ryubing
+    wineWow64Packages.waylandFull
   ];
 
   hardware.bluetooth.enable = true;
@@ -37,9 +38,16 @@ in
     networkmanager.enable = false;
   };
 
-  services.input-remapper = {
-    enable = true;
-    enableUdevRules = true;
+  services = {
+    input-remapper = {
+      enable = true;
+      enableUdevRules = true;
+    };
+
+    scx = {
+      enable = true;
+      scheduler = "scx_lavd";
+    };
   };
 
   systemd.network = {
