@@ -15,7 +15,14 @@ in
     secrets.generate
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_6_12;
+
+    # mitigate CVE-2026-31431
+    extraModprobeConfig = ''
+      install algif_aead ${pkgs.busybox}/bin/false
+    '';
+  };
 
   environment = {
     variables.EDITOR = "nvim";
