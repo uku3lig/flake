@@ -8,11 +8,11 @@ let
   accounts = _utils.setupSingleSecret config "nitterAccounts" { };
 
   nitter = pkgs.nitter.overrideAttrs (p: {
-    version = "0-unstable-2026-03-30";
+    version = "0-unstable-2026-04-16";
 
     src = p.src.overrideAttrs {
-      rev = "7d431781c37748faef5ed15bfa6b4865d875b99f";
-      hash = "sha256-LkGxQ7kvVNKXkYtDmpnwU3gbSO9caEcyUk8rnC2f81Y=";
+      rev = "74f5ff8accc0faace7c0955a4be03b3ad159609b";
+      hash = "sha256-qSrQICQND+9LqNvuFx6VjCdcl3FZZWbhjuxjgfPB3Ss=";
     };
   });
 in
