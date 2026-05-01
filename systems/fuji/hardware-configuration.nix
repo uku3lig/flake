@@ -18,26 +18,34 @@
     "nvme"
     "xhci_pci"
     "ahci"
-    "usb_storage"
     "usbhid"
-    "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/660ff32b-308f-411a-815e-959706ec1bcb";
+    device = "/dev/disk/by-uuid/c7bab25d-2466-4912-8e88-8631d328974b";
     fsType = "btrfs";
     options = [
-      "subvol=@"
-      "compress=zstd"
+      "subvol=@nixos/@"
       "noatime"
+      "compress-force=zstd"
+    ];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/c7bab25d-2466-4912-8e88-8631d328974b";
+    fsType = "btrfs";
+    options = [
+      "subvol=@home"
+      "noatime"
+      "compress-force=zstd"
     ];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/306D-3240";
+    device = "/dev/disk/by-uuid/9482-5E72";
     fsType = "vfat";
     options = [
       "fmask=0022"
@@ -45,13 +53,8 @@
     ];
   };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/eb612572-5d15-407b-b691-e7486a69d33c";
-    fsType = "ext4";
-  };
-
   swapDevices = [
-    { device = "/dev/disk/by-uuid/6ee8ec3d-3b26-4d6d-b43d-174f908fd8fe"; }
+    { device = "/dev/disk/by-uuid/87fc02d3-791f-40e3-9763-b69d85e3c18b"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
