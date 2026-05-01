@@ -9,10 +9,25 @@ let
   inherit (config.virtualisation.oci-containers) backend;
 
   secret = _utils.setupSingleSecret config "minecraftEnv" { };
+
+  gtnhBoner = _utils.mkMinecraftServer config {
+    name = "gtnh-boner";
+    port = 25566;
+    remotePort = 6008;
+    tag = "java25";
+    memory = "8G";
+    envFiles = [ secret.path ];
+    env = {
+      TYPE = "GTNH";
+      GTNH_PACK_VERSION = "2.8.4";
+    };
+  };
 in
 {
   imports = [
     secret.generate
+
+    gtnhBoner
   ];
 
   systemd.services.restart-minecraft-servers = {
