@@ -20,6 +20,7 @@ let
     env = {
       TYPE = "GTNH";
       GTNH_PACK_VERSION = "2.8.4";
+      MOTD = "GregTech New Horizons 2.8.4 \\u00A78(Big Boner™ Edition)";
     };
   };
 in
@@ -30,9 +31,10 @@ in
     gtnhBoner
   ];
 
+  # TODO: control per-server
   systemd.services.restart-minecraft-servers = {
     wantedBy = [ "multi-user.target" ];
-    startAt = "*-*-* 05:00:00";
+    startAt = "*-*-* 12:00:00";
     restartIfChanged = false;
 
     script = "${lib.getExe' pkgs.systemd "systemctl"} restart ${backend}-mc-*.service";

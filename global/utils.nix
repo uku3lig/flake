@@ -62,7 +62,7 @@
     {
       virtualisation.oci-containers.containers."mc-${name}" = {
         image = "itzg/minecraft-server:${tag}";
-        ports = [ "${builtins.toString port}:25565" ] ++ extraPorts;
+        ports = [ "${toString port}:25565" ] ++ extraPorts;
         volumes = [ "${dataDir}:/data" ];
         environmentFiles = envFiles;
         environment = {
@@ -83,7 +83,11 @@
         }
       ];
 
-      systemd.services."${backend}-mc-${name}".serviceConfig.TimeoutSec = "300";
+      systemd.services."${backend}-mc-${name}".serviceConfig = {
+        Restart = lib.mkForce "always"; # "forcibly" set by the container module
+        RestartSec = "5s";
+        TimeoutSec = "300";
+      };
     };
 
   mkFrpPassthrough = name: port: {
