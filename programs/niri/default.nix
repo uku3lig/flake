@@ -20,7 +20,7 @@ let
     };
 in
 {
-  imports = [ ../sddm.nix ];
+  imports = [ ../plm.nix ];
 
   options = {
     programs.niri = {

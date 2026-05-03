@@ -67,6 +67,7 @@
         '';
       })
 
+      adwaita-icon-theme
       bibata-cursors
       (camascaPkgs.project-sekai-cursors.override { character = "N25 Miku"; })
       (camascaPkgs.project-sekai-cursors.override { character = "Mizuki"; })
@@ -132,13 +133,9 @@
   security.pam.services.login.enableGnomeKeyring = true;
 
   services = {
-    # apparently needed for mesa
     xserver = {
-      enable = true;
       xkb.layout = "fr";
-      displayManager = {
-        lightdm.enable = false;
-      };
+      displayManager.lightdm.enable = false;
     };
 
     printing.enable = true;
@@ -172,6 +169,9 @@
   xdg = {
     portal.enable = true;
     mime.enable = true;
-    icons.enable = true;
+    icons = {
+      enable = true;
+      fallbackCursorThemes = [ "Adwaita" ];
+    };
   };
 }

@@ -2,7 +2,7 @@
 {
   imports = [
     ../fuzzel.nix
-    ../sddm.nix
+    ../plm.nix
   ];
 
   environment = {
