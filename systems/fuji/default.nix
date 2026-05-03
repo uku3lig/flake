@@ -58,15 +58,8 @@ in
     };
   };
 
-  programs = {
-    niri = {
-      cursorTheme = "Bibata-Modern-Ice";
-      cursorSize = 32;
-    };
-
-    waywall = {
-      width = 3840;
-      height = 2160;
-    };
+  programs.waywall = {
+    width = 3840;
+    height = 2160;
   };
 }

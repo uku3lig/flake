@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }:
 let
@@ -22,48 +21,30 @@ in
 {
   imports = [ ../plm.nix ];
 
-  options = {
-    programs.niri = {
-      cursorTheme = lib.mkOption {
-        type = lib.types.str;
-        default = "N25 Miku";
-      };
+  programs = {
+    niri.enable = true;
+    dms-shell.enable = true;
 
-      cursorSize = lib.mkOption {
-        type = lib.types.int;
-        default = 24;
-      };
+    ssh.startAgent = false;
+
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "ghostty";
     };
   };
 
-  config = {
-    programs = {
-      niri.enable = true;
-      dms-shell.enable = true;
+  environment.systemPackages = with pkgs; [
+    adw-gtk3
+    adwaita-icon-theme
+    file-roller
+    gnome-calculator
+    loupe
+    nautilus
+    polkit_gnome
+    xwayland-satellite
+  ];
 
-      ssh.startAgent = false;
-
-      nautilus-open-any-terminal = {
-        enable = true;
-        terminal = "ghostty";
-      };
-    };
-
-    environment.systemPackages = with pkgs; [
-      adw-gtk3
-      adwaita-icon-theme
-      file-roller
-      gnome-calculator
-      loupe
-      nautilus
-      polkit_gnome
-      xwayland-satellite
-    ];
-
-    hj.".config/niri/config.kdl".source = replaceVars' ./config.kdl {
-      inherit (config.programs.niri) cursorTheme cursorSize;
-      switchLayout = ./switch-layout.fish;
-      polkitAgent = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-    };
+  hj.".config/niri/config.kdl".source = replaceVars' ./config.kdl {
+    polkitAgent = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 }
