@@ -117,6 +117,14 @@
       tryFiles = "${filename} =${builtins.toString status}";
     };
 
+  mkNginxJson = json: {
+    return = "200 '${builtins.toJSON json}'";
+    extraConfig = ''
+      default_type application/json;
+      add_header Access-Control-Allow-Origin *;
+    '';
+  };
+
   # https://github.com/nix-community/home-manager/blob/ec71b5162848e6369bdf2be8d2f1dd41cded88e8/modules/lib/generators.nix#L4-L61
   toHyprconf =
     attrs:

@@ -1,5 +1,10 @@
 # vim: foldmethod=marker
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  _utils,
+  ...
+}:
 let
   anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
 
@@ -134,56 +139,39 @@ in
 
       # synapse {{{
       "rei.uku.moe" = _vhost {
-        locations =
-          let
-            server = {
-              "m.server" = "rei.uku.moe:443";
-            };
-            client = {
-              "m.homeserver"."base_url" = "https://rei.uku.moe";
-              "org.matrix.msc2965.authentication" = {
-                "issuer" = "https://auth.rei.uku.moe/";
-                "account" = "https://auth.rei.uku.moe/account/";
-              };
-              "org.matrix.msc4143.rtc_foci" = [
-                {
-                  "type" = "livekit";
-                  "livekit_service_url" = "https://rei.uku.moe/livekit/jwt";
-                }
-              ];
-            };
-          in
-          {
-            "=/.well-known/matrix/server" = {
-              return = "200 '${builtins.toJSON server}'";
-              extraConfig = ''
-                default_type application/json;
-                add_header Access-Control-Allow-Origin *;
-              '';
-            };
-
-            "=/.well-known/matrix/client" = {
-              return = "200 '${builtins.toJSON client}'";
-              extraConfig = ''
-                default_type application/json;
-                add_header Access-Control-Allow-Origin *;
-              '';
-            };
-
-            "~ ^/_matrix/client/(.*)/(login|logout|refresh)" = {
-              proxyPass = "http://etna:8010"; # mas
-              priority = 990;
-            };
-
-            "/" = {
-              proxyPass = "http://etna:8009";
-              proxyWebsockets = true;
-              extraConfig = ''
-                proxy_read_timeout         600;
-                client_max_body_size       1000M;
-              '';
-            };
+        locations = {
+          "=/.well-known/matrix/server" = _utils.mkNginxJson {
+            "m.server" = "rei.uku.moe:443";
           };
+
+          "=/.well-known/matrix/client" = _utils.mkNginxJson {
+            "m.homeserver"."base_url" = "https://rei.uku.moe";
+            "org.matrix.msc2965.authentication" = {
+              "issuer" = "https://auth.rei.uku.moe/";
+              "account" = "https://auth.rei.uku.moe/account/";
+            };
+            "org.matrix.msc4143.rtc_foci" = [
+              {
+                "type" = "livekit";
+                "livekit_service_url" = "https://rei.uku.moe/livekit/jwt";
+              }
+            ];
+          };
+
+          "~ ^/_matrix/client/(.*)/(login|logout|refresh)" = {
+            proxyPass = "http://etna:8010"; # mas
+            priority = 990;
+          };
+
+          "~ ^(/_matrix|/_synapse/client)" = {
+            proxyPass = "http://etna:8009";
+            proxyWebsockets = true;
+            extraConfig = ''
+              proxy_read_timeout         600;
+              client_max_body_size       1000M;
+            '';
+          };
+        };
       };
 
       "auth.rei.uku.moe" = _vhost {
