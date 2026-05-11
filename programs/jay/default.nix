@@ -6,7 +6,10 @@
   ];
 
   environment = {
-    variables.XCURSOR_THEME = "Bibata-Modern-Ice";
+    variables = {
+      XCURSOR_THEME = "Adwaita";
+      XCURSOR_SIZE = "48";
+    };
 
     systemPackages = with pkgs; [
       grim
