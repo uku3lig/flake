@@ -8,7 +8,7 @@
   environment = {
     variables = {
       XCURSOR_THEME = "Adwaita";
-      XCURSOR_SIZE = "48";
+      XCURSOR_SIZE = "32";
     };
 
     systemPackages = with pkgs; [
