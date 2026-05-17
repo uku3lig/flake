@@ -1,4 +1,9 @@
-{ config, _utils, ... }:
+{
+  pkgs,
+  config,
+  _utils,
+  ...
+}:
 let
   envFile = _utils.setupSingleSecret config "paperlessEnv" { };
 in
@@ -7,6 +12,10 @@ in
 
   services.paperless = {
     enable = true;
+    package = pkgs.paperless-ngx.overrideAttrs {
+      doCheck = false;
+      doInstallCheck = false;
+    };
     domain = "paper.uku3lig.net";
 
     environmentFile = envFile.path;
