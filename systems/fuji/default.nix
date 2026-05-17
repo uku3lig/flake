@@ -16,6 +16,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    qbittorrent
     ritornello.packages.${system}.ritornello
     ryubing
     wineWow64Packages.waylandFull
