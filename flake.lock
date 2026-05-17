@@ -399,11 +399,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769956134,
-        "narHash": "sha256-x/K8h588diQWQkDOsbIgdaVem67rdlpI2r8UcpikPLQ=",
-        "rev": "63c1c963878536ae70f7772816a26ce74266d5fb",
+        "lastModified": 1779010510,
+        "narHash": "sha256-+VIXJEz43pOFrfIQOTySG2RGawHp0G14Ib6InxNlZAU=",
+        "rev": "51538af81674d2602a7409ab95178f4410fc4f5c",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/ukubot-ts/archive/63c1c963878536ae70f7772816a26ce74266d5fb.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/ukubot-ts/archive/51538af81674d2602a7409ab95178f4410fc4f5c.tar.gz"
       },
       "original": {
         "type": "tarball",
