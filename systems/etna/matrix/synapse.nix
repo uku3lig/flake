@@ -109,4 +109,6 @@ in
       # };
     };
   };
+
+  users.users.matrix-synapse.extraGroups = [ "mautrix-discord" ];
 }
