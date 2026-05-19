@@ -49,6 +49,16 @@ in
       enable = true;
       scheduler = "scx_lavd";
     };
+
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_18;
+      authentication = ''
+        local all postgres peer
+        local all leo peer
+        local all all md5
+      '';
+    };
   };
 
   systemd.network = {
