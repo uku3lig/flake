@@ -14,6 +14,7 @@
 
     ../programs/ghostty.nix
     ../programs/java.nix
+    ../programs/mpv.nix
     ../programs/neovim/neovide.nix
   ];
 
@@ -49,7 +50,6 @@
       gimp3
       gparted
       idea-wrapped
-      mpv
       obsidian
       resources
       showtime
