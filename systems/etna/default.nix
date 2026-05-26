@@ -65,7 +65,7 @@ in
     ./forgejo.nix
     ./immich.nix
     ./jellyfin.nix
-    ./memos.nix
+    ./memos
     ./metrics.nix
     ./minecraft.nix
     ./paperless.nix
