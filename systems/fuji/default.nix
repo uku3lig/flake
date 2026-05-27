@@ -59,6 +59,19 @@ in
         local all all md5
       '';
     };
+
+    udev.extraRules = ''
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="03eb", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="1532", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="19f5", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="352d", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="3434", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="362d", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="373b", MODE="0660", GROUP="input"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="372e", MODE="0660", GROUP="input"
+    '';
   };
 
   systemd.network = {
