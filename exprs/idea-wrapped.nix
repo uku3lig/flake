@@ -21,6 +21,7 @@
   pciutils,
   pipewire,
   udev,
+  vulkan-loader,
   xrandr,
 }:
 let
@@ -54,6 +55,7 @@ symlinkJoin {
         libXext
         libXrandr
         libXxf86vm
+        vulkan-loader
 
         udev # oshi
         flite # tts
