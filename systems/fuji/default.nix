@@ -16,6 +16,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    picard
     qbittorrent
     ritornello.packages.${system}.ritornello
     ryubing
