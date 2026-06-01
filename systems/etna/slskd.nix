@@ -7,7 +7,6 @@ in
 
   services.slskd = {
     enable = true;
-    domain = "slsk.uku.moe";
     environmentFile = envFile.path;
     openFirewall = true;
 
