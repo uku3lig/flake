@@ -30,8 +30,6 @@ in
   };
 
   services.nginx.virtualHosts."nit.uku.moe" = {
-    forceSSL = true;
-    useACMEHost = "vps.uku3lig.net";
     locations."/" = {
       proxyPass = "http://unix:${config.services.anubis.instances.nitter.settings.BIND}";
       recommendedProxySettings = true;

@@ -1,47 +1,29 @@
 # vim: foldmethod=marker
 {
-  lib,
   config,
   _utils,
   ...
 }:
 let
   anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
-
-  _vhost =
-    a:
-    lib.mkMerge [
-      a
-      {
-        forceSSL = true;
-        useACMEHost = "vps.uku3lig.net";
-      }
-    ];
 in
 {
   services.nginx = {
     enable = true;
-    recommendedOptimisation = true;
-    recommendedProxySettings = true;
-    recommendedBrotliSettings = true;
-
-    commonHttpConfig = ''
-      access_log off;
-    '';
 
     virtualHosts = {
       # default server
       "vps.uku3lig.net" = {
         default = true;
         addSSL = true;
-        useACMEHost = "vps.uku3lig.net";
+        forceSSL = false;
         locations."/".return = "404";
       };
 
       # === everything below this line is for services hosted on etna ===
 
       # api {{{
-      "api.uku3lig.net" = _vhost {
+      "api.uku3lig.net" = {
         locations = {
           "/".proxyPass = "http://etna:5000";
           "/tiers".return = "404";
@@ -50,13 +32,13 @@ in
       # }}}
 
       # cobalt: {{{
-      "cobalt.uku3lig.net" = _vhost {
+      "cobalt.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:9000";
       };
       # }}}
 
       # forgejo: {{{
-      "git.uku3lig.net" = _vhost {
+      "git.uku3lig.net" = {
         locations."/".proxyPass = "http://unix:${anubisBind "forgejo"}";
 
         extraConfig = ''
@@ -66,7 +48,7 @@ in
       # }}}
 
       # immich {{{
-      "im.uku.moe" = _vhost {
+      "im.uku.moe" = {
         locations."/" = {
           proxyPass = "http://etna:2283";
           proxyWebsockets = true;
@@ -82,23 +64,23 @@ in
       # }}}
 
       # jellyfin: {{{
-      "jellyfin.uku3lig.net" = _vhost {
+      "jellyfin.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:8096";
       };
       # }}}
 
       # memos {{{
-      "memos.uku3lig.net" = _vhost {
+      "memos.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:5230";
       };
       # }}}
 
       # metrics {{{
-      "grafana.uku3lig.net" = _vhost {
+      "grafana.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:2432";
       };
 
-      "metrics.uku3lig.net" = _vhost {
+      "metrics.uku3lig.net" = {
         # This is strictly a write-only exposure so anything else can explod.
         locations."/".return = "444";
         locations."~* /api/.*/write".proxyPass = "http://etna:9089";
@@ -106,7 +88,7 @@ in
       # }}}
 
       # paperless-ngx {{{
-      "paper.uku3lig.net" = _vhost {
+      "paper.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:28981";
 
         extraConfig = ''
@@ -116,7 +98,7 @@ in
       # }}}
 
       # reposilite {{{
-      "maven.uku3lig.net" = _vhost {
+      "maven.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:8080";
 
         extraConfig = ''
@@ -126,19 +108,19 @@ in
       # }}}
 
       # shlink {{{
-      "uku.moe" = _vhost {
+      "uku.moe" = {
         locations."/".proxyPass = "http://etna:8081";
       };
       # }}}
 
       # slskd {{{
-      "slsk.uku.moe" = _vhost {
+      "slsk.uku.moe" = {
         locations."/".proxyPass = "http://etna:5030";
       };
       # }}}
 
       # synapse {{{
-      "rei.uku.moe" = _vhost {
+      "rei.uku.moe" = {
         locations = {
           "=/.well-known/matrix/server" = _utils.mkNginxJson {
             "m.server" = "rei.uku.moe:443";
@@ -174,19 +156,19 @@ in
         };
       };
 
-      "auth.rei.uku.moe" = _vhost {
+      "auth.rei.uku.moe" = {
         locations."/".proxyPass = "http://etna:8010";
       };
       # }}}
 
       # vaultwarden {{{
-      "bw.uku3lig.net" = _vhost {
+      "bw.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:8222";
       };
       # }}}
 
       # zipline {{{
-      "zipline.uku3lig.net" = _vhost {
+      "zipline.uku3lig.net" = {
         serverAliases = [ "v.uku.moe" ];
         locations."/".proxyPass = "http://etna:3001";
 
@@ -197,6 +179,11 @@ in
       # }}}
     };
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   # we depend on etna, which makes nginx fail if it's started before tailscale
   systemd.services.nginx.after = [ "tailscaled.service" ];

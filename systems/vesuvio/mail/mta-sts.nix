@@ -1,8 +1,6 @@
 { _utils, ... }:
 {
   services.nginx.virtualHosts."mta-sts.uku3lig.net" = {
-    forceSSL = true;
-    useACMEHost = "vps.uku3lig.net";
     serverAliases = [ "mta-sts.uku.moe" ];
 
     locations."/.well-known/" = _utils.mkNginxFile {

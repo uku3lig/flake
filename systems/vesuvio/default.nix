@@ -30,10 +30,7 @@
     # };
   };
 
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-  ];
+  networking.fqdn = "vps.uku3lig.net";
 
   # https://discourse.nixos.org/t/qemu-guest-agent-on-hetzner-cloud-doesnt-work/8864/2
   systemd.services.qemu-guest-agent.path = [ pkgs.shadow ];

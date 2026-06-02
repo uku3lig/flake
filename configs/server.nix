@@ -12,6 +12,9 @@ in
 {
   imports = [
     ./common.nix
+
+    ../modules/nginx.nix
+
     secrets.generate
   ];
 

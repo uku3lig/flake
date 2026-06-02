@@ -39,6 +39,9 @@
 
   services.nginx.virtualHosts = {
     "acme.uku3lig.net" = {
+      forceSSL = false;
+      useACMEHost = null;
+
       serverAliases = [
         "*.uku3lig.net"
         "*.uku.moe"

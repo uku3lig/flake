@@ -6,6 +6,7 @@
 }:
 let
   envFile = _utils.setupSingleSecret config "pocketIdEnv" { };
+  cfg = config.services.pocket-id;
 in
 {
   imports = [
@@ -25,12 +26,7 @@ in
     };
 
     nginx.virtualHosts."pocket.uku.moe" = {
-      forceSSL = true;
-      useACMEHost = "vps.uku3lig.net";
-      locations."/" = {
-        proxyPass = "http://localhost:${toString config.services.pocket-id.settings.PORT}";
-        recommendedProxySettings = true;
-      };
+      locations."/".proxyPass = "http://localhost:${toString cfg.settings.PORT}";
     };
   };
 
