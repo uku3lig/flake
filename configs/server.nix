@@ -19,7 +19,7 @@ in
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_6_18;
 
     # mitigate CVE-2026-31431
     extraModprobeConfig = ''
