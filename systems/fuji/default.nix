@@ -2,6 +2,7 @@
   pkgs,
   _utils,
   ritornello,
+  topinambour,
   ...
 }:
 let
@@ -20,6 +21,7 @@ in
     qbittorrent
     ritornello.packages.${system}.ritornello
     ryubing
+    topinambour.packages.${system}.topinambour
     wineWow64Packages.waylandFull
   ];
 

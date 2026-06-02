@@ -160,5 +160,11 @@
       inputs.crane.follows = "crane";
       inputs.flake-parts.follows = "flake-parts";
     };
+
+    topinambour = {
+      url = "https://git.uku3lig.net/uku/topinambour/archive/1.0.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 }

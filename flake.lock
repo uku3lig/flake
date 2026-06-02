@@ -330,6 +330,7 @@
         "ritornello": "ritornello",
         "rust-overlay": "rust-overlay",
         "systems": "systems",
+        "topinambour": "topinambour",
         "treefmt-nix": "treefmt-nix",
         "ukubot-ts": "ukubot-ts"
       }
@@ -367,6 +368,27 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "topinambour": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780432725,
+        "narHash": "sha256-stjEdOUFbO0sCR3uezKUP4EKvmrVloXAijxk3Tnlpl8=",
+        "rev": "cc19567a069f12ef994f4f6817ea80f942ad3ef0",
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/topinambour/archive/cc19567a069f12ef994f4f6817ea80f942ad3ef0.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/uku/topinambour/archive/1.0.0.tar.gz"
       }
     },
     "treefmt-nix": {
