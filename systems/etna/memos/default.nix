@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services.memos = {
     enable = true;
@@ -22,5 +22,10 @@
         ensureDBOwnership = true;
       }
     ];
+  };
+
+  systemd.services.memos.serviceConfig = {
+    Restart = "always";
+    RestartSec = lib.mkForce "5s";
   };
 }
