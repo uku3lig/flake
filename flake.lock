@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779667284,
-        "narHash": "sha256-gWw+Ku73C+D8/BQxm17Aa3tR7XsBjT+n+uSwLpJsVAI=",
-        "rev": "34cb0741915309179365ffe768795656b045d945",
+        "lastModified": 1780387876,
+        "narHash": "sha256-k/vl72l4adIjv+UrlGUAuzlNWydxs6aAalDm/em2XjM=",
+        "rev": "558ca3b860eaf9d9ba0d4672d85828c652c070e4",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/34cb0741915309179365ffe768795656b045d945.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/558ca3b860eaf9d9ba0d4672d85828c652c070e4.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -341,11 +341,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780284119,
-        "narHash": "sha256-y2wR4Mk6D/N1ID4FZa2oUMStCUxyIoRzmgOOpLzoWmo=",
+        "lastModified": 1780370483,
+        "narHash": "sha256-7mDa7OBAaf7MU6ZovT9ENfD62kH911SsSazBb4KTDF0=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "51390d0bfca0a68a8c337d215a4bbeddc2ca616e",
+        "rev": "4a408e1fc99ad517b4cb402fd0de7464f40c05e1",
         "type": "github"
       },
       "original": {
