@@ -76,7 +76,7 @@ in
               }
             ];
           }
-          (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe/uku3lig")
+          (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe")
           (mkHttpEndpoint "Roundcube" "vesuvio" "https://mail.uku3lig.net")
         ];
       };
