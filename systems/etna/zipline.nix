@@ -28,5 +28,8 @@ in
   systemd.services.zipline.serviceConfig = {
     ReadWritePaths = [ "/data/zipline" ];
     ProtectProc = lib.mkForce "default";
+
+    Restart = "always";
+    RestartSec = "5s";
   };
 }
