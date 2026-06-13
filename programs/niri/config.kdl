@@ -100,7 +100,7 @@ binds {
     Mod+Shift+Colon { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open Ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open Ghostty" { spawn "ghostty" "+new-window"; }
     Mod+D hotkey-overlay-title="Open application picker" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
 

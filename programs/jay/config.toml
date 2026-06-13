@@ -109,7 +109,7 @@ shift-logo-space = "toggle-floating"
 # a string. More complex actions take parameters and are written as a table.
 # For example, the exec action spawns an application and has the exec field
 # that describes how to spawn the application.
-logo-Return = { type = "exec", exec = "ghostty" }
+logo-Return = { type = "exec", exec = ["ghostty", "+new-window"] }
 logo-d = { type = "exec", exec = "fuzzel" }
 
 # The quit action terminates the compositor.
