@@ -71,7 +71,11 @@ in
 
       # memos {{{
       "memos.uku3lig.net" = {
-        locations."/".proxyPass = "http://etna:5230";
+        locations = {
+          "/".proxyPass = "http://etna:5230";
+          "/api/v1/".proxyPass = "http://etna:5231";
+          "/o/r/".proxyPass = "http://etna:5231";
+        };
       };
       # }}}
 

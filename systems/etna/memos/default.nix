@@ -1,8 +1,22 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+let
+  mortis = pkgs.callPackage ./mortis.nix { };
+  # NixOS/nixpkgs#531428
+  memos = pkgs.memos.overrideAttrs (f: {
+    ldflags = [
+      "-X github.com/usememos/memos/internal/version.Version=${f.version}"
+    ];
+  });
+in
 {
   services.memos = {
     enable = true;
-    package = pkgs.callPackage ./package.nix { };
+    package = memos;
 
     settings = {
       MEMOS_ADDR = "0.0.0.0";
@@ -24,8 +38,20 @@
     ];
   };
 
-  systemd.services.memos.serviceConfig = {
-    Restart = "always";
-    RestartSec = lib.mkForce "5s";
+  systemd.services = {
+    memos.serviceConfig = {
+      Restart = "always";
+      RestartSec = lib.mkForce "5s";
+    };
+
+    mortis = {
+      wantedBy = [ "default.target" ];
+
+      serviceConfig = {
+        ExecStart = "${lib.getExe mortis} -port 5231 -grpc-addr 127.0.0.1:${config.services.memos.settings.MEMOS_PORT}";
+        Restart = "always";
+        RestartSec = "5s";
+      };
+    };
   };
 }
