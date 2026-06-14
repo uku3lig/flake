@@ -59,7 +59,8 @@
       tyrolienne
       vesktop
       vscode
-      zed-editor-fhs
+
+      (zed-editor.fhsWithPackages (p: with p; [ nixfmt ]))
 
       (signal-desktop.overrideAttrs {
         postInstall = ''
