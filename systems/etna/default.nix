@@ -69,6 +69,7 @@ in
     ./metrics.nix
     ./minecraft.nix
     ./paperless.nix
+    ./radicale.nix
     ./reposilite.nix
     ./satisfactory.nix
     ./share.nix

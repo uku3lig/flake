@@ -21,6 +21,7 @@ in
       };
 
       # === everything below this line is for services hosted on etna ===
+      # don't forget to add new domains to certificates.nix
 
       # api {{{
       "api.uku3lig.net" = {
@@ -98,6 +99,12 @@ in
         extraConfig = ''
           client_max_body_size 100M;
         '';
+      };
+      # }}}
+
+      # radicale {{{
+      "dav.uku3lig.net" = {
+        locations."/".proxyPass = "http://etna:5232";
       };
       # }}}
 
