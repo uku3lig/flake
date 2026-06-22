@@ -6,8 +6,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "LeaPhant";
       repo = "mautrix-discord";
-      rev = "4d3f0a0b5800967c18b3a1d7149a7290c4b9d745";
-      hash = "sha256-/EZ2PCK6KYnLjKrpuvzutav7nxnh4qnnbg3iR+sWjeI=";
+      rev = "d94ba03ef40defc76c24a23a83ededc8ee1b9d08";
+      hash = "sha256-59FOzCeOWzO46j/zKqMCac+j0WvzEpNr3cg47D+gqQQ=";
     };
   };
 in
