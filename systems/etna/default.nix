@@ -76,7 +76,7 @@ in
     ./shlink.nix
     ./slskd.nix
     ./uku.nix
-    # ./ups.nix
+    ./ups.nix
     ./vaultwarden.nix
     ./zipline.nix
   ];
