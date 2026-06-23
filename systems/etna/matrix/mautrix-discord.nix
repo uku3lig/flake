@@ -1,14 +1,16 @@
 { pkgs, config, ... }:
 let
   mautrix-discord-lea = pkgs.mautrix-discord.overrideAttrs {
-    version = "0.7.6-unstable-2026-05-18";
+    version = "0.7.6-unstable-2026-06-23";
 
     src = pkgs.fetchFromGitHub {
       owner = "LeaPhant";
       repo = "mautrix-discord";
-      rev = "d94ba03ef40defc76c24a23a83ededc8ee1b9d08";
-      hash = "sha256-59FOzCeOWzO46j/zKqMCac+j0WvzEpNr3cg47D+gqQQ=";
+      rev = "3ad936795da1487a3a9f870bbb323870220ae926";
+      hash = "sha256-Fqnv7SCeWLufKrz5r4t/gV2WBpv0QeBiltVWLOLis88=";
     };
+
+    vendorHash = "sha256-5bjhjvNBnftKqeASrAYjsQNfuz5xQlP6ibcCue6Z2/4=";
   };
 in
 {
