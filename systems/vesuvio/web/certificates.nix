@@ -24,6 +24,7 @@
 
       "uku.moe"
       "auth.rei.uku.moe"
+      "discord-media.rei.uku.moe"
       "im.uku.moe"
       "nit.uku.moe"
       "pocket.uku.moe"

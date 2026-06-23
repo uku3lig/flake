@@ -170,6 +170,10 @@ in
       "auth.rei.uku.moe" = {
         locations."/".proxyPass = "http://etna:8010";
       };
+
+      "discord-media.rei.uku.moe" = {
+        locations."/".proxyPass = "http://etna:29334";
+      };
       # }}}
 
       # vaultwarden {{{

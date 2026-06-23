@@ -30,12 +30,23 @@ in
         domain = config.services.matrix-synapse.settings.server_name;
       };
 
+      appservice = {
+        address = "http://localhost:29334";
+        hostname = "0.0.0.0";
+        port = 29334;
+      };
+
       database = {
         type = "postgres";
         uri = "postgres:///mautrix-discord?host=/var/run/postgresql";
       };
 
       bridge = {
+        public_address = "https://discord-media.rei.uku.moe";
+        direct_media = {
+          enabled = true;
+          server_name = "discord-media.rei.uku.moe";
+        };
         disable_reply_mention = true;
         permissions = {
           "*" = "relay";
