@@ -1,19 +1,28 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  _utils,
+  ...
+}:
 let
   mautrix-discord-lea = pkgs.mautrix-discord.overrideAttrs {
-    version = "0.7.6-unstable-2026-06-23";
+    version = "0.7.6-unstable-2026-06-24";
 
     src = pkgs.fetchFromGitHub {
       owner = "LeaPhant";
       repo = "mautrix-discord";
-      rev = "3ad936795da1487a3a9f870bbb323870220ae926";
-      hash = "sha256-Fqnv7SCeWLufKrz5r4t/gV2WBpv0QeBiltVWLOLis88=";
+      rev = "36dba1447d31cd339dee981a26198730e8e4adb9";
+      hash = "sha256-VVoFItRZr+zHTYB/VrqRH1SqK00rCuYJF3kRq9OVWMA=";
     };
 
     vendorHash = "sha256-5bjhjvNBnftKqeASrAYjsQNfuz5xQlP6ibcCue6Z2/4=";
   };
+
+  envFile = _utils.setupSingleSecret config "mautrixDiscordEnv" { };
 in
 {
+  imports = [ envFile.generate ];
+
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
   ];
@@ -23,6 +32,7 @@ in
     package = mautrix-discord-lea;
 
     registerToSynapse = true;
+    environmentFile = envFile.path;
 
     settings = {
       homeserver = {
@@ -43,11 +53,19 @@ in
 
       bridge = {
         public_address = "https://discord-media.rei.uku.moe";
+        disable_reply_mention = true;
+
         direct_media = {
           enabled = true;
           server_name = "discord-media.rei.uku.moe";
         };
-        disable_reply_mention = true;
+
+        emoji_application = {
+          enabled = true;
+          app_id = "$DISCORD_APP_ID";
+          app_token = "$DISCORD_APP_TOKEN";
+        };
+
         permissions = {
           "*" = "relay";
           "@uku:rei.uku.moe" = "admin";

@@ -66,6 +66,7 @@ mkSecrets {
     "masClientSecret"
     "masExtraConfig"
     "masSharedSecret"
+    "mautrixDiscordEnv"
     "minecraftEnv"
     "navidromeEnv"
     "nextcloudAdminPass"
