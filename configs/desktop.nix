@@ -89,7 +89,6 @@
 
   fonts = {
     packages = with pkgs; [
-      cantarell-fonts
       inter
       iosevka-bin
       jetbrains-mono
