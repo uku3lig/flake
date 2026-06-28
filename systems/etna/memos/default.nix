@@ -6,17 +6,10 @@
 }:
 let
   mortis = pkgs.callPackage ./mortis.nix { };
-  # NixOS/nixpkgs#531428
-  memos = pkgs.memos.overrideAttrs (f: {
-    ldflags = [
-      "-X github.com/usememos/memos/internal/version.Version=${f.version}"
-    ];
-  });
 in
 {
   services.memos = {
     enable = true;
-    package = memos;
 
     settings = {
       MEMOS_ADDR = "0.0.0.0";
