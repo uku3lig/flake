@@ -44,7 +44,6 @@ in
         libxkbcommon
         libxt
         libxinerama
-        wayland
       ];
 
       jdks = [
