@@ -22,11 +22,6 @@ in
 {
   imports = [ ./mcsr ];
 
-  hardware = {
-    xone.enable = true;
-    xpadneo.enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
     avidemux
     gamescope
