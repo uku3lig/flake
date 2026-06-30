@@ -12,20 +12,13 @@ let
     ];
     # group to avoid conflict with synapse, which also needs the shared secret
     extra = {
-      group = "matrix-authentication-service";
+      group = "matrix-synapse";
       mode = "440";
     };
-  };
-
-  module = builtins.fetchurl {
-    url = "https://github.com/hatch01/nixpkgs/raw/dce0855b56275af205af3b463bc33380c28aef36/nixos/modules/services/matrix/matrix-authentication-service.nix";
-    sha256 = "0z3s70rm7x8gpi8hzyrhby6z4d32g1kpxw59793d7sa86vxx4qi1";
   };
 in
 {
   imports = [
-    module
-
     secrets.generate
   ];
 
@@ -110,5 +103,9 @@ in
 
       email.transport = "blackhole";
     };
+  };
+
+  systemd.services.matrix-authentication-service.serviceConfig = {
+    Group = "matrix-synapse";
   };
 }
