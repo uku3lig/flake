@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     git
     gh
+    lazygit
   ];
 
   hj = {
@@ -37,6 +38,10 @@
     ".config/gh/config.yml".text = lib.generators.toYAML { } {
       version = "1";
       settings.git_protocol = "ssh";
+    };
+
+    ".config/lazygit/config.yml".text = lib.generators.toYAML { } {
+      git.autoFetch = false;
     };
   };
 }

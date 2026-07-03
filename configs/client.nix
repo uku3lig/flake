@@ -19,7 +19,6 @@
       ffmpeg-full
       fastfetch
       imagemagick
-      lazygit
       nixd
     ];
 
