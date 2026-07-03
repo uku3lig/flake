@@ -10,11 +10,6 @@ let
       "masExtraConfig"
       "masSharedSecret"
     ];
-    # group to avoid conflict with synapse, which also needs the shared secret
-    extra = {
-      group = "matrix-synapse";
-      mode = "440";
-    };
   };
 in
 {
@@ -25,7 +20,7 @@ in
   services.matrix-authentication-service = {
     enable = true;
     createDatabase = true;
-    extraConfigFiles = [ (secrets.get "masExtraConfig") ];
+    extraConfigFiles = [ (secrets.credPath "masExtraConfig") ];
 
     settings = {
       http = {
@@ -63,7 +58,7 @@ in
         homeserver = config.services.matrix-synapse.settings.server_name;
         kind = "synapse";
         endpoint = "http://localhost:8009";
-        secret_file = secrets.get "masSharedSecret";
+        secret_file = secrets.credPathHardcoded "masSharedSecret" "matrix-authentication-service";
       };
 
       upstream_oauth2.providers = [
@@ -73,7 +68,7 @@ in
           human_name = "Pocket ID";
           issuer = "https://pocket.uku.moe";
           client_id = "8dfc700d-7583-4c67-bf22-cc5bd1979699";
-          client_secret_file = secrets.get "masClientSecret";
+          client_secret_file = secrets.credPathHardcoded "masClientSecret" "matrix-authentication-service";
           token_endpoint_auth_method = "client_secret_basic";
           scope = "openid profile";
           claims_imports = {
@@ -106,6 +101,10 @@ in
   };
 
   systemd.services.matrix-authentication-service.serviceConfig = {
-    Group = "matrix-synapse";
+    LoadCredential = [
+      (secrets.loadCred "masExtraConfig")
+      (secrets.loadCred "masClientSecret")
+      (secrets.loadCred "masSharedSecret")
+    ];
   };
 }

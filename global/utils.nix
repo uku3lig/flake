@@ -13,7 +13,11 @@
       generate = {
         age.secrets = lib.genAttrs secrets (name: extra // { file = ../secrets/${hostName}/${name}.age; });
       };
+
       get = name: _config.age.secrets.${name}.path;
+      loadCred = name: "${name}:${_config.age.secrets.${name}.path}";
+      credPath = name: "\${CREDENTIALS_DIRECTORY}/${name}";
+      credPathHardcoded = name: service: "/run/credentials/${service}.service/${name}";
     };
 
   setupSingleSecret =
@@ -27,7 +31,11 @@
           file = ../secrets/${hostName}/${name}.age;
         };
       };
+
       inherit (_config.age.secrets.${name}) path;
+      loadCred = "${name}:${_config.age.secrets.${name}.path}";
+      credPath = "\${CREDENTIALS_DIRECTORY}/${name}";
+      credPathHardcoded = service: "/run/credentials/${service}.service/${name}";
     };
 
   setupSharedSecrets =
@@ -103,6 +111,7 @@
   };
 
   # shamelessly stolen from soopyc's gensokyo
+  # https://patchy.soopy.moe/cassie/gensokyo
   mkNginxFile =
     {
       filename ? "index.html",
@@ -113,8 +122,8 @@
       # gets the store path of the directory in which the file is contained
       # we have to use writeTextDir because we don't want to expose the whole nix store to nginx
       # and because you can't just return an absolute path to a file
-      alias = builtins.toString (pkgs.writeTextDir filename content) + "/";
-      tryFiles = "${filename} =${builtins.toString status}";
+      alias = toString (pkgs.writeTextDir filename content) + "/";
+      tryFiles = "${filename} =${toString status}";
     };
 
   mkNginxJson = json: {
@@ -175,7 +184,7 @@
 
           importantFields = filterAttrs isImportantField allFields;
 
-          fields = builtins.removeAttrs allFields (mapAttrsToList (n: _: n) importantFields);
+          fields = removeAttrs allFields (mapAttrsToList (n: _: n) importantFields);
         in
         mkFields importantFields
         + concatStringsSep "\n" (mapAttrsToList mkSection sections)
