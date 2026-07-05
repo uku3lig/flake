@@ -57,7 +57,7 @@
       tauon
       thunderbird
       tyrolienne
-      (vesktop.override { pnpm_10_29_2 = pnpm_10; })
+      vesktop
       vscode
 
       (zed-editor.fhsWithPackages (p: with p; [ nixfmt ]))
