@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   _utils,
   ...
@@ -20,7 +21,7 @@ in
   services.matrix-authentication-service = {
     enable = true;
     createDatabase = true;
-    extraConfigFiles = [ (secrets.credPath "masExtraConfig") ];
+    extraConfigFiles = [ (secrets.get "masExtraConfig") ];
 
     settings = {
       http = {
@@ -102,9 +103,15 @@ in
 
   systemd.services.matrix-authentication-service.serviceConfig = {
     LoadCredential = [
-      (secrets.loadCred "masExtraConfig")
       (secrets.loadCred "masClientSecret")
       (secrets.loadCred "masSharedSecret")
     ];
+
+    # eymeric un jour j'aurai ta peau
+    ExecStart = lib.mkForce ''
+      ${lib.getExe config.services.matrix-authentication-service.package} server \
+        --config /run/matrix-authentication-service/config.yaml \
+        --config %d/config-0
+    '';
   };
 }
