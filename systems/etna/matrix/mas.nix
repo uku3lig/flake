@@ -106,12 +106,5 @@ in
       (secrets.loadCred "masClientSecret")
       (secrets.loadCred "masSharedSecret")
     ];
-
-    # eymeric un jour j'aurai ta peau
-    ExecStart = lib.mkForce ''
-      ${lib.getExe config.services.matrix-authentication-service.package} server \
-        --config /run/matrix-authentication-service/config.yaml \
-        --config %d/config-0
-    '';
   };
 }
