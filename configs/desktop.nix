@@ -68,6 +68,8 @@
         '';
       })
 
+      camascaPkgs.helium-bin
+
       adwaita-icon-theme
       bibata-cursors
       (camascaPkgs.project-sekai-cursors.override { character = "N25 Miku"; })
