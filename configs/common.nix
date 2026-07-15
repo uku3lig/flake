@@ -148,6 +148,7 @@ in
       log-lines = 25;
       min-free = 512 * 1024 * 1024; # if free space drops under min, gc
       flake-registry = ""; # disable the global flake registry
+      http3 = true;
 
       substituters = [
         "https://uku3lig.cachix.org"
