@@ -81,7 +81,6 @@ in
   };
 
   hjem = {
-    linker = hjem.packages.${system}.smfh;
     clobberByDefault = true;
     users.leo.files = {
       ".ssh/config".text = ''
