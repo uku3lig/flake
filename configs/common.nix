@@ -9,25 +9,22 @@
   hjem,
   nixpkgs,
   nix-index-database,
-  jay,
+  sops-nix,
   ...
 }:
 let
   rootPassword = _utils.setupSingleSecret config "rootPassword" { };
-  secrets = _utils.setupSharedSecrets config {
-    secrets = [ "userPassword" ];
-  };
 in
 {
   imports = [
     agenix.nixosModules.default
     hjem.nixosModules.default
     nix-index-database.nixosModules.nix-index
+    sops-nix.nixosModules.sops
 
     (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" username "files" ])
 
     rootPassword.generate
-    secrets.generate
 
     ../programs/fish.nix
     ../programs/git.nix
@@ -36,6 +33,13 @@ in
   age = {
     ageBin = lib.getExe pkgs.rage;
     identityPaths = [ "/etc/age/key" ];
+  };
+
+  sops = {
+    defaultSopsFile = ../secrets-sops/global/default.yml;
+    age.keyFile = "/etc/age/key";
+
+    secrets.user_password.neededForUsers = true;
   };
 
   boot = {
@@ -161,7 +165,7 @@ in
   nixpkgs = {
     config.allowUnfree = true;
     flake.setNixPath = false;
-    overlays = [ (import ../exprs/overlay.nix { inherit jay; }) ];
+    overlays = [ (import ../exprs/overlay.nix { }) ];
   };
 
   programs = {
@@ -225,7 +229,7 @@ in
         "input"
         "vboxusers"
       ];
-      hashedPasswordFile = secrets.get "userPassword";
+      hashedPasswordFile = config.sops.secrets.user_password.path;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+7+KfdOrhcnHayxvOENUeMx8rE4XEIV/AxMHiaNUP8" # computer key
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICWQejw/9aFQWrlIUF5/q3WFsqYR086R3pU0W+8+iaEE" # termius key

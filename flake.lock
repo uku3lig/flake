@@ -299,6 +299,7 @@
         "nixpkgs": "nixpkgs",
         "ritornello": "ritornello",
         "rust-overlay": "rust-overlay",
+        "sops-nix": "sops-nix",
         "topinambour": "topinambour",
         "treefmt-nix": "treefmt-nix",
         "ukubot-ts": "ukubot-ts"
@@ -321,6 +322,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791103873,
+        "narHash": "sha256-nFxM+pKoZ8LJAEnUXARyCaOAloWgaW9kZQOSjWzKcTE=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "dcd241ba97088c22569d1573286e1b9daad340c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },

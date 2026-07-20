@@ -31,8 +31,11 @@
               agenix.packages.${system}.default
               just
               nix-output-monitor
+              sops
               statix
             ];
+
+            env.SOPS_AGE_KEY_FILE = "/etc/age/key";
           };
 
           treefmt = {
@@ -115,6 +118,11 @@
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
