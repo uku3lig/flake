@@ -35,11 +35,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783975754,
-        "narHash": "sha256-1uf5JkszlsmdVRCIwLzft602uaLeACGX6JwigArPRDs=",
+        "lastModified": 1784584168,
+        "narHash": "sha256-mqbrnzJW/+IL134YJAxwyma9wu9AWva2Yg3viZPI42A=",
         "owner": "uku3lig",
         "repo": "api-rs",
-        "rev": "2370c16beec9f4fbaaf17b0acd91db1894f47f71",
+        "rev": "b9ed26946539617481915b5dcc627469911f7f00",
         "type": "github"
       },
       "original": {
@@ -55,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784121137,
-        "narHash": "sha256-asnGsrnPOHDfisJtn35k6/4EmgzHFQpzlsZY363A3Fk=",
-        "rev": "b9e1d06130fd30067923b7fec683d6d6b0004435",
+        "lastModified": 1784505688,
+        "narHash": "sha256-tka5WX5ayVz3G920X4YLi0HfONeF/h8dwiIvC+s8yuU=",
+        "rev": "1c5ea4b50325fec6109564fc63ebe0c198aa2e9a",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/b9e1d06130fd30067923b7fec683d6d6b0004435.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/1c5ea4b50325fec6109564fc63ebe0c198aa2e9a.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -68,11 +68,11 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1784407669,
-        "narHash": "sha256-gcFMcRjw0ZSn380Rx2QLlU1goUQeSrKX/DF12omI6+o=",
+        "lastModified": 1784564969,
+        "narHash": "sha256-TkTWNhJV/8Wk3czlbz4bwHZkFCaCHPsOy+oJe4PUiXg=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "1316b7d278ad77a16aec024b71d971366e123bec",
+        "rev": "7930f6c291de6f83c257839d434592aa085f290a",
         "type": "github"
       },
       "original": {
@@ -148,11 +148,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784518440,
-        "narHash": "sha256-oRa9hS/Mrw0ENKar89vej8A8B2t62klF6Bh83NgaUnw=",
+        "lastModified": 1784863844,
+        "narHash": "sha256-TP85ZCHVRvOjS2Y1kutzW5EcBdrpgwAwot8FNrnho5s=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "da98f49312a31468137759756319324cdfb47f98",
+        "rev": "8a9d82fabc2ebb2cda02458d3f8f60df82a460e5",
         "type": "github"
       },
       "original": {
@@ -175,11 +175,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783496806,
-        "narHash": "sha256-6B6CQUk1dPc8l/+otaGiYbuX8qeX/0VmSUQ+qSn0/uA=",
+        "lastModified": 1784568171,
+        "narHash": "sha256-t17AqLEhPG6m27ipkp8mJd8Ug0XkdANFDVsgyIFBZcQ=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "6183ac79eadb079a1e72fa2c60915601be669100",
+        "rev": "f4b0aef3dba28677a5ca4b3416827aade60b5a0b",
         "type": "github"
       },
       "original": {
@@ -198,11 +198,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783612223,
-        "narHash": "sha256-i4u73+Y4/g1tYanrX5xA0VWHtKPahok3n3NEBXBsusE=",
-        "rev": "931a5291203869a69a970b84fad36e812a2b9d07",
+        "lastModified": 1784851070,
+        "narHash": "sha256-peEzI6Rs8g7sqYWPlKywl+qg9Bq1FLYDpc+gEnZBm0g=",
+        "rev": "07e59020fe2f1eb14ec4c1fa59663495e17635c1",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/931a5291203869a69a970b84fad36e812a2b9d07.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/07e59020fe2f1eb14ec4c1fa59663495e17635c1.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -219,11 +219,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1784108916,
-        "narHash": "sha256-7IBc3rK1u2ZaNNTSId5bMch2Dx7YOQAaP53k6cePjeo=",
+        "lastModified": 1784887554,
+        "narHash": "sha256-za2B40v1kmXiUXSd8Ob6bP+3LS7SuXglon8pJ7C/z/o=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "33345655fdcee17413e7627a46b0040a11c2fedc",
+        "rev": "88c9381367626bddc494ba217100d4f99d31629f",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784058842,
-        "narHash": "sha256-3u3tvbCIAid3Mv7RrJx13jusIEQC/HeKYhO/SUSxR3A=",
+        "lastModified": 1784642409,
+        "narHash": "sha256-hcbDqFuySAJawljt5r0sKBCJKYnbtGD0T/ZIozH1Dq0=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "24c8dc8e0f2170e1a377be24dfadc7d9d21dc1ad",
+        "rev": "eaeb18da90024448a60eb1ec7132eafa4003404e",
         "type": "github"
       },
       "original": {
@@ -275,11 +275,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1784497964,
-        "narHash": "sha256-WhdsTtaih3DgTPP/PX023b36UNQyMzEoi6GkPyGx0y4=",
-        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
+        "lastModified": 1784796856,
+        "narHash": "sha256-vwxWgF+Gj276WznzGb1LxGsK/39HaQwgQXiU3EkC844=",
+        "rev": "e2587caef70cea85dd97d7daab492899902dbf5d",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1037713.241313f4e8e5/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1040357.e2587caef70c/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -341,11 +341,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784526465,
-        "narHash": "sha256-L37teKC6oINWG4PGZLIqbphMWvSQ0PEz+aWxAk+rIDw=",
+        "lastModified": 1784870759,
+        "narHash": "sha256-ZaS89rj5u6pygXKDRfCzPMGm7isJxLsSeIAR5EaSyu8=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "58c6334db52d51fc5dd8877c90b01f00cf8a696b",
+        "rev": "471286a5fadc690e2408ad854eb32325f5e74da7",
         "type": "github"
       },
       "original": {
