@@ -9,7 +9,6 @@
   environment = {
     systemPackages = with pkgs; [
       gnome-calculator
-      kdePackages.koi
     ];
 
     plasma6.excludePackages = with pkgs.kdePackages; [
