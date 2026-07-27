@@ -55,6 +55,7 @@ in
           (mkHttpEndpoint "Grafana" "etna" "https://grafana.uku3lig.net")
           (mkHttpEndpoint "Immich" "etna" "https://im.uku.moe")
           (mkHttpEndpoint "Jellyfin" "etna" "https://jellyfin.uku3lig.net/web/")
+          (mkHttpEndpoint "Matrix Authentication Service" "etna" "https://auth.rei.uku.moe/")
           (mkHttpEndpoint "Memos" "etna" "https://memos.uku3lig.net")
           (mkHttpEndpoint "Radicale" "etna" "https://dav.uku3lig.net")
           (mkHttpEndpoint "Reposilite" "etna" "https://maven.uku3lig.net/")
@@ -64,6 +65,8 @@ in
           (mkHttpEndpoint "Vaultwarden" "etna" "https://bw.uku3lig.net")
           (mkHttpEndpoint "Zipline" "etna" "https://zipline.uku3lig.net/dashboard")
 
+          (mkHttpEndpoint "Livekit" "vesuvio" "https://rei.uku.moe/livekit/sfu/")
+          (mkHttpEndpoint "Livekit JWT Service" "vesuvio" "https://rei.uku.moe/livekit/jwt/healthz")
           {
             name = "Maddy";
             group = "vesuvio";
@@ -78,6 +81,7 @@ in
             ];
           }
           (mkHttpEndpoint "Nitter" "vesuvio" "https://nit.uku.moe")
+          (mkHttpEndpoint "Pocket ID" "vesuvio" "https://pocket.uku.moe/login")
           (mkHttpEndpoint "Roundcube" "vesuvio" "https://mail.uku3lig.net")
         ];
       };
