@@ -30,10 +30,10 @@
     libinput.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
+    blueman.enable = true;
   };
 
   # hyprland stuff
-  services.blueman = lib.mkIf config.programs.hyprland.enable { enable = true; };
   hj.".config/hypr/hyprland.conf".text = _utils.toHyprconf {
     exec-once = with pkgs; [
       "${lib.getExe networkmanagerapplet}"
