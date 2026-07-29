@@ -102,6 +102,7 @@ in
   };
 
   systemd.services.matrix-authentication-service.serviceConfig = {
+    RestartSec = lib.mkForce "10s";
     LoadCredential = [
       (secrets.loadCred "masClientSecret")
       (secrets.loadCred "masSharedSecret")
