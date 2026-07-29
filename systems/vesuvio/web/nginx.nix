@@ -192,6 +192,15 @@ in
         '';
       };
       # }}}
+
+      # beer!!!!! {{{
+      "uku3lig.beer" = {
+        locations."/" = {
+          root = "/opt";
+          tryFiles = "/beer.jpg =404";
+        };
+      };
+      # }}}
     };
   };
 

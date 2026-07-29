@@ -36,6 +36,8 @@
       "mail.uku3lig.net"
       "mta-sts.uku3lig.net"
       "mta-sts.uku.moe"
+
+      "uku3lig.beer"
     ];
   };
 
@@ -47,6 +49,7 @@
       serverAliases = [
         "*.uku3lig.net"
         "*.uku.moe"
+        "*.uku3lig.beer"
       ];
 
       locations."/.well-known/acme-challenge".root = config.security.acme.defaults.webroot;
