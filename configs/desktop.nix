@@ -50,10 +50,10 @@
       gimp3
       gparted
       idea-wrapped
+      moonlight-qt
       obsidian
       resources
       showtime
-      strawberry
       tauon
       thunderbird
       tyrolienne
