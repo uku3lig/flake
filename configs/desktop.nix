@@ -153,7 +153,7 @@
 
     mullvad-vpn = {
       enable = true;
-      package = pkgs.mullvad-vpn; # mullvad only has the cli
+      gui.enable = true;
     };
 
     ratbagd.enable = true;
