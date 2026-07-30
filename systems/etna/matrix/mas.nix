@@ -101,7 +101,17 @@ in
     };
   };
 
+  users = {
+    groups.matrix-authentication-service = { };
+    users.matrix-authentication-service = {
+      isSystemUser = true;
+      group = "matrix-authentication-service";
+    };
+  };
+
   systemd.services.matrix-authentication-service.serviceConfig = {
+    User = "matrix-authentication-service";
+    Group = "matrix-authentication-service";
     RestartSec = lib.mkForce "10s";
     LoadCredential = [
       (secrets.loadCred "masClientSecret")
