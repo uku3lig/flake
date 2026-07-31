@@ -14,6 +14,7 @@ let
     name = "techopolis";
     port = 25565;
     remotePort = 6007;
+    memory = "8G";
     env = {
       MODPACK_PLATFORM = "AUTO_CURSEFORGE";
       CF_SLUG = "techopolis-3";
