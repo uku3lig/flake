@@ -58,6 +58,7 @@
       thunderbird
       tyrolienne
       vesktop
+      video-trimmer
       vscode
 
       (zed-editor.fhsWithPackages (p: with p; [ nixfmt ]))
