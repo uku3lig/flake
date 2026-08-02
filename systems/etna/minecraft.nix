@@ -36,11 +36,9 @@ in
     startAt = "*-*-* 05:00:00";
     restartIfChanged = false;
 
-    script = "${lib.getExe' pkgs.systemd "systemctl"} restart ${backend}-mc-*.service";
-
     serviceConfig = {
       Type = "oneshot";
-      RemainAfterExit = true;
+      ExecStart = "${lib.getExe' pkgs.systemd "systemctl"} restart ${backend}-mc-*.service";
     };
   };
 }
