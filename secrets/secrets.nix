@@ -70,6 +70,7 @@ mkSecrets {
     "minecraftEnv"
     "navidromeEnv"
     "nextcloudAdminPass"
+    "ntfyEnv"
     "paperlessEnv"
     "reposiliteDbPass"
     "slskdEnv"

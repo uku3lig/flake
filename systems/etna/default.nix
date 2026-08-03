@@ -68,6 +68,7 @@ in
     ./memos
     ./metrics.nix
     ./minecraft.nix
+    ./ntfy.nix
     ./paperless.nix
     ./radicale.nix
     ./reposilite.nix

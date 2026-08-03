@@ -92,6 +92,15 @@ in
       };
       # }}}
 
+      # ntfy {{{
+      "ntfy.uku3lig.net" = {
+        locations."/" = {
+          proxyPass = "http://etna:8088";
+          proxyWebsockets = true;
+        };
+      };
+      # }}}
+
       # paperless-ngx {{{
       "paper.uku3lig.net" = {
         locations."/".proxyPass = "http://etna:28981";
