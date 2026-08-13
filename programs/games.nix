@@ -28,6 +28,7 @@ in
     heroic
     krita
     mangohud
+    (olympus.override { celesteWrapper = "steam-run"; })
     osu
     protonplus
     ruffle
