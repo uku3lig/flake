@@ -18,8 +18,8 @@ let
     env = {
       MODPACK_PLATFORM = "AUTO_CURSEFORGE";
       CF_SLUG = "techopolis-3";
-      CF_FILE_ID = "8380837";
-      MOTD = "\\u00A76Techopolis 3 \\u00A78(12.3)\\u00A7r\\n\\u00A75#oucoupstroisligue";
+      CF_FILE_ID = "8600652";
+      MOTD = "\\u00A76Techopolis 3 \\u00A78(12.5)\\u00A7r\\n\\u00A75#oucoupstroisligue";
     };
   };
 in
