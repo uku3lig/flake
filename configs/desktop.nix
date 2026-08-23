@@ -78,7 +78,7 @@
       # (camascaPkgs.touhou-cursors.override { character = "Patchouli"; })
 
       # libreoffice stuff
-      libreoffice-qt6-fresh
+      libreoffice-qt
       hunspell
       hunspellDicts.en_US
       hunspellDicts.fr-moderne
