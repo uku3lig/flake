@@ -44,10 +44,7 @@
     '';
   };
 
-  hardware.logitech.wireless = {
-    enable = true;
-    enableGraphical = true;
-  };
+  hardware.logitech.wireless.enable = true;
 
   networking = {
     firewall.allowedTCPPorts = [ 8000 ];
@@ -67,7 +64,10 @@
     };
   };
 
-  programs.nix-ld.enable = true;
+  programs = {
+    nix-ld.enable = true;
+    solaar.enable = true;
+  };
 
   services = {
     glpiAgent = {
