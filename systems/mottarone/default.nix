@@ -17,11 +17,9 @@
     camascaPkgs.openwebstart
     camascaPkgs.sql-developer
     gnomeExtensions.solaar-extension
-    gtkterm
     hoppscotch
     nagstamon
     pycharm-wrapped
-    recaf-launcher
     remmina
   ];
 
@@ -87,11 +85,6 @@
         local all leo peer
         local all all md5
       '';
-    };
-    pgadmin = {
-      enable = true;
-      initialEmail = "hi@uku.moe";
-      initialPasswordFile = "/opt/pgadminpwd";
     };
   };
 
