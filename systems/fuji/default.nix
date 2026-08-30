@@ -1,6 +1,7 @@
 {
   pkgs,
   _utils,
+  camascaPkgs,
   ritornello,
   topinambour,
   ...
@@ -17,6 +18,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    camascaPkgs.girlglock-input-overlay
     picard
     qbittorrent
     ritornello.packages.${system}.ritornello
