@@ -12,7 +12,7 @@ buildGoModule (finalAttrs: {
     owner = "mudkipme";
     repo = "mortis";
     tag = finalAttrs.version;
-    hash = "sha256-hX04mvQ2C0kEBRObaKli+0YmL1cd1suPw5TV5/XIIlc=";
+    hash = "sha256-KuOdbOq8bsDzGLI6VdDiZMQkVkkwgwPpM4KM+39J/7w=";
   };
 
   vendorHash = "sha256-UVC6rHW6PFUiZW7QhmIqam5csZyM5ng4IMmM97sbFJA=";
