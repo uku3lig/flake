@@ -1,6 +1,7 @@
 {
   pkgs,
   _utils,
+  username,
   camascaPkgs,
   ritornello,
   topinambour,
@@ -60,7 +61,7 @@ in
       package = pkgs.postgresql_18;
       authentication = ''
         local all postgres peer
-        local all leo peer
+        local all ${username} peer
         local all all md5
       '';
     };

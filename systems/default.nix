@@ -11,6 +11,7 @@ let
     {
       role,
       system,
+      username ? "julie",
     }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
@@ -24,6 +25,8 @@ let
       ];
 
       specialArgs = inputs // {
+        inherit username;
+
         _utils = mkUtils {
           inherit lib;
           pkgs = inputs.nixpkgs.legacyPackages.${system};
@@ -53,6 +56,7 @@ in
     mottarone = {
       role = "laptop";
       system = "x86_64-linux";
+      username = "leo";
     };
 
     etna = {

@@ -3,6 +3,7 @@
   pkgs,
   config,
   _utils,
+  username,
   agenix,
   camasca,
   hjem,
@@ -12,8 +13,6 @@
   ...
 }:
 let
-  inherit (pkgs.stdenv.hostPlatform) system;
-
   rootPassword = _utils.setupSingleSecret config "rootPassword" { };
   secrets = _utils.setupSharedSecrets config {
     secrets = [ "userPassword" ];
@@ -25,7 +24,7 @@ in
     hjem.nixosModules.default
     nix-index-database.nixosModules.nix-index
 
-    (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" "leo" "files" ])
+    (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" username "files" ])
 
     rootPassword.generate
     secrets.generate
@@ -82,7 +81,7 @@ in
 
   hjem = {
     clobberByDefault = true;
-    users.leo.files = {
+    users.${username}.files = {
       ".ssh/config".text = ''
         Host *
           ForwardAgent yes
@@ -216,7 +215,7 @@ in
   time.timeZone = "Europe/Paris";
 
   users.users = {
-    leo = {
+    ${username} = {
       isNormalUser = true;
       shell = pkgs.fish;
       extraGroups = [

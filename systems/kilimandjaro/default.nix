@@ -1,4 +1,9 @@
-{ pkgs, camasca, ... }:
+{
+  pkgs,
+  username,
+  camasca,
+  ...
+}:
 {
   imports = [
     camasca.nixosModules.asus-numpad
@@ -22,7 +27,7 @@
       package = pkgs.postgresql_17;
       authentication = ''
         local all postgres peer
-        local all leo peer
+        local all ${username} peer
         local all all md5
       '';
     };

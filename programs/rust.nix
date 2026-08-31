@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   ...
 }:
 let
@@ -8,6 +7,6 @@ let
 in
 {
   hj.".cargo/config.toml".source = toml.generate "config.toml" {
-    build.target-dir = "${config.hjem.users.leo.directory}/.cargo/target";
+    build.target-dir = "~/.cargo/target";
   };
 }

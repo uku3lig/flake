@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  username,
   camascaPkgs,
   ...
 }:
@@ -82,7 +83,7 @@
       enable = true;
       authentication = ''
         local all postgres peer
-        local all leo peer
+        local all ${username} peer
         local all all md5
       '';
     };
@@ -90,7 +91,7 @@
 
   systemd.tmpfiles.rules = [
     "L+ /opt/liberica-17 - - - - ${camascaPkgs.liberica-17}"
-    "r /home/leo/Downloads/*.jnlp"
+    "r /home/${username}/Downloads/*.jnlp"
   ];
 
   programs.virt-manager.enable = lib.mkForce false;

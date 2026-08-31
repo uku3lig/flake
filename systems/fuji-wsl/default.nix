@@ -1,6 +1,7 @@
 {
-  config,
   pkgs,
+  config,
+  username,
   nixos-wsl,
   ...
 }:
@@ -32,7 +33,7 @@ in
 
   wsl = {
     enable = true;
-    defaultUser = "leo";
+    defaultUser = username;
     useWindowsDriver = true;
     interop.includePath = false;
 
