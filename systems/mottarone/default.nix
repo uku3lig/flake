@@ -14,6 +14,7 @@
   boot.blacklistedKernelModules = [ "kvm_intel" ];
 
   environment.systemPackages = with pkgs; [
+    apache-directory-studio
     camascaPkgs.jaspersoft-studio-community
     camascaPkgs.openwebstart
     camascaPkgs.sql-developer
