@@ -1,0 +1,38 @@
+{ config, _utils, ... }:
+let
+  password = _utils.setupSingleSecret config "mediawikiAdminPass" { owner = "mediawiki"; };
+in
+{
+  imports = [ password.generate ];
+
+  services.mediawiki = {
+    enable = true;
+
+    name = "uku's wiki";
+    url = "https://wiki.uku3lig.net";
+
+    webserver = "nginx";
+    nginx.hostName = "wiki.uku3lig.net";
+    passwordFile = password.path;
+    database = {
+      type = "postgres";
+      createLocally = true;
+    };
+
+    extraConfig = ''
+      # Disable reading by anonymous users
+      $wgGroupPermissions['*']['read'] = false;
+
+      # Disable anonymous editing
+      $wgGroupPermissions['*']['edit'] = false;
+
+      # Prevent new user registrations except by sysops
+      $wgGroupPermissions['*']['createaccount'] = false;
+    '';
+  };
+
+  services.nginx.virtualHosts."wiki.uku3lig.net" = {
+    useACMEHost = null;
+    forceSSL = false;
+  };
+}

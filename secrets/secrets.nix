@@ -67,6 +67,7 @@ mkSecrets {
     "masExtraConfig"
     "masSharedSecret"
     "mautrixDiscordEnv"
+    "mediawikiAdminPass"
     "minecraftEnv"
     "navidromeEnv"
     "nextcloudAdminPass"

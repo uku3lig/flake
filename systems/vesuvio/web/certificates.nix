@@ -21,6 +21,7 @@
       "ntfy.uku3lig.net"
       "paper.uku3lig.net"
       "status.uku3lig.net"
+      "wiki.uku3lig.net"
       "zipline.uku3lig.net"
 
       "uku.moe"

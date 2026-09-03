@@ -59,12 +59,12 @@ in
     ./postgresql.nix
 
     # services
-    ./matrix
-
     ./cobalt.nix
     ./forgejo.nix
     ./immich.nix
     ./jellyfin.nix
+    ./matrix
+    ./mediawiki.nix
     ./memos
     ./metrics.nix
     ./minecraft.nix

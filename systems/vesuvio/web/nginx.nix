@@ -70,6 +70,12 @@ in
       };
       # }}}
 
+      # mediawiki {{{
+      "wiki.uku3lig.net" = {
+        locations."/".proxyPass = "http://etna:80";
+      };
+      # }}}
+
       # memos {{{
       "memos.uku3lig.net" = {
         locations = {
