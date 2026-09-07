@@ -219,10 +219,14 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      80
+      443
+    ];
+    # quic
+    allowedUDPPorts = [ 443 ];
+  };
 
   # we depend on etna, which makes nginx fail if it's started before tailscale
   systemd.services.nginx.after = [ "tailscaled.service" ];

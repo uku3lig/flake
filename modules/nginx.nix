@@ -7,6 +7,7 @@
           config = {
             useACMEHost = lib.mkDefault config.networking.fqdn;
             forceSSL = lib.mkDefault true;
+            quic = lib.mkDefault true;
           };
         }
       );
