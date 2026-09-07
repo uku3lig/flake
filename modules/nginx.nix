@@ -8,6 +8,9 @@
             useACMEHost = lib.mkDefault config.networking.fqdn;
             forceSSL = lib.mkDefault true;
             quic = lib.mkDefault true;
+            extraConfig = ''
+              add_header Alt-Svc 'h3=":443"; ma=3600, h2=":443"; ma=3600';
+            '';
           };
         }
       );
