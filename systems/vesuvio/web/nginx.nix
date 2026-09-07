@@ -8,6 +8,8 @@ let
   anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
 in
 {
+  system.julie.nginx.isProxy = true;
+
   services.nginx = {
     enable = true;
 

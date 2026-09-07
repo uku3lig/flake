@@ -1,10 +1,20 @@
 { lib, config, ... }:
+let
+  cfg = config.system.julie.nginx;
+in
 {
   options = {
+    system.julie.nginx = {
+      isProxy = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
+
     services.nginx.virtualHosts = lib.mkOption {
       type = lib.types.attrsOf (
         lib.types.submodule {
-          config = {
+          config = lib.mkIf cfg.isProxy {
             useACMEHost = lib.mkDefault config.networking.fqdn;
             forceSSL = lib.mkDefault true;
             quic = lib.mkDefault true;

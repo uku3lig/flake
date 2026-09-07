@@ -30,9 +30,4 @@ in
       $wgGroupPermissions['*']['createaccount'] = false;
     '';
   };
-
-  services.nginx.virtualHosts."wiki.uku3lig.net" = {
-    useACMEHost = null;
-    forceSSL = false;
-  };
 }
