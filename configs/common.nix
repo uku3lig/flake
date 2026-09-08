@@ -224,7 +224,6 @@ in
         "video"
         "libvirtd"
         "input"
-        "docker"
         "vboxusers"
       ];
       hashedPasswordFile = secrets.get "userPassword";
