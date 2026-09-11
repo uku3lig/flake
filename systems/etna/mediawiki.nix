@@ -1,4 +1,10 @@
-{ config, _utils, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  _utils,
+  ...
+}:
 let
   password = _utils.setupSingleSecret config "mediawikiAdminPass" { owner = "mediawiki"; };
 in
@@ -10,6 +16,13 @@ in
 
     name = "uku's wiki";
     url = "https://wiki.uku3lig.net";
+
+    extensions = {
+      Cite = null;
+      Math = null;
+      SyntaxHighlight_GeSHi = null;
+      VisualEditor = null;
+    };
 
     webserver = "nginx";
     nginx.hostName = "wiki.uku3lig.net";
@@ -28,6 +41,9 @@ in
 
       # Prevent new user registrations except by sysops
       $wgGroupPermissions['*']['createaccount'] = false;
+
+      # Bundled pygmentize is just a python script, but adding python to the path doesn't seem to be enough
+      $wgPygmentizePath = "${lib.getExe pkgs.python3Packages.pygments}";
     '';
   };
 }
