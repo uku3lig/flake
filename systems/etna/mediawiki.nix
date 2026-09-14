@@ -44,6 +44,9 @@ in
 
       # Bundled pygmentize is just a python script, but adding python to the path doesn't seem to be enough
       $wgPygmentizePath = "${lib.getExe pkgs.python3Packages.pygments}";
+
+      # Mobile support
+      $wgVectorResponsive = true;
     '';
   };
 }
