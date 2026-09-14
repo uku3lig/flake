@@ -4,7 +4,7 @@ alias d := deploy
 check:
     nix flake check
 
-build system:
+build system=(`hostname`):
     nom build .#nixosConfigurations.{{system}}.config.system.build.toplevel
 
 switch *args:
