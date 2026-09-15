@@ -8,8 +8,6 @@
 let
   inherit (config.virtualisation.oci-containers) backend;
 
-  secret = _utils.setupSingleSecret config "minecraftEnv" { };
-
   techopolis = _utils.mkMinecraftServer config {
     name = "techopolis";
     port = 25565;
@@ -25,8 +23,6 @@ let
 in
 {
   imports = [
-    secret.generate
-
     techopolis
   ];
 

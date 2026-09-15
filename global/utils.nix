@@ -76,6 +76,7 @@
         environment = {
           EULA = "true";
           MEMORY = memory;
+          CF_API_KEY = "$2a$10$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm";
         }
         // env;
       };

@@ -55,39 +55,15 @@ in
     frpToken.generate
     secrets.generate
 
-    # essential configs, do not remove
-    ./postgresql.nix
-
-    # services
-    ./cobalt.nix
-    ./forgejo.nix
-    ./immich.nix
-    ./jellyfin.nix
+    ./games
     ./matrix
-    ./mediawiki.nix
-    ./memos
-    ./metrics.nix
-    ./minecraft.nix
-    ./ntfy.nix
-    ./paperless.nix
-    ./radicale.nix
-    ./reposilite.nix
-    ./satisfactory.nix
-    ./share.nix
-    ./shlink.nix
-    ./slskd.nix
-    ./uku.nix
-    ./ups.nix
-    ./vaultwarden.nix
-    ./zipline.nix
+    ./services
+    ./system
   ];
 
   boot.loader.systemd-boot.enable = true;
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [ intel-media-driver ];
-  };
+  hardware.graphics.enable = true;
 
   systemd.network.networks."30-eno1" = {
     matchConfig.Name = "eno1";
