@@ -1,12 +1,5 @@
 # vim: foldmethod=marker
-{
-  config,
-  _utils,
-  ...
-}:
-let
-  anubisBind = name: config.services.anubis.instances.${name}.settings.BIND;
-in
+{ _utils, ... }:
 {
   system.julie.nginx.isProxy = true;
 
@@ -42,7 +35,8 @@ in
 
       # forgejo: {{{
       "git.uku3lig.net" = {
-        locations."/".proxyPass = "http://unix:${anubisBind "forgejo"}";
+        iocaineLocation = "@forgejo";
+        locations."@forgejo".proxyPass = "http://etna:3000";
 
         extraConfig = ''
           client_max_body_size 200M;

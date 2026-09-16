@@ -30,10 +30,9 @@ in
   };
 
   services.nginx.virtualHosts."nit.uku.moe" = {
-    locations."/" = {
-      proxyPass = "http://unix:${config.services.anubis.instances.nitter.settings.BIND}";
-      recommendedProxySettings = true;
-    };
+    iocaineLocation = "@nitter";
+    locations."@nitter".proxyPass =
+      "http://unix:${config.services.anubis.instances.nitter.settings.BIND}";
   };
 
   services.anubis.instances."nitter".settings = {
