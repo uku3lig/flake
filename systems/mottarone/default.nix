@@ -92,7 +92,6 @@
 
   systemd.tmpfiles.rules = [
     "L+ /opt/liberica-17 - - - - ${camascaPkgs.liberica-17}"
-    "C+ /opt/cktl-jdk - - - 1s ${pkgs.temurin-bin-17}"
     "r /home/${username}/Downloads/*.jnlp"
   ];
 
