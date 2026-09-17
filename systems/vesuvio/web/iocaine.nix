@@ -24,7 +24,7 @@ in
         };
 
         metrics = {
-          bind = "[::]:42042";
+          bind = "127.0.0.1:42042";
           mode = "prometheus";
         };
       };
@@ -50,4 +50,11 @@ in
   services.nginx.upstreams = {
     iocaine.servers."unix:/run/iocaine/default.sock" = { };
   };
+
+  services.vmagent.prometheusConfig.scrape_configs = [
+    {
+      job_name = "iocaine";
+      static_configs = [ { targets = [ "localhost:42042" ]; } ];
+    }
+  ];
 }

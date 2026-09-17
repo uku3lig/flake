@@ -1,12 +1,15 @@
 # vim: foldmethod=marker
-{ _utils, ... }:
+{ config, _utils, ... }:
 {
   system.julie.nginx.isProxy = true;
 
   services.nginx = {
     enable = true;
+    statusPage = true;
 
     virtualHosts = {
+      "localhost".forceSSL = false;
+
       # default server
       "vps.uku3lig.net" = {
         default = true;
@@ -226,4 +229,25 @@
 
   # we depend on etna, which makes nginx fail if it's started before tailscale
   systemd.services.nginx.after = [ "tailscaled.service" ];
+
+  # metrics
+  services.prometheus.exporters.nginx = {
+    enable = true;
+    listenAddress = "127.0.0.1";
+  };
+
+  services.vmagent.prometheusConfig.scrape_configs = [
+    {
+      job_name = "nginx";
+      static_configs = [
+        { targets = [ "localhost:${toString config.services.prometheus.exporters.nginx.port}" ]; }
+      ];
+      relabel_configs = [
+        {
+          target_label = "instance";
+          replacement = "vesuvio";
+        }
+      ];
+    }
+  ];
 }

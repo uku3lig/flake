@@ -50,14 +50,16 @@ in
           {
             job_name = "victoriametrics";
             static_configs = [ { targets = [ "${toString vmcfg.listenAddress}" ]; } ];
+            relabel_configs = [
+              {
+                target_label = "instance";
+                replacement = "etna";
+              }
+            ];
           }
           {
             job_name = "api-rs";
             static_configs = [ { targets = [ "localhost:5001" ]; } ];
-          }
-          {
-            job_name = "iocaine";
-            static_configs = [ { targets = [ "vesuvio:42042" ]; } ];
           }
         ];
       };
