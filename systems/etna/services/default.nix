@@ -7,7 +7,7 @@
     ./jellyfin.nix
     ./mediawiki.nix
     ./ntfy.nix
-    ./paperless.nix
+    # ./paperless.nix
     ./radicale.nix
     ./reposilite.nix
     ./shlink.nix
