@@ -2,7 +2,6 @@
   lib,
   pkgs,
   config,
-  _utils,
   ...
 }:
 {
@@ -28,15 +27,6 @@
         finegrained = false;
       };
     };
-  };
-
-  hj.".config/hypr/hyprland.conf".text = _utils.toHyprconf {
-    env = [
-      "XDG_SESSION_TYPE,wayland"
-      "GBM_BACKEND,nvidia-drm"
-      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      "NVD_BACKEND,direct"
-    ];
   };
 
   programs.obs-studio.package = pkgs.obs-studio.override { cudaSupport = true; };

@@ -1,10 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  _utils,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [ ./desktop.nix ];
 
@@ -31,13 +25,5 @@
     power-profiles-daemon.enable = true;
     upower.enable = true;
     blueman.enable = true;
-  };
-
-  # hyprland stuff
-  hj.".config/hypr/hyprland.conf".text = _utils.toHyprconf {
-    exec-once = with pkgs; [
-      "${lib.getExe networkmanagerapplet}"
-      "${lib.getExe' blueman "blueman-applet"}"
-    ];
   };
 }
