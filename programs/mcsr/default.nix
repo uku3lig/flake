@@ -42,13 +42,17 @@ in
   };
 
   config = {
+    environment.systemPackages = [
+      mcsrPkgs.paceman-tracker
+    ];
+
     hj.".config/waywall/init.lua".source = config.programs.waywall.config.finalFile;
 
     programs.waywall = {
       enable = true;
       config = {
         enableWaywork = true;
-        programs = [ mcsrPkgs.ninjabrain-bot ];
+        programs = [ (pkgs.ninjabrain-bot.override { jre = pkgs.temurin-bin-21; }) ];
         files = {
           eye_overlay = ./eye-overlay.png;
           inherit thin wide tall;
@@ -62,5 +66,9 @@ in
         linkWithSystemd = false;
       };
     };
+
+    systemd.tmpfiles.rules = [
+      "L+ /opt/graalvm-21 - - - - ${mcsrPkgs.graalvm-21}"
+    ];
   };
 }

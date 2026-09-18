@@ -187,6 +187,14 @@ waywall.listen("load", function()
 	scene:enable_group("normal", true)
 end)
 
+-- go back to normal if we switch to the wall
+waywall.listen("state", function()
+    local state = waywall.state()
+    if state.screen == "wall" then
+        ModeManager:_transition_to(nil)
+    end
+end)
+
 local config = {
 	input = {
 		layout = "fr",

@@ -49,6 +49,7 @@ in
         "/opt/temurin-21"
         "/opt/temurin-17"
         "/opt/temurin-8"
+        "/opt/graalvm-21"
       ];
     })
   ];
