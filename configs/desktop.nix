@@ -39,6 +39,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      firefoxpwa
       sbctl
       wl-clipboard
 
@@ -58,7 +59,6 @@
       vscode
 
       (zed-editor.fhsWithPackages (p: with p; [ nixfmt ]))
-
       (signal-desktop.overrideAttrs {
         postInstall = ''
           wrapProgram "$out/bin/signal-desktop" --add-flags "--password-store=gnome-libsecret"
@@ -124,7 +124,11 @@
   };
 
   programs = {
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+    };
+
     virt-manager.enable = true;
     ssh.enableAskPassword = true;
   };
