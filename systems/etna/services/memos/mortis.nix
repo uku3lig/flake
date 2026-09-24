@@ -12,10 +12,10 @@ buildGoModule (finalAttrs: {
     owner = "mudkipme";
     repo = "mortis";
     tag = finalAttrs.version;
-    hash = "sha256-KuOdbOq8bsDzGLI6VdDiZMQkVkkwgwPpM4KM+39J/7w=";
+    hash = "sha256-Bc8B2418GsHURzxonNU96l0/3KVMx3YN7foTSF9aRyY=";
   };
 
-  vendorHash = "sha256-UVC6rHW6PFUiZW7QhmIqam5csZyM5ng4IMmM97sbFJA=";
+  vendorHash = "sha256-jWCMogbATyn4hJD2Vi0B+pYuGS4YBAjz8tJI9hXcKC4=";
 
   meta = {
     license = lib.licenses.mit;
