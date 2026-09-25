@@ -60,6 +60,10 @@ in
           CF_TURNSTILE_SITEKEY = "0x4AAAAAAAaemJiXmRluMxbQ";
         };
 
+        security = {
+          REVERSE_PROXY_TRUSTED_PROXIES = "127.0.0.0/8,::1/128,100.0.0.0/8";
+        };
+
         oauth2 = {
           # providers are configured in the admin panel
           ENABLED = true;
