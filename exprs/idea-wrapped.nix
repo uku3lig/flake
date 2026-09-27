@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  jetbrains,
+  intellij-idea,
   makeWrapper,
   symlinkJoin,
   alsa-lib,
@@ -24,13 +24,10 @@
   vulkan-loader,
   xrandr,
 }:
-let
-  inherit (jetbrains) idea;
-in
 symlinkJoin {
-  name = "idea-wrapped-${idea.version}";
+  name = "idea-wrapped-${intellij-idea.version}";
 
-  paths = [ idea ];
+  paths = [ intellij-idea ];
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -69,7 +66,7 @@ symlinkJoin {
       ];
     in
     ''
-      wrapProgram $out/bin/idea \
+      wrapProgram $out/bin/${intellij-idea.meta.mainProgram} \
         --set LD_LIBRARY_PATH ${lib.makeLibraryPath runtimeLibs} \
         --prefix PATH : ${lib.makeBinPath runtimePrograms}
     '';

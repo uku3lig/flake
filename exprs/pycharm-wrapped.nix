@@ -1,13 +1,10 @@
 {
   lib,
-  jetbrains,
-  makeWrapper,
-  symlinkJoin,
   black,
+  makeWrapper,
+  pycharm,
+  symlinkJoin,
 }:
-let
-  inherit (jetbrains) pycharm;
-in
 symlinkJoin {
   name = "pycharm-wrapped-${pycharm.version}";
 
@@ -16,7 +13,7 @@ symlinkJoin {
   nativeBuildInputs = [ makeWrapper ];
 
   postBuild = ''
-    wrapProgram $out/bin/pycharm \
+    wrapProgram $out/bin/${pycharm.meta.mainProgram} \
       --prefix PATH : ${lib.makeBinPath [ black ]}
   '';
 }
