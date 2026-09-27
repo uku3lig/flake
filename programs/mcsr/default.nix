@@ -52,7 +52,7 @@ in
       enable = true;
       config = {
         enableWaywork = true;
-        programs = [ (pkgs.ninjabrain-bot.override { jre = pkgs.temurin-bin-21; }) ];
+        programs = [ pkgs.ninjabrain-bot ];
         files = {
           eye_overlay = ./eye-overlay.png;
           inherit thin wide tall;
