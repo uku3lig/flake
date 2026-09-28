@@ -67,8 +67,6 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "";
-      inputs.darwin.follows = "";
     };
 
     crane.url = "github:ipetkov/crane";
