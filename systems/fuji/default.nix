@@ -33,6 +33,8 @@ in
     # managed by networkd
     useDHCP = false;
     networkmanager.enable = false;
+
+    interfaces.enp12s0.wakeOnLan.enable = true;
   };
 
   services = {
