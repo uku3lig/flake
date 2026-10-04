@@ -5,6 +5,9 @@
   camascaPkgs,
   ...
 }:
+let
+  discord-shelter = pkgs.callPackage ../exprs/discord-shelter.nix { };
+in
 {
   imports = [
     lanzaboote.nixosModules.lanzaboote
@@ -44,6 +47,7 @@
       wl-clipboard
 
       chromium
+      discord-shelter
       gimp3
       gparted
       idea-wrapped
@@ -54,7 +58,6 @@
       tauon
       thunderbird
       tyrolienne
-      vesktop
       video-trimmer
       vscode
 
