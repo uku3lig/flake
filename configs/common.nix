@@ -112,6 +112,8 @@ in
   nix = {
     package = pkgs.nixVersions.latest;
     channel.enable = false;
+    # The `flake:` syntax in `$NIX_PATH` seems to do some weird copying on Nix 2.24
+    nixPath = [ "nixpkgs=${config.nixpkgs.flake.source}" ];
 
     gc = {
       automatic = true;
@@ -144,8 +146,6 @@ in
       log-lines = 25;
       min-free = 512 * 1024 * 1024; # if free space drops under min, gc
       flake-registry = ""; # disable the global flake registry
-      # The `flake:` syntax in `$NIX_PATH` seems to do some weird copying on Nix 2.24
-      nix-path = [ "nixpkgs=${config.nixpkgs.flake.source}" ];
       http3 = true;
 
       substituters = [
