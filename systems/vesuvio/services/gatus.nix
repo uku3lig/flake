@@ -16,6 +16,10 @@ let
         type = "discord";
         send-on-resolved = true;
       }
+      {
+        type = "ntfy";
+        send-on-resolved = true;
+      }
     ];
   };
 
@@ -45,7 +49,14 @@ in
           link = "https://git.uku3lig.net/uku/flake";
         };
 
-        alerting.discord.webhook-url = "$WEBHOOK_URL";
+        alerting = {
+          discord.webhook-url = "$WEBHOOK_URL";
+          ntfy = {
+            url = "https://ntfy.uku3lig.net";
+            topic = "gatus-alerts";
+            token = "$NTFY_TOKEN";
+          };
+        };
 
         endpoints = [
           (mkHttpEndpoint "Website" "core" "https://uku3lig.net")
