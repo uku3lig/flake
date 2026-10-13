@@ -170,11 +170,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790152007,
-        "narHash": "sha256-o59jzF8RTQnGs7RPZZcHht22Q0YDEhbtED66UMioIQM=",
-        "rev": "48367dd4e933e12d87b3063240d7f458a68d498a",
+        "lastModified": 1791885435,
+        "narHash": "sha256-LuK1aIKUVXZ2L8cHbH+iFItEbqY2BwiKrHHkIR0jN2s=",
+        "rev": "00924a5a58eb529518bf4aee37f070058edc7043",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/48367dd4e933e12d87b3063240d7f458a68d498a.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/00924a5a58eb529518bf4aee37f070058edc7043.tar.gz"
       },
       "original": {
         "type": "tarball",
