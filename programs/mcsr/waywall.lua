@@ -187,12 +187,15 @@ waywall.listen("load", function()
 	scene:enable_group("normal", true)
 end)
 
--- go back to normal if we switch to the wall
+-- go back to normal if we switch to the wall & control paceman overlay showing on obs
 waywall.listen("state", function()
-    local state = waywall.state()
-    if state.screen == "wall" then
-        ModeManager:_transition_to(nil)
-    end
+	local state = waywall.state()
+	if state.screen == "wall" then
+		ModeManager:_transition_to(nil)
+		waywall.exec(programs.obs_cli .. " item show paceman-overlay")
+	else
+		waywall.exec(programs.obs_cli .. " item hide paceman-overlay")
+	end
 end)
 
 local config = {

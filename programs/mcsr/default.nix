@@ -43,6 +43,8 @@ in
 
   config = {
     environment.systemPackages = [
+      mcsrPkgs.modcheck
+      mcsrPkgs.obs-cli
       mcsrPkgs.paceman-tracker
     ];
 
@@ -52,7 +54,10 @@ in
       enable = true;
       config = {
         enableWaywork = true;
-        programs = [ pkgs.ninjabrain-bot ];
+        programs = [
+          pkgs.ninjabrain-bot
+          mcsrPkgs.obs-cli
+        ];
         files = {
           eye_overlay = ./eye-overlay.png;
           inherit thin wide tall;
