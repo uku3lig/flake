@@ -1,7 +1,10 @@
 { _utils, ... }:
 {
   services.nginx.virtualHosts."mta-sts.uku3lig.net" = {
-    serverAliases = [ "mta-sts.uku.moe" ];
+    serverAliases = [
+      "mta-sts.uku.moe"
+      "mta-sts.julie.moe"
+    ];
 
     locations."/.well-known/" = _utils.mkNginxFile {
       filename = "mta-sts.txt";

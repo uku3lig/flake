@@ -38,6 +38,7 @@
       "mail.uku3lig.net"
       "mta-sts.uku3lig.net"
       "mta-sts.uku.moe"
+      "mta-sts.julie.moe"
 
       "uku3lig.beer"
     ];
@@ -52,6 +53,7 @@
         "*.uku3lig.net"
         "*.uku.moe"
         "*.uku3lig.beer"
+        "*.julie.moe"
       ];
 
       locations."/.well-known/acme-challenge".root = config.security.acme.defaults.webroot;

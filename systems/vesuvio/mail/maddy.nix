@@ -20,6 +20,7 @@ in
     localDomains = [
       "$(primary_domain)"
       "uku.moe"
+      "julie.moe"
     ];
 
     tls = {
@@ -184,7 +185,10 @@ in
 
           default_destination {
             modify {
-              dkim $(primary_domain) $(local_domains) default
+              dkim {
+                domains $(primary_domain) $(local_domains)
+                selector default
+              }
             }
 
             deliver_to &remote_queue
