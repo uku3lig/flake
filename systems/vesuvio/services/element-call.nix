@@ -36,4 +36,6 @@ in
       };
     };
   };
+
+  systemd.services.lk-jwt-service.environment.LIVEKIT_FULL_ACCESS_HOMESERVERS = "rei.uku.moe";
 }
