@@ -20,4 +20,14 @@ inputs: final: prev: {
       ];
     }
   );
+
+  firefoxpwa-unwrapped = prev.firefoxpwa-unwrapped.overrideAttrs (
+    f: p: {
+      version = "2.20.1";
+
+      src = p.src.overrideAttrs {
+        hash = "sha256-kOtdGRW2DN0qQLrtvbsywBdGlM/1cboQGu2NM7cO8E8=";
+      };
+    }
+  );
 }
