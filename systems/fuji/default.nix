@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   username,
   camascaPkgs,
   ritornello,
@@ -70,6 +71,33 @@ in
       SUBSYSTEM=="usb", ATTRS{idVendor}=="373b", MODE="0660", GROUP="input"
       SUBSYSTEM=="usb", ATTRS{idVendor}=="372e", MODE="0660", GROUP="input"
     '';
+
+    moonshine = {
+      enable = true;
+      user = username;
+
+      firewallInterfaces = [
+        "enp12s0"
+        "tailscale0"
+      ];
+
+      extraPackages = [ config.programs.steam.package ];
+
+      settings = {
+        name = "fuji";
+        address = "0.0.0.0";
+        application = [
+          {
+            title = "Steam";
+            steam_integration = true;
+            command = [
+              "steam"
+              "steam://open/bigpicture"
+            ];
+          }
+        ];
+      };
+    };
   };
 
   systemd.network = {

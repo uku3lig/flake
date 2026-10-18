@@ -20,6 +20,7 @@
       fastfetch
       imagemagick
       nixd
+      waypipe
     ];
 
     # disable ssh-askpass on wsl namely, to simply have a normal prompt that reads from stdin
