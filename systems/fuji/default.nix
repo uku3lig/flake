@@ -72,6 +72,8 @@ in
       SUBSYSTEM=="usb", ATTRS{idVendor}=="372e", MODE="0660", GROUP="input"
     '';
 
+    tailscale.extraDaemonFlags = [ "--port=41642" ];
+
     moonshine = {
       enable = true;
       user = username;
