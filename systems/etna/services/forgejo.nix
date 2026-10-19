@@ -98,25 +98,28 @@ in
       };
     };
 
-    gitea-actions-runner = {
-      package = pkgs.forgejo-runner;
-      instances.etna = {
-        enable = true;
-        name = "etna";
-        url = "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
-        tokenFile = secrets.get "forgejoRunnerSecret";
-        labels = [
+    forgejo-runner.instances.etna = {
+      enable = true;
+
+      # automatically loadcredential'ed and added to the settings
+      secrets.server.connections.default.token_url = secrets.get "forgejoRunnerSecret";
+
+      settings = {
+        server.connections.default = {
+          url = "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+          uuid = "6ef17887-3a7a-4bb7-91d3-03bce385e742";
+        };
+
+        runner.labels = [
           "ubuntu-latest:docker://catthehacker/ubuntu:act-latest"
         ];
 
-        settings = {
-          log.level = "info";
-          container.network = "host";
-          runner = {
-            capacity = 4;
-            timeout = "2h";
-            insecure = false;
-          };
+        log.level = "info";
+        container.network = "host";
+        runner = {
+          capacity = 4;
+          timeout = "2h";
+          insecure = false;
         };
       };
     };
