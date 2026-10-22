@@ -61,7 +61,10 @@ in
     ./system
   ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    kernelParams = [ "memmap=128K$0x48c0b0000" ];
+  };
 
   hardware.graphics.enable = true;
 
