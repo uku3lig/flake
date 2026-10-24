@@ -12,7 +12,7 @@
     ../programs/neovim
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages; # lts
+  boot.kernelPackages = pkgs.linuxPackages_latest; # lts
 
   environment = {
     systemPackages = with pkgs; [
