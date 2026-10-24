@@ -9,6 +9,11 @@ let
       hash = "sha256-u743aXP6b6TOLKiJACrFFyJB49eAQb0k1cJ1TOfqBqY=";
     };
 
+    postPatch = ''
+      # remove hard dep on uv version
+      sed -i "s/,<0.12//g" pyproject.toml
+    '';
+
     meta.broken = false;
   };
 
