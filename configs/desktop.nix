@@ -11,6 +11,9 @@
 
     ./client.nix
 
+    ../modules/games.nix
+    ../modules/mcsr
+
     ../programs/ghostty.nix
     ../programs/java.nix
     ../programs/mpv.nix
@@ -47,6 +50,7 @@
       gimp3
       gparted
       idea-wrapped
+      krita
       moonlight-qt
       obsidian
       resources
@@ -127,6 +131,15 @@
     firefox = {
       enable = true;
       nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+    };
+
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-pipewire-audio-capture
+        obs-source-record
+      ];
     };
 
     virt-manager.enable = true;

@@ -116,6 +116,44 @@
         "type": "github"
       }
     },
+    "grimoire": {
+      "inputs": {
+        "grimoire-social": "grimoire-social",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "vpkmerge": "vpkmerge"
+      },
+      "locked": {
+        "lastModified": 1792909518,
+        "narHash": "sha256-ypC96aRftW0eZdRdUT6HMP6JvrLb4DUUzbSvOZDJ89w=",
+        "owner": "Slush97",
+        "repo": "grimoire",
+        "rev": "14741124b12cceaa7299fec80e84e65ae0d32e6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "repo": "grimoire",
+        "type": "github"
+      }
+    },
+    "grimoire-social": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790726909,
+        "narHash": "sha256-D69CEBrGshmGTyoYA8d0CYTdTtmY0xIrpFHDnI2vNdY=",
+        "owner": "Slush97",
+        "repo": "grimoire-social",
+        "rev": "b5811d361450ebe8d863276392ad387a31d8295b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "repo": "grimoire-social",
+        "type": "github"
+      }
+    },
     "hjem": {
       "inputs": {
         "nixpkgs": [
@@ -290,6 +328,7 @@
         "crane": "crane",
         "flake-parts": "flake-parts",
         "getchvim": "getchvim",
+        "grimoire": "grimoire",
         "hjem": "hjem",
         "lanzaboote": "lanzaboote",
         "mcsr-nixos": "mcsr-nixos",
@@ -384,6 +423,23 @@
       "original": {
         "type": "tarball",
         "url": "https://git.uku3lig.net/uku/ukubot-ts/archive/main.tar.gz"
+      }
+    },
+    "vpkmerge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792876677,
+        "narHash": "sha256-yCE18ERi+dPNHxjmVJVxg53/z7qNXZmIbgEsNZiucFE=",
+        "owner": "Slush97",
+        "repo": "vpkmerge",
+        "rev": "59266e928478cc33410149ba860a566aeba87a71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Slush97",
+        "ref": "v0.26.0",
+        "repo": "vpkmerge",
+        "type": "github"
       }
     }
   },

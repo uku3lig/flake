@@ -8,13 +8,17 @@
   imports = [
     camasca.nixosModules.asus-numpad
     ../../programs/niri
-    ../../programs/games.nix
     ../../programs/dotnet.nix
   ];
 
   environment.systemPackages = [
     pkgs.foliate
   ];
+
+  system.julie.games = {
+    enable = true;
+    mcsr.enable = true;
+  };
 
   services = {
     asus-numpad = {

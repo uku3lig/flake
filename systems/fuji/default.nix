@@ -15,8 +15,16 @@ in
     ./nvidia.nix
     ../../programs/kde.nix
     ../../programs/jay
-    ../../programs/games.nix
   ];
+
+  system.julie.games = {
+    enable = true;
+    grimoire.enable = true;
+    mcsr = {
+      enable = true;
+      withGraal = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     camascaPkgs.girlglock-input-overlay
