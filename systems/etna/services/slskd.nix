@@ -12,6 +12,11 @@ in
 
     settings = {
       instance_name = "etna";
+      soulseek = {
+        description = "meow https://uku.moe";
+        picture = "/var/lib/slskd/picture.jpg";
+      };
+
       shares = {
         directories = [ "/data/music" ];
         filters = [
