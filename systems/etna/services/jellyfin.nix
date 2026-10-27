@@ -41,8 +41,8 @@ in
       library = "/data/music/.beets/beets.db";
 
       import = {
-        move = "yes";
-        write = "yes";
+        move = true;
+        write = true;
       };
 
       plugins = [
@@ -61,7 +61,7 @@ in
       };
 
       # plugin configs
-      badfiles.check_on_import = "yes";
+      badfiles.check_on_import = true;
       filetote.extensions = ".*";
     };
   };
