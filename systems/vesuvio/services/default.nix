@@ -2,7 +2,7 @@
   imports = [
     ./element-call.nix
     ./gatus.nix
-    ./nitter.nix
+    # ./nitter.nix
     ./pocket-id.nix
   ];
 }
