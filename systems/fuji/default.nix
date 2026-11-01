@@ -122,4 +122,6 @@ in
     width = 3840;
     height = 2160;
   };
+
+  programs.obs-studio.plugins = [ pkgs.obs-studio-plugins.obs-livesplit-one ];
 }
