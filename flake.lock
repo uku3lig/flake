@@ -63,11 +63,11 @@
     },
     "crane": {
       "locked": {
-        "lastModified": 1793585954,
-        "narHash": "sha256-tXvzytP+yKObBT9UpMoqA8AINfq62ZzeOcGFiCJ8ouo=",
+        "lastModified": 1793669695,
+        "narHash": "sha256-9EtV4I6Ohw0tjidL31TMOKHhW/QGVG8NuGiemzIaNCs=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "8782adaf7e415975d2737b41ccca93b08a8f7d9f",
+        "rev": "788369ed71ed9d84ef72cb056e4d920050d5b32c",
         "type": "github"
       },
       "original": {
@@ -125,11 +125,11 @@
         "vpkmerge": "vpkmerge"
       },
       "locked": {
-        "lastModified": 1793607124,
-        "narHash": "sha256-gQLyomUhyG28Tzk8uAQj60qtiRcr+/4bniC4r9tix3M=",
+        "lastModified": 1793680022,
+        "narHash": "sha256-tAI+G8ZNkmW1JewI0d84OioTABDDurcF/TpP3RRW/rU=",
         "owner": "Slush97",
         "repo": "grimoire",
-        "rev": "c5da331d77f1192154020893668a21653bfe5fc7",
+        "rev": "d1049ec29dff50d92a433caabb53817232b44d9a",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793039840,
-        "narHash": "sha256-uuGz0nih4vljn9vi7mw8hl/Wob3kuy608Qacs2NFVMg=",
-        "rev": "0c9c91d39b6275362e9e41a85b2665debc68b9d5",
+        "lastModified": 1793742690,
+        "narHash": "sha256-Kx1YbZvNEUVjz4Xpjh/Li8SjKOxiGyVQ3zvyCNqu22k=",
+        "rev": "665b5871478dab687c1b140e471d594d842c8e0b",
         "type": "tarball",
-        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/0c9c91d39b6275362e9e41a85b2665debc68b9d5.tar.gz"
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/mcsr-nixos/archive/665b5871478dab687c1b140e471d594d842c8e0b.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -229,11 +229,11 @@
         "treefmt-nix": []
       },
       "locked": {
-        "lastModified": 1793198368,
-        "narHash": "sha256-kX5Z8v1tH9tRvZ+3k0HJOb61fMcJRLmaA5Uh6eWz0vU=",
+        "lastModified": 1793807427,
+        "narHash": "sha256-8JYoS/aStP3u77OQ7AaP7E/THpwDeY8dksqRN94s+uE=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "e4e0ddd533928860a61602dc2e1d58da758c1c84",
+        "rev": "4dc928abcbfe3106c6a12dc9cd025e41859d5f78",
         "type": "github"
       },
       "original": {
@@ -285,11 +285,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793540411,
-        "narHash": "sha256-us2GRWGXbOQpN1blyJGvmdx+g4bv9GoFYq5iiOHRiZ8=",
-        "rev": "0bb2eedc20e4739f29e8045034f2828ad7054f8f",
+        "lastModified": 1793726008,
+        "narHash": "sha256-iNjybNORi/2+shilhMlkNr01UHWKOHRGzQyIyvobs9o=",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1106360.0bb2eedc20e4/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1107793.1d060086d60c/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -350,11 +350,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793523538,
-        "narHash": "sha256-vHPjEGxtV+StSLW9DJpa3c3gt0UD0s1q4nC98AZ0N0c=",
+        "lastModified": 1793782363,
+        "narHash": "sha256-5Vod7vKm10hOilQvEhTwXbhBE+V0ZqXH0jBQJhkX3KQ=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "c85ccd343087c57da6021cafa1647142ad03e32e",
+        "rev": "7fcafdf6f0761462d68012aba6a627be3f008d68",
         "type": "github"
       },
       "original": {
@@ -428,16 +428,16 @@
     "vpkmerge": {
       "flake": false,
       "locked": {
-        "lastModified": 1793606069,
-        "narHash": "sha256-5g5QR5rntoyuY12Gim7b7JNXpTP8tc+WzPX6Yj/TJkk=",
+        "lastModified": 1793666824,
+        "narHash": "sha256-W2lEnwHUBSiZT8z59qjLSKtNP8jfjCKRD2zGzKLBr/k=",
         "owner": "Slush97",
         "repo": "vpkmerge",
-        "rev": "7c35f2890f64c90afc0b8186c07dbb43c1b4d561",
+        "rev": "a6740556b5d1ead213d1e26132f7a09b8d07e10f",
         "type": "github"
       },
       "original": {
         "owner": "Slush97",
-        "ref": "v0.29.0",
+        "ref": "v0.29.1",
         "repo": "vpkmerge",
         "type": "github"
       }
