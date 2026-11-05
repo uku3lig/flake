@@ -31,7 +31,7 @@ in
 
       global.upload = {
         slots = 20;
-        speed_limit = 10240; # 10 MiB
+        speed_limit = 51200;
       };
     };
   };
