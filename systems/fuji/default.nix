@@ -28,6 +28,7 @@ in
 
   environment.systemPackages = with pkgs; [
     camascaPkgs.girlglock-input-overlay
+    eden
     picard
     qbittorrent
     ritornello.packages.${system}.ritornello
@@ -52,9 +53,9 @@ in
       enableUdevRules = true;
     };
 
-    scx = {
+    scx-loader = {
       enable = true;
-      scheduler = "scx_lavd";
+      config.default_sched = "scx_lavd";
     };
 
     postgresql = {
