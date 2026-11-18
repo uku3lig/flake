@@ -5,6 +5,8 @@
   ...
 }:
 let
+  cfg = config.services.forgejo;
+
   secrets = _utils.setupSecrets config {
     secrets = [
       "turnstileSecret"
@@ -12,8 +14,8 @@ let
       "forgejoMailerPasswd"
     ];
     extra = {
-      owner = "forgejo";
-      group = "forgejo";
+      owner = "git";
+      group = "git";
     };
   };
 in
@@ -27,10 +29,15 @@ in
 
       database = {
         type = "postgres";
-        createDatabase = true;
+        user = "git";
+        socket = "/run/postgresql";
+        createDatabase = false;
       };
 
       lfs.enable = true;
+
+      user = "git";
+      group = "git";
 
       secrets = {
         service.CF_TURNSTILE_SECRET = secrets.get "turnstileSecret";
@@ -44,10 +51,7 @@ in
           ROOT_URL = "https://git.uku3lig.net";
           HTTP_ADDR = "0.0.0.0";
           HTTP_PORT = 3000;
-          START_SSH_SERVER = true;
-          BUILTIN_SSH_SERVER_USER = "git";
           SSH_DOMAIN = "git.uku3lig.net";
-          SSH_LISTEN_PORT = 2222;
         };
 
         service = {
@@ -98,6 +102,16 @@ in
       };
     };
 
+    postgresql = {
+      ensureDatabases = [ "forgejo" ];
+      ensureUsers = [ { name = "git"; } ];
+    };
+
+    openssh.extraConfig = ''
+      Match User git
+        AcceptEnv GIT_PROTOCOL
+    '';
+
     forgejo-runner.instances.etna = {
       enable = true;
 
@@ -106,7 +120,7 @@ in
 
       settings = {
         server.connections.default = {
-          url = "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+          url = "http://localhost:${toString cfg.settings.server.HTTP_PORT}";
           uuid = "6ef17887-3a7a-4bb7-91d3-03bce385e742";
         };
 
@@ -129,11 +143,21 @@ in
         name = "forgejo-ssh";
         type = "tcp";
         localIp = "127.0.0.1";
-        localPort = config.services.forgejo.settings.server.SSH_LISTEN_PORT;
+        localPort = 22;
         remotePort = 22;
       }
     ];
 
-    borgbackup.jobs.forgejo = config.passthru.makeBorg "forgejo" "/var/lib/forgejo";
+    borgbackup.jobs.forgejo = config.passthru.makeBorg "forgejo" cfg.stateDir;
+  };
+
+  users = {
+    groups.git = { };
+    users.git = {
+      isSystemUser = true;
+      useDefaultShell = true;
+      home = cfg.stateDir;
+      group = "git";
+    };
   };
 }
