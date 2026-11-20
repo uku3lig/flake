@@ -5,7 +5,7 @@ check:
     nix flake check
 
 build system=(`hostname`):
-    nom build --keep-going .#nixosConfigurations.{{system}}.config.system.build.toplevel
+    rom build .#nixosConfigurations.{{system}}.config.system.build.toplevel -- --keep-going
 
 switch *args:
     bash switch.sh {{ justfile_directory() }} {{args}}
