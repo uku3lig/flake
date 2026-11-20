@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ lib, config, ... }:
 let
   cfg = config.system.julie.nginx;
 in
@@ -63,13 +58,6 @@ in
   };
 
   config.services.nginx = {
-    package = pkgs.nginx.overrideAttrs (
-      f: p: {
-        version = "1.30.7";
-        src = p.src.overrideAttrs { hash = "sha256-PPRvXtdQTUYBJYZre+qZ+zV/MdiH4uY7NVAzEOm4tsg="; };
-      }
-    );
-
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedBrotliSettings = true;
